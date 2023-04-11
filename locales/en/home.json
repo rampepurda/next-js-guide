@@ -1,0 +1,4 @@
+{
+  "createAccount":"Hello user Im not Locale from Public, please, create new Account and get out",
+  "createAccount_headline":"Be in touch with your friends{{count, number}}"
+}

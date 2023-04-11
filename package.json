@@ -1,0 +1,36 @@
+{
+  "name": "next-tsx-guide",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "classnames": "^2.3.2",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.0.1",
+    "i18nexus-cli": "^3.1.0",
+    "next": "12",
+    "next-translate": "^1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.0.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "sass": "^1.54.0"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.41",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6",
+    "prettier": "2.6.2",
+    "typescript": "4.7.3"
+  }
+}

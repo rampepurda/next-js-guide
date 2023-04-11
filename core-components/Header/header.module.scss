@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.Header {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  margin: 0;
+  background-color: $darkmagenta;
+  padding: 0.7rem 2rem;
+  color: $white;
+}

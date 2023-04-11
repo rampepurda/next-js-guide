@@ -1,0 +1,84 @@
+{
+  "Header": {
+    "title": "Welcome in NextJS page"
+  },
+  "Navigation": [
+    {
+      "tKey": "mainNav.home",
+      "link": ""
+    },
+    {
+      "tKey": "mainNav.guide",
+      "link": "guide"
+    },
+    {
+      "tKey": "mainNav.projects",
+      "link": "projects"
+    }
+  ],
+  "Projects":
+  {
+    "Navigation": [
+      {
+        "tKey": "projects.titleOne",
+        "url": "dynamic-route"
+      }
+    ]
+  },
+  "Guide": {
+    "sideBar": [
+      {
+        "id": 1,
+        "title": "1. useRouter & Link and query",
+        "link": "/guide/chapters/ch-one"
+      },
+      {
+        "id": 2,
+        "title": "2. Interface - Declaration merging",
+        "link": "/guide/chapters/ch-two"
+      },
+      {
+        "id": 3,
+        "title": "3. Environment",
+        "link": "/guide/chapters/ch-three"
+      },
+      {
+        "id": 4,
+        "title": "4. classNames Library",
+        "link": "/guide/chapters/ch-four"
+      },
+      {
+        "id": 5,
+        "title": "5. Next JS - Dynamic Import & .match email validation",
+        "link": "/guide/chapters/ch-five"
+      },
+      {
+        "id": 6,
+        "title": "6. i18n and next-transform internationalization",
+        "link": "/guide/chapters/ch-six"
+      },
+      {
+        "id": 7,
+        "title": "7. Next JS Redux Toolkit",
+        "link": "/guide/chapters/ch-seven"
+      },
+      {
+        "id": 8,
+        "title": "8. PropsWithChildren",
+        "link": "/guide/chapters/ch-eight"
+      },
+      {
+        "id": 9,
+        "title": "9. Redirects",
+        "link": "/guide/chapters/ch-nine"
+      },
+      {
+        "id": 10,
+        "title": "10 useCallback",
+        "link": "/guide/chapters/ch-ten"
+      }
+    ]
+  },
+  "Groups": {
+  }
+}

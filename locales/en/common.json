@@ -1,0 +1,21 @@
+{
+  "loading": "Loading",
+  "welcome":"Next-JS Guide",
+  "trans":"Be in touch with your friends <bold>{{count}} test</bold>",
+  "trans2":"Be in touch with your friends <total>price</total>",
+  "mainNav": {
+    "home": "Home",
+    "guide": "Next JS Guide",
+    "projects": "Projects",
+    "int": "Internationalization"
+  },
+  "pageTitle": {
+    "projects": "Projects",
+    "guide": "Next JS Guide"
+  },
+  "projects": {
+    "dynamicRoute": {
+      "btn":"Explore Event"
+    }
+  }
+}

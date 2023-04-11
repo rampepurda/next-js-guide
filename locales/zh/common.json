@@ -1,0 +1,19 @@
+{
+  "loading": "加载中",
+  "welcome":"欢迎来到我的页面",
+  "mainNav": {
+    "home":"聖誕餐桌",
+    "guide":"指導",
+    "projects":"項目",
+    "int": "國際化"
+  },
+  "pageTitle": {
+    "projects": "項目",
+    "guide": "下一個 指南"
+  },
+  "projects": {
+    "dynamicRoute": {
+      "btn":"探索活動"
+    }
+  }
+}
