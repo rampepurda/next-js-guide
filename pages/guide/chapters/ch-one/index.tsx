@@ -7,8 +7,8 @@ import { NavSubLeft } from "../../../../core-components"
 import { sideBar } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import classNames from "classnames"
-import Head from "next/head";
-import React from "react";
+import Head from "next/head"
+import React from "react"
 
 const ChOne: NextPage = () => {
   const links: sideBar[] = Data.Guide.sideBar
@@ -20,12 +20,11 @@ const ChOne: NextPage = () => {
       </Head>
 
       <div className='cols'>
-        <div className={classNames( 'col-3 has-br')}>
+        <div className='col-3 has-br'>
           <NavSubLeft Links={links}/>
         </div>
 
-        <div className={classNames( 'col-9')}>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
+        <div className='col-9'>
           <h2>1. import &#123; useRouter &#125; from 'next/router' & Link and query selector
             <code>const router = useRouter</code>
           </h2>
