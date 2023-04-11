@@ -51,17 +51,32 @@ ul {
   list-style: none;
 
   li {
+    padding: .7rem 1rem;
+
     a {
+      display: block;
+      margin: -.7rem -1rem;
+      padding: .7rem 1rem;
       font-size: 1.2rem;
+    }
+  }
+
+  &.hasBorderBottom {
+    li {
+      border-bottom: 1px solid $grayLighter;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 }
 
 hr {
-  border: 0 none;
+  border: 0;
   background-color: transparentize($gray, 0.8);
   height: 1px;
-  margin: 0.2rem 0;
+  margin: .7rem 0;
 }
 
 img {

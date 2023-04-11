@@ -1,4 +1,5 @@
 /**
+ * Read more about [...slug]
  https://nextjs.org/docs/routing/dynamic-routes
  */
 
@@ -6,7 +7,6 @@ import { NextPage } from "next"
 import { NavSubLeft } from "../../../../core-components"
 import { sideBar } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
-import classNames from "classnames"
 import Head from "next/head"
 import React from "react"
 
@@ -16,7 +16,7 @@ const ChOne: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-one</title>
+        <title>Next JS | Guide | Ch-one | Routers</title>
       </Head>
 
       <div className='cols'>
