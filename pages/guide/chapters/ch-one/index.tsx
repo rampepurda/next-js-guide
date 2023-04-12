@@ -8,7 +8,6 @@ import { NavSubLeft } from "../../../../core-components"
 import { sideBar } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import Head from "next/head"
-import React from "react"
 
 const ChOne: NextPage = () => {
   const links: sideBar[] = Data.Guide.sideBar

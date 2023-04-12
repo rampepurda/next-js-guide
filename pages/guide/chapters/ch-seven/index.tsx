@@ -10,8 +10,7 @@ import {
   getPhotos
 } from "../../../../slices"
 import { useState } from "react"
-import { useInput } from "../../../../hooks"
-import { Loader } from "../../../Loader/Loader"
+import { Loader } from "../../../../components/Loader/Loader"
 import classNames from "classnames"
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
@@ -21,7 +20,6 @@ export const ChSeven = ({ID}: {ID: number}) => {
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName} = useAppSelector((state) => state.common)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
-  //const { Value, handleInput } = useInput()
   const [hasLimit, setHasLimit] = useState<string>()
 
   const handlePhotos: OnClick = () => {

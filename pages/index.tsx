@@ -1,4 +1,4 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import {useTranslation} from "react-i18next"
 
@@ -13,8 +13,6 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-
-      <h1>{t('common.welcome')}</h1>
     </>
   )
 }

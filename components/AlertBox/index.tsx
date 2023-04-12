@@ -1,4 +1,4 @@
-import style from './ch-four.module.scss'
+import style from './alert-box.module.scss'
 
 import { NextPage } from "next"
 import Head from "next/head"
