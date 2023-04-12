@@ -1,4 +1,4 @@
-import style from '../chapters.module.scss'
+import style from '../../chapters.module.scss'
 
 import React from "react"
 import classNames from "classnames"

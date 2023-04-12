@@ -29,14 +29,53 @@
         text-decoration: none;
 
         &:hover {
-          background-color: transparentize($white, 0.5);
-        }
-
-        &.active  {
           background-color: $gray;
           color: $white;
         }
       }
     }
   }
+}
+
+.NavigationLeft {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-right: 0;
+
+  ul {
+    li {
+      cursor: pointer;
+      border-bottom: 1px solid transparentize($darkmagenta, 0.9);
+      font-weight: 500;
+      font-size: 1.3rem;
+
+      &:last-child {
+        border-bottom: 0 none;
+      }
+
+      a {
+        display: block;
+        padding: 0.8rem 1rem;
+        text-decoration: none;
+        color: $black;
+
+        &:hover {
+          background-color: $gray;
+          color: $white;
+        }
+      }
+    }
+
+    &.hasNoBorder {
+      li {
+        padding: 0.2rem 0;
+        border-bottom: 0 none;
+      }
+    }
+  }
+}
+
+.isActiveLink {
+  background-color: $gray;
+  color: $white!important;
 }

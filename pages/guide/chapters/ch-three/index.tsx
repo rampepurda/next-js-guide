@@ -1,12 +1,11 @@
-import React from "react"
 import { NextPage } from "next"
 import Head from "next/head"
-import { sideBar } from "../../../../types"
+import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
-import { NavSubLeft } from "../../../../core-components"
+import { Navigation } from "../../../../core-components"
 
 const ChThree: NextPage = () => {
-  const links: sideBar[] = Data.Guide.sideBar
+  const links: navData[] = Data.NavigationLeft
 
   return (
     <>
@@ -16,7 +15,7 @@ const ChThree: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <NavSubLeft Links={links}/>
+          <Navigation links={links}/>
         </div>
 
         <div className='col-9'>

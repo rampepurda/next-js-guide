@@ -3,9 +3,9 @@ import style from '../../chapters.module.scss'
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { NavSubLeft } from "../../../../core-components"
+import { Navigation } from "../../../../core-components"
 import Head from "next/head"
-import { sideBar } from "../../../../types"
+import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import Image from "next/image"
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
@@ -20,7 +20,7 @@ const handleSubmit = (email: any) => {
 }
 
 const Index: NextPage = () => {
-  const links: sideBar[] = Data.Guide.sideBar
+  const links: navData[] = Data.NavigationLeft
   const [InpEmail, setInpEmail] = useState<any>('')
 
   return (
@@ -31,7 +31,7 @@ const Index: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <NavSubLeft Links={links}/>
+          <Navigation links={links}/>
         </div>
 
         <div className='col-9'>
@@ -62,13 +62,9 @@ const Index: NextPage = () => {
             <h5>Don`t use <code>&#123;Suspense&#125;</code> for fetch data!</h5>
           </AlertBox>
           <ul className={classNames(style.hasNoBorder)}>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <li className='color-is-red'><strong>import dynamic from 'next/dynamic'</strong></li>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <li className='color-is-red'><strong>import &#123; Suspense &#125; from 'react'</strong></li>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <li>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
               <strong>const DynamicHeader = <span className='color-is-red'>dynamic</span>(() =&gt; import('../components/header'), &#123;</strong>
             </li>
             <li>&nbsp;<strong><span className='color-is-red'>suspense</span></strong>: true,</li>

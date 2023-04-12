@@ -3,13 +3,13 @@ import style from './ch-four.module.scss'
 import { NextPage } from "next"
 import Head from "next/head"
 import classNames from "classnames"
-import { NavSubLeft } from "../../../../core-components"
-import { sideBar } from "../../../../types"
+import { Navigation } from "../../../../core-components"
+import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import { useState } from "react"
 
 const ChFour: NextPage = () => {
-  const links: sideBar[] = Data.Guide.sideBar
+  const links: navData[] = Data.NavigationLeft
   const [isActive, setIsActive] = useState<boolean>(true)
 
   return (
@@ -20,7 +20,7 @@ const ChFour: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <NavSubLeft Links={links}/>
+          <Navigation links={links}/>
         </div>
 
         <div className='col-9'>
