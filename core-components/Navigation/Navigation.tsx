@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { navData } from "../../types"
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
 import classNames from "classnames"
+import { isNavLinkActive } from "../../utils"
 import useTranslation from "next-translate/useTranslation"
 
 type Props = {
@@ -25,14 +26,19 @@ export const Navigation = ({links, isMain = false}: Props) => {
       aria-label={isMain ? 'main' :'left guide links'}
     >
       <ul>
-        {links?.map(({title, link}, index) => {
+        {links?.map(({title, link}, idx) => {
           return (
-            <li key={index}>
+            <li key={idx}>
               <Link href={{pathname: `/${link}`}}>
                 <a
-                  className={classNames({[style.isActiveLink]: router.pathname == `/${link}`})}
+                  className={classNames({[style.isActiveLink]: isNavLinkActive(
+                      router.pathname,
+                      link
+                    )
+                  })}
                   aria-current={router.pathname === link ? 'page' : undefined}
-                  rel={'chapter'}>
+                  rel={'chapter'}
+                >
                   {t(title)}
                 </a>
               </Link>
