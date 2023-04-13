@@ -3,7 +3,7 @@ import '../styles/index.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from "react-redux"
 import { store } from '../store/store'
-import { Header, Navigation } from "../core-components"
+import { Header, Navigation } from "../components"
 import React from "react"
 import data from '../data-mock/data.json'
 

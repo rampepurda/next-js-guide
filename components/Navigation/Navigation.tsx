@@ -3,7 +3,7 @@ import style from './navigation-main.module.scss'
 import Link from "next/link"
 import { useRouter } from 'next/router'
 import { navData } from "../../types"
-import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
+import { LangSwitcher } from '../index'
 import classNames from "classnames"
 import { isNavLinkActive } from "../../utils"
 import useTranslation from "next-translate/useTranslation"

@@ -3,7 +3,7 @@ import style from './ch-four.module.scss'
 import { NextPage } from "next"
 import Head from "next/head"
 import classNames from "classnames"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import { useState } from "react"

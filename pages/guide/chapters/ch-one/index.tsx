@@ -4,7 +4,7 @@
  */
 
 import { NextPage } from "next"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import Head from "next/head"

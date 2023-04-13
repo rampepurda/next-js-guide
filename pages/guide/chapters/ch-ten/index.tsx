@@ -1,10 +1,10 @@
 import React,{ useState, useCallback } from "react"
 import { Select } from "../../../../components/Select"
-import { useSelect } from "../../../../hooks";
+import { useSelect } from "../../../../hooks"
 import { navData, Options } from '../../../../types'
 import { NextPage } from "next"
 import Head from "next/head"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 import Data from "../../../../data-mock/data.json"
 
 const carsOptions: Options[] = [

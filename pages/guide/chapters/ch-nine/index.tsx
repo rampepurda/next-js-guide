@@ -1,11 +1,10 @@
 import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import { NextPage } from "next"
-import { Navigation } from "../../../../core-components"
+import { Navigation, AlertBox } from "../../../../components"
 import Head from "next/head"
 import Image from "next/image"
 import imgRedirect from '../../../../public/images/ch-nine/redirects.png'
-import { AlertBox } from "../../../../components/AlertBox/AlertBox"
 
 export const ChNine: NextPage = () => {
   const links: navData[] = Data.NavigationLeft

@@ -3,13 +3,12 @@ import style from '../../chapters.module.scss'
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { Navigation } from "../../../../core-components"
+import { Navigation, AlertBox } from "../../../../components"
 import Head from "next/head"
 import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
 import Image from "next/image"
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
-import { AlertBox } from "../../../../components/AlertBox/AlertBox"
 
 const handleSubmit = (email: any) => {
   if( email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {

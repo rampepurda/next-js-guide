@@ -1,11 +1,11 @@
 import React, { PropsWithChildren } from "react"
 import Head from "next/head"
 import { NextPage } from "next"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 import Image from "next/image"
 import imgPropsWithChildren from '../../../../public/images/ch-eight/propsWithChildren.png'
 import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json";
+import Data from "../../../../data-mock/data.json"
 
 type Props = {name: string, address: string }
 const user: Props = {

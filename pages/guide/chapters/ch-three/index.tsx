@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import { navData } from "../../../../types"
 import Data from "../../../../data-mock/data.json"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 
 const ChThree: NextPage = () => {
   const links: navData[] = Data.NavigationLeft

@@ -1,7 +1,4 @@
 import style from '../../chapters.module.scss'
-
-import React from "react"
-import classNames from "classnames"
 import useTranslation from "next-translate/useTranslation"
 import { useAppSelector } from "../../../../store/hooks"
 import Trans from "next-translate/Trans"
@@ -9,7 +6,7 @@ import Image from "next/image"
 import i18n from '../../../../public/images/ch-six/i18n.png'
 import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import Head from "next/head"
-import { Navigation } from "../../../../core-components"
+import { Navigation } from "../../../../components"
 import Data from "../../../../data-mock/data.json"
 import { navData } from "../../../../types"
 import { NextPage } from "next";

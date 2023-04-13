@@ -1,4 +1,3 @@
-import React from "react"
 import { Photo } from "../../../components/Photo"
 import { initPhotos } from "../../../types"
 import { GetServerSideProps, NextPage } from "next"

@@ -4,7 +4,7 @@ import classNames from "classnames"
 import { NextPage } from "next"
 import Head from "next/head"
 import useTranslation from "next-translate/useTranslation"
-import { Navigation } from "../../core-components"
+import { Navigation } from "../../components"
 
 const Guide: NextPage = () => {
   const links: navData[] = Data.NavigationLeft
