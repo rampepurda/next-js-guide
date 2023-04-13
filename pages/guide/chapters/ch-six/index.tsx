@@ -12,7 +12,7 @@ import Head from "next/head"
 import { Navigation } from "../../../../core-components"
 import Data from "../../../../data-mock/data.json"
 import { navData } from "../../../../types"
-import {NextPage} from "next";
+import { NextPage } from "next";
 
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.common)

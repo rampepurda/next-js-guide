@@ -1,8 +1,11 @@
-import style from '../chapters.module.scss'
-
-import React, {PropsWithChildren, useState} from "react"
+import React, { PropsWithChildren } from "react"
 import Head from "next/head"
-import classNames from "classnames"
+import { NextPage } from "next"
+import { Navigation } from "../../../../core-components"
+import Image from "next/image"
+import imgPropsWithChildren from '../../../../public/images/ch-eight/propsWithChildren.png'
+import { navData } from "../../../../types"
+import Data from "../../../../data-mock/data.json";
 
 type Props = {name: string, address: string }
 const user: Props = {
@@ -22,29 +25,40 @@ const WithChild = ({user, children}: PropsWithChildren<{ user: Props }> ) => {
   )
 }
 
-export const ChEight = ({ID}: {ID: number}) => {
+const ChEight: NextPage = () => {
+  const links: navData[] = Data.NavigationLeft
+
   return (
     <>
       <Head>
         <title>Next JS | Guide | Chapter8</title>
       </Head>
 
-      <div
-        className={classNames(style.ChaptersModuleSheet)}
-        style={{display: ID === 8 ? 'block' : 'none'}}>
+      <div className='cols'>
+        <div className='col-3 has-br'>
+          <Navigation links={links} />
+        </div>
 
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <h2>8. PropsWithChildren</h2>
+        <div className='col-9'>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          <h2>8. PropsWithChildren</h2>
 
-        <WithChild user={user}>
+          <WithChild user={user}>
+            <hr/>
+            <h4 className='color-is-red'>This is PropsWithChildren Area</h4>
+          </WithChild>
           <hr/>
-          <h4 className='color-is-red'>This is PropsWithChildren Area</h4>
-        </WithChild>
-        <hr/>
 
-        <img src='./images/ch-eight/propsWithChildren.png'  aria-hidden={true} alt='propsWithChildren'/>
+          <Image
+            src={imgPropsWithChildren}
+            aria-hidden={true}
+            alt='propsWithChildren'
+          />
+        </div>
       </div>
     </>
   )
 }
+
+export default ChEight
 
