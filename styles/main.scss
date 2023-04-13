@@ -27,12 +27,12 @@ h2 {
 }
 
 h3 {
-  margin: 1rem 0 0.5rem 0;
+  margin: 1rem 0 .5rem 0;
   font-size: 1.7rem;
 }
 
 h4 {
-  margin: 1rem 0 0.5rem 0;
+  margin: 1rem 0 .5rem 0;
   font-size: 1.5rem;
 }
 
@@ -42,7 +42,7 @@ h5 {
 }
 
 p {
-  margin: 0.2rem 0;
+  margin: .2rem 0;
   font-size: 1.2rem;
 }
 
@@ -76,15 +76,9 @@ ul {
 
 hr {
   border: 0;
-  background-color: transparentize($gray, 0.8);
+  background-color: transparentize($gray, .8);
   height: 1px;
   margin: .7rem 0;
-}
-
-img {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
 }
 
 code {
@@ -133,6 +127,7 @@ input {
   padding: .7rem .5rem;
   font-size: 1.1rem;
 }
+
 select {
   border: 0 none;
   font-size: 1.3rem;
@@ -140,6 +135,22 @@ select {
   &:focus {
     outline: 0 none;
     border: 0 none;
+  }
+}
+
+mark {
+  display: inline-block;
+  margin: .2rem .1rem .2rem 0;
+  border-radius: .6rem;
+  background-color: transparentize($grayLighter, 0.5);
+  padding: .2rem 1rem;
+  color: $black;
+  font-size: 1.12rem;
+  font-weight: 500;
+
+  &.hasBorder {
+    border: 1px solid $gray;
+    background-color: transparent;
   }
 }
 

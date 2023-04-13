@@ -24,7 +24,7 @@ const ChFour: NextPage = () => {
         </div>
 
         <div className='col-9'>
-          <h2 className='micro'>4. classNames Library</h2>
+          <h2>4. classNames Library</h2>
 
           <ul className='hasBorderBottom'>
             <li>
