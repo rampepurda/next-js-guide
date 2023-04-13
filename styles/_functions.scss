@@ -17,10 +17,16 @@ $display-values: block flex inline inline-block inline-flex;
 
   .col-#{$i} {
     flex-basis: (8.33% * $i);
-    padding: 0.5rem;
+    padding: .5rem;
 
     &.has-br {
       border-right: 1px solid $grayLighter;
+    }
+  }
+
+  @if $i == 9 {
+    .col-9 {
+      padding: 1rem;
     }
   }
 

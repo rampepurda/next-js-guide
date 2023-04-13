@@ -1,13 +1,13 @@
 import Data from '../../data-mock/data.json'
-import { sideBar } from "../../types"
+import { navData } from "../../types"
 import classNames from "classnames"
 import { NextPage } from "next"
 import Head from "next/head"
 import useTranslation from "next-translate/useTranslation"
-import { NavSubLeft } from "../../core-components"
+import { Navigation } from "../../core-components"
 
 const Guide: NextPage = () => {
-  const links: sideBar[] = Data.Guide.sideBar
+  const links: navData[] = Data.NavigationLeft
   const { t } = useTranslation('common')
 
   return (
@@ -19,7 +19,7 @@ const Guide: NextPage = () => {
       <div>
         <div className='cols'>
           <div className={classNames( 'col-3 has-br')}>
-            <NavSubLeft Links={links}/>
+            <Navigation links={links}/>
           </div>
 
           <div className='col-9'>

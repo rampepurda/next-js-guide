@@ -1,0 +1,13 @@
+@use "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.chevron {
+  transform: translateY(0.5rem);
+  display: inline-block;
+  font-size: 1.9rem;
+  font-weight: bolder;
+
+  &__down {
+    transform: rotate(180deg);
+  }
+}

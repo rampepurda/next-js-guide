@@ -3,28 +3,43 @@ import style from './navigation-main.module.scss'
 import Link from "next/link"
 import { useRouter } from 'next/router'
 import { navData } from "../../types"
-import Data from '../../data-mock/data.json'
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
 import classNames from "classnames"
+import { isNavLinkActive } from "../../utils"
 import useTranslation from "next-translate/useTranslation"
 
-export const Navigation = () => {
+type Props = {
+  isMain?: boolean,
+  links: navData[]
+}
+
+export const Navigation = ({links, isMain = false}: Props) => {
   const router = useRouter()
   const { t } = useTranslation('common')
-  const navLinks: navData[] = Data.Navigation
 
   return (
-    <nav className={style.Navigation}>
+    <nav
+      className={classNames({
+      [style.Navigation]: isMain,
+      [style.NavigationLeft]: !isMain
+    })}
+      aria-label={isMain ? 'main' :'left guide links'}
+    >
       <ul>
-        {navLinks?.map(({tKey, link}, index) => {
+        {links?.map(({title, link}, idx) => {
           return (
-            <li key={index}>
+            <li key={idx}>
               <Link href={{pathname: `/${link}`}}>
                 <a
-                  className={classNames({[style.active]: router.pathname == `/${link}`})}
-                  aria-label={`link to ${tKey}`}
-                  rel={'chapter'}>
-                  {t(tKey)}
+                  className={classNames({[style.isActiveLink]: isNavLinkActive(
+                      router.pathname,
+                      link
+                    )
+                  })}
+                  aria-current={router.pathname === link ? 'page' : undefined}
+                  rel={'chapter'}
+                >
+                  {t(title)}
                 </a>
               </Link>
             </li>
@@ -33,9 +48,11 @@ export const Navigation = () => {
         }
       </ul>
 
-      <span className={classNames(style.Navigation__langSwitcher)}>
+      {
+        isMain && <span className={classNames(style.Navigation__langSwitcher)}>
         <LangSwitcher route={''} />
       </span>
+      }
     </nav>
  )
 }

@@ -1,6 +1,5 @@
 import style from './header.module.scss'
 
-import React, {useTransition, Suspense } from "react"
 import useTranslation from "next-translate/useTranslation"
 
 export const Header = () => {

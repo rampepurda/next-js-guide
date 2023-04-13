@@ -1,0 +1,24 @@
+@import "styles/variables";
+
+.hasAlertBox {
+  display: block;
+  margin: .5rem 0;
+  padding: 1rem;
+  color: $white;
+}
+
+.danger {
+  background-color: $redDarker;
+}
+
+.success {
+  background-color: $green;
+}
+
+.warning {
+  background-color: $orange;
+}
+
+.info {
+  background-color: $blueLight;
+}

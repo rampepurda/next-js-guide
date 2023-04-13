@@ -6,14 +6,8 @@ export interface initPhotos {
   thumbnailUrl: string
 }
 
-export type sideBar = {
-  id: number,
-  title: string,
-  link: string
-}
-
 export interface navData {
-  tKey: string,
+  title: string,
   link: string
 }
 
