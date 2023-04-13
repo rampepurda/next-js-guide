@@ -5,15 +5,13 @@ import { Provider } from "react-redux"
 import { store } from '../store/store'
 import { Header, Navigation } from "../components"
 import React from "react"
-import data from '../data-mock/data.json'
+import { navigationLinks } from "../configuration/navigation"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const links = data.Navigation
-
   return (
     <Provider store={store}>
       <Header />
-      <Navigation isMain={true} links={links} />
+      <Navigation isMain={true} links={navigationLinks} />
 
       <main>
         <Component {...pageProps} />

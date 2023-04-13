@@ -14,8 +14,7 @@ import { Loader } from "../../../../components/Loader/Loader"
 import classNames from "classnames"
 import { NextPage } from "next"
 import { Navigation } from "../../../../components"
-import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json"
+import { navigationGuideLinks} from "../../../../configuration/navigation"
 import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
@@ -28,7 +27,6 @@ const ChSeven: NextPage = () => {
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.common)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>()
-  const links: navData[] = Data.NavigationLeft
   const handlePhotos: OnClick = () => {
     // @ts-ignore
     dispatch(getPhotos(hasLimit))
@@ -47,7 +45,7 @@ const ChSeven: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links} />
+          <Navigation links={navigationGuideLinks} />
         </div>
 
         <div className='col-9'>

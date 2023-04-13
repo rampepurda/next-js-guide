@@ -4,8 +4,7 @@ import { NextPage } from "next"
 import { Navigation } from "../../../../components"
 import Image from "next/image"
 import imgPropsWithChildren from '../../../../public/images/ch-eight/propsWithChildren.png'
-import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json"
+import { navigationGuideLinks } from "../../../../configuration/navigation"
 
 type Props = {name: string, address: string }
 const user: Props = {
@@ -26,8 +25,6 @@ const WithChild = ({user, children}: PropsWithChildren<{ user: Props }> ) => {
 }
 
 const ChEight: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
-
   return (
     <>
       <Head>
@@ -36,7 +33,7 @@ const ChEight: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links} />
+          <Navigation links={navigationGuideLinks} />
         </div>
 
         <div className='col-9'>

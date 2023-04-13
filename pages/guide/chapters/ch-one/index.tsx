@@ -5,13 +5,10 @@
 
 import { NextPage } from "next"
 import { Navigation } from "../../../../components"
-import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json"
+import { navigationGuideLinks } from "../../../../configuration/navigation";
 import Head from "next/head"
 
 const ChOne: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
-
   return (
     <>
       <Head>
@@ -20,7 +17,7 @@ const ChOne: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links}/>
+          <Navigation links={navigationGuideLinks}/>
         </div>
 
         <div className='col-9'>

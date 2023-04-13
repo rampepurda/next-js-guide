@@ -5,8 +5,7 @@ import classNames from "classnames"
 import { NextPage } from "next"
 import { Navigation, AlertBox } from "../../../../components"
 import Head from "next/head"
-import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json"
+import { navigationGuideLinks } from "../../../../configuration/navigation";
 import Image from "next/image"
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
 
@@ -19,7 +18,6 @@ const handleSubmit = (email: any) => {
 }
 
 const Index: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
   const [InpEmail, setInpEmail] = useState<any>('')
 
   return (
@@ -30,7 +28,7 @@ const Index: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links}/>
+          <Navigation links={navigationGuideLinks}/>
         </div>
 
         <div className='col-9'>

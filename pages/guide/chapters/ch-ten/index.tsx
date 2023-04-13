@@ -1,11 +1,11 @@
 import React,{ useState, useCallback } from "react"
 import { Select } from "../../../../components/Select"
 import { useSelect } from "../../../../hooks"
-import { navData, Options } from '../../../../types'
+import { Options } from '../../../../types'
 import { NextPage } from "next"
 import Head from "next/head"
 import { Navigation } from "../../../../components"
-import Data from "../../../../data-mock/data.json"
+import {navigationGuideLinks} from "../../../../configuration/navigation"
 
 const carsOptions: Options[] = [
   {
@@ -19,8 +19,7 @@ const carsOptions: Options[] = [
 ]
 
 const ChTen: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
-  const [num, setNum] = useState<number>(1)
+  const [num] = useState<number>(1)
   const incrNumber = useCallback(() => {
     return [num, num + 1, num + 2]
   }, [num])
@@ -35,7 +34,7 @@ const ChTen: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links} />
+          <Navigation links={navigationGuideLinks} />
         </div>
 
         <div className='col-9'>

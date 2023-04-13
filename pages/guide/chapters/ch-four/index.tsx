@@ -4,12 +4,10 @@ import { NextPage } from "next"
 import Head from "next/head"
 import classNames from "classnames"
 import { Navigation } from "../../../../components"
-import { navData } from "../../../../types"
-import Data from "../../../../data-mock/data.json"
+import { navigationGuideLinks } from "../../../../configuration/navigation";
 import { useState } from "react"
 
 const ChFour: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
   const [isActive, setIsActive] = useState<boolean>(true)
 
   return (
@@ -20,7 +18,7 @@ const ChFour: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links}/>
+          <Navigation links={navigationGuideLinks}/>
         </div>
 
         <div className='col-9'>

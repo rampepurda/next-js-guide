@@ -7,14 +7,12 @@ import i18n from '../../../../public/images/ch-six/i18n.png'
 import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import Head from "next/head"
 import { Navigation } from "../../../../components"
-import Data from "../../../../data-mock/data.json"
-import { navData } from "../../../../types"
+import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { NextPage } from "next";
 
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.common)
   const { t } = useTranslation('common')
-  const links: navData[] = Data.NavigationLeft
 
   return (
     <>
@@ -24,7 +22,7 @@ const ChSix: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={links}/>
+          <Navigation links={navigationGuideLinks}/>
         </div>
 
         <div className='col-9'>

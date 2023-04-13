@@ -2,62 +2,6 @@
   "Header": {
     "title": "Welcome in NextJS page"
   },
-  "Navigation": [
-    {
-      "title": "mainNav.home",
-      "link": ""
-    },
-    {
-      "title": "mainNav.guide",
-      "link": "guide"
-    },
-    {
-      "title": "mainNav.projects",
-      "link": "projects"
-    }
-  ],
-  "NavigationLeft": [
-    {
-      "title": "1. useRouter & Link and query",
-      "link": "guide/chapters/ch-one"
-    },
-    {
-      "title": "2. Interface - Declaration merging",
-      "link": "guide/chapters/ch-two"
-    },
-    {
-      "title": "3. Environment",
-      "link": "guide/chapters/ch-three"
-    },
-    {
-      "title": "4. classNames Library",
-      "link": "guide/chapters/ch-four"
-    },
-    {
-      "title": "5. Next JS - Dynamic Import & .match email validation",
-      "link": "guide/chapters/ch-five"
-    },
-    {
-      "title": "6. i18n and next-transform internationalization",
-      "link": "guide/chapters/ch-six"
-    },
-    {
-      "title": "7. Next JS Redux Toolkit",
-      "link": "guide/chapters/ch-seven"
-    },
-    {
-      "title": "8. PropsWithChildren",
-      "link": "guide/chapters/ch-eight"
-    },
-    {
-      "title": "9. Redirects",
-      "link": "guide/chapters/ch-nine"
-    },
-    {
-      "title": "10 useCallback",
-      "link": "guide/chapters/ch-ten"
-    }
-  ],
   "Projects":
   {
     "Navigation": [

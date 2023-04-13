@@ -1,5 +1,4 @@
-import Data from '../../data-mock/data.json'
-import { navData } from "../../types"
+import { navigationGuideLinks } from "../../configuration/navigation"
 import classNames from "classnames"
 import { NextPage } from "next"
 import Head from "next/head"
@@ -7,7 +6,6 @@ import useTranslation from "next-translate/useTranslation"
 import { Navigation } from "../../components"
 
 const Guide: NextPage = () => {
-  const links: navData[] = Data.NavigationLeft
   const { t } = useTranslation('common')
 
   return (
@@ -19,7 +17,7 @@ const Guide: NextPage = () => {
       <div>
         <div className='cols'>
           <div className={classNames( 'col-3 has-br')}>
-            <Navigation links={links}/>
+            <Navigation links={navigationGuideLinks}/>
           </div>
 
           <div className='col-9'>
