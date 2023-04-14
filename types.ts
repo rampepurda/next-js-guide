@@ -7,7 +7,7 @@ export interface initPhotos {
 }
 
 export interface navData {
-  title: string,
+  tKey: string,
   link: string
 }
 

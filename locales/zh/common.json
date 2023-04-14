@@ -1,15 +1,31 @@
 {
   "loading": "加载中",
   "welcome":"欢迎来到我的页面",
-  "mainNav": {
+  "pageTitle": {
+    "home": "下一個家",
+    "projects": "項目",
+    "guide": "下一個 指南"
+  },
+  "navMain": {
     "home":"聖誕餐桌",
     "guide":"指導",
     "projects":"項目",
     "int": "國際化"
   },
-  "pageTitle": {
-    "projects": "項目",
-    "guide": "下一個 指南"
+  "navGuide": {
+    "ch-one": "1. 路由器鏈接和查詢",
+    "ch-two": "2. 接口 - 聲明合併",
+    "ch-three": "3. 環境",
+    "ch-four": "4. 類名庫",
+    "ch-five": "5. 動態導入和匹配電子郵件驗證",
+    "ch-six": "6. i 18 n next 轉型國際化",
+    "ch-seven": "7. Redux 工具包",
+    "ch-eight": "8. 帶孩子的道具",
+    "ch-nine": "9. 重定向",
+    "ch-ten": "10. 使用回調"
+  },
+  "navProjectsLeft": {
+    "dynamicRouter": "動態路由器"
   },
   "projects": {
     "dynamicRoute": {

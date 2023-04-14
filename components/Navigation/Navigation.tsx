@@ -10,23 +10,25 @@ import useTranslation from "next-translate/useTranslation"
 
 type Props = {
   isMain?: boolean,
+  isSub?: boolean,
   links: navData[]
 }
 
-export const Navigation = ({links, isMain = false}: Props) => {
+export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
   const router = useRouter()
   const { t } = useTranslation('common')
 
   return (
     <nav
       className={classNames({
-      [style.Navigation]: isMain,
-      [style.NavigationLeft]: !isMain
+      [style.navigation]: isMain,
+      [style.navigationLeft]: !isMain,
+      [style.navigationSub]: isSub
     })}
       aria-label={isMain ? 'main' :'left guide links'}
     >
       <ul>
-        {links?.map(({title, link}, idx) => {
+        {links?.map(({tKey, link}, idx) => {
           return (
             <li key={idx}>
               <Link href={{pathname: `/${link}`}}>
@@ -39,7 +41,7 @@ export const Navigation = ({links, isMain = false}: Props) => {
                   aria-current={router.pathname === link ? 'page' : undefined}
                   rel={'chapter'}
                 >
-                  {t(title)}
+                  {t(tKey)}
                 </a>
               </Link>
             </li>
@@ -49,7 +51,7 @@ export const Navigation = ({links, isMain = false}: Props) => {
       </ul>
 
       {
-        isMain && <span className={classNames(style.Navigation__langSwitcher)}>
+        isMain && <span className={classNames(style.navigation__langSwitcher)}>
         <LangSwitcher route={''} />
       </span>
       }

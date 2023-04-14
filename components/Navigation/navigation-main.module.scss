@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.Navigation {
+.navigation {
   z-index: 2;
   position: sticky;
   top: 4.4rem;
@@ -37,7 +37,11 @@
   }
 }
 
-.NavigationLeft {
+.navigationSub {
+
+}
+
+.navigationLeft {
   margin-left: -.5rem;
   margin-right: -.5rem;
   padding-right: 0;

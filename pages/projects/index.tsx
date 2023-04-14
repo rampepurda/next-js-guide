@@ -1,34 +1,26 @@
-import Link from "next/link"
-import dataProject from '../../data-mock/data.json'
 import Head from "next/head"
-import useTranslation from "next-translate/useTranslation";
-
-type Links = Array<{tKey: string, url: string}>
+import useTranslation from "next-translate/useTranslation"
+import { Navigation } from "../../components"
+import { navigationProjectsLinks } from "../../configuration/navigation"
 
 export default function Projects() {
-  const navLinks: Links = dataProject.Projects.Navigation
   const { t } = useTranslation('projects')
 
   return (
-    <div style={{padding: '1rem'}}>
+    <>
       <Head>
-        <title>NextJS with typescript</title>
+        <title>{t('common:pageTitle.projects')}</title>
       </Head>
 
-      <h2>{t('common:pageTitle.projects')}</h2>
-      <ul>
-        {
-          navLinks.map(({tKey, url}, index) => {
-            return (
-              <li key={index}>
-                <Link href={`/projects/${url}`}>
-                  {t(tKey)}
-                </Link>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </div>
+      <div className='cols'>
+        <div className='col-3 has-br'>
+          <Navigation links={navigationProjectsLinks}/>
+        </div>
+
+        <div className='col-9'>
+          <h1>{t('common:pageTitle.projects')}</h1>
+        </div>
+      </div>
+    </>
   )
 }
