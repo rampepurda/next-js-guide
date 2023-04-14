@@ -14,12 +14,12 @@ export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
       <img src={thumbnailUrl} alt={title} />
       <ul>
         <li key={id}>
-          <h2>{title}</h2>
+          <h3>{title}</h3>
         </li>
       </ul>
       <br />
 
-      <h4>
+      <p>
         <button
           type='button'
         >
@@ -34,7 +34,7 @@ export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
             {t('projects.dynamicRoute.btn')}
           </Link>
         </button>
-      </h4>
+      </p>
     </div>
   )
 }

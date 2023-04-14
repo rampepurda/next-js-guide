@@ -1,6 +1,9 @@
 import { Photo } from "../../../components/Photo"
 import { initPhotos } from "../../../types"
 import { GetServerSideProps, NextPage } from "next"
+import Head from "next/head"
+import { Navigation } from "../../../components"
+import { navigationProjectsLinks } from "../../../configuration/navigation"
 
 interface initValues {
   photos: [initPhotos]
@@ -8,16 +11,26 @@ interface initValues {
 
 export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
   return (
-    <div className='has-padding'>
-      <h2>File Based</h2>
-      { !photos ? <h4>...loading, wait</h4> : ''}
+    <>
+      <Head>
+        <title>Next JS | Projects | Dynamic router</title>
+      </Head>
 
-      { photos?.map((photo, idx: number) => {
-        return (
-          <Photo {...photo} key={idx}/>
-        )
-      })}
-    </div>
+      <div className='cols'>
+        <div className='col-3 has-br'>
+          <Navigation links={navigationProjectsLinks} />
+        </div>
+        <div className='col-9'>
+          { !photos ? <h4>...loading, wait</h4> : ''}
+
+          { photos?.map((photo, idx: number) => {
+            return (
+              <Photo {...photo} key={idx}/>
+            )
+          })}
+        </div>
+      </div>
+    </>
   )
 }
 

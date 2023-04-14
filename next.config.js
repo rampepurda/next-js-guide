@@ -1,6 +1,6 @@
 const nextTranslate = require('next-translate')
 
-module.exports = nextTranslate({
+const nextConfig = {
   reactStrictMode: true,
   env: {
     customKey: 'my-value-demo',
@@ -8,4 +8,6 @@ module.exports = nextTranslate({
   images: {
     domains: ['rickandmortyapi.com', 'jsonplaceholder.typicode.com/photos', 'www.planetware.com']
  }
-})
+}
+
+module.exports = nextTranslate(nextConfig)

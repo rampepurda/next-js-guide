@@ -3,7 +3,7 @@ import { ROUTE } from "./routes"
 export const navigationLinks = [
   {
     tKey: "navMain.home",
-    link: "/"
+    link: ROUTE.HOME
   },
   {
     tKey: "navMain.guide",
@@ -50,7 +50,7 @@ export const navigationGuideLinks = [
   },
   {
     tKey: "navGuide.ch-nine",
-    link: "guide/chapters/ch-nine"
+    link: `${ROUTE.GUIDE}/chapters/ch-nine`
   },
   {
     tKey: "navGuide.ch-ten",
