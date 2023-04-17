@@ -20,13 +20,7 @@ const initialState: {
   isLoading: false,
   id: 0,
   error: '',
-  photos: [{
-    "albumId": 1,
-    "id":  1,
-    "title": "",
-    "url": "",
-    "thumbnailUrl": ""
-  }],
+  photos: [],
   userName: 'Dobrodej Kaderabek',
 }
 

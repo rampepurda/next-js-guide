@@ -6,7 +6,6 @@ import {
   incrementByAmount,
   UserName,
   Decrement,
-  incrementX,
   getPhotos
 } from "../../../../slices"
 import { useState } from "react"
@@ -18,6 +17,7 @@ import { navigationGuideLinks} from "../../../../configuration/navigation"
 import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
+import { Photos} from "../../../../components/Photos"
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
 
@@ -160,7 +160,7 @@ const ChSeven: NextPage = () => {
           <Image
             src={imgThunkWithRejValue}
             aria-hidden={true}
-            alt='thunkrejectvalue'
+            alt='thunk reject value'
           />
           <hr/>
 
@@ -183,21 +183,7 @@ const ChSeven: NextPage = () => {
           </button>
           <p>{isLoading && error === '' ? <Loader /> : ''}</p>
           <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
-
-          <div className={style.card}>
-            {
-              photos.map(({id, title, thumbnailUrl}) => {
-                return (
-                  <div key={id} style={{border: photos.length === 1 ? 'none' : ''}}>
-                    <img src={thumbnailUrl} />
-                    <span>
-                  <p>{title}</p>
-                </span>
-                  </div>
-                )
-              })
-            }
-          </div>
+          <Photos photos={photos} />
           <hr/>
 
           <h3>User Name: {userName}</h3>

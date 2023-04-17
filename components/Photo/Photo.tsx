@@ -1,26 +1,29 @@
-import React from "react"
-import Link from "next/link"
+import style from './Photo.module.scss'
 
-import style from './flex-base.module.scss'
+import Image from "next/image"
+import Link from "next/link"
 import { initPhotos } from "../../types"
 import useTranslation from "next-translate/useTranslation"
-import classNames from "classnames";
+import classNames from "classnames"
 
 export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
   const { t } = useTranslation('common')
 
   return (
-    <div className={classNames('card', style.boxCover)}>
-      <img src={thumbnailUrl} alt={title} />
-      <ul>
-        <li key={id}>
-          <h3>{title}</h3>
-        </li>
-      </ul>
-      <br />
+    <div className={classNames('card', style.Cover)}>
+      <Image
+        className={style.Image}
+        src={thumbnailUrl}
+        alt={title}
+        height={150}
+        width={150}
+        aria-hidden={true}
+      />
 
-      <p>
+      <h3>{title}</h3>
+      <div>
         <button
+          className='btn btn-submit'
           type='button'
         >
           <Link
@@ -28,13 +31,14 @@ export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
               pathname: '/projects/dynamic-route/[id]',
               query: {id: id}
             }}
-            rel='author'
             style={{color: 'red'}}
           >
-            {t('projects.dynamicRoute.btn')}
+            <a className={style.link} >
+              {t('projects.dynamicRoute.btn')}
+            </a>
           </Link>
         </button>
-      </p>
+      </div>
     </div>
   )
 }
