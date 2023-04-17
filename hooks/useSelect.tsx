@@ -1,4 +1,4 @@
-import {ChangeEvent, useCallback, useState} from "react"
+import { ChangeEvent, useCallback, useState } from "react"
 import { Options} from "../types"
 
 export const useSelect = (options: Options[]) => {
