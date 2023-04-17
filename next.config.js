@@ -6,8 +6,15 @@ const nextConfig = {
     customKey: 'my-value-demo',
   },
   images: {
-    domains: ['rickandmortyapi.com', 'jsonplaceholder.typicode.com/photos', 'www.planetware.com']
- }
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/150/*',
+      },
+    ],
+  }
 }
 
 module.exports = nextTranslate(nextConfig)
