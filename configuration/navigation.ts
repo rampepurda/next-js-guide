@@ -55,6 +55,10 @@ export const navigationGuideLinks = [
   {
     tKey: "navGuide.ch-ten",
     link: `${ROUTE.GUIDE}/chapters/ch-ten`
+  },
+  {
+    tKey: "navGuide.ch-eleven",
+    link: `${ROUTE.GUIDE}/chapters/ch-eleven`
   }
 ]
 

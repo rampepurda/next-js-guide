@@ -24,7 +24,8 @@
     "ch-seven": "7. Redux Toolkit",
     "ch-eight": "8. PropsWithChildren",
     "ch-nine": "9. Redirects",
-    "ch-ten": "10. useCallback"
+    "ch-ten": "10. useCallback",
+    "ch-eleven": "11. Image"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router"
