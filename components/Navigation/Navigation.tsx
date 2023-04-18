@@ -1,4 +1,4 @@
-import style from './navigation-main.module.scss'
+import style from './Navigation.module.scss'
 
 import Link from "next/link"
 import { useRouter } from 'next/router'
