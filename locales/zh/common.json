@@ -22,7 +22,8 @@
     "ch-seven": "7. Redux 工具包",
     "ch-eight": "8. 帶孩子的道具",
     "ch-nine": "9. 重定向",
-    "ch-ten": "10. 使用回調"
+    "ch-ten": "10. 使用回調",
+    "ch-eleven": "11. 圖片"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器"

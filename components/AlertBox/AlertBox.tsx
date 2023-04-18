@@ -1,4 +1,4 @@
-import style from './alert-box.module.scss'
+import style from './Alert-box.module.scss'
 
 import classNames from "classnames"
 import { PropsWithChildren } from "react"

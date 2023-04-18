@@ -1,4 +1,4 @@
-import style from './navigation-main.module.scss'
+import style from './Navigation.module.scss'
 
 import Link from "next/link"
 import { useRouter } from 'next/router'
@@ -51,7 +51,7 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
       </ul>
 
       {
-        isMain && <span className={classNames(style.navigation__langSwitcher)}>
+        isMain && <span className={classNames(style.langSwitcher)}>
         <LangSwitcher route={''} />
       </span>
       }

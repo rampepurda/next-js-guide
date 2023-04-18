@@ -1,0 +1,21 @@
+@import "variables";
+@import "functions";
+
+.isDarkMode {
+  h2 {
+    color: $darkmagenta;
+  }
+
+  a {
+    color: $white;
+  }
+
+  hr {
+    background-color: $white;
+  }
+}
+
+
+
+
+
