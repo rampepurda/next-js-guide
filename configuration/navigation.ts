@@ -2,10 +2,6 @@ import { ROUTE } from "./routes"
 
 export const navigationLinks = [
   {
-    tKey: "navMain.home",
-    link: ROUTE.HOME
-  },
-  {
     tKey: "navMain.guide",
     link: ROUTE.GUIDE
   },

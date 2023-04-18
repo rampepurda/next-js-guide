@@ -1,9 +1,16 @@
 const nextTranslate = require('next-translate')
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    customKey: 'my-value-demo',
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/guide',
+        permanent: true,
+      },
+    ]
   },
   images: {
     remotePatterns: [
