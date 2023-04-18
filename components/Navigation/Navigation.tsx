@@ -51,7 +51,7 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
       </ul>
 
       {
-        isMain && <span className={classNames(style.navigation__langSwitcher)}>
+        isMain && <span className={classNames(style.langSwitcher)}>
         <LangSwitcher route={''} />
       </span>
       }

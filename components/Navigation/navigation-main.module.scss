@@ -7,13 +7,6 @@
   margin: 0;
   background-color: $grayLighter;
 
-  &__langSwitcher {
-    position: absolute;
-    top: 1rem;
-    right: 0;
-    //inset: 1rem 0 0 80%;
-  }
-
   ul {
     display: inline-block;
 
@@ -35,10 +28,6 @@
       }
     }
   }
-}
-
-.navigationSub {
-
 }
 
 .navigationLeft {
@@ -77,6 +66,14 @@
       }
     }
   }
+}
+
+.navigationSub {}
+
+.langSwitcher {
+  position: absolute;
+  top: 1rem;
+  right: 0;
 }
 
 .isLinkActive {
