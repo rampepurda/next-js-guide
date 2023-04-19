@@ -17,7 +17,7 @@ const handleSubmit = (email: any) => {
   }
 }
 
-const Index: NextPage = () => {
+const ChFive: NextPage = () => {
   const [InpEmail, setInpEmail] = useState<any>('')
 
   return (
@@ -112,5 +112,5 @@ const Index: NextPage = () => {
   )
 }
 
-export default Index
+export default ChFive
 

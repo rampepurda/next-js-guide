@@ -64,13 +64,21 @@ ul {
     }
   }
 
-  &.hasTypeDisc {
-    list-style: disc;
+  &.hasTypeDisc,
+  &.hasTypeDecimal {
     margin-left: 1rem;
 
     li {
       padding-left: 0;
     }
+  }
+
+  &.hasTypeDisc {
+    list-style: disc;
+  }
+
+  &.hasTypeDecimal {
+    list-style: decimal;
   }
 
   &.hasBorderBottom {
