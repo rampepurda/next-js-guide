@@ -50,27 +50,30 @@ const ChSeven: NextPage = () => {
 
         <div className='col-9'>
           <h2>7. Next JS and Redux-Toolkit</h2>
-          <p>
-            <a
-              href='https://redux-toolkit.js.org/tutorials/typescript'
-              target='_blank'
-              rel='noreferrer'
-            >
-              See more about redux-toolkit (official)
-            </a>
-          </p>
-          <p>
-            <a
-              href='https://www.merixstudio.com/blog/introduction-using-redux-toolkit-nextjs-and-typescript/'
-              target='_blank'
-              rel='noreferrer'
-            >
-              See more about redux-toolkit (merixstudio)
-            </a>
-          </p>
+          <ul className='hasTypeDisc'>
+            <li>yarn add @reduxjs/toolkit</li>
+            <li>
+              <a
+                href='https://redux-toolkit.js.org/tutorials/typescript'
+                target='_blank'
+                rel='noreferrer'
+              >
+                See more about redux-toolkit (official)
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://www.merixstudio.com/blog/introduction-using-redux-toolkit-nextjs-and-typescript/'
+                target='_blank'
+                rel='noreferrer'
+              >
+                See more about redux-toolkit (merixstudio)
+              </a>
+            </li>
+          </ul>
           <hr/>
 
-          <h2>
+          <h3>
             <a onClick={(e) => setBlockIsVisible(!blockIsVisible)}
                style={{
                  cursor: 'pointer',
@@ -87,7 +90,7 @@ const ChSeven: NextPage = () => {
                   </span>
               }
             </a>
-          </h2>
+          </h3>
 
           {
             blockIsVisible ? <div>

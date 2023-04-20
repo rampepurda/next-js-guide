@@ -1,13 +1,15 @@
-import style from '../../chapters.module.scss'
-
+/**
+ * INSTALLATION APOLLO GRAPHQL - SERVER:
+ * https://www.apollographql.com/tutorials/lift-off-part1/01-feature-overview-and-setup
+ *  Git Copy:
+ *  git clone https://github.com/apollographql/odyssey-lift-off-part1
+ */
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
 import { Navigation, AlertBox } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation";
-import Image from "next/image"
-import imgSrc from '../../../../public/images/ch-five/email_validation.png'
 
 const ChTwelve: NextPage = () => {
 
@@ -33,7 +35,19 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <ul className='hasTypeDecimal'>
-            <li>Feature overview</li>
+            <li>
+              <h5>Feature overview - Installation</h5>
+              <ul className='hasTypeDisc'>
+                <li>
+                  <h5>Apollo GraphQL - server</h5>
+                  git clone https://github.com/apollographql/odyssey-lift-off-part1
+                </li>
+                <li>
+                  <h5>Apollo Client</h5>
+                  yarn add @apollo/client
+                </li>
+              </ul>
+            </li>
             <li>Feature data requirements</li>
             <li>
               Schema definition language (SDL)

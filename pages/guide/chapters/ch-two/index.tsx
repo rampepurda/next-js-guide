@@ -2,7 +2,6 @@ import { NextPage } from "next"
 import classNames from "classnames"
 import { Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
-import Data from "../../../../data-mock/data.json"
 import Head from "next/head"
 
 const ChTwo: NextPage = () => {

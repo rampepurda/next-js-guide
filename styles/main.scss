@@ -29,6 +29,7 @@ h2 {
 h3 {
   margin: 1rem 0 .5rem 0;
   font-size: 1.7rem;
+  font-weight: 400;
 }
 
 h4 {
@@ -159,7 +160,7 @@ select {
 
 mark {
   display: inline-block;
-  margin: .2rem .1rem .2rem 0;
+  margin: .2rem .3rem .2rem 0;
   border-radius: .6rem;
   background-color: transparentize($grayLighter, 0.5);
   padding: .2rem 1rem;

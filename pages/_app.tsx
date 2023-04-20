@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <Header className={`${theme ? 'isDark' : null}`}>
         <Switch
-          OnChange={(e) => setTheme(!theme)}
+          OnChange={() => setTheme(!theme)}
           aria-label='controlled'
         />
       </Header>
