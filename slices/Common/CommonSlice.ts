@@ -1,4 +1,4 @@
-import React, {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 type PhotoType = Array<{
   albumId?: number,
@@ -37,7 +37,7 @@ export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }, { rej
   }
 )
 
-export const SlCommon = createSlice({
+export const CommonSlice = createSlice({
   name: 'common',
   initialState,
   reducers: {
@@ -73,9 +73,5 @@ export const {
   UserName,
   Decrement,
   incrementByAmount
-} = SlCommon.actions
-
-//export const ActionCommon = SlCommon.actions
-// exporting the reducer here, as we need to add this to the store
-//export default SlCommon.reducer
+} = CommonSlice.actions
 

@@ -3,7 +3,7 @@ import style from './Navigation.module.scss'
 import Link from "next/link"
 import { useRouter } from 'next/router'
 import { navData } from "../../types"
-import { LangSwitcher } from '../index'
+import { LangSwitch } from '../index'
 import classNames from "classnames"
 import { isNavLinkActive } from "../../utils"
 import useTranslation from "next-translate/useTranslation"
@@ -22,7 +22,7 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
     <nav
       className={classNames({
       [style.navigation]: isMain,
-      [style.navigationLeft]: !isMain,
+      [`navLeft ${style.navigationLeft}`]: !isMain,
       [style.navigationSub]: isSub
     })}
       aria-label={isMain ? 'main' :'left guide links'}
@@ -39,7 +39,6 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
                     )
                   })}
                   aria-current={router.pathname === link ? 'page' : undefined}
-                  rel={'chapter'}
                 >
                   {t(tKey)}
                 </a>
@@ -51,8 +50,8 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
       </ul>
 
       {
-        isMain && <span className={classNames(style.langSwitcher)}>
-        <LangSwitcher route={''} />
+        isMain && <span className={classNames(style.langSwitch)}>
+        <LangSwitch route={''} />
       </span>
       }
     </nav>

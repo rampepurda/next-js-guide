@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.linkColor {
+  color: $black;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

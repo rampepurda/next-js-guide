@@ -1,7 +1,4 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit"
-import { useSelector } from 'react-redux'
-import {SlCommon} from "./common-slice";
-//import { AppState } from '../store'
 
 type Init = {
   x: number,
@@ -12,7 +9,7 @@ type Init = {
 
 const initialState: Init = { x: 1, y: 2, z: 3, txt: 'Prague' };
 
-export const counterSlice = createSlice({
+export const CounterSlice = createSlice({
   //const myValue = useAppSelector(state: AppState) => state.
   name: "counterSlice",
   initialState,
@@ -33,7 +30,7 @@ export const {
   incrementX,
   incrementY,
   incrementZ
-} = counterSlice.actions
+} = CounterSlice.actions
 
 
 /**
