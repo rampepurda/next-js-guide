@@ -21,10 +21,11 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
   return (
     <nav
       className={classNames({
-      [style.navigation]: isMain,
-      [`navLeft ${style.navigationLeft}`]: !isMain,
-      [style.navigationSub]: isSub
-    })}
+          [style.navigation]: isMain,
+          [`navLeft ${style.navigationLeft}`]: !isMain,
+          [style.navigationSub]: isSub
+        })
+      }
       aria-label={isMain ? 'main' :'left guide links'}
     >
       <ul>
