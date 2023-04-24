@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.Switch {
+  display: inline-block;
+  position: relative;
+
+  label {
+    position: relative;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10rem;
+    background-color: $white;
+
+    &::after {
+      content: "";
+      cursor: pointer;
+      position: absolute;
+      transition: .3s;
+      left: .25rem;
+      top: .25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: $darkmagenta;
+    }
+  }
+}
+
+.inpCheckbox {
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: -.2rem;
+  width: 4rem;
+  height: 2rem;
+
+  &:checked + label {
+    &::after {
+      transition: .3s;
+      left: 2.25rem;
+      background-color: $blackLighter;
+    }
+  }
+}

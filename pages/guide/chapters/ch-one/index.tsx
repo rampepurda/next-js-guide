@@ -4,7 +4,7 @@
  */
 
 import { NextPage } from "next"
-import { Navigation } from "../../../../components"
+import { AlertBox, Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation";
 import Head from "next/head"
 
@@ -28,7 +28,7 @@ const ChOne: NextPage = () => {
           </ul>
           <hr/>
 
-          <h2>2. Dynamic router</h2>
+          <h2>1.2 Dynamic router</h2>
           <ul>
             <li>
               &lt;Link
@@ -44,7 +44,21 @@ const ChOne: NextPage = () => {
           </ul>
           <hr/>
 
-          <h2>3. Dynamic router [...slug]</h2>
+          <h2>1.3 Catch all routes [...slug]</h2>
+          <ul className='hasTypeDisc'>
+            <li>
+              <a href='https://nextjs.org/docs/routing/dynamic-routes' target='_blank'>[...slug] read more</a>
+            </li>
+            <li>
+              Dynamic routes can be extended to catch all paths by adding three dots (...) inside the brackets. For example:
+              <h5>pages/post/[...slug].js not only matches /post/a, but also /post/a/b, /post/a/b/c, and so on.</h5>
+              <h5>pages/post/[...slug].js does not match /post.</h5>
+            </li>
+          </ul>
+
+          <AlertBox className={'info'} >
+            <h4>Note: You can use names other than slug, such as: [...param]</h4>
+          </AlertBox>
         </div>
       </div>
     </>

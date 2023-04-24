@@ -71,13 +71,13 @@
 
 .navigationSub {}
 
-.langSwitcher {
-  position: absolute;
-  top: 1rem;
-  right: 0;
-}
-
 .isLinkActive {
   background-color: $gray;
   color: $white!important;
+}
+
+.langSwitch {
+  position: absolute;
+  top: 1rem;
+  right: 0;
 }

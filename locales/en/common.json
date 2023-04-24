@@ -25,7 +25,8 @@
     "ch-eight": "8. PropsWithChildren",
     "ch-nine": "9. Redirects",
     "ch-ten": "10. useCallback",
-    "ch-eleven": "11. Image"
+    "ch-eleven": "11. Image",
+    "ch-twelve": "12. GraphQL"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router"

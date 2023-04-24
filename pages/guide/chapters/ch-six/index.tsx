@@ -27,72 +27,80 @@ const ChSix: NextPage = () => {
 
         <div className='col-9'>
           <div>
-            <h2>next-translate: how to install and use</h2>
-            <p>
-              <a
-                href='https://www.npmjs.com/package/next-translate?activeTab=readme'
-                target='_blank'
-                rel='noreferrer'
-              >
-                next-translate read more
-              </a>
-            </p>
-
-            <h4 className='color-is-darkmagenta'>1. How to Install next-translate</h4>
-            <p><strong>yarn add next-translate</strong></p>
-
-            <h4 className='color-is-darkmagenta'>2. create: i18n.js</h4>
-            <Image
-              src={i18n}
-              layout='fixed'
-              alt='i18n'
-              aria-hidden={true}
-            />
-
-            <h4 className='color-is-darkmagenta'>3. next.config.js</h4>
-
-            <ul className={style.hasNoBorder}>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <li><strong>const nextTranslate = require&#40;'next-translate'&#41;</strong></li>
-              <li>module.exports = <strong>nextTranslate</strong>(&#123;</li>
-              <li>&nbsp; ...rest</li>
-              <li>&#125;)</li>
+            <h2>6. next-translate: how to install and use</h2>
+            <ul className='hasTypeDisc'>
+              <li>
+                <a
+                  href='https://www.npmjs.com/package/next-translate?activeTab=readme'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  next-translate read more
+                </a>
+              </li>
+              <li>
+                <h4>How to Install next-translate</h4>
+                <strong>yarn add next-translate</strong>
+              </li>
             </ul>
 
-            <h4 className='color-is-darkmagenta'>4. ChangeLanguage</h4>
-            <p>See pages/ChangeLanguage.tsx</p>
-
-            <h4 className='color-is-darkmagenta'>5. Trans Component:</h4>
-            <p>
-              <Trans
-                i18nKey="common:trans"
-                components={{bold: <strong/>}}
-                values={{ count: 42 }}
-              />
-            </p>
-            <p>
-              <Trans
-                i18nKey="common:trans2"
-                components={{total: <strong/>}}
-              />
-            </p>
-
-            <h4>json</h4>
-            <code>
-              <p>&quot;trans&quot;: &quot;Be in touch with your friends <strong className='color-is-red'>&lt;bold&gt; &#123;&#123;count&#125;&#125; test&lt;/bold</strong>&gt;&quot;</p>
-              <p>&quot;trans2&quot;: &quot;Be in touch with your friends <strong className='color-is-red'>&lt;total&gt;price&lt;/total&gt;</strong>&quot;</p>
-            </code>
-
-            <h4>code:</h4>
-            <Image
-              src={i18Trans}
-              layout='fixed'
-              alt='store'
-              aria-hidden={true}
-            />
+            <ul className='hasTypeDecimal'>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>create: i18n.js</h4>
+                <Image
+                  src={i18n}
+                  layout='fixed'
+                  alt='i18n'
+                  aria-hidden={true}
+                />
+              </li>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>next.config.js</h4>
+                <ul className={style.hasNoBorder}>
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
+                  <li><strong>const nextTranslate = require&#40;'next-translate'&#41;</strong></li>
+                  <li>module.exports = <strong>nextTranslate</strong>(&#123;</li>
+                  <li>&nbsp; ...rest</li>
+                  <li>&#125;)</li>
+                </ul>
+              </li>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>ChangeLanguage</h4>
+                <strong>See pages/ChangeLanguage.tsx</strong>
+              </li>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>Trans Component:</h4>
+                <Trans
+                  i18nKey="common:trans"
+                  components={{bold: <strong/>}}
+                  values={{ count: 42 }}
+                />
+                <hr />
+                <Trans
+                  i18nKey="common:trans2"
+                  components={{total: <strong/>}}
+                />
+              </li>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>json</h4>
+                <code>
+                  <p>&quot;trans&quot;: &quot;Be in touch with your friends <strong className='color-is-red'>&lt;bold&gt; &#123;&#123;count&#125;&#125; test&lt;/bold</strong>&gt;&quot;</p>
+                  <p>&quot;trans2&quot;: &quot;Be in touch with your friends <strong className='color-is-red'>&lt;total&gt;price&lt;/total&gt;</strong>&quot;</p>
+                </code>
+              </li>
+              <li>
+                <h4 style={{color: '#FFA500FF'}}>code:</h4>
+                <Image
+                  src={i18Trans}
+                  layout='fixed'
+                  alt='store'
+                  aria-hidden={true}
+                />
+              </li>
+            </ul>
             <hr/>
 
-            <h4>Translate example:</h4>
+            <h4 style={{color: '#FFA500FF'}}>Translate example:</h4>
             <p>{t('home:createAccount')}</p>
             <p>{t('home:createAccount_headline', {count: amount})}</p>
             <p>{t('welcome')}</p>

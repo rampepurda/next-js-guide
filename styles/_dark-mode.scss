@@ -1,17 +1,35 @@
 @import "variables";
-@import "functions";
 
-.isDarkMode {
+@at-root .isDark {
+  background-color: $blackLighter!important;
+  color: $white!important;
+
   h2 {
-    color: $darkmagenta;
+    color: $orange;
+  }
+
+  .navLeft {
+    ul {
+      li {
+        border-color: transparentize($white, .8);
+      }
+    }
+  }
+
+  ul {
+    &.hasBorderBottom {
+      li {
+        border-bottom: $white!important;
+      }
+    }
   }
 
   a {
-    color: $white;
+    color: $white!important;
   }
 
   hr {
-    background-color: $white;
+    background-color: transparentize($white, .8);
   }
 }
 

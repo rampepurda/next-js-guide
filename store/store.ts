@@ -3,12 +3,12 @@ import {
   configureStore,
   ThunkAction,
 } from '@reduxjs/toolkit'
-import {counterSlice, SlCommon} from "../slices"
+import { CounterSlice, CommonSlice } from "../slices"
 
 export const store = configureStore({
   reducer: {
-    [SlCommon.name]: SlCommon.reducer,
-    [counterSlice.name]: counterSlice.reducer,
+    [CommonSlice.name]: CommonSlice.reducer,
+    [CounterSlice.name]: CounterSlice.reducer,
   },
 });
 
