@@ -10,10 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.12",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "classnames": "^2.3.2",
+    "graphql": "^16.6.0",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.0.1",
     "i18nexus-cli": "^3.1.0",

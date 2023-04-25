@@ -33,5 +33,12 @@
     "dynamicRoute": {
       "btn":"探索活動"
     }
+  },
+  "ariaLabels": {
+    "navigation": {
+      "isMain":"主要的",
+      "isLeft":"左邊",
+      "isSub":"子"
+    }
   }
 }

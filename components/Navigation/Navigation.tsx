@@ -7,6 +7,7 @@ import { LangSwitch } from '../index'
 import classNames from "classnames"
 import { isNavLinkActive } from "../../utils"
 import useTranslation from "next-translate/useTranslation"
+import { useMemo } from "react"
 
 type Props = {
   isMain?: boolean,
@@ -17,6 +18,17 @@ type Props = {
 export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
   const router = useRouter()
   const { t } = useTranslation('common')
+  const navAriaLabel = useMemo(() => {
+    if(isMain) {
+      return `${t('ariaLabels.navigation.isMain')}`
+    }
+    if(!isMain) {
+      return `${t('ariaLabels.navigation.isLeft')}`
+    }
+    if(isSub) {
+      return `${t('ariaLabels.navigation.isSub')}`
+    }
+  }, [isMain, isSub])
 
   return (
     <nav
@@ -26,7 +38,7 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
           [style.navigationSub]: isSub
         })
       }
-      aria-label={isMain ? 'main' :'left guide links'}
+      aria-label={navAriaLabel}
     >
       <ul>
         {links?.map(({tKey, link}, idx) => {
