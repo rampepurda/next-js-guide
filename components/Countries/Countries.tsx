@@ -16,7 +16,6 @@ export const Countries = ({countries}: {countries: CountriesQL[]}) => {
       </Head>
 
       <div>
-        <h2>{Pages.Guide.headline}</h2>
         <div className={style.Card}>
           {
             countries?.map((country: CountriesQL, idx: number) => {
