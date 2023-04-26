@@ -36,5 +36,12 @@
     "dynamicRoute": {
       "btn":"Explore Event"
     }
+  },
+  "ariaLabels": {
+    "navigation": {
+      "isMain":"main",
+      "isLeft":"left",
+      "isSub":"sub"
+    }
   }
 }
