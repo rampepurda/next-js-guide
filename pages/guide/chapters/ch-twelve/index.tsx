@@ -4,14 +4,21 @@
  *  Git Copy:
  *  git clone https://github.com/apollographql/odyssey-lift-off-part1
  */
-import React, { useState } from "react"
-import classNames from "classnames"
+import React, { useEffect } from "react"
 import { NextPage } from "next"
-import { Navigation, AlertBox } from "../../../../components"
+import { Navigation, AlertBox, Countries } from "../../../../components"
 import Head from "next/head"
-import { navigationGuideLinks } from "../../../../configuration/navigation";
+import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
+import { getCountries } from "../../../../slices"
 
 const ChTwelve: NextPage = () => {
+  const dispatch = useAppDispatch()
+  const { countriesGraphQL } = useAppSelector(state => state.Countries)
+
+  useEffect(() => {
+    dispatch(getCountries())
+  }, [countriesGraphQL])
 
   return (
     <>
@@ -21,7 +28,7 @@ const ChTwelve: NextPage = () => {
 
       <div className='cols'>
         <div className='col-3 has-br'>
-          <Navigation links={navigationGuideLinks}/>
+          <Navigation links={navigationGuideLinks} />
         </div>
 
         <div className='col-9'>
@@ -66,6 +73,8 @@ const ChTwelve: NextPage = () => {
               </AlertBox>
             </li>
           </ul>
+
+          <Countries countries={countriesGraphQL.slice(70,80)} />
         </div>
       </div>
     </>

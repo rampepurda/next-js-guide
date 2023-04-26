@@ -1,37 +1,25 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-
-type PhotoType = Array<{
-  albumId?: number,
-  id?: number,
-  title: string,
-  url: string,
-  thumbnailUrl: string,
-}>
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { CountriesQL } from "../../types"
+import CountriesService from '../../services/Countries'
 
 const initialState: {
-  amount: number,
-  isLoading: boolean,
-  id: number,
-  error: string,
-  photos: PhotoType,
-  userName?: string,
+  error?: string,
+  loader: boolean,
+  countriesGraphQL: CountriesQL[]
 } = {
-  amount: 2,
-  isLoading: false,
-  id: 0,
   error: '',
-  photos: [],
-  userName: 'Dobrodej Kaderabek',
+  loader: true,
+  countriesGraphQL: []
 }
 
-export const getCountries = createAsyncThunk<PhotoType, { hasLimit: string }, { rejectValue: string }>(
-  'countries/Apollo GraphQL',
-  async (hasLimit, { rejectWithValue}) => {
+export const getCountries = createAsyncThunk<CountriesQL>(
+  'countries/getClientDetails',
+  async () => {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${hasLimit}`)
-      return response.json()
-    } catch (err) {
-      return rejectWithValue('Ops, something wrong, we are not able to provide any data')
+      const countryDetails = await CountriesService.getCountry()
+      return countryDetails
+    } catch (err: any) {
+      return err.message()
     }
   }
 )
@@ -40,7 +28,20 @@ export const CountrySlice = createSlice({
   name: 'Countries',
   initialState,
   reducers: {
+  },
+  extraReducers(builder) {
+    builder.addCase(getCountries.fulfilled, (state, action) => {
+      // @ts-ignore
+      state.countriesGraphQL = action.payload
+      state.loader = false
+    })
+    builder.addCase(getCountries.rejected, (state, action) => {
+      state.error = action.payload as string
+      state.loader = false
+    })
+    builder.addCase(getCountries.pending, (state) => {
+      state.loader = true
+      state.error = 'Looks that data were loaded'
+    })
   }
 })
-
-

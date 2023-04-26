@@ -1,3 +1,7 @@
+export interface navData {
+  tKey: string,
+  link: string
+}
 export interface initPhotos {
   albumId?: number,
   id?: number,
@@ -5,18 +9,10 @@ export interface initPhotos {
   url: string,
   thumbnailUrl: string
 }
-
-export interface navData {
-  tKey: string,
-  link: string
-}
-
-// Groups
-export interface BooksInitValue {
-  id: number,
-  title: string,
-  author: string,
-  price: number
+export type CountriesQL = {
+  code: string,
+  name: string,
+  emoji: string,
 }
 
 // Hooks
