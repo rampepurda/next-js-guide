@@ -94,27 +94,27 @@ const ChSeven: NextPage = () => {
 
           {
             blockIsVisible ? <div>
-              <h3 style={{color: 'darkmagenta'}}>store.ts</h3>
+              <h3>store.ts</h3>
               <Image
                 src={imgStore}
                 aria-hidden={true}
                 alt='store'
               />
 
-              <h3 style={{color: 'darkmagenta'}}>hooks.ts</h3>
+              <h3>hooks.ts</h3>
               <Image
                 src={imgHooks}
                 aria-hidden={true}
                 alt='hooks'/>
 
-              <h3 style={{color: 'darkmagenta'}}>slice.ts</h3>
+              <h3>slice.ts</h3>
               <Image
                 src={imgSlice}
                 aria-hidden={true}
                 alt='store'
               />
 
-              <h3 style={{color: 'darkmagenta'}}>components</h3>
+              <h3>components</h3>
               <Image
                 src={imgComponent}
                 aria-hidden={true}
@@ -167,13 +167,14 @@ const ChSeven: NextPage = () => {
           />
           <hr/>
 
-          <h3 style={{color: 'darkmagenta'}}>Examples:</h3>
+          <h3>Examples:</h3>
           <h4>Select Numbers of Photos you want to see:</h4>
           <input
             type='number'
             placeholder='0'
             min='100' max='500'
             step='50'
+            aria-label='number'
             onChange={(e) => setHasLimit(e.target.value)}
           />
           <button
@@ -209,8 +210,8 @@ const ChSeven: NextPage = () => {
               fontWeight: 'bolder',
               fontSize: '1.3rem'
             }}>
-          {amount}
-        </span>
+              {amount}
+            </span>
 
             <button
               className='btn btn-remove'
