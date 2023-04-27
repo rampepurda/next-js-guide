@@ -43,31 +43,30 @@ const ChTwelve: NextPage = () => {
           </a>
           <hr />
 
-          <h4>12.1 Feature overview - Installation</h4>
+          <h3>12.1 Feature overview - Installation</h3>
           <ul className='hasTypeDisc'>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>Apollo GraphQL</h5>
+              <h5>Apollo GraphQL</h5>
               yarn add graphql
             </li>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>Apollo Client</h5>
+              <h5>Apollo Client</h5>
               yarn add @apollo/client
             </li>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>Create Apollo GraphQL Server</h5>
+              <h5>Create Apollo GraphQL Server</h5>
               git clone https://github.com/apollographql/odyssey-lift-off-part1
             </li>
-
           </ul>
 
-          <h4>12.2 Feature data requirements</h4>
+          <h3>12.2 Feature data requirements</h3>
           <ul className='hasTypeDisc'>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>Apollo Client</h5>
+              <h5>Apollo Client</h5>
               <code>const apolloClient = new ApolloClient(&#123;</code>
             </li>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>queries</h5>
+              <h5>queries</h5>
               <code>
                 import &#123; gql &#125; from "@apollo/client"<br/>
                 export const GET_COUNTRIES_QUERY = gql`<br/>
@@ -80,11 +79,11 @@ const ChTwelve: NextPage = () => {
               </code>
             </li>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>Services</h5>
+              <h5>Services</h5>
               fetch data
             </li>
             <li>
-              <h5 style={{color: '#FFA500FF'}}>_app.tsx</h5>
+              <h5>_app.tsx</h5>
               <code>
                 import apolloClient from "../apollo/graphql-client"<br/>
                 import &#123; ApolloProvider &#125; from "@apollo/client"<br/>
@@ -93,7 +92,7 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
 
-          <h4>12.3 Schema definition language (SDL)</h4>
+          <h3>12.3 Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
           <AlertBox className={'info'}>
             <h5>Definition Language, or SDL.</h5>
