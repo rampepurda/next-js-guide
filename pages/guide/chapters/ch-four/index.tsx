@@ -23,8 +23,8 @@ const ChFour: NextPage = () => {
 
         <div className='col-9'>
           <h2>4. classNames Library</h2>
-
-          <ul className='hasBorderBottom'>
+          <hr />
+          <ul className='hasBorderBottom hasTypeDisc'>
             <li>
               <h3>Installation:</h3>
               <h5>yarn add classnames</h5>

@@ -28,7 +28,7 @@ const ChOne: NextPage = () => {
           </ul>
           <hr/>
 
-          <h2>1.2 Dynamic router</h2>
+          <h3>1.2 Dynamic router</h3>
           <ul>
             <li>
               &lt;Link
@@ -42,9 +42,8 @@ const ChOne: NextPage = () => {
               &#125;&#125;
             </li>
           </ul>
-          <hr/>
 
-          <h2>1.3 Catch all routes [...slug]</h2>
+          <h3>1.3 Catch all routes [...slug]</h3>
           <ul className='hasTypeDisc'>
             <li>
               <a href='https://nextjs.org/docs/routing/dynamic-routes' target='_blank'>[...slug] read more</a>

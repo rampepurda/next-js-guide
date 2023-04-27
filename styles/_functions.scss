@@ -42,6 +42,14 @@ $display-values: block flex inline inline-block inline-flex;
 }
 
 @each $color in $colors {
+  @if $color == darkmagenta {
+    .isDark {
+      .color-is-darkmagenta {
+        color: $red;
+      }
+    }
+  }
+
   .color-is-#{$color} {
     color: $color;
   }

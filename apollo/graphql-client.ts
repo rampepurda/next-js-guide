@@ -2,9 +2,10 @@ import {
   ApolloClient,
   InMemoryCache
 } from "@apollo/client"
+import { environment  } from '../configuration/environment'
 
 const apolloClient = new ApolloClient({
-  uri: "https://countries.trevorblades.com",
+  uri: environment.clientURL,
   cache: new InMemoryCache(),
 });
 

@@ -7,16 +7,20 @@ import { ApolloProvider } from "@apollo/client"
 import { store } from '../store/store'
 import { Header, Navigation, Switch } from "../components"
 import { navigationLinks } from "../configuration/navigation"
-import { useState } from "react"
-import classNames from "classnames"
+import { useMemo, useState } from "react"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<boolean>(false)
+  const isDark = useMemo((): string => {
+    if(theme) {
+      return 'isDark'
+    } else {return ''}
+  }, [theme])
 
   return (
     <Provider store={store}>
       <ApolloProvider client={apolloClient}>
-        <Header className={`${theme ? 'isDark' : null}`}>
+        <Header className={isDark}>
           <Switch
             OnChange={() => setTheme(!theme)}
             aria-label='controlled'
@@ -24,7 +28,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
 
-        <main className={classNames([theme ? 'isDark' : null])}>
+        <main className={isDark}>
           <Component {...pageProps} />
         </main>
       </ApolloProvider>

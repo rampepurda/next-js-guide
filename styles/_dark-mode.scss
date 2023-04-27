@@ -4,7 +4,7 @@
   background-color: $blackLighter!important;
   color: $white!important;
 
-  h2 {
+  h2, h3, h5 {
     color: $orange;
   }
 
@@ -30,6 +30,11 @@
 
   hr {
     background-color: transparentize($white, .8);
+  }
+
+  mark {
+    background-color: $orange;
+    color: $white;
   }
 }
 
