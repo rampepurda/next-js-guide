@@ -5,7 +5,7 @@ import {
 import { environment  } from '../configuration/environment'
 
 const apolloClient = new ApolloClient({
-  uri: environment.clientURL,
+  uri: environment.countriesURL,
   cache: new InMemoryCache(),
 });
 

@@ -1,3 +1,4 @@
 export const environment = {
-  clientURL: process.env.NEXT_PUBLIC_CLIENT_URL
+  countriesURL: process.env.NEXT_PUBLIC_COUNTRIES_URL,
+  photosURL: process.env.NEXT_PUBLIC_TYPICODE_URL
 }

@@ -1,4 +1,5 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { environment } from "../../configuration/environment"
 
 type PhotoType = Array<{
   albumId?: number,
@@ -29,7 +30,7 @@ export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }, { rej
   // Declare the type your function argument here:
   async (hasLimit, { rejectWithValue}) => {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${hasLimit}`)
+      const response = await fetch(`${environment.photosURL}?_limit=${hasLimit}`)
       return response.json()
     } catch (err) {
       return rejectWithValue('Ops, something wrong, we are not able to provide any data')
@@ -37,8 +38,8 @@ export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }, { rej
   }
 )
 
-export const CommonSlice = createSlice({
-  name: 'common',
+export const PhotosSlice = createSlice({
+  name: 'Photos',
   initialState,
   reducers: {
     UserName: (state, action) => {
@@ -73,5 +74,5 @@ export const {
   UserName,
   Decrement,
   incrementByAmount
-} = CommonSlice.actions
+} = PhotosSlice.actions
 
