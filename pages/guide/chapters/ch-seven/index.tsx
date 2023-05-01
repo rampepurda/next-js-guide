@@ -18,10 +18,13 @@ import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
 import { Photos } from "../../../../components/Photos"
+import {useRouter} from "next/router";
+import {ROUTE} from "../../../../configuration/routes";
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
 
 const ChSeven: NextPage = () => {
+  const router = useRouter()
   const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)

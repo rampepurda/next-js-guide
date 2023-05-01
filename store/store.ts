@@ -5,13 +5,14 @@ import {
 } from '@reduxjs/toolkit'
 import {
   CounterSlice,
-  CommonSlice,
+  PhotosSlice,
   CountrySlice
 } from "../slices"
+import {Photos} from "../components/Photos";
 
 export const store = configureStore({
   reducer: {
-    [CommonSlice.name]: CommonSlice.reducer,
+    [PhotosSlice.name]: PhotosSlice.reducer,
     [CountrySlice.name]: CountrySlice.reducer,
     [CounterSlice.name]: CounterSlice.reducer,
   },
