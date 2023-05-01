@@ -5,8 +5,14 @@ import Link from "next/link"
 import { initPhotos } from "../../types"
 import useTranslation from "next-translate/useTranslation"
 import classNames from "classnames"
+import { ROUTE } from "../../configuration/routes"
 
-export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
+export const Photo = ({
+  id,
+  title,
+  thumbnailUrl,
+  pathRouter
+}: initPhotos) => {
   const { t } = useTranslation('common')
 
   return (
@@ -28,7 +34,7 @@ export const Photo = ({ id, title, thumbnailUrl}: initPhotos) => {
         >
           <Link
             href={{
-              pathname: '/projects/dynamic-route/[id]',
+              pathname: `${ROUTE.PROJECT_DYN_ROUTE}/[id]`,
               query: {id: id}
             }}
             style={{color: 'red'}}

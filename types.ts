@@ -7,7 +7,8 @@ export interface initPhotos {
   id?: number,
   title: string,
   url: string,
-  thumbnailUrl: string
+  thumbnailUrl: string,
+  pathRouter?: string
 }
 export type CountriesQL = {
   code: string,

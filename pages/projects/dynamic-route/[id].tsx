@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next"
 import { useRouter } from "next/router"
 import { initPhotos } from "../../../types"
+import { environment } from "../../../configuration/environment"
 
 function ProjectFileBasedId({ photos }: { photos: initPhotos }) {
   const router = useRouter();
@@ -19,7 +20,7 @@ function ProjectFileBasedId({ photos }: { photos: initPhotos }) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   //const param = context.query.id
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/photos/${context.query.id}`
+    `${environment.photosURL}/${context.query.id}`
   );
   const photos = await res.json()
 

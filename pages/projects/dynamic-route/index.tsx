@@ -4,6 +4,7 @@ import { GetServerSideProps, NextPage } from "next"
 import Head from "next/head"
 import { Navigation } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
+import { environment } from "../../../configuration/environment"
 
 interface initValues {
   photos: [initPhotos]
@@ -35,7 +36,7 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
+  const res = await fetch(`${environment.photosURL}?_limit=10`)
   const photos = await res.json()
 
   return {

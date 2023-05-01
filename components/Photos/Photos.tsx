@@ -1,8 +1,6 @@
 import React from 'react'
-import useTranslation from 'next-translate/useTranslation'
 import { Photo } from '../Photo'
 import { initPhotos } from "../../types"
-
 
 type Props = initPhotos[]
 
