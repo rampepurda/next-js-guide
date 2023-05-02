@@ -5,7 +5,7 @@ import Head from "next/head"
 import { Navigation, Pagination } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
 import { environment } from "../../../configuration/environment"
-import { useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { ROUTE } from "../../../configuration/routes"
 
 interface initValues {
@@ -15,10 +15,16 @@ interface initValues {
 export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
   const[itemsPerPage, setItemsPerPage] = useState<number>(10)
   const [currentItem, setCurrentItem] =useState<number>(0)
-  const testFN = () => {
 
-  }
-  useEffect(() => {}, [itemsPerPage])
+ const HandlePage = (ev: ChangeEvent<HTMLInputElement>) => {
+   ev.preventDefault()
+   setItemsPerPage(Number(ev.target.value))
+   setCurrentItem(itemsPerPage)
+ }
+
+  useEffect(() => {
+    console.log(`itemsPerPage: ${itemsPerPage}, currentItem: ${currentItem}`)
+  }, [itemsPerPage, currentItem])
 
   return (
     <>
@@ -35,32 +41,16 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
           {!photos ? <h4>...loading, wait</h4> : ''}
 
           <div>
-            <h3>Select Items per page:</h3>
-            <input
-              type='number'
-              step={5}
-              min={10}
-              max={30}
-              defaultValue={itemsPerPage}
-              aria-label='number'
-              onChange={(e) => {
-                e.preventDefault()
-                setItemsPerPage(Number(e.target.value))
-                setCurrentItem(itemsPerPage)
-              }
-              }
-            />
-
             <Pagination
               items={photos.length}
               itemsPerPage={10}
-              onPageChange={testFN}
+              //onPageChange={HandlePage}
             />
           </div>
 
           {photos.slice(currentItem, itemsPerPage).map((photo, idx: number) => {
             return (
-              <Photo {...photo} key={idx}/>
+              <Photo {...photo} key={idx} />
             )
           })}
         </div>

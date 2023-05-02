@@ -16,7 +16,7 @@ export interface initPagination {
   items: number,
   itemsPerPage: number,
   currentPage?: number,
-  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
+  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void,
 }
 export type CountriesQL = {
   code: string,
