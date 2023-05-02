@@ -5,7 +5,7 @@ import { Provider } from "react-redux"
 import apolloClient from "../apollo/graphql-client"
 import { ApolloProvider } from "@apollo/client"
 import { store } from '../store/store'
-import { Header, Navigation, Switch } from "../components"
+import {Header, Navigation, Pagination, Switch} from "../components"
 import { navigationLinks } from "../configuration/navigation"
 import { useMemo, useState } from "react"
 

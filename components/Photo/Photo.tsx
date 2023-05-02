@@ -11,7 +11,6 @@ export const Photo = ({
   id,
   title,
   thumbnailUrl,
-  pathRouter
 }: initPhotos) => {
   const { t } = useTranslation('common')
 

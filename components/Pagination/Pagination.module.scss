@@ -1,0 +1,20 @@
+@import "styles/variables";
+
+.Cover {
+  display: inline-block;
+  width: 40%;
+  margin: .5rem;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.Image {
+  float: left;
+  margin: 0 2rem 2rem 0;
+}
+
+.link {
+  color: $white;
+  text-decoration: none;
+}

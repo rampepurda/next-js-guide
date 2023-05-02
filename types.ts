@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react"
+
 export interface navData {
   tKey: string,
   link: string
@@ -8,7 +10,13 @@ export interface initPhotos {
   title: string,
   url: string,
   thumbnailUrl: string,
-  pathRouter?: string
+  testMe?: boolean
+}
+export interface initPagination {
+  items: number,
+  itemsPerPage: number,
+  currentPage?: number,
+  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
 }
 export type CountriesQL = {
   code: string,
