@@ -32,7 +32,11 @@ export const Pagination = ({
               key={page}
             >
               <a
-                className={classNames(style.link, {[style.isActive]: page === currentPage})}
+                className={classNames(style.link, {
+                  [style.isActive]: page === currentPage,
+                  [style.hasBorderLeft]: page === 1,
+                  [style.hasBorderRight]: page === Math.max(...pageArray)
+                })}
                 onClick={(ev) => paginate(page)}
                 href={`dynamic-route#page${page}`}
               >{page}</a>

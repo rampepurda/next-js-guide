@@ -1,7 +1,7 @@
 @import "./variables";
 
 $cols: 1 2 3 4 5 6 7 8 9 10 11 12;
-$colors: black blue darkblue darkmagenta deeppink dodgerblue gold gray green orange red silver yellow;
+$colors: black blue darkblue darkmagenta deeppink dodgerblue gold gray grayDarker green orange red silver yellow;
 $display-values: block flex inline inline-block inline-flex;
 
 @each $i in $cols {
@@ -42,6 +42,15 @@ $display-values: block flex inline inline-block inline-flex;
 }
 
 @each $color in $colors {
+  .color-is-#{$color} {
+    color: $color;
+  }
+
+  .bg-color-is-#{$color} {
+    background-color: $color;
+  }
+
+  // IS DARK_MODE=true
   @if $color == darkmagenta {
     .isDark {
       .color-is-darkmagenta {
@@ -50,11 +59,16 @@ $display-values: block flex inline inline-block inline-flex;
     }
   }
 
-  .color-is-#{$color} {
-    color: $color;
-  }
-  .bg-color-is-#{$color} {
-    background-color: $color;
+  @if $color == grayDarker {
+    .isDark {
+      // Pagination
+      nav {
+        ul.Pagination_card__jawKB,
+        ul.Pagination_card__jawKB li {
+          border-color: transparentize($white, .5)
+        }
+      }
+    }
   }
 }
 
