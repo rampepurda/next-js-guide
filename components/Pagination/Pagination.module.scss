@@ -1,0 +1,30 @@
+@import "styles/variables";
+.card {
+  display: inline-block;
+  border-radius: .4rem;
+  border: 1px solid transparentize($grayDarker, .7);
+}
+
+.inline {
+  display: inline-block;
+  border-right: 1px solid transparentize($grayDarker, .7);
+  padding: .3rem 1rem;
+
+  &:hover {
+    background-color: transparentize($grayDarker, .9);
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.link {
+  margin: -.3rem -1rem;
+}
+
+.isActive {
+  background-color: $darkmagenta;
+  color: $white;
+}
+

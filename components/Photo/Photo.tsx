@@ -10,8 +10,7 @@ import { ROUTE } from "../../configuration/routes"
 export const Photo = ({
   id,
   title,
-  thumbnailUrl,
-  pathRouter
+  thumbnailUrl
 }: initPhotos) => {
   const { t } = useTranslation('common')
 

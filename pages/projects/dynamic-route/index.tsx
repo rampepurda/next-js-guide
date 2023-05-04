@@ -2,15 +2,26 @@ import { Photo } from "../../../components/Photo"
 import { initPhotos } from "../../../types"
 import { GetServerSideProps, NextPage } from "next"
 import Head from "next/head"
-import { Navigation } from "../../../components"
+import { Navigation, Pagination } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
 import { environment } from "../../../configuration/environment"
+import {useEffect, useMemo, useState} from "react"
+import { usePaginate } from "../../../hooks"
+import { hasPaginate } from "../../../utils"
 
 interface initValues {
   photos: [initPhotos]
 }
 
 export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
+  const { currentPage = 1, handlePageChange } = usePaginate()
+  const postPerPage: number = 50 // can be dynamical
+  const itemsTotal: number = Number(photos.length)
+  const currentPost = photos.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
+
+  useEffect(() => {},
+    [itemsTotal, postPerPage, photos, currentPage])
+
   return (
     <>
       <Head>
@@ -22,11 +33,19 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
           <Navigation links={navigationProjectsLinks} />
         </div>
         <div className='col-9'>
-          { !photos ? <h4>...loading, wait</h4> : ''}
 
-          { photos?.map((photo, idx: number) => {
+          {!photos ? <h4>...loading, wait</h4> : ''}
+
+          <Pagination
+            itemsTotal={itemsTotal}
+            postPerPage={postPerPage}
+            paginate={handlePageChange}
+            currentPage={currentPage}
+          />
+
+          {currentPost.map((photo, idx: number) => {
             return (
-              <Photo {...photo} key={idx}/>
+              <Photo {...photo} key={idx} />
             )
           })}
         </div>
@@ -36,11 +55,13 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${environment.photosURL}?_limit=10`)
+  const res = await fetch(`${environment.photosURL}?_limit=200`)
   const photos = await res.json()
 
   return {
-    props: { photos }
+    props: {
+      photos
+    }
   }
 }
 
