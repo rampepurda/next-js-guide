@@ -5,26 +5,22 @@ import Head from "next/head"
 import { Navigation, Pagination } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
 import { environment } from "../../../configuration/environment"
-import { ChangeEvent, useEffect, useState } from "react"
-import { ROUTE } from "../../../configuration/routes"
+import {useEffect, useMemo, useState} from "react"
+import { usePaginate } from "../../../hooks"
+import { hasPaginate } from "../../../utils"
 
 interface initValues {
   photos: [initPhotos]
 }
 
 export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
-  const[itemsPerPage, setItemsPerPage] = useState<number>(10)
-  const [currentItem, setCurrentItem] =useState<number>(0)
+  const { currentPage = 1, handlePageChange } = usePaginate()
+  const postPerPage: number = 50 // can be dynamical
+  const itemsTotal: number = Number(photos.length)
+  const currentPost = photos.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
 
- const HandlePage = (ev: ChangeEvent<HTMLInputElement>) => {
-   ev.preventDefault()
-   setItemsPerPage(Number(ev.target.value))
-   setCurrentItem(itemsPerPage)
- }
-
-  useEffect(() => {
-    console.log(`itemsPerPage: ${itemsPerPage}, currentItem: ${currentItem}`)
-  }, [itemsPerPage, currentItem])
+  useEffect(() => {},
+    [itemsTotal, postPerPage, photos, currentPage])
 
   return (
     <>
@@ -40,15 +36,14 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
 
           {!photos ? <h4>...loading, wait</h4> : ''}
 
-          <div>
-            <Pagination
-              items={photos.length}
-              itemsPerPage={10}
-              //onPageChange={HandlePage}
-            />
-          </div>
+          <Pagination
+            itemsTotal={itemsTotal}
+            postPerPage={postPerPage}
+            paginate={handlePageChange}
+            currentPage={currentPage}
+          />
 
-          {photos.slice(currentItem, itemsPerPage).map((photo, idx: number) => {
+          {currentPost.map((photo, idx: number) => {
             return (
               <Photo {...photo} key={idx} />
             )
@@ -60,13 +55,13 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  //const res = await fetch(`${environment.photosURL}?_limit=20`)
-  const limitPerPage: number = 30
-  const res = await fetch(`${environment.photosURL}?_limit=${limitPerPage}`)
+  const res = await fetch(`${environment.photosURL}?_limit=200`)
   const photos = await res.json()
 
   return {
-    props: { photos, limitPerPage }
+    props: {
+      photos
+    }
   }
 }
 

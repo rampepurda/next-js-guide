@@ -1,20 +1,30 @@
 @import "styles/variables";
-
-.Cover {
+.card {
   display: inline-block;
-  width: 40%;
-  margin: .5rem;
-  border: 1px solid gray;
-  border-radius: 15px;
-  padding: 1rem;
+  border-radius: .4rem;
+  border: 1px solid transparentize($grayDarker, .7);
 }
 
-.Image {
-  float: left;
-  margin: 0 2rem 2rem 0;
+.inline {
+  display: inline-block;
+  border-right: 1px solid transparentize($grayDarker, .7);
+  padding: .3rem 1rem;
+
+  &:hover {
+    background-color: transparentize($grayDarker, .9);
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
 }
 
 .link {
-  color: $white;
-  text-decoration: none;
+  margin: -.3rem -1rem;
 }
+
+.isActive {
+  background-color: $darkmagenta;
+  color: $white;
+}
+
