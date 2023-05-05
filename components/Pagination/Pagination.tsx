@@ -36,8 +36,8 @@ export const Pagination = ({
               <a
                 className={classNames(style.link, {
                   [style.isActive]: page === currentPage,
-                  [style.hasLeftRadius]: page === Math.min(...pageArray),
-                  [style.hasRightRadius]: page === Math.max(...pageArray)
+                  [style.hasRadiusLeft]: page === Math.min(...pageArray),
+                  [style.hasRadiusRight]: page === Math.max(...pageArray)
                 })}
                 onClick={(ev) => paginate(page)}
                 href={`${router}#page${page}`}

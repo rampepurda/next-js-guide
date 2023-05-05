@@ -15,7 +15,7 @@ describe('Pagination', () => {
     const linksHasLeftRadius = screen.getAllByRole('link')
 
     expect(links.length).toBe(12)
-    expect(linksHasLeftRadius[0]).toHaveClass("hasLeftRadius")
-    expect(linksHasLeftRadius[11]).toHaveClass("hasRightRadius")
+    expect(linksHasLeftRadius[0]).toHaveClass("hasRadiusLeft")
+    expect(linksHasLeftRadius[11]).toHaveClass("hasRadiusRight")
   })
 })
