@@ -8,14 +8,16 @@ type Props = {
   itemsTotal: number,
   onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void,
   paginate: any,
-  postPerPage: number
+  postPerPage: number,
+  router: string
 }
 
 export const Pagination = ({
   currentPage,
   itemsTotal,
   postPerPage,
-  paginate}: Props)=> {
+  paginate,
+  router}: Props)=> {
   const pageTotal = useMemo(() => {
     return Math.ceil(itemsTotal/postPerPage)
   },[itemsTotal, postPerPage])
@@ -38,7 +40,7 @@ export const Pagination = ({
                   [style.hasBorderRight]: page === Math.max(...pageArray)
                 })}
                 onClick={(ev) => paginate(page)}
-                href={`dynamic-route#page${page}`}
+                href={`${router}#page${page}`}
               >{page}</a>
             </li>
           )

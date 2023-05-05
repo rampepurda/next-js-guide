@@ -16,8 +16,7 @@ export const getCountries = createAsyncThunk<CountriesQL>(
   'countries/getClientDetails',
   async () => {
     try {
-      const countryDetails = await CountriesService.getCountry()
-      return countryDetails
+      return await CountriesService.getCountry()
     } catch (err: any) {
       return err.message()
     }

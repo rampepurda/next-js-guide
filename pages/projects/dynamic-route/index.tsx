@@ -37,10 +37,11 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
           {!photos ? <h4>...loading, wait</h4> : ''}
 
           <Pagination
+            currentPage={currentPage}
             itemsTotal={itemsTotal}
             postPerPage={postPerPage}
             paginate={handlePageChange}
-            currentPage={currentPage}
+            router={'dynamic-route'}
           />
 
           {currentPost.map((photo, idx: number) => {

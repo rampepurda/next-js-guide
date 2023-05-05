@@ -1,11 +1,11 @@
 import React,{ useState, useCallback } from "react"
-import { Select } from "../../../../components/Select"
+import { Select } from "../../../../components"
 import { useSelect } from "../../../../hooks"
 import { Options } from '../../../../types'
 import { NextPage } from "next"
 import Head from "next/head"
 import { Navigation } from "../../../../components"
-import {navigationGuideLinks} from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration/navigation"
 
 const carsOptions: Options[] = [
   {
