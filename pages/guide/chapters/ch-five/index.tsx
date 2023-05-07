@@ -55,7 +55,7 @@ const ChFive: NextPage = () => {
           <hr/>
 
           <h3>Example:</h3>
-          <AlertBox className='warning'>
+          <AlertBox className='isWarning'>
             <h5>Don`t use <code>&#123;Suspense&#125;</code> for fetch data!</h5>
           </AlertBox>
           <ul className={classNames(style.hasNoBorder)}>

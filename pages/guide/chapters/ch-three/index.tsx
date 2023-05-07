@@ -20,7 +20,7 @@ const ChThree: NextPage = () => {
           <hr />
 
           <h3>3.1 Predefined .env in Next JS</h3>
-          <AlertBox className={'info'} >
+          <AlertBox className={'isInfo'} >
             <h4>This loads <span className='color-is-black'>process</span>.env.DB_HOST, <span className='color-is-black'>process</span>.env.DB_USER, and <span className='color-is-black'>process</span>.env.DB_PASS into the Node.js environment automatically allowing you to use them in Next.js data fetching methods and API routes.</h4>
           </AlertBox>
 
