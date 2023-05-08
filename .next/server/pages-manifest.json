@@ -1,0 +1,9 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/guide/chapters/ch-one": "pages/guide/chapters/ch-one.js",
+  "/guide/chapters/ch-twelve": "pages/guide/chapters/ch-twelve.js",
+  "/projects": "pages/projects.js",
+  "/projects/dynamic-route": "pages/projects/dynamic-route.js"
+}
