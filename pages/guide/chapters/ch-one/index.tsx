@@ -55,7 +55,7 @@ const ChOne: NextPage = () => {
             </li>
           </ul>
 
-          <AlertBox className={'info'} >
+          <AlertBox className={'isInfo'} >
             <h4>Note: You can use names other than slug, such as: [...param]</h4>
           </AlertBox>
         </div>
