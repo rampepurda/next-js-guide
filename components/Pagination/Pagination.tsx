@@ -40,7 +40,7 @@ export const Pagination = ({
                   [style.hasRadiusRight]: page === Math.max(...pageArray)
                 })}
                 onClick={(ev) => paginate(page)}
-                href={`${router}#page${page}`}
+                href={`${router}${page}`}
               >{page}</a>
             </li>
           )

@@ -12,13 +12,13 @@ const initialState: {
   countriesGraphQL: []
 }
 
-export const getCountries = createAsyncThunk<CountriesQL>(
+export const getCountries = createAsyncThunk<CountriesQL, {rejectValue: string}>(
   'countries/getClientDetails',
-  async () => {
+  async (_, { rejectWithValue}) => {
     try {
       return await CountriesService.getCountry()
     } catch (err: any) {
-      return err.message()
+      return rejectWithValue('Ops, something wrong, we are not able to provide any data')
     }
   }
 )

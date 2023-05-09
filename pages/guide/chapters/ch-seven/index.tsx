@@ -18,18 +18,16 @@ import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
 import { Photos } from "../../../../components/Photos"
-import {useRouter} from "next/router";
-import {ROUTE} from "../../../../configuration/routes";
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
 
 const ChSeven: NextPage = () => {
-  const router = useRouter()
   const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>()
+  const [hasParamTitle, setHasParamTitle] = useState<string>()
   const handlePhotos: OnClick = () => {
     // @ts-ignore
     dispatch(getPhotos(hasLimit))
@@ -180,6 +178,12 @@ const ChSeven: NextPage = () => {
             aria-label='number'
             onChange={(e) => setHasLimit(e.target.value)}
           />
+          <input
+            type='search'
+            placeholder='search title'
+            aria-label='search'
+            onChange={(e) => setHasParamTitle(e.target.value)}
+          />
           <button
             className='btn btn-primary'
             type='button'
@@ -207,9 +211,9 @@ const ChSeven: NextPage = () => {
             </button>
             <span style={{
               display: 'inline-block',
-              margin: '0.2rem 0.3rem 0.2rem',
+              margin: '.2rem .3rem .2rem',
               border: '1px solid gray',
-              padding: '0.5rem',
+              padding: '.5rem',
               fontWeight: 'bolder',
               fontSize: '1.3rem'
             }}>
