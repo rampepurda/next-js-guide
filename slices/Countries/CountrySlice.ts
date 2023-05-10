@@ -12,7 +12,7 @@ const initialState: {
   countriesGraphQL: []
 }
 
-export const getCountries = createAsyncThunk<CountriesQL, {rejectValue: string}>(
+export const getCountries = createAsyncThunk<CountriesQL>(
   'countries/getClientDetails',
   async (_, { rejectWithValue}) => {
     try {
@@ -40,7 +40,6 @@ export const CountrySlice = createSlice({
     })
     builder.addCase(getCountries.pending, (state) => {
       state.loader = true
-      state.error = 'Looks that data were loaded'
     })
   }
 })

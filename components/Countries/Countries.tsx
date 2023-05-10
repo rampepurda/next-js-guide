@@ -4,8 +4,11 @@ import { Country } from '../Country'
 import { CountriesQL } from "../../types"
 import { Pages } from "../../configuration/common"
 import Head from "next/head";
+import { useAppSelector } from "../../store/hooks"
+import { Loader } from "../../components"
 
 export const Countries = ({countries}: {countries: CountriesQL[]}) => {
+  const { error, loader } = useAppSelector(state => state.Countries)
   return (
     <>
       <Head>
@@ -17,8 +20,10 @@ export const Countries = ({countries}: {countries: CountriesQL[]}) => {
 
       <div>
         <div className={style.Card}>
-          {
-            countries?.map((country: CountriesQL, idx: number) => {
+          {error}
+          {loader ? <Loader /> : ''}
+
+          {countries?.map((country: CountriesQL, idx: number) => {
               return (
                 <div
                   className={style.Box}

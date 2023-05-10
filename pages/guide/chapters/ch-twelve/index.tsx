@@ -111,7 +111,7 @@ const ChTwelve: NextPage = () => {
 
           <h3>12.3 Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
-          <AlertBox className={'info'}>
+          <AlertBox className={'isInfo'}>
             <h5>Definition Language, or SDL.</h5>
             <hr />
             <ul>

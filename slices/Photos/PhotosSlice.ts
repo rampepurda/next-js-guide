@@ -47,7 +47,7 @@ const initialState: {
 )
  */
 
-export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }, { rejectValue: string }>(
+export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }>(
   'users/fetchById',
   // Declare the type your function argument here:
   async (hasLimit, { rejectWithValue}) => {
