@@ -3,7 +3,7 @@
  * @param page is mapping from total pages Array.length
  */
 
-import {useCallback, useState} from "react"
+import { useCallback, useState } from "react"
 
 export const usePaginate = () => {
   const [currentPage, setCurrentPage] = useState<number>()
