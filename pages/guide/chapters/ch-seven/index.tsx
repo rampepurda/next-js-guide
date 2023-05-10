@@ -18,6 +18,7 @@ import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
 import { Photos } from "../../../../components/Photos"
+import { initPhotos } from "../../../../types"
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
 
@@ -27,16 +28,26 @@ const ChSeven: NextPage = () => {
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>()
-  const [hasParamTitle, setHasParamTitle] = useState<string>()
+  const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
   const handlePhotos: OnClick = () => {
     // @ts-ignore
     dispatch(getPhotos(hasLimit))
+    setSelectedPhotos(photos)
     if(!hasLimit) {
       alert(`${Alert}`)
     }
   }
+  const handleFilterPhotos: OnClick = () => {
+    const filteredPhoto: any[] = selectedPhotos.filter((i: any) => i.title === 'accusamus beatae ad facilis cum similique qui sunt')
+    if(filteredPhoto) {
+      setSelectedPhotos(filteredPhoto)
+    }
+  }
 
-  useEffect(() => {},[amount, isLoading, error, hasLimit])
+  useEffect(() => {
+    setSelectedPhotos(photos)
+    // @ts-ignore
+  },[amount, isLoading, error])
 
   return (
     <>
@@ -169,20 +180,24 @@ const ChSeven: NextPage = () => {
           <hr/>
 
           <h3>Examples:</h3>
+          { photos.filter((i: any) => i.title === 'accusamus beatae ad facilis cum similique qui sunt').map((i:any, index: number) => {
+            return (
+              <div key={index}>
+                <label>Title:</label>
+                <h2>{i.title}</h2>
+              </div>
+            )
+          })}
+
           <h4>Select Numbers of Photos you want to see:</h4>
           <input
             type='number'
             placeholder='0'
-            min='100' max='500'
+            min='50'
+            max='500'
             step='50'
             aria-label='number'
             onChange={(e) => setHasLimit(e.target.value)}
-          />
-          <input
-            type='search'
-            placeholder='search title'
-            aria-label='search'
-            onChange={(e) => setHasParamTitle(e.target.value)}
           />
           <button
             className='btn btn-primary'
@@ -192,9 +207,17 @@ const ChSeven: NextPage = () => {
           >
             Show Gallery
           </button>
+          <button
+            className='btn btn-submit'
+            type='button'
+            aria-label='filter photo gallery'
+            onClick={handleFilterPhotos}
+          >
+            Filter Photos
+          </button>
           <p>{isLoading && error === '' ? <Loader /> : ''}</p>
           <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
-          <Photos photos={photos} />
+          <Photos photos={selectedPhotos} />
           <hr/>
 
           <h3>User Name: {userName}</h3>
