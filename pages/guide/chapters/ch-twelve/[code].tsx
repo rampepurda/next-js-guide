@@ -1,39 +1,26 @@
 import { GetServerSideProps } from "next"
-import { useRouter } from "next/router"
-import { environment } from "../../../../configuration/environment"
-import { Country } from "../../../../components/Country"
-import {useAppDispatch, useAppSelector} from "../../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
 import React, {useEffect} from "react";
-import {getCountries} from "../../../../slices";
+import { getCountries } from "../../../../slices"
 import { Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
-import { Pages } from "../../../../configuration/common"
 import Head from "next/head"
-import { useQuery } from "@apollo/client"
-import { GET_COUNTRIES_DETAIL_QUERY, GET_COUNTRIES_QUERY } from "../../../../queries"
-import Link from "next/link";
-import { ROUTE } from "../../../../configuration/routes";
-import { CountriesResponse } from "../../../../services/Countries"
-import graphQLClient from '../../../../services/Countries'
+import CountriesService from '../../../../services/Countries'
 
 type Props = {
-  code: {
+  data: {
     code: string,
-    name: string,
-    emoji: string,
+    emoji?: string,
+    name: string
   }
 }
 
-function CountryId() {
-  const router = useRouter()
-  const data: any = graphQLClient
-
+function CountryId({data}: Props) {
   const dispatch = useAppDispatch()
   const { countriesGraphQL } = useAppSelector(state => state.Countries)
 
   useEffect(() => {
     dispatch(getCountries())
-    console.log(`Countries: ${countriesGraphQL[69].code}`)
   }, [countriesGraphQL])
 
   return (
@@ -48,11 +35,10 @@ function CountryId() {
         </div>
         <div className='col-9 has-br'>
           <label>Country:</label>
-          <h3>dda</h3>
+          <h3>{data.code}</h3>
           <label>Code:</label>
           <h3>code.name</h3>
         </div>
-
       </div>
     </>
   )
@@ -60,10 +46,13 @@ function CountryId() {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   //const param = context.query.id
-  const res = await fetch(
+  /*
+    const res = await fetch(
     `${environment.countriesURL}/${context.query.code}`
   );
   const data = await res.json()
+   */
+  const data = await CountriesService.getCountry()
 
   return {
     props: {
@@ -72,5 +61,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-
-export default CountryId;
+export default CountryId
