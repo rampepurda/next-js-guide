@@ -83,14 +83,14 @@ const ChTwelve: NextPage = () => {
             </li>
             <li>
               <h5>queries</h5>
-              <ul>
+              <ul className='hasVerticalPadding-2'>
                 <li>import &#123; gql &#125; from "@apollo/client"</li>
                 <li>export const GET_COUNTRIES_QUERY = gql`</li>
-                <li>query Countries &#123;</li>
-                <li>&nbsp;countries &#123;</li>
-                <li>&nbsp;&nbsp;code</li>
-                <li>&nbsp;&nbsp;emoji</li>
-                <li>&nbsp;&nbsp;name</li>
+                <li>&nbsp;query Countries &#123;</li>
+                <li>&nbsp;&nbsp;countries &#123;</li>
+                <li>&nbsp;&nbsp;&nbsp;code</li>
+                <li>&nbsp;&nbsp;&nbsp;emoji</li>
+                <li>&nbsp;&nbsp;&nbsp;name</li>
                 <li>&#125;&#125;`</li>
               </ul>
             </li>
