@@ -18,27 +18,35 @@ import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
 import { Photos } from "../../../../components/Photos"
-import {useRouter} from "next/router";
-import {ROUTE} from "../../../../configuration/routes";
+import { initPhotos } from "../../../../types"
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)
 
 const ChSeven: NextPage = () => {
-  const router = useRouter()
   const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
-  const [hasLimit, setHasLimit] = useState<string>()
+  const [hasLimit, setHasLimit] = useState<string>('0')
+  const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
   const handlePhotos: OnClick = () => {
-    // @ts-ignore
     dispatch(getPhotos(hasLimit))
-    if(!hasLimit) {
+    setSelectedPhotos(photos)
+    if(hasLimit === '0') {
       alert(`${Alert}`)
     }
   }
+  const handleFilterPhotos: OnClick = () => {
+    const filteredPhoto: any[] = selectedPhotos.filter((i: any) => i.title === 'accusamus beatae ad facilis cum similique qui sunt')
+    if(filteredPhoto) {
+      setSelectedPhotos(filteredPhoto)
+    }
+  }
 
-  useEffect(() => {},[amount, isLoading, error, hasLimit])
+  useEffect(() => {
+    setSelectedPhotos(photos)
+    // @ts-ignore
+  },[amount, isLoading, error])
 
   return (
     <>
@@ -171,11 +179,21 @@ const ChSeven: NextPage = () => {
           <hr/>
 
           <h3>Examples:</h3>
+          { photos.filter((i: any) => i.title === 'accusamus beatae ad facilis cum similique qui sunt').map((i:any, index: number) => {
+            return (
+              <div key={index}>
+                <label>Title:</label>
+                <h2>{i.title}</h2>
+              </div>
+            )
+          })}
+
           <h4>Select Numbers of Photos you want to see:</h4>
           <input
             type='number'
             placeholder='0'
-            min='100' max='500'
+            min='50'
+            max='500'
             step='50'
             aria-label='number'
             onChange={(e) => setHasLimit(e.target.value)}
@@ -188,9 +206,17 @@ const ChSeven: NextPage = () => {
           >
             Show Gallery
           </button>
+          <button
+            className='btn btn-submit'
+            type='button'
+            aria-label='filter photo gallery'
+            onClick={handleFilterPhotos}
+          >
+            Filter Photos
+          </button>
           <p>{isLoading && error === '' ? <Loader /> : ''}</p>
           <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
-          <Photos photos={photos} />
+          <Photos photos={selectedPhotos} />
           <hr/>
 
           <h3>User Name: {userName}</h3>
@@ -207,9 +233,9 @@ const ChSeven: NextPage = () => {
             </button>
             <span style={{
               display: 'inline-block',
-              margin: '0.2rem 0.3rem 0.2rem',
+              margin: '.2rem .3rem .2rem',
               border: '1px solid gray',
-              padding: '0.5rem',
+              padding: '.5rem',
               fontWeight: 'bolder',
               fontSize: '1.3rem'
             }}>

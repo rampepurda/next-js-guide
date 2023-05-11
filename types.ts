@@ -21,7 +21,7 @@ export interface initPagination {
 export type CountriesQL = {
   code: string,
   name: string,
-  emoji: string,
+  emoji?: string,
 }
 
 // Hooks

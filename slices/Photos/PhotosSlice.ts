@@ -29,7 +29,25 @@ const initialState: {
   userName: 'Dobrodej Kaderabek',
 }
 
-export const getPhotos = createAsyncThunk<PhotoType, { hasLimit: string }, { rejectValue: string }>(
+/**
+ * CREATE THUNK WITHOUT PARAMS WITH: return rejectWithValue
+ * @link = https://javascript.plainenglish.io/createasyncthunk-in-redux-toolkit-4d8d2f0412d3
+ * @param=async (_, { rejectWithValue}) => {
+ *
+  export const getData = createAsyncThunk<{rejectValue: string}>(
+  'data/test',
+  async (_, { rejectWithValue}) => {
+    try {
+      const response = await fetch(`${environment}`)
+      return response.json()
+    } catch (err) {
+      return rejectWithValue('Ops, something wrong, we are not able to provide any data')
+    }
+  }
+)
+ */
+
+export const getPhotos = createAsyncThunk<PhotoType, string>(
   'users/fetchById',
   // Declare the type your function argument here:
   async (hasLimit, { rejectWithValue}) => {

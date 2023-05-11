@@ -5,9 +5,9 @@ import Head from "next/head"
 import { Navigation, Pagination } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
 import { environment } from "../../../configuration/environment"
-import {useEffect, useMemo, useState} from "react"
+import { useEffect } from "react"
 import { usePaginate } from "../../../hooks"
-import { hasPaginate } from "../../../utils"
+import { ROUTE } from "../../../configuration/routes"
 
 interface initValues {
   photos: [initPhotos]
@@ -19,8 +19,7 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
   const itemsTotal: number = Number(photos.length)
   const currentPost = photos.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
 
-  useEffect(() => {},
-    [itemsTotal, postPerPage, photos, currentPage])
+  useEffect(() => {},[itemsTotal, postPerPage, photos, currentPost])
 
   return (
     <>
@@ -41,7 +40,7 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
             itemsTotal={itemsTotal}
             postPerPage={postPerPage}
             paginate={handlePageChange}
-            router={'dynamic-route'}
+            router={ROUTE.PROJECT_DYN_ROUTE}
           />
 
           {currentPost.map((photo, idx: number) => {

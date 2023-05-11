@@ -11,7 +11,7 @@ import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { NextPage } from "next";
 
 const ChSix: NextPage = () => {
-  const { amount } = useAppSelector((state) => state.common)
+  const { amount } = useAppSelector((state) => state.Photos)
   const { t } = useTranslation('common')
 
   return (
@@ -127,15 +127,5 @@ const ChSix: NextPage = () => {
 
 export default ChSix
 
-/*
-// Todo MiTom Reach 'Locale' below just as an example,we dont need it cause useTranslation from next-translate
-export const getStaticProps: GetStaticProps = async ({ locale }: any) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
-    },
-  };
-}
- */
 
 

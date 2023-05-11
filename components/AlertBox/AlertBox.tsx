@@ -6,10 +6,10 @@ import { PropsWithChildren } from "react"
 export const AlertBox = ({children, className}: PropsWithChildren<{ className: string }>) => {
   return (
     <div className={classNames(style.alertBox, {
-        [style.danger]: className === 'danger',
-        [style.info]: className === 'info',
-        [style.success]: className === 'success',
-        [style.warning]: className === 'warning'
+      [style.isDanger]: className === 'isDanger',
+      [style.isInfo]: className === 'isInfo',
+      [style.isSuccess]: className === 'isSuccess',
+      [style.isWarning]: className === 'isWarning'
     })}>
       {children}
     </div>

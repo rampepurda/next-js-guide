@@ -19,7 +19,7 @@
     "ch-two": "2. Interface - Declaration merging",
     "ch-three": "3. Environment",
     "ch-four": "4. classNames Library",
-    "ch-five": "5. Dynamic Import & .match email validation",
+    "ch-five": "5. Lazy loading & .match email validation",
     "ch-six": "6. i18n and next-transform internationalization",
     "ch-seven": "7. Redux Toolkit",
     "ch-eight": "8. PropsWithChildren",

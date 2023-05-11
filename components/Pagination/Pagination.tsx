@@ -40,8 +40,14 @@ export const Pagination = ({
                   [style.hasRadiusRight]: page === Math.max(...pageArray)
                 })}
                 onClick={(ev) => paginate(page)}
-                href={`${router}#page${page}`}
-              >{page}</a>
+                /*
+                  Need to find solution how to fix route.
+                  In case use without hashtag page still currentPage=1 is displayed as default
+                 */
+                href={`${router}#?_page=${page}`}
+              >
+                {page}
+              </a>
             </li>
           )
         })}
