@@ -18,11 +18,3 @@ export const GET_COUNTRIES_DETAIL_QUERY = gql`
     }
   }
 `
-const GET_DOG_PHOTO = gql`
-  query Dog($breed: String!) {
-    dog(breed: $breed) {
-      id
-      displayImage
-    }
-  }
-`

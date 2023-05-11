@@ -27,13 +27,12 @@ const ChSeven: NextPage = () => {
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
-  const [hasLimit, setHasLimit] = useState<string>()
+  const [hasLimit, setHasLimit] = useState<string>('0')
   const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
   const handlePhotos: OnClick = () => {
-    // @ts-ignore
     dispatch(getPhotos(hasLimit))
     setSelectedPhotos(photos)
-    if(!hasLimit) {
+    if(hasLimit === '0') {
       alert(`${Alert}`)
     }
   }

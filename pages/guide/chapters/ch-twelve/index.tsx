@@ -5,7 +5,7 @@
  *  git clone https://github.com/apollographql/odyssey-lift-off-part1
  */
 
-import React, { useEffect } from "react"
+import React, {useEffect, useLayoutEffect} from "react"
 import { NextPage } from "next"
 import { Navigation, AlertBox, Countries } from "../../../../components"
 import Head from "next/head"
