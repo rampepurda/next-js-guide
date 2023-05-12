@@ -1,0 +1,16 @@
+@import "styles/variables";
+@import "styles/spacing";
+
+.Card {
+  display: inline-block;
+  margin: $spacer-1;
+  width: 400px;
+  border-radius: .4rem;
+  border: 1px solid $grayDarker;
+  padding: $spacer-3;
+
+  label {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}

@@ -1,4 +1,5 @@
 export * from './AlertBox/index'
+export * from './Cars/Cars'
 export * from './Countries/Countries'
 export * from './Header/index'
 export * from './LangSwitch/LangSwitch'

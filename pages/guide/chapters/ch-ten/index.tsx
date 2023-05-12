@@ -1,30 +1,25 @@
-import React,{ useState, useCallback } from "react"
-import { Select } from "../../../../components"
+import React, {useState, useCallback, useEffect} from "react"
 import { useSelect } from "../../../../hooks"
-import { Options } from '../../../../types'
 import { NextPage } from "next"
 import Head from "next/head"
-import { Navigation } from "../../../../components"
+import { AlertBox, Cars, Navigation, Select } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
-
-const carsOptions: Options[] = [
-  {
-    value: 'audi',
-    label: 'Audi',
-},
-  {
-    value: 'skoda',
-    label: 'Skoda',
-  }
-]
+import { CarList, CarsOptions} from "../../../../configuration/common"
+import { CarsInit } from '../../../../types'
 
 const ChTen: NextPage = () => {
-  const [num] = useState<number>(1)
-  const incrNumber = useCallback(() => {
-    return [num, num + 1, num + 2]
-  }, [num])
+  const[selectedCars, setSelectedCars] = useState<CarsInit[]>([...CarList])
+  const { handleOption, Value } = useSelect(CarsOptions)
 
-  const {handleOption, Value} = useSelect(carsOptions)
+  useEffect(() => {
+    if(Value === 'all cars') {
+      return setSelectedCars(CarList)
+    }
+    if(Value) {
+      const selectedCar = CarList.filter((car: CarsInit) => car.name === Value)
+      return setSelectedCars(selectedCar)
+    }
+}, [Value])
 
   return (
     <>
@@ -40,16 +35,21 @@ const ChTen: NextPage = () => {
         <div className='col-9'>
           <h2>10. useCallback</h2>
 
-          <h4>Filter Cars by Name:</h4>
+          <h3>Select by:</h3>
+
           <Select
             id='oldCars'
             ClassName='select'
-            options={carsOptions}
+            options={CarsOptions}
             OnChange={handleOption}
           />
+          <AlertBox className={'isInfo'}>
+            <h4>Filter Cars by Name: {Value?.toUpperCase()}, found total: {selectedCars.length}</h4>
+          </AlertBox>
 
-          { Value === 'audi' ? <h2>Selected: Audi </h2> : null}
-          { Value === 'skoda' ? <h2>Selected: Skoda </h2> : null}
+          <div>
+            <Cars cars={selectedCars} />
+          </div>
         </div>
       </div>
     </>

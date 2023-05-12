@@ -1,14 +1,11 @@
 import React, {ChangeEvent} from "react"
+import { OptionsInit } from "../../types"
 
-type Options = {
-  label: string,
-  value: string
-}
 type Props = {
   ClassName: string,
   icon?: string,
   id: string,
-  options: Options[],
+  options: OptionsInit[],
   OnChange: (ev: ChangeEvent<HTMLSelectElement>) => void
 }
 
@@ -19,15 +16,14 @@ return (
     className={ClassName}
     onChange={OnChange}
   >
-    { options.map(({label, value}, inx: number) => (
+    { options.map(({value}, idx: number) => (
       <option
-        key={inx}
+        key={idx}
         value={value}
       >
-        {label}
+        {value.toUpperCase()}
       </option>
     ))}
-
   </select>
 )
 }
