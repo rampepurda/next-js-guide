@@ -9,15 +9,18 @@ export const Pages = {
 export const Message = {
   error: 'Ops, something wrong, we are not able to provide any data'
 }
+
 export const CarList = [
   {
-    name: 'audi',
     model: 'A4',
+    name: 'audi',
+    location: 'Prague',
     price: '1.200 000Kč',
   },
   {
-    name: 'audi',
     model: 'A5',
+    name: 'audi',
+    location: 'Brno',
     price: '600 000Kč'
   },
   {
@@ -79,4 +82,10 @@ export const CarsOptions = [
   {value: 'citroen'},
   {value: 'hyundai'},
   {value: 'skoda'}
+]
+export const CarsLocationsOptions = [
+  {value: 'Aš'},
+  {value: 'Brno'},
+  {value: 'Ceske Budeojovice'},
+  {value: 'Prague'}
 ]

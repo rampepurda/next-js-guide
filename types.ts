@@ -34,8 +34,9 @@ export type Person = {
 }
 
 export interface CarsInit {
-  name: string,
   model: string,
+  name: string,
+  location?: string,
   price: string
 }
 

@@ -69,8 +69,14 @@ const ChTwelve: NextPage = () => {
               yarn add @apollo/client
             </li>
             <li>
-              <h5>Create Apollo GraphQL Server</h5>
+              <h5>Clone Apollo GraphQL Server</h5>
               git clone https://github.com/apollographql/odyssey-lift-off-part1
+            </li>
+            <li>
+              <h5>Install Apollo GraphQL Server</h5>
+              <span>1. Apollo Server, 2. GraphQL-Tag, 3. GraphQL</span>
+              <br />
+              yarn add @apollo/server graphql graphql-tag
             </li>
           </ul>
           <hr />

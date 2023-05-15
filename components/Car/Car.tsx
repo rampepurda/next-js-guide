@@ -4,8 +4,9 @@ import style from './Car.module.scss'
 type Props = CarsInit
 
 export const Car = ({
-  name,
   model,
+  name,
+  location,
   price,
   }: Props) => {
   return (
@@ -20,6 +21,10 @@ export const Car = ({
 
       <label>Price:</label>
       <h3>{price}</h3>
+      <hr />
+
+      <label>City where car is available:</label>
+      <h3>{location === undefined ? 'Not defined' : location}</h3>
     </div>
   )
 }
