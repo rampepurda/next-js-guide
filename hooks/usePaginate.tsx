@@ -14,7 +14,7 @@ export const usePaginate = (link: string) => {
   const handlePageChange = useCallback(
     (page: number) => {
       setCurrentPage(page)
-      return router.push(`${link}?_page=${page}`)
+      return router.push(`${link}?page=${page}`)
     }, [currentPage])
 
   return {

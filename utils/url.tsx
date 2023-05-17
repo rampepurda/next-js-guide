@@ -3,6 +3,9 @@
  * @param pathName - router.pathname
  * @param link - dynamic parameter
  * @returns boolean
+ *
+ * RegExp = Regular expressions are patterns used to match character combinations in strings.
+ * See more about RegExp: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
  */
 
 export const isNavLinkActive = (pathName: string, link: string): boolean => {
