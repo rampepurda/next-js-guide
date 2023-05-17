@@ -68,10 +68,6 @@ const ChTwelve: NextPage = () => {
               <h5>Apollo Client</h5>
               yarn add @apollo/client
             </li>
-            <li>
-              <h5>Create Apollo GraphQL Server</h5>
-              git clone https://github.com/apollographql/odyssey-lift-off-part1
-            </li>
           </ul>
           <hr />
 
@@ -112,15 +108,51 @@ const ChTwelve: NextPage = () => {
           <h3>12.3 Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
           <AlertBox className={'isInfo'}>
-            <h5>Definition Language, or SDL.</h5>
+            <h5>Definition Schema Language(DSL)</h5>
             <hr />
-            <ul>
+            <ul className='hasVerticalPadding-2'>
               <li>type SpaceCat &#123;</li>
-              <li>&nbsp;&nbsp;age: Int! // can`t be 'null'</li>
-              <li>&nbsp;&nbsp;missions: [Mission]</li>
+              <li>&nbsp;&nbsp;name: String! <span className='color-is-black'>// can`t be 'null' || type field</span></li>
+              <li>&nbsp;&nbsp;age: Int <span className='color-is-black'>// type field</span></li>
+              <li>&nbsp;&nbsp;missions: [Mission] <span className='color-is-black'>// type field</span></li>
               <li>&#125;</li>
             </ul>
+            <hr />
+
+            <h5>It`s a good practice to make documentation for each schema</h5>
           </AlertBox>
+
+          <h3>12.4 Ready to Install GraphQL Server</h3>
+          <ul className='hasTypeDisc'>
+            <li>
+              <h5>Clone Apollo GraphQL Server</h5>
+              git clone https://github.com/apollographql/odyssey-lift-off-part1
+            </li>
+            <li>
+              <h5>Install Apollo GraphQL Server</h5>
+              <span>1. Apollo Server, 2. GraphQL-Tag, 3. GraphQL</span>
+              <br />
+              <h5>Go to: cd Server and Install</h5>
+              yarn add @apollo/server graphql graphql-tag
+            </li>
+            <li>
+              Server/src create File: schema.ts
+              <br />
+              <a
+                href='https://www.apollographql.com/tutorials/lift-off-part1/04-building-our-schema'
+                target='_blank'
+                rel='author'
+              >
+                Building our schema
+              </a>
+            </li>
+            <li>
+              <h5>Go to: cd Client and run yarn install</h5>
+              <br />
+              Run local: yarn dev
+            </li>
+          </ul>
+          <hr />
 
           <h3>{Pages.Guide.headline}</h3>
           <Countries countries={countriesGraphQL.slice(70,80)} />

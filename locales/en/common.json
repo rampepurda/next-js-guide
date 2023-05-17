@@ -29,7 +29,8 @@
     "ch-twelve": "12. GraphQL"
   },
   "navProjectsLeft": {
-    "dynamicRouter": "Dynamic Router"
+    "dynamicRouter": "Dynamic Router",
+    "cars": "Cars"
   },
 
   "projects": {

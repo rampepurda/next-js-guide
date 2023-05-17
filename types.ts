@@ -25,15 +25,19 @@ export type CountriesQL = {
 }
 
 // Hooks
-export type Options = {
-  label: string,
-  value: string
-}
+export type OptionsInit = { value: string }
 
 // Playground
 export type Person = {
   name: string,
   age: number
+}
+
+export interface CarsInit {
+  model: string,
+  name: string,
+  location?: string,
+  price: string
 }
 
 // Slices

@@ -65,6 +65,10 @@ export const navigationGuideLinks = [
 export const navigationProjectsLinks = [
   {
     tKey: "navProjectsLeft.dynamicRouter",
-    link: `${ROUTE.PROJECTS}/dynamic-route`
+    link: ROUTE.PROJECT_DYN_ROUTE
+  },
+  {
+    tKey: "navProjectsLeft.cars",
+    link: ROUTE.PROJECT_CARS
   }
 ]

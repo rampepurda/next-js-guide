@@ -1,21 +1,21 @@
 import { render, screen } from '@testing-library/react'
 import { Pagination } from './'
 
+const Expectation: string = 'First and last page in Array have style border-radiusLeft/Right. Expect Links.length'
+
 describe('Pagination', () => {
-  test('First and last page in Array have style border-radius', () => {
+  test(`${Expectation}`, () => {
     render(<Pagination
       currentPage={1}
       itemsTotal={230}
       postPerPage={20}
       paginate={() => {}}
-      router={'dynamic-route'}
     />)
 
-    const links = screen.getAllByRole('link')
-    const linksHasLeftRadius = screen.getAllByRole('link')
+    const links = screen.getAllByRole('button')
 
     expect(links.length).toBe(12)
-    expect(linksHasLeftRadius[0]).toHaveClass("hasRadiusLeft")
-    expect(linksHasLeftRadius[11]).toHaveClass("hasRadiusRight")
+    expect(links[0]).toHaveClass("hasRadiusLeft")
+    expect(links[11]).toHaveClass("hasRadiusRight")
   })
 })

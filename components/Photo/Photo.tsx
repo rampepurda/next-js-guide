@@ -33,7 +33,7 @@ export const Photo = ({
         >
           <Link
             href={{
-              pathname: `${ROUTE.PROJECT_DYN_ROUTE}/[id]`,
+              pathname: `/${ROUTE.PROJECT_DYN_ROUTE}/[id]`,
               query: {id: id}
             }}
             style={{color: 'red'}}
