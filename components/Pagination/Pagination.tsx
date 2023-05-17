@@ -8,19 +8,19 @@ type Props = {
   itemsTotal: number,
   onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void,
   paginate: any,
-  postPerPage: number,
-  router: string
+  postPerPage: number
 }
 
-export const Pagination = ({
-  currentPage,
-  itemsTotal,
-  postPerPage,
-  paginate,
-  router}: Props)=> {
+export const Pagination = (
+  {
+    currentPage,
+    itemsTotal,
+    paginate,
+    postPerPage
+  }: Props) => {
   const pageTotal = useMemo(() => {
     return Math.ceil(itemsTotal/postPerPage)
-  },[itemsTotal, postPerPage])
+  }, [itemsTotal, postPerPage])
 
   const pageArray = Array.from({length: pageTotal}, (_, i) => i + 1)
 
@@ -33,21 +33,17 @@ export const Pagination = ({
               className={style.inline}
               key={page}
             >
-              <a
+              <button
                 className={classNames(style.link, {
                   [style.isActive]: page === currentPage,
                   [style.hasRadiusLeft]: page === Math.min(...pageArray),
                   [style.hasRadiusRight]: page === Math.max(...pageArray)
                 })}
                 onClick={(ev) => paginate(page)}
-                /*
-                  Need to find solution how to fix route.
-                  In case use without hashtag page still currentPage=1 is displayed as default
-                 */
-                href={`${router}#?_page=${page}`}
+                aria-current={true}
               >
                 {page}
-              </a>
+              </button>
             </li>
           )
         })}

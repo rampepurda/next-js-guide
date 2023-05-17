@@ -6,6 +6,7 @@ export const Pages = {
     }
   }
 }
+
 export const Message = {
   error: 'Ops, something wrong, we are not able to provide any data'
 }
@@ -24,53 +25,62 @@ export const CarList = [
     price: '600 000Kč'
   },
   {
-    name: 'bmw',
     model: 'M3',
+    name: 'bmw',
+    location: 'Prague',
     price: '200 000Kč'
   },
   {
-    name: 'bmw',
     model: 'M5 turbo',
+    name: 'bmw',
+    location: 'Prague',
     price: '3 600 000Kč'
   },
   {
-    name: 'citroen',
     model: 'C5',
+    name: 'citroen',
+    location: '',
     price: '230 000Kč'
   },
   {
-    name: 'hyundai',
     model: 'i30',
+    name: 'hyundai',
+    location: '',
     price: '450 000Kč'
   },
   {
-    name: 'hyundai',
     model: 'Tuscon',
+    name: 'hyundai',
+    location: '',
     price: '800 000Kč'
   },
   {
-    name: 'hyundai',
     model: 'i30 Fastback',
+    name: 'hyundai',
+    location: 'Prague',
     price: '500 000Kč'
   },
   {
-    name: 'skoda',
     model: 'Fabia',
+    name: 'skoda',
+    location: '',
     price: '150 000Kč'
   },
   {
-    name: 'skoda',
     model: 'Octavia',
+    name: 'skoda',
+    location: '',
     price: '650 000Kč'
   },
   {
-    name: 'skoda',
     model: 'Octavia Combi',
+    name: 'skoda',
+    location: 'Ceske Budejovice',
     price: '950 000Kč'
   },
   {
-    name: 'skoda',
     model: 'Suberb Laurin&Clement',
+    name: 'skoda',
     price: '1 950 000Kč'
   }
 ]

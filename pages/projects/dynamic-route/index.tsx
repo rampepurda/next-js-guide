@@ -1,25 +1,24 @@
-import { Photo } from "../../../components/Photo"
 import { initPhotos } from "../../../types"
 import { GetServerSideProps, NextPage } from "next"
 import Head from "next/head"
-import { Navigation, Pagination } from "../../../components"
+import { Navigation, Pagination, Photos } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
 import { environment } from "../../../configuration/environment"
 import { useEffect } from "react"
 import { usePaginate } from "../../../hooks"
-import { ROUTE } from "../../../configuration/routes"
+import { paginateCurrentPost } from "../../../utils"
 
 interface initValues {
   photos: [initPhotos]
 }
 
 export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
-  const { currentPage = 1, handlePageChange } = usePaginate()
+  const { currentPage = 1, handlePageChange } = usePaginate('dynamic-route')
   const postPerPage: number = 50 // can be dynamical
   const itemsTotal: number = Number(photos.length)
-  const currentPost = photos.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
+  const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
 
-  useEffect(() => {},[itemsTotal, postPerPage, photos, currentPost])
+  useEffect(() => {},[postPerPage, photos, currentPost])
 
   return (
     <>
@@ -32,7 +31,6 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
           <Navigation links={navigationProjectsLinks} />
         </div>
         <div className='col-9'>
-
           {!photos ? <h4>...loading, wait</h4> : ''}
 
           <Pagination
@@ -40,14 +38,8 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
             itemsTotal={itemsTotal}
             postPerPage={postPerPage}
             paginate={handlePageChange}
-            router={ROUTE.PROJECT_DYN_ROUTE}
           />
-
-          {currentPost.map((photo, idx: number) => {
-            return (
-              <Photo {...photo} key={idx} />
-            )
-          })}
+          <Photos photos={currentPost} />
         </div>
       </div>
     </>

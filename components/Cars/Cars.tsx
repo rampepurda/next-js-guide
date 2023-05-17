@@ -17,7 +17,7 @@ export const Cars = ({cars}: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {cars?.map((car: CarsInit, idx: number) => {
+      {cars?.map((car, idx: number) => {
         return (
           <Car {...car} key={idx} />
         )

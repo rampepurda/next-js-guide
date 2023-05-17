@@ -9,15 +9,14 @@ import {
   getPhotos
 } from "../../../../slices"
 import { useState } from "react"
-import { Loader } from "../../../../components/Loader/Loader"
+import { Loader } from "../../../../components"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { Navigation } from "../../../../components"
+import { Navigation, Photos } from "../../../../components"
 import { navigationGuideLinks} from "../../../../configuration/navigation"
 import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'
-import { Photos } from "../../../../components/Photos"
 import { initPhotos } from "../../../../types"
 
 type OnClick = (MouseEventHandler<HTMLButtonElement>)

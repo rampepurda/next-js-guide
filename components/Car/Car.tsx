@@ -24,7 +24,7 @@ export const Car = ({
       <hr />
 
       <label>City where car is available:</label>
-      <h3>{location === undefined ? 'Not defined' : location}</h3>
+      <h3>{location === undefined || location.length === 0 ? 'Not defined' : location}</h3>
     </div>
   )
 }

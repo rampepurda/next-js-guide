@@ -8,7 +8,7 @@
 .inline {
   display: inline-block;
   border-right: 1px solid transparentize($grayDarker, .7);
-  padding: .3rem 1rem;
+  padding: 0 1rem;
 
   &:hover {
     background-color: transparentize($grayDarker, .9);
@@ -20,9 +20,11 @@
 }
 
 .link {
+  cursor: pointer;
   display: inline-block;
-  margin: -.3rem -1rem;
-  padding: .3rem .8rem;
+  margin: 0 -1rem;
+  border: 0;
+  padding: .5rem .8rem;
 }
 
 .isActive {

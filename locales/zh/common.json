@@ -27,7 +27,8 @@
     "ch-twelve": "12. 圖形QL"
   },
   "navProjectsLeft": {
-    "dynamicRouter": "動態路由器"
+    "dynamicRouter": "動態路由器",
+    "cars": "汽車"
   },
   "projects": {
     "dynamicRoute": {

@@ -1,7 +1,9 @@
 import { ChangeEvent, useCallback, useState } from "react"
 import { OptionsInit } from "../types"
+import { useRouter } from "next/router"
 
-export const useSelect = (options: OptionsInit[]) => {
+export const useSelect = (options: OptionsInit[], route: string) => {
+  const router = useRouter()
   const [Value, setValue] = useState<string | undefined>()
 
   const handleOption = useCallback((ev: ChangeEvent<HTMLSelectElement>) => {
@@ -10,6 +12,7 @@ export const useSelect = (options: OptionsInit[]) => {
     const isValueAllowed = options.some((option) => option.value === selectedValue)
 
     setValue(isValueAllowed ? selectedValue : undefined)
+    return router.push(`${route}?_selected=${Value}`)
   }, [options, Value])
 
   return {
