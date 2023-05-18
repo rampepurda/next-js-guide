@@ -12,7 +12,7 @@ import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
 import { getCountries } from "../../../../slices"
-import { Pages } from "../../../../configuration/common"
+import { Pages } from "../../../../configuration/pages"
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -25,7 +25,7 @@ const ChTwelve: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-twelve</title>
+        <title>Next JS | Guide | {Pages.Guide.chTwelve.headline}</title>
       </Head>
 
       <div className='cols'>
@@ -34,7 +34,7 @@ const ChTwelve: NextPage = () => {
         </div>
 
         <div className='col-9'>
-          <h2>12. GraphQL</h2>
+          <h2>{Pages.Guide.chTwelve.headline}</h2>
           <nav aria-label='read more'>
             <ul>
               <li>
@@ -167,7 +167,7 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
 
-          <h3>{Pages.Guide.headline}</h3>
+          <h3>List of Countries with Apollo GraphQL - ClientSideRendering</h3>
           <Countries countries={countriesGraphQL.slice(70,80)} />
         </div>
       </div>

@@ -12,13 +12,11 @@ export const Header = ({className, children}: PropsWithChildren<Props>) => {
   const { t } = useTranslation('common')
 
   return (
-    <>
-      <header className={classNames(style.Header, className)}>
-        <h1>{t('welcome')}</h1>
-        <div className={style.switchBox}>
-          {children}
-        </div>
-      </header>
-    </>
+    <header className={classNames(style.Header, className)}>
+      <h1>{t('welcome')}</h1>
+      <div className={style.switchBox}>
+        {children}
+      </div>
+    </header>
  )
 }
