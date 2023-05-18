@@ -147,6 +147,19 @@ const ChTwelve: NextPage = () => {
               </a>
             </li>
             <li>
+              <h5>Mocking data on Server, need to install:</h5>
+              To enable mocked data, we'll need to use two new packages: @graphql-tools/mock and @graphql-tools/schema.
+              <br />
+              yarn add @graphql-tools/mock @graphql-tools/schema
+              <br />
+              npm install @graphql-tools/mock @graphql-tools/schema
+            </li>
+          </ul>
+          <hr />
+
+          <h3>12.5 Ready to run Client</h3>
+          <ul className='hasTypeDisc'>
+            <li>
               <h5>Go to: cd Client and run yarn install</h5>
               <br />
               Run local: yarn dev
