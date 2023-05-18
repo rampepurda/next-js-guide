@@ -115,7 +115,8 @@ const ChSeven: NextPage = () => {
               <Image
                 src={imgHooks}
                 aria-hidden={true}
-                alt='hooks'/>
+                alt='hooks'
+              />
 
               <h3>slice.ts</h3>
               <Image
