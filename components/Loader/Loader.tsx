@@ -5,11 +5,9 @@ import Image from "next/image"
 
 export const Loader = () => {
   return (
-    <>
-      <Image
-        className={style.loader}
-        src={GridLoader} aria-hidden='true'
-      />
-    </>
+    <Image
+      className={style.loader}
+      src={GridLoader} aria-hidden='true'
+    />
   )
 }

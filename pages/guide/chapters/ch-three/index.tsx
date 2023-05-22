@@ -17,6 +17,7 @@ const ChThree: NextPage = () => {
 
         <div className='col-9'>
           <h2>3. Environment .env</h2>
+          <p>You will work with sensitive information? Then use <strong>.env</strong></p>
           <hr />
 
           <h3>3.1 Predefined .env in Next JS</h3>

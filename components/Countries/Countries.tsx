@@ -8,23 +8,21 @@ import { Loader } from "../../components"
 export const Countries = ({countries}: {countries: CountriesQL[]}) => {
   const { error, loader } = useAppSelector(state => state.Countries)
   return (
-    <div>
-      <div className={style.Card}>
-        {error}
-        {loader ? <Loader /> : ''}
+    <div className={style.Card}>
+      {error}
+      {loader ? <Loader /> : ''}
 
-        {countries?.map((country: CountriesQL, idx: number) => {
-          return (
-            <div
-              className={style.Box}
-              key={idx}
-            >
-              <Country {...country} />
-            </div>
-          )
-        })
-        }
-      </div>
+      {countries?.map((country: CountriesQL, idx: number) => {
+        return (
+          <div
+            className={style.Box}
+            key={idx}
+          >
+            <Country {...country} />
+          </div>
+        )
+      })
+      }
     </div>
   )
 }

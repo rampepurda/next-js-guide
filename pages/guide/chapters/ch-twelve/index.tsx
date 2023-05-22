@@ -4,6 +4,10 @@
  *  Git Copy:
  *  git clone https://github.com/apollographql/odyssey-lift-off-part1
  */
+/** useQueries
+ * @const {data} = useQueries(GET_QUERIES)
+ * @requires <Countries countries={data.countries.slice(70,80)} />
+ */
 
 import React, {useEffect, useLayoutEffect} from "react"
 import { NextPage } from "next"
@@ -13,10 +17,13 @@ import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
 import { getCountries } from "../../../../slices"
 import { Pages } from "../../../../configuration/pages"
+import {useQuery} from "@apollo/client";
+import {GET_COUNTRIES_QUERY} from "../../../../queries";
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
   const { countriesGraphQL } = useAppSelector(state => state.Countries)
+  const { data } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     dispatch(getCountries())
