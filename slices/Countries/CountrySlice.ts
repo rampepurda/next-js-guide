@@ -35,7 +35,7 @@ export const getCountryDetail = createAsyncThunk<CountriesQL, {code: string} >(
   async ({code}, { rejectWithValue}) => {
     try {
       return await CountriesService.getCountryDetail(code)
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(Message.error)
     }
   }
