@@ -17,8 +17,10 @@ import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
 import { getCountries } from "../../../../slices"
 import { Pages } from "../../../../configuration/pages"
-import {useQuery} from "@apollo/client";
-import {GET_COUNTRIES_QUERY} from "../../../../queries";
+import { useQuery } from "@apollo/client"
+import { GET_COUNTRIES_QUERY } from "../../../../queries"
+import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
+import Image from "next/image"
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -172,6 +174,10 @@ const ChTwelve: NextPage = () => {
               Run local: yarn dev
             </li>
           </ul>
+          <Image
+            src={imgApolloStructure}
+            alt='ApolloStructure'
+          />
           <hr />
 
           <h3>List of Countries with Apollo GraphQL - ClientSideRendering</h3>
