@@ -17,7 +17,9 @@ describe('Navigation', () => {
     render(<Navigation isMain={true} links={navigationLinksMockData} />)
 
     const navigation = screen.getByRole('navigation')
+    const links = screen.getAllByRole('link')
     expect(navigation).toBeInTheDocument()
+    expect(links.length).toBe(4)
   })
 
 })
