@@ -59,7 +59,11 @@ export const navigationGuideLinks = [
   {
     tKey: "navGuide.ch-twelve",
     link: `${ROUTE.GUIDE}/chapters/ch-twelve`
-  }
+  },
+  {
+    tKey: "navGuide.ch-thirteen",
+    link: `${ROUTE.GUIDE}/chapters/ch-thirteen`
+  },
 ]
 
 export const navigationProjectsLinks = [

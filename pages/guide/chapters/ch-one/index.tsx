@@ -39,7 +39,7 @@ const ChOne: NextPage = () => {
 
               <strong className='color-is-red'>&nbsp;&nbsp;&nbsp;pathname:</strong> '/projects/file-based/[id]',
               <br/>
-              <strong className='color-is-red'>&nbsp;&nbsp;&nbsp;query:</strong>: &#123; id: props.id &#125;
+              <strong className='color-is-red'>&nbsp;&nbsp;&nbsp;query:</strong> &#123; id: props.id &#125;
               <br/>
               &#125;&#125;
             </li>
