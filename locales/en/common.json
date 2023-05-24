@@ -26,7 +26,8 @@
     "ch-nine": "9. Redirects",
     "ch-ten": "10. useCallback",
     "ch-eleven": "11. Image",
-    "ch-twelve": "12. GraphQL"
+    "ch-twelve": "12. GraphQL",
+    "ch-thirteen": "13. Auth0"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
