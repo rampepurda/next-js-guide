@@ -11,10 +11,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'via.placeholder.com',
         port: '',
-        pathname: '/150/*',
+        pathname: '/*/*',
       },
     ],
   }
 }
+
 
 module.exports = nextTranslate(nextConfig)
