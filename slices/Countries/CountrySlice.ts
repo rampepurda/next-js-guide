@@ -41,8 +41,6 @@ export const getCountryDetail = createAsyncThunk<CountriesQL, {code: string} >(
   }
 )
 
-
-
 export const CountrySlice = createSlice({
   name: 'Countries',
   initialState,
