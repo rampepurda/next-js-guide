@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react"
 import { useSelect } from "../../../../hooks"
 import { NextPage } from "next"
 import Head from "next/head"
-import { AlertBox, Cars, Navigation, Select } from "../../../../components"
+import { InfoBox, Cars, Navigation, Select } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { CarList, CarsOptions} from "../../../../configuration/common"
-import { CarsInit } from '../../../../types'
+import { CarTypes } from '../../../../types'
 
 const ChTen: NextPage = () => {
-  const[selectedCars, setSelectedCars] = useState<CarsInit[]>([...CarList])
+  const[selectedCars, setSelectedCars] = useState<CarTypes[]>([...CarList])
   const { handleOption, Value } = useSelect(CarsOptions, 'ch-ten')
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const ChTen: NextPage = () => {
       return setSelectedCars(CarList)
     }
     if(Value) {
-      const selectedCar = CarList.filter((car: CarsInit) => car.name === Value)
+      const selectedCar = CarList.filter((car: CarTypes) => car.name === Value)
       return setSelectedCars(selectedCar)
     }
 }, [Value])
@@ -43,9 +43,9 @@ const ChTen: NextPage = () => {
             options={CarsOptions}
             OnChange={handleOption}
           />
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h4>Filter Cars by Name: {Value?.toUpperCase()}, found total: {selectedCars.length}</h4>
-          </AlertBox>
+          </InfoBox>
 
           <div>
             <Cars cars={selectedCars} />

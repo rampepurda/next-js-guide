@@ -1,14 +1,32 @@
 import { NextPage } from "next"
 import classNames from "classnames"
-import {AlertBox, Navigation} from "../../../../components"
+import { InfoBox, Cars, Navigation, Select } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import Head from "next/head"
 import { selectXYZ } from "../../../../slices/Common/commonSelectors"
 import { useAppSelector } from "../../../../store/hooks"
+import { useDispatch } from "react-redux"
+import { useSelect } from "../../../../hooks"
+import { CarsOptions } from "../../../../configuration/common"
+import { selectCarFilter } from "../../../../slices/Cars/carSelectors"
+import React, { useEffect } from "react"
+import { getFilterCar } from "../../../../slices"
+import { Pages } from  '../../../../configuration/pages'
+import { ROUTE } from '../../../../configuration/routes'
+import Image from "next/image"
+import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelector.png'
 
 const ChFourteen: NextPage = () => {
   const { x, y , txt } = useAppSelector(state => state.Common)
   const totalSum = useAppSelector(selectXYZ)
+  const dispatch = useDispatch()
+  const { cars, filterCar } = useAppSelector(state => state.Cars)
+  const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.GUIDE.CH14.ROUTE.GET_SELECTED_CAR)
+  const filteredCars = useAppSelector(selectCarFilter)
+
+  useEffect(() => {
+    dispatch(getFilterCar(Value))
+  }, [Value, cars, filteredCars, filterCar])
 
   return <>
     <Head>
@@ -21,7 +39,7 @@ const ChFourteen: NextPage = () => {
       </div>
 
       <div className={classNames( 'col-9')}>
-        <h2>14. createSelector with Toolkit</h2>
+        <h2>{Pages.Guide.chFourteen.headline}</h2>
         <a
           href='https://redux.js.org/usage/deriving-data-selectors#writing-memoized-selectors-with-reselect'
           target='_blank'
@@ -36,7 +54,7 @@ const ChFourteen: NextPage = () => {
         <hr />
 
         <h4>Selectors are primarily used to encapsulate logic for looking up specific values from state, logic for actually deriving values, and improving performance by avoiding unnecessary recalculations.</h4>
-        <AlertBox className={'isInfo'}>
+        <InfoBox className={'isInfo'}>
           <ul>
             <li>
               // Arrow function, direct lookup
@@ -62,9 +80,50 @@ const ChFourteen: NextPage = () => {
               </h5>
             </li>
           </ul>
-        </AlertBox>
+        </InfoBox>
         <h4>A selector function can have any name you want. However, we recommend prefixing selector function names with the word <mark>select</mark> combined with a description of the value being selected.</h4>
+        <hr />
 
+        <h3>Examples:</h3>
+
+        <h4>slice/Cars/carSlice.ts</h4>
+        <ul className='hasTypeDisc'>
+          <li>Defined InitialValues and Action to be in used</li>
+        </ul>
+        <hr />
+
+        <h4>slice/Cars/carSelector.ts</h4>
+        <ul className='hasVerticalPadding-2'>
+          <li><strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong> // Imported from CarSlice</li>
+          <li><strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong> // Imported from CarSlice</li>
+        </ul>
+        <Image
+          src={imgCreateSelector}
+          alt='how create selector'
+          aria-hidden={true}
+        />
+        <hr />
+
+        <h4>pages/cars/index</h4>
+        <ul>
+          <li><strong>const dispatch = useDispatch()</strong></li>
+          <li><strong>const &#123; cars, filterCar &#125; = useAppSelector(state =&gt; state.Cars</strong>)</li>
+          <li><strong>const filteredCars = useAppSelector(selectCarFilter)</strong></li>
+          <li><strong>return ( &lt;Cars cars = &#123;filteredCars&#125; /&gt; )</strong></li>
+        </ul>
+        <Select
+          id='oldCars'
+          ClassName='select'
+          options={CarsOptions}
+          OnChange={handleOption}
+        />
+
+        <div>
+          <mark>{Value?.toUpperCase()} | Total found: <strong>{filteredCars.length}</strong></mark>
+        </div>
+        <Cars cars={filteredCars} />
+        <hr />
+        <h4>See more: slice/Common/commonSelector.ts</h4>
         <h2>{totalSum}</h2>
         <h2>{[x, txt]}</h2>
       </div>

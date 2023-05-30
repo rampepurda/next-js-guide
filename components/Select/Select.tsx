@@ -1,5 +1,8 @@
-import React, {ChangeEvent} from "react"
+import style from './Select.module.scss'
+
+import React, { ChangeEvent } from "react"
 import { OptionsInit } from "../../types"
+import classNames from "classnames"
 
 type Props = {
   ClassName: string,
@@ -13,7 +16,7 @@ export const Select = ({ClassName, icon, id, options, OnChange}: Props) => {
   return (
     <select
       id={id}
-      className={ClassName}
+      className={classNames(ClassName, style.Select)}
       onChange={OnChange}
     >
       { options.map(({value}, idx: number) => (

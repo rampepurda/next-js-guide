@@ -6,5 +6,21 @@ export const ROUTE = {
   PROJECT_DYN_ROUTE: 'projects/dynamic-route',
   PROJECT_CARS: 'projects/cars',
   GUIDE_DYN_ROUTE: '/guide/chapters/ch-twelve',
+  PAGES: {
+    GUIDE: {
+      CH14: {
+        ROUTE: {
+          GET_SELECTED_CAR: 'ch_fourteen'
+        }
+      }
+    },
+    PROJECTS: {
+      CARS: {
+        ROUTE: {
+          GET_SELECTED_CAR: 'cars'
+        }
+      }
+    }
+  }
 }
 

@@ -4,22 +4,23 @@ import { NextPage } from "next"
 import Head from "next/head"
 import { Cars, Navigation, Select } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
-import { CarList, CarsOptions } from "../../../configuration/common"
-import { CarTypes } from '../../../types'
+import { CarsOptions } from "../../../configuration/common"
 import { useAppSelector } from "../../../store/hooks"
 import { selectCarFilter } from "../../../slices/Cars/carSelectors"
 import { useDispatch } from "react-redux"
-import {getFilterCar} from "../../../slices";
+import { getFilterCar } from "../../../slices"
+import { ROUTE } from '../../../configuration/routes'
 
 const CarsPage: NextPage = () => {
   const dispatch = useDispatch()
   const { cars, filterCar } = useAppSelector(state => state.Cars)
-  const { handleOption, Value = filterCar } = useSelect(CarsOptions, 'cars')
+  const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR)
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
     dispatch(getFilterCar(Value))
   }, [Value, cars, filteredCars, filterCar])
+
   return (
     <>
       <Head>
@@ -45,11 +46,6 @@ const CarsPage: NextPage = () => {
             <mark>{Value?.toUpperCase()} | Total found: <strong>{filteredCars.length}</strong></mark>
           </div>
           <Cars cars={filteredCars} />
-          {/*
-           <Cars cars={selectedCars} />
-          */
-          }
-
         </div>
       </div>
     </>

@@ -6,6 +6,8 @@ import { Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import Head from "next/head"
 import CountriesService from '../../../../services/Countries'
+import {useQuery} from "@apollo/client";
+import {GET_COUNTRIES_DETAIL_QUERY} from "../../../../queries";
 
 type Props = {
   data: {
@@ -15,9 +17,12 @@ type Props = {
   }
 }
 
-function CountryId() {
+function CountryId({ code }: {code: string}) {
   const dispatch = useAppDispatch()
   const { countriesGraphQL, countryDetail } = useAppSelector(state => state.Countries)
+  const {  data } = useQuery(GET_COUNTRIES_DETAIL_QUERY, {
+    variables: { code },
+  });
 
   useEffect(() => {
     dispatch(getCountries())
@@ -35,11 +40,12 @@ function CountryId() {
         <div className='col-3 has-br'>
           <Navigation links={navigationGuideLinks} />
         </div>
+
         <div className='col-9 has-br'>
           <label>Country:</label>
-          <h3>{countryDetail.code}</h3>
+          <h3>{data.countries.code}</h3>
           <label>Code:</label>
-          <h3>{countryDetail.name}</h3>
+          <h3>{data.countries.name}</h3>
         </div>
       </div>
     </>

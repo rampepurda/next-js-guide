@@ -11,7 +11,7 @@
 
 import React, {useEffect, useLayoutEffect} from "react"
 import { NextPage } from "next"
-import { Navigation, AlertBox, Countries } from "../../../../components"
+import { Navigation, InfoBox, Countries } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
@@ -116,7 +116,7 @@ const ChTwelve: NextPage = () => {
 
           <h3>12.3 Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h5>Definition Schema Language(DSL)</h5>
             <hr />
             <ul className='hasVerticalPadding-2'>
@@ -129,7 +129,7 @@ const ChTwelve: NextPage = () => {
             <hr />
 
             <h5>It`s a good practice to make documentation for each schema</h5>
-          </AlertBox>
+          </InfoBox>
 
           <h3>12.4 Ready to Install GraphQL Server</h3>
           <ul className='hasTypeDisc'>
