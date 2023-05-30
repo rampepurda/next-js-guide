@@ -8,7 +8,7 @@ type Init = {
 }
 
 const initialState: Init = {
-  x: 1,
+  x: 10,
   y: 2,
   z: 3,
   txt: 'Prague'

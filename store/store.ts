@@ -5,14 +5,16 @@ import {
 } from '@reduxjs/toolkit'
 import {
   PhotosSlice,
-  CountrySlice, CommonSlice,
+  CountrySlice, CommonSlice, CarSlice,
 } from "../slices"
 
 export const store = configureStore({
   reducer: {
-    [PhotosSlice.name]: PhotosSlice.reducer,
-    [CountrySlice.name]: CountrySlice.reducer,
+
+    [CarSlice.name]: CarSlice.reducer,
     [CommonSlice.name]: CommonSlice.reducer,
+    [CountrySlice.name]: CountrySlice.reducer,
+    [PhotosSlice.name]: PhotosSlice.reducer,
   },
 });
 

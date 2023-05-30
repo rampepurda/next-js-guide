@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 
-export interface navData {
+export interface NavigationLink {
   tKey: string,
   link: string
 }
@@ -23,6 +23,13 @@ export type CountriesQL = {
   name: string,
   emoji?: string,
 }
+export interface CarTypes {
+  model: string,
+  name: string,
+  location?: string,
+  price: string
+}
+
 
 // Hooks
 export type OptionsInit = { value: string }
@@ -32,14 +39,6 @@ export type Person = {
   name: string,
   age: number
 }
-
-export interface CarsInit {
-  model: string,
-  name: string,
-  location?: string,
-  price: string
-}
-
 // Slices
 interface InitValueSL
 {

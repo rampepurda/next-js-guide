@@ -8,8 +8,7 @@ import { useAppSelector } from "../../../../store/hooks"
 
 const ChFourteen: NextPage = () => {
   const { x, y , txt } = useAppSelector(state => state.Common)
-  const totalSum: any = useAppSelector(selectXYZ)
-  //const filterPhoto: any = useAppSelector(selectedPhoto)
+  const totalSum = useAppSelector(selectXYZ)
 
   return <>
     <Head>
@@ -59,11 +58,12 @@ const ChFourteen: NextPage = () => {
             <li>
               // Arrow function, deriving values from an array
               <h5>const selectItemsWhoseNamesStartWith = (items, namePrefix) =&gt;<br />
-                &nbsp;items.filter(item =&lt; item.name.startsWith(namePrefix))<br />
+                &nbsp;items.filter(item =&gt; item.name.startsWith(namePrefix))<br />
               </h5>
             </li>
           </ul>
         </AlertBox>
+        <h4>A selector function can have any name you want. However, we recommend prefixing selector function names with the word <mark>select</mark> combined with a description of the value being selected.</h4>
 
         <h2>{totalSum}</h2>
         <h2>{[x, txt]}</h2>

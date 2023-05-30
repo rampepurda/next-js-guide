@@ -20,13 +20,3 @@ export const selectXYZ = createSelector(
   // do something with x, y, and z and return a result
   return x + y + z
 })
-
-/*
-export const selectedPhoto = createSelector(
-  selectPhoto,
-  (photos) => {
-    return photos.filter((photo: initPhotos) => photo.id === 23)
-})
- */
-
-
