@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { CarTypes } from "../../types"
 import { CarList } from "../../configuration/common"
-import {PhotosSlice} from "../Photos/PhotosSlice";
 
 type initCars = {
   filterCar: string

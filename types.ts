@@ -24,6 +24,7 @@ export type CountriesQL = {
   emoji?: string,
 }
 export interface CarTypes {
+  id: string | number,
   model: string,
   name: string,
   location?: string,

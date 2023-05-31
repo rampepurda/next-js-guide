@@ -1,8 +1,8 @@
 import { Car } from '../Car'
-import { CarsInit } from "../../types"
+import { CarTypes } from "../../types"
 
 type Props = {
-  cars: CarsInit[]
+  cars: CarTypes[]
 }
 
 export const Cars = ({cars}: Props) => {
