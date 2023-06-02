@@ -14,19 +14,11 @@ export const GET_COUNTRIES_QUERY = gql`
   }
 `
 export const GET_COUNTRIES_DETAIL_QUERY = gql`
-  query Countries($code: code) {
+  query get Country detail($code: code) {
     countries(code: $code) {
       code
       emoji
       name
     }
   }
-`
-export const GET_DETAIL_QUERY = gql`
-  query GetDog($dogId: ID!) {
-  dog(id: $dogId) {
-    name
-    breed
-  }
-}
 `
