@@ -127,7 +127,6 @@ const ChTwelve: NextPage = () => {
               <li>&#125;</li>
             </ul>
             <hr />
-
             <h5>It`s a good practice to make documentation for each schema</h5>
           </InfoBox>
 
@@ -154,6 +153,16 @@ const ChTwelve: NextPage = () => {
               >
                 Building our schema
               </a>
+              <br />
+              <a
+                href='https://www.apollographql.com/docs/apollo-server/schema/schema'
+                target='_blank'
+                rel='author'
+              >
+                Schema how to setup, read here
+              </a>
+              <h4>Naming conventions</h4>
+              Field names should use <strong>camelCase</strong> or <strong>PascalCase</strong>. Many GraphQL clients are written in JavaScript, Java, Kotlin, or Swift, all of which recommend camelCase for variable names.
             </li>
             <li>
               <h5>Mocking data on Server, need to install:</h5>
@@ -164,6 +173,10 @@ const ChTwelve: NextPage = () => {
               npm install @graphql-tools/mock @graphql-tools/schema
             </li>
           </ul>
+          <Image
+            src={imgApolloStructure}
+            alt='ApolloStructure'
+          />
           <hr />
 
           <h3>12.5 Ready to run Client</h3>
@@ -174,10 +187,6 @@ const ChTwelve: NextPage = () => {
               Run local: yarn dev
             </li>
           </ul>
-          <Image
-            src={imgApolloStructure}
-            alt='ApolloStructure'
-          />
           <hr />
 
           <h3>List of Countries with Apollo GraphQL - ClientSideRendering</h3>

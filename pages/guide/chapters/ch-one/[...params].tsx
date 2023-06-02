@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { AlertBox } from "../../../../components"
+import { InfoBox } from "../../../../components"
 
 const ChOneSlug: () => void = () => {
   const router = useRouter()
@@ -11,7 +11,7 @@ const ChOneSlug: () => void = () => {
 
   return <>
     {pathName.includes('sub') ? <h2>Welcome in Sub section</h2> : ''}
-    {params.length === 1 || params.length === 2 ? <AlertBox className={'isWarning'}>{configuration.pathName}/{params.length}</AlertBox> : ''}
+    {params.length === 1 || params.length === 2 ? <InfoBox className={'isWarning'}>{configuration.pathName}/{params.length}</InfoBox> : ''}
   </>
 }
 

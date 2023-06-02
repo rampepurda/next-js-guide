@@ -14,12 +14,11 @@
 
 export const isNavLinkActive = (pathName: string, link: string): boolean => {
   const currentLink = link.split(RegExp(/^\/([a-zA-Z0-9]+)/)).filter(Boolean)
-
   return pathName.startsWith(`/${currentLink[0]}`, 0)
 }
 
 /**
- * @startWith(`/${currentLink[0]}`) = backslash is wrong should be rid of(for example ch4,ch14)
+ * @startWith(`/${currentLink[0]}`) = backslash  is wrong and should be got rid of(for example ch4,ch14)
  * where compare every word after /
  *
  */

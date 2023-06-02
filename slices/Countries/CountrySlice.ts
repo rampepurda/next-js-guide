@@ -12,7 +12,7 @@ const initialState: {
   countryDetail: CountriesQL
 } = {
   error: '',
-  filter: 'FJ',
+  filter: '',
   loader: true,
   countriesGraphQL: [],
   filterCountry: {

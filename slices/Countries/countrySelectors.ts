@@ -6,3 +6,5 @@ import { CountriesQL } from "../../types"
  * input selectors
  */
 
+const selectCountry = (state: any) => state.Countries.filterCountry
+const selectFilter = (state: any) => state.Countries.filter

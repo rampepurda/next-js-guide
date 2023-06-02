@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react"
 
 export const InfoBox = ({children, className}: PropsWithChildren<{ className: string }>) => {
   return (
-    <div className={classNames(style.alertBox, {
+    <div className={classNames(style.infoBox, {
       [style.isDanger]: className === 'isDanger',
       [style.isInfo]: className === 'isInfo',
       [style.isSuccess]: className === 'isSuccess',
