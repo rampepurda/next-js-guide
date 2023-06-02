@@ -11,7 +11,7 @@
 
 import React, {useEffect, useLayoutEffect} from "react"
 import { NextPage } from "next"
-import { Navigation, AlertBox, Countries } from "../../../../components"
+import { Navigation, InfoBox, Countries } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
@@ -116,7 +116,7 @@ const ChTwelve: NextPage = () => {
 
           <h3>12.3 Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h5>Definition Schema Language(DSL)</h5>
             <hr />
             <ul className='hasVerticalPadding-2'>
@@ -127,9 +127,8 @@ const ChTwelve: NextPage = () => {
               <li>&#125;</li>
             </ul>
             <hr />
-
             <h5>It`s a good practice to make documentation for each schema</h5>
-          </AlertBox>
+          </InfoBox>
 
           <h3>12.4 Ready to Install GraphQL Server</h3>
           <ul className='hasTypeDisc'>
@@ -154,6 +153,16 @@ const ChTwelve: NextPage = () => {
               >
                 Building our schema
               </a>
+              <br />
+              <a
+                href='https://www.apollographql.com/docs/apollo-server/schema/schema'
+                target='_blank'
+                rel='author'
+              >
+                Schema how to setup, read here
+              </a>
+              <h4>Naming conventions</h4>
+              Field names should use <strong>camelCase</strong> or <strong>PascalCase</strong>. Many GraphQL clients are written in JavaScript, Java, Kotlin, or Swift, all of which recommend camelCase for variable names.
             </li>
             <li>
               <h5>Mocking data on Server, need to install:</h5>
@@ -164,6 +173,10 @@ const ChTwelve: NextPage = () => {
               npm install @graphql-tools/mock @graphql-tools/schema
             </li>
           </ul>
+          <Image
+            src={imgApolloStructure}
+            alt='ApolloStructure'
+          />
           <hr />
 
           <h3>12.5 Ready to run Client</h3>
@@ -174,10 +187,6 @@ const ChTwelve: NextPage = () => {
               Run local: yarn dev
             </li>
           </ul>
-          <Image
-            src={imgApolloStructure}
-            alt='ApolloStructure'
-          />
           <hr />
 
           <h3>List of Countries with Apollo GraphQL - ClientSideRendering</h3>

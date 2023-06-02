@@ -14,55 +14,59 @@ export const navigationLinks = [
 export const navigationGuideLinks = [
   {
     tKey: "navGuide.ch-one",
-    link: `${ROUTE.GUIDE}/chapters/ch-one`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`
   },
   {
     tKey: "navGuide.ch-two",
-    link: `${ROUTE.GUIDE}/chapters/ch-two`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-two`
   },
   {
     tKey: "navGuide.ch-three",
-    link: `${ROUTE.GUIDE}/chapters/ch-three`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-three`
   },
   {
     tKey: "navGuide.ch-four",
-    link: `${ROUTE.GUIDE}/chapters/ch-four`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-four`
   },
   {
     tKey: "navGuide.ch-five",
-    link: `${ROUTE.GUIDE}/chapters/ch-five`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-five`
   },
   {
     tKey: "navGuide.ch-six",
-    link: `${ROUTE.GUIDE}/chapters/ch-six`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-six`
   },
   {
     tKey: "navGuide.ch-seven",
-    link: `${ROUTE.GUIDE}/chapters/ch-seven`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-seven`
   },
   {
     tKey: "navGuide.ch-eight",
-    link: `${ROUTE.GUIDE}/chapters/ch-eight`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-eight`
   },
   {
     tKey: "navGuide.ch-nine",
-    link: `${ROUTE.GUIDE}/chapters/ch-nine`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-nine`
   },
   {
     tKey: "navGuide.ch-ten",
-    link: `${ROUTE.GUIDE}/chapters/ch-ten`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-ten`
   },
   {
     tKey: "navGuide.ch-eleven",
-    link: `${ROUTE.GUIDE}/chapters/ch-eleven`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-eleven`
   },
   {
     tKey: "navGuide.ch-twelve",
-    link: `${ROUTE.GUIDE}/chapters/ch-twelve`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-twelve`
   },
   {
     tKey: "navGuide.ch-thirteen",
-    link: `${ROUTE.GUIDE}/chapters/ch-thirteen`
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-thirteen`
+  },
+  {
+    tKey: "navGuide.ch-fourteen",
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch_fourteen`
   },
 ]
 

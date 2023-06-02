@@ -4,17 +4,17 @@ import {
   ThunkAction,
 } from '@reduxjs/toolkit'
 import {
-  CounterSlice,
   PhotosSlice,
-  CountrySlice
+  CountrySlice, CommonSlice, CarSlice,
 } from "../slices"
-import {Photos} from "../components/Photos";
 
 export const store = configureStore({
   reducer: {
-    [PhotosSlice.name]: PhotosSlice.reducer,
+
+    [CarSlice.name]: CarSlice.reducer,
+    [CommonSlice.name]: CommonSlice.reducer,
     [CountrySlice.name]: CountrySlice.reducer,
-    [CounterSlice.name]: CounterSlice.reducer,
+    [PhotosSlice.name]: PhotosSlice.reducer,
   },
 });
 

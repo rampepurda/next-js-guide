@@ -58,7 +58,13 @@ const ChThirteen: NextPage = () => {
             <strong>Create file: auth inside pages/app and inside auth create file: [auth0].js</strong>
           </li>
           <li>Setup [auth0].js accordingly GITHUB tutorial </li>
-          <li>In pages/index <strong>import &#123; useUser&#125; from '@auth0/nextjs-auth0/client'</strong></li>
+          <li>
+            <h4>Create component: Profile</h4>
+            <strong>import &#123; useUser&#125; from '@auth0/nextjs-auth0/client'</strong>
+            <h4>const &#123; user, error, isLoading &#125; = useUser()</h4>
+            Condition will be here (After User is Logged will be displayed appropriate content)
+            [...should be made By GraphQL]
+          </li>
           <li>In pages/app <strong>import &#123; UserProvider &#125; from '@auth0/nextjs-auth0/client'</strong></li>
           <li>In pages/app return &lt; UserProvider &gt; Layout &lt; UserProvider &gt;</li>
         </ul>

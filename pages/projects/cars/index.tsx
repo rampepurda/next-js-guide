@@ -2,25 +2,25 @@ import React, { useState, useEffect } from "react"
 import { useSelect } from "../../../hooks"
 import { NextPage } from "next"
 import Head from "next/head"
-import { AlertBox, Cars, Navigation, Select } from "../../../components"
+import { Cars, Navigation, Select } from "../../../components"
 import { navigationProjectsLinks } from "../../../configuration/navigation"
-import { CarList, CarsOptions} from "../../../configuration/common"
-import { CarsInit } from '../../../types'
+import { CarsOptions } from "../../../configuration/common"
+import { useAppSelector } from "../../../store/hooks"
+import { selectCarFilter } from "../../../slices/Cars/carSelectors"
+import { useDispatch } from "react-redux"
+import { getFilterCar } from "../../../slices"
+import { ROUTE } from '../../../configuration/routes'
 
 const CarsPage: NextPage = () => {
-  const[selectedCars, setSelectedCars] = useState<CarsInit[]>([...CarList])
-  const { handleOption, Value = 'all cars' } = useSelect(CarsOptions, 'cars')
-  const[selectValue] = useState<string>('all cars')
+  const dispatch = useDispatch()
+  const { cars, filterCar } = useAppSelector(state => state.Cars)
+  const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR)
+  const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
-    if(Value === 'all cars') {
-      return setSelectedCars(CarList)
-    }
-    if(Value) {
-      const selectedCar = CarList.filter((car: CarsInit) => car.name === Value)
-      return setSelectedCars(selectedCar)
-    }
-  }, [Value, selectValue])
+    dispatch(getFilterCar(Value))
+  }, [Value, cars, filteredCars, filterCar])
+
   return (
     <>
       <Head>
@@ -33,19 +33,19 @@ const CarsPage: NextPage = () => {
         </div>
 
         <div className='col-9'>
-          <h2>{Value === undefined ? 'Is undefined' : Value}</h2>
-
+          <h3>Filter Cars by Name:</h3>
           <Select
             id='oldCars'
             ClassName='select'
             options={CarsOptions}
             OnChange={handleOption}
           />
-          <AlertBox className={'isInfo'}>
-            <h4>Filter Cars by Name: {Value?.toUpperCase()}, found total: {selectedCars.length}</h4>
-          </AlertBox>
+          <hr />
 
-          <Cars cars={selectedCars} />
+          <div>
+            <mark>{Value?.toUpperCase()} | Total found: <strong>{filteredCars.length}</strong></mark>
+          </div>
+          <Cars cars={filteredCars} />
         </div>
       </div>
     </>

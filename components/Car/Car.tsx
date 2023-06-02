@@ -1,9 +1,10 @@
-import { CarsInit } from '../../types'
+import { CarTypes } from '../../types'
 import style from './Car.module.scss'
 
-type Props = CarsInit
+type Props = CarTypes
 
 export const Car = ({
+  id,
   model,
   name,
   location,

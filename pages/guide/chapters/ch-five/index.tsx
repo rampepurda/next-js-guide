@@ -3,7 +3,7 @@ import style from '../../chapters.module.scss'
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { Navigation, AlertBox } from "../../../../components"
+import { Navigation, InfoBox } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import Image from "next/image"
@@ -64,9 +64,9 @@ const ChFive: NextPage = () => {
           <hr />
 
           <h3>Next/dynamic</h3>
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h5>next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the app and pages directories to allow for incremental migration.</h5>
-          </AlertBox>
+          </InfoBox>
           <ul className={classNames(style.hasNoBorder)}>
             <li>
               <strong className='color-is-red'>const</strong> ComponentA = dynamic(() =&gt; import('../components/A'))
@@ -89,9 +89,9 @@ const ChFive: NextPage = () => {
           <hr/>
 
           <h3>lazy</h3>
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h5><em>lazy</em> lets you defer loading component’s code until it is rendered for the first time.</h5>
-          </AlertBox>
+          </InfoBox>
           <ul className={classNames(style.hasNoBorder)}>
             <li><strong className='color-is-red'>import</strong> &#123; lazy &#125; from 'react'</li>
             <li><strong className='color-is-red'>const</strong> MarkdownPreview = lazy(() =&gt; import('./MarkdownPreview.js'))</li>
@@ -99,9 +99,9 @@ const ChFive: NextPage = () => {
           <hr />
 
           <h3>&lt;Suspense&gt;</h3>
-          <AlertBox className={'isInfo'}>
+          <InfoBox className={'isInfo'}>
             <h5>&lt;Suspense&gt; lets you display a fallback until its children have finished loading.</h5>
-          </AlertBox>
+          </InfoBox>
           <ul className={classNames(style.hasNoBorder)}>
             <li><strong className='color-is-red'>import</strong> &#123; Suspense &#125; from "react"</li>
             <li>

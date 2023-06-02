@@ -4,7 +4,7 @@
  */
 
 import { NextPage } from "next"
-import { AlertBox, Navigation } from "../../../../components"
+import { InfoBox, Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration/navigation";
 import Head from "next/head"
 import Image from "next/image"
@@ -57,9 +57,9 @@ const ChOne: NextPage = () => {
             </li>
           </ul>
 
-          <AlertBox className={'isInfo'} >
+          <InfoBox className={'isInfo'} >
             <h4>Note: You can use names other than slug, such as: [...param]</h4>
-          </AlertBox>
+          </InfoBox>
 
           <Image src={imgSlug} aria-hidden={true} alt='slug how it works' />
         </div>

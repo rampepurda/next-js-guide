@@ -2,7 +2,7 @@ import style from './Navigation.module.scss'
 
 import Link from "next/link"
 import { useRouter } from 'next/router'
-import { navData } from "../../types"
+import { NavigationLink } from "../../types"
 import { LangSwitch } from '../index'
 import classNames from "classnames"
 import { isNavLinkActive } from "../../utils"
@@ -12,7 +12,7 @@ import { useMemo } from "react"
 type Props = {
   isMain?: boolean,
   isSub?: boolean,
-  links: navData[]
+  links: NavigationLink[]
 }
 
 export const Navigation = ({links, isMain = false, isSub = false}: Props) => {

@@ -1,5 +1,5 @@
 import { NextPage } from "next"
-import { Navigation, AlertBox } from "../../../../components"
+import { Navigation, InfoBox } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import Image from "next/image"
@@ -30,12 +30,12 @@ export const ChNine: NextPage = () => {
             </a>
           </p>
 
-          <AlertBox className={'info'}>
+          <InfoBox className={'info'}>
             <h4>
               Redirects allow you to redirect an incoming request path to a different destination path.
               To use Redirects you can use the redirects key in <span className='color-is-black'>next.config.js</span>
             </h4>
-          </AlertBox>
+          </InfoBox>
 
           <Image
             src={imgRedirect}

@@ -5,13 +5,21 @@ import { Message } from "../../configuration/common"
 
 const initialState: {
   error?: string,
+  filter: string,
   loader: boolean,
   countriesGraphQL: CountriesQL[],
+  filterCountry: CountriesQL,
   countryDetail: CountriesQL
 } = {
   error: '',
+  filter: '',
   loader: true,
   countriesGraphQL: [],
+  filterCountry: {
+    code: 'CZ',
+    name: 'CZECH REPUBLIC',
+    emoji: ''
+  },
   countryDetail: {
     code: 'CZ dummy',
     name: 'Czech Republic dummy',
@@ -41,12 +49,13 @@ export const getCountryDetail = createAsyncThunk<CountriesQL, {code: string} >(
   }
 )
 
-
-
 export const CountrySlice = createSlice({
   name: 'Countries',
   initialState,
   reducers: {
+    filteredCar: (state, action) => {
+      state.filter = action.payload
+    },
   },
   extraReducers(builder) {
     builder.addCase(getCountries.fulfilled, (state, action) => {
@@ -67,3 +76,5 @@ export const CountrySlice = createSlice({
     })
   }
 })
+
+export const { filteredCar} = CountrySlice.actions

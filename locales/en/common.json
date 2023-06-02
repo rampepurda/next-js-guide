@@ -27,7 +27,8 @@
     "ch-ten": "10. useCallback",
     "ch-eleven": "11. Image",
     "ch-twelve": "12. GraphQL",
-    "ch-thirteen": "13. Auth0"
+    "ch-thirteen": "13. Auth0",
+    "ch-fourteen": "14. createSelector"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",

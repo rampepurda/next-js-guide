@@ -1,5 +1,5 @@
 import { NextPage } from "next"
-import { Navigation, AlertBox } from "../../../../components"
+import { Navigation, InfoBox } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration/navigation"
 import Image from "next/image"
@@ -34,9 +34,9 @@ export const ChEleven: NextPage = () => {
             <li>A path string. This can be either an absolute external URL, or an internal path depending on the loader prop.</li>
           </ul>
           <h3>External Image</h3>
-          <AlertBox className='info'>
+          <InfoBox className='info'>
             <h4>External images must be configured in next.config.js using the remotePatterns property.</h4>
-          </AlertBox>
+          </InfoBox>
           <Image
             src={imgNextConfig}
             aria-hidden={true}

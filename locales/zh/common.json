@@ -25,7 +25,8 @@
     "ch-ten": "10. 使用回調",
     "ch-eleven": "11. 圖片",
     "ch-twelve": "12. 圖形QL",
-    "ch-thirteen": "13. 作者0"
+    "ch-thirteen": "13. 作者0",
+    "ch-fourteen": "14. 创建选择器"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
