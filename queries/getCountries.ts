@@ -14,7 +14,7 @@ export const GET_COUNTRIES_QUERY = gql`
   }
 `
 export const GET_COUNTRIES_DETAIL_QUERY = gql`
-  query get Country detail($code: code) {
+  query getCountryDetail($code: code) {
     countries(code: $code) {
       code
       emoji
