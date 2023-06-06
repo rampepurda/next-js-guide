@@ -55,7 +55,8 @@ const ChFifteen: NextPage = () => {
 
           <Modal
             title={'Example of Focus Trap library'}
-            labels={mInfo}>
+            labels={mInfo}
+          >
             <p>Modal window is a user experience pattern that is useful when you want to bring the user&apos;s attention to something important without leaving the current context/page.</p>
             <p>You might also learn more about the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role">dialog</a> role.</p>
           </Modal>
