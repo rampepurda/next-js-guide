@@ -33,7 +33,9 @@ const ChFour: NextPage = () => {
             <li>
               <h3>Implementation:</h3>
               <h5>const isActive: boolean = true</h5>
-              <code>&lt;div className=&#123;<strong><span style={{color: 'orange'}}>classNames</span>(<strong style={{color: 'red'}}>[style.ModuleStyle]: isActive && hasAccount</strong>, 'other Class')</strong>&#125;&gt;</code>
+              <code>&lt;div className=&#123;<strong><span style={{color: 'orange'}}>classNames</span>(<strong style={{color: 'red'}}>
+                <br />[style.ModuleStyle]: isActive && hasAccount</strong>,
+                <br /> 'other Condition')</strong>&#125;&gt;</code>
             </li>
             <li>
               <h3>if statement:</h3>

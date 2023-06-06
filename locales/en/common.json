@@ -1,8 +1,6 @@
 {
   "loading": "Loading",
   "welcome":"Next-JS Guide",
-  "trans":"Be in touch with your friends <bold>{{count}} test</bold>",
-  "trans2":"Be in touch with your friends <total>price</total>",
   "pageTitle": {
     "home": "Next JS Guids | Home",
     "projects": "Next JS | Projects",
@@ -28,7 +26,8 @@
     "ch-eleven": "11. Image",
     "ch-twelve": "12. GraphQL",
     "ch-thirteen": "13. Auth0",
-    "ch-fourteen": "14. createSelector"
+    "ch-fourteen": "14. createSelector",
+    "ch-fifteen": "15. Focus Trap library"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
@@ -45,6 +44,11 @@
       "isMain":"main",
       "isLeft":"left",
       "isSub":"sub"
+    }
+  },
+  "modal": {
+    "info": {
+      "label": "Close"
     }
   }
 }
