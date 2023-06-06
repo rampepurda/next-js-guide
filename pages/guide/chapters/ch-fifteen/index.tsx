@@ -6,7 +6,6 @@ import { navigationGuideLinks, mInfo } from "../../../../configuration"
 import { useCallback } from "react"
 import { Modal } from "../../../../components/Modal"
 
-
 const ChFifteen: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const isModalActive = useCallback(() => {
@@ -30,7 +29,7 @@ const ChFifteen: NextPage = () => {
 
         <div className='col-9'>
           <h2>15. Focus Trap library</h2>
-          <h4><strong>Install:</strong> npm i focus-trap-react | yarn add i focus-trap-react</h4>
+          <h4><strong>Install:</strong> npm i focus-trap-react | yarn add focus-trap-react</h4>
           <a
             href='https://www.npmjs.com/package/focus-trap-react'
             rel='author'
