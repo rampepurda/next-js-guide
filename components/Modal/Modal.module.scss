@@ -1,0 +1,61 @@
+@import "styles/variables";
+
+.modal {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.modalDialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, .9);
+  justify-content: center;
+  align-items: center;
+
+  &__isOpen {
+    display: flex;
+  }
+}
+
+.modalHeader {
+  &__closeBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 2.2rem;
+    right: 2rem;
+    border: none;
+    background: none;
+    font-size: 2rem;
+  }
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: $white;
+  padding: 2rem;
+  color: $black;
+
+  a {
+    color: $darkmagenta!important;
+  }
+
+  hr {
+    background-color: rgba(69, 68, 68, 0.2);
+  }
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalOpen {
+  overflow: hidden;
+}

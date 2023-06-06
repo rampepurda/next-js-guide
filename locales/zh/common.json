@@ -26,7 +26,8 @@
     "ch-eleven": "11. 圖片",
     "ch-twelve": "12. 圖形QL",
     "ch-thirteen": "13. 作者0",
-    "ch-fourteen": "14. 创建选择器"
+    "ch-fourteen": "14. 创建选择器",
+    "ch-fifteen": "15. Focus 图书馆"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
@@ -42,6 +43,11 @@
       "isMain":"主要的",
       "isLeft":"左邊",
       "isSub":"子"
+    }
+  },
+  "modal": {
+    "info": {
+      "label": "关闭"
     }
   }
 }
