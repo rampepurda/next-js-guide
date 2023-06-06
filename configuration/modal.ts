@@ -1,3 +1,6 @@
 export const mInfo = [
-  { label:"modal.info.label"}
+  {
+    label: "modal.info.label",
+    conditionValue: "Close"
+  }
 ]

@@ -4,22 +4,24 @@ import { PropsWithChildren, useCallback, useState } from 'react'
 import FocusTrap from 'focus-trap-react'
 import classNames from "classnames"
 import useTranslation from "next-translate/useTranslation"
-import { mInfo } from "../../configuration"
 
 /**
- * FocusTrap library
+ * FocusTrap library in use as an Example how to create Modal Window
  * INSTALLATION below:
  * https://www.npmjs.com/package/focus-trap-react
+ *
+ * ModalContent part includes mapping to build more than on BTNs
+ * @param btnValue includes at the moment: label and conditionValue and there is more than possible that new one will be created
  */
-type btnLabel = {
+type btnValues = {
   label: string
+  conditionValue?: string
 }
 
 type Props = {
   title: string,
-  labels: btnLabel[]
+  labels: btnValues[]
 }
-
 
 export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
   const { t } = useTranslation('common')
@@ -56,7 +58,6 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
           focusTrapOptions={{
             onDeactivate: () => {
               setIsModalOpen(false)
-              //domRemoveClass()
             },
             clickOutsideDeactivates: true,
           }}
@@ -90,9 +91,10 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
                     type="button"
                     aria-label= {t(`${item.label}`)}
                     onClick={() => {
-                      if(item.label === 'Close') {
+                      if(item.conditionValue === 'Close') {
                         setIsModalOpen(false)}
                       }
+                      // Possible more Condition will be here
                     }
                   >
                     {t(`${item.label}`)}
@@ -104,5 +106,5 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
         </FocusTrap>
       </div>
     </>
-  );
+  )
 }
