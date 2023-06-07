@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next"
 import { initPhotos } from "../../../types"
-import { environment } from "../../../configuration/environment"
-import Image from "next/image";
+import { environment } from "../../../configuration"
+import Image from "next/image"
 
 interface Props {
   photo: initPhotos

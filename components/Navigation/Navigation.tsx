@@ -44,11 +44,12 @@ export const Navigation = ({links, isMain = false, isSub = false}: Props) => {
         {links?.map(({tKey, link}, idx) => {
           return (
             <li key={idx}>
-              <Link href={`/${link}`}>
+              <Link href={link}>
                 <a
                   className={classNames({[style.isLinkActive]: isNavLinkActive(
                       router.pathname,
-                      link
+                      link,
+                      isMain
                     )
                   })}
                   aria-current={router.pathname === link ? 'page' : undefined}
