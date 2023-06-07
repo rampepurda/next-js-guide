@@ -64,8 +64,9 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
         >
           <div
             className={style.modalContent}
-            aria-labelledby="modal-2-heading"
             role="dialog"
+            aria-labelledby="modal-2-heading"
+            aria-modal={true}
           >
             <div className={style.modalHeader}>
               <h2 id="modal-2-heading">{title}</h2>

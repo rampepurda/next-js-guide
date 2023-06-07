@@ -36,7 +36,16 @@ const ChFifteen: NextPage = () => {
           >
             Focus Trap, read more
           </a>
+          <div>
+            <a
+              href='https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/'
+              rel='author'
+            >
+              Modal Window and Web Accessibility, read more
+            </a>
+          </div>
           <hr />
+
           <h4>
             Trap focus within a DOM node.
             <br />
