@@ -27,7 +27,8 @@
     "ch-twelve": "12. GraphQL",
     "ch-thirteen": "13. Auth0",
     "ch-fourteen": "14. createSelector",
-    "ch-fifteen": "15. Focus Trap library"
+    "ch-fifteen": "15. Focus Trap library",
+    "ch-sixteen": "16. JS CSS libraries"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
