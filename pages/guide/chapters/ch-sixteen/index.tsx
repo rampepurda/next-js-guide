@@ -16,7 +16,7 @@ const ChSixteen: NextPage = () => {
       </div>
 
       <div className={classNames( 'col-9')}>
-        <h2>16. JS CSS libraries</h2>
+        <h2>16. CSS in JS libraries</h2>
         <hr/>
 
         <ul className='hasTypeDecimal'>
@@ -34,7 +34,7 @@ const ChSixteen: NextPage = () => {
               </a>
             </h5>
             <mark>styled</mark> is a way to create React components that have styles attached to them.
-            <h5>Where is in used?: </h5>
+            <h5>Where is in used?:</h5>
             Project: next-apollo-server
           </li>
           <li>
