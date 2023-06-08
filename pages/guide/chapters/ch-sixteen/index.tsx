@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import classNames from "classnames"
-import { Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { InfoBox, Navigation } from "../../../../components"
+import { navigationGuideLinks } from "../../../../configuration"
 import Head from "next/head"
 
 const ChSixteen: NextPage = () => {
@@ -17,31 +17,37 @@ const ChSixteen: NextPage = () => {
 
       <div className={classNames( 'col-9')}>
         <h2>16. CSS in JS libraries</h2>
-        <hr/>
+        <InfoBox className='isInfo'>
+          <h4>There are two primary methods of using Emotion. The first is <strong>framework agnostic</strong> and the second is <strong>for use with React</strong>.</h4>
+        </InfoBox>
 
-        <ul className='hasTypeDecimal'>
+        <h3>Emotion[React, Styled]</h3>
+        <ul className='hasTypeDisc'>
           <li>
-            <strong>Emotion[CSS, Styled]</strong>
-            <h5>yarn add @emotion/react</h5>
-            <h5>yarn add @emotion/styled</h5>
+            <strong>Install:</strong>
+            <h5>yarn add @emotion/react @emotion/styled</h5>
+          </li>
+          <li>
             <h5>
               <a
                 href='https://emotion.sh/docs/install'
                 target='_blank'
                 rel='author'
               >
-                Emotion, how to Install, Tutorials see here
+                Emotion includes Tutorials see here
               </a>
             </h5>
+          </li>
+          <li>
             <mark>styled</mark> is a way to create React components that have styles attached to them.
             <h5>Where is in used?:</h5>
             Project: next-apollo-server
           </li>
-          <li>
-            <strong>React-JSS</strong>
-            <h5>For more info see React TS Guide/Ch-2</h5>
-          </li>
         </ul>
+        <hr/>
+
+        <h3>React-JSS</h3>
+        <h5>For more info see React TS Guide/Ch-2</h5>
       </div>
     </div>
   </>
