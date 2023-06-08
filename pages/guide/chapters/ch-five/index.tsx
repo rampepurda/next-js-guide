@@ -5,7 +5,7 @@ import classNames from "classnames"
 import { NextPage } from "next"
 import { Navigation, InfoBox } from "../../../../components"
 import Head from "next/head"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import Image from "next/image"
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
 

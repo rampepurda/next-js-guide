@@ -7,7 +7,7 @@ import i18n from '../../../../public/images/ch-six/i18n.png'
 import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import Head from "next/head"
 import { Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import { NextPage } from "next";
 
 const ChSix: NextPage = () => {

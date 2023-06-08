@@ -1,6 +1,6 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import { InfoBox, Navigation } from "../../../../components"
 
 const ChThree: NextPage = () => {

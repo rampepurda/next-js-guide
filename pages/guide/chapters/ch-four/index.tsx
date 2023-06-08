@@ -4,7 +4,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import classNames from "classnames"
 import { Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration/navigation";
+import { navigationGuideLinks } from "../../../../configuration";
 import { useState } from "react"
 
 const ChFour: NextPage = () => {

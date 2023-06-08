@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import { Navigation, InfoBox } from "../../../../components"
 import Head from "next/head"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import Image from "next/image"
 import imgNextConfig from '../../../../public/images/ch-eleven/nextconfig.png'
 

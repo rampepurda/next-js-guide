@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import classNames from "classnames"
 import { Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import Head from "next/head"
 
 const ChThirteen: NextPage = () => {
