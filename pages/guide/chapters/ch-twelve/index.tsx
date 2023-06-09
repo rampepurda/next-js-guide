@@ -106,9 +106,9 @@ const ChTwelve: NextPage = () => {
             <li>
               <h5>_app.tsx</h5>
               <ul>
-                <li>import apolloClient from "../apollo/graphql-client"</li>
-                <li>import &#123; ApolloProvider &#125; from "@apollo/client"</li>
-                <li>&lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;</li>
+                <li className='hasVerticalPadding-2'>import apolloClient from "../apollo/graphql-client"</li>
+                <li className='hasVerticalPadding-2'>import &#123; ApolloProvider &#125; from "@apollo/client"</li>
+                <li className='hasVerticalPadding-10'>&lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;</li>
               </ul>
             </li>
           </ul>

@@ -93,9 +93,9 @@ const ChFourteen: NextPage = () => {
         <hr />
 
         <h4>slice/Cars/carSelector.ts</h4>
-        <ul className='hasVerticalPadding-2'>
-          <li><strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong> // Imported from CarSlice</li>
-          <li><strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong> // Imported from CarSlice</li>
+        <ul>
+          <li className='hasVerticalPadding-2'><strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong> // Imported from CarSlice</li>
+          <li className='hasVerticalPadding-2'><strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong> // Imported from CarSlice</li>
         </ul>
         <Image
           src={imgCreateSelector}

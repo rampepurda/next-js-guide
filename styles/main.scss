@@ -70,12 +70,6 @@ ul {
     }
   }
 
-  &.hasVerticalPadding-2 {
-    li {
-      padding: $spacer-1 0;
-    }
-  }
-
   &.hasTypeDisc,
   &.hasTypeDecimal {
     margin-left: 1rem;
