@@ -80,7 +80,7 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
 
-          <h3>12.2 Feature data requirements</h3>
+          <h3>12.2 Feature data requirements (CLIENT)</h3>
           <ul className='hasTypeDisc'>
             <li>
               <h5>Apollo Client</h5>
@@ -167,10 +167,12 @@ const ChTwelve: NextPage = () => {
             <li>
               <h5>Mocking data on Server, need to install:</h5>
               To enable mocked data, we'll need to use two new packages: @graphql-tools/mock and @graphql-tools/schema.
-              <br />
-              yarn add @graphql-tools/mock @graphql-tools/schema
-              <br />
+              <h5>yarn add @graphql-tools/mock @graphql-tools/schema</h5>
               npm install @graphql-tools/mock @graphql-tools/schema
+            </li>
+            <li>
+              <h5>Run GraphQL Server:</h5>
+              <strong>cd server // yarn start</strong>
             </li>
           </ul>
           <Image
@@ -179,17 +181,7 @@ const ChTwelve: NextPage = () => {
           />
           <hr />
 
-          <h3>12.5 Ready to run Client</h3>
-          <ul className='hasTypeDisc'>
-            <li>
-              <h5>Go to: cd Client and run yarn install</h5>
-              <br />
-              Run local: yarn dev
-            </li>
-          </ul>
-          <hr />
-
-          <h3>List of Countries with Apollo GraphQL - ClientSideRendering</h3>
+          <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
           <Countries countries={countriesGraphQL.slice(70,80)} />
         </div>
       </div>

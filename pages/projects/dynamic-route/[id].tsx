@@ -24,7 +24,7 @@ function ProjectFileBasedId({ photo }: Props ) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
     `${environment.photosURL}/${context.query.id}`
-  );
+  )
   const photo = await res.json()
 
   return {
