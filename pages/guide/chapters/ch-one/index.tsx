@@ -57,7 +57,7 @@ const ChOne: NextPage = () => {
             </li>
             <li>
               <h4>Add <mark>as</mark> parameter to Link</h4>
-              <ul className='hasVerticalPadding-4'>
+              <ul className='hasVerticalPadding-2'>
                 <li><strong>&lt;Link</strong></li>
                 <li>&nbsp;&nbsp;&lt;href = &#123; /post/[...slug] &#125;</li>
                 <li><mark>&lt;as = &#123; /post/2020/books &#125;</mark></li>
