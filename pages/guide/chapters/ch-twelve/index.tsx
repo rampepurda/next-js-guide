@@ -67,6 +67,7 @@ const ChTwelve: NextPage = () => {
           </nav>
           <hr />
 
+          <h2>Client Side</h2>
           <h3>12.1 Feature overview - Installation</h3>
           <ul className='hasTypeDisc'>
             <li>
@@ -130,6 +131,7 @@ const ChTwelve: NextPage = () => {
             <h5>It`s a good practice to make documentation for each schema</h5>
           </InfoBox>
 
+          <h2>GraphQL Server Side</h2>
           <h3>12.4 Ready to Install GraphQL Server</h3>
           <ul className='hasTypeDisc'>
             <li>
