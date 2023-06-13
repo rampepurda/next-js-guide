@@ -20,6 +20,7 @@ import { Pages } from "../../../../configuration/pages"
 import { useQuery } from "@apollo/client"
 import { GET_COUNTRIES_QUERY } from "../../../../queries"
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
+import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
 import Image from "next/image"
 
 const ChTwelve: NextPage = () => {
@@ -68,7 +69,7 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <h2>Client Side</h2>
-          <h3>12.1 Feature overview - Installation</h3>
+          <h3>1. Feature overview - Installation</h3>
           <ul className='hasTypeDisc'>
             <li>
               <h5>Apollo GraphQL</h5>
@@ -81,7 +82,7 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
 
-          <h3>12.2 Feature data requirements (CLIENT)</h3>
+          <h3>2. Feature data requirements (CLIENT)</h3>
           <ul className='hasTypeDisc'>
             <li>
               <h5>Apollo Client</h5>
@@ -115,7 +116,7 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
 
-          <h3>12.3 Schema definition language (SDL)</h3>
+          <h3>3. Schema definition language (SDL)</h3>
           <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
           <InfoBox className={'isInfo'}>
             <h5>Definition Schema Language(DSL)</h5>
@@ -130,9 +131,22 @@ const ChTwelve: NextPage = () => {
             <hr />
             <h5>It`s a good practice to make documentation for each schema</h5>
           </InfoBox>
+          <Image
+            src={imgApolloStructure}
+            alt='ApolloStructure'
+          />
+          <hr />
 
           <h2>GraphQL Server Side</h2>
-          <h3>12.4 Ready to Install GraphQL Server</h3>
+          <a
+            href='https://www.apollographql.com/tutorials/'
+            target='_blank'
+            rel='author'
+          >
+            Apollo GraphQL tutorials (Lift of II Resolvers)
+          </a>
+
+          <h3>1. Ready to Install GraphQL Server</h3>
           <ul className='hasTypeDisc'>
             <li>
               <h5>Clone Apollo GraphQL Server</h5>
@@ -177,9 +191,42 @@ const ChTwelve: NextPage = () => {
               <strong>cd server // yarn start</strong>
             </li>
           </ul>
+          <hr />
+
+          <h3>2. Resolvers</h3>
+          <ul className='hasTypeDecimal'>
+            <li>
+              <h4>Install:</h4>
+              <h4>yarn add @apollo/datasource-rest</h4>
+              <a
+                href='https://www.apollographql.com/tutorials/lift-off-part2/04-implementing-our-restdatasource'
+                target='_blank'
+                rel='author'
+                >
+                Datasource tutorial here
+              </a>
+            </li>
+            <li>
+              <h4>Create new files in Server/src: <strong>datasource</strong></h4>
+              <h4>Create new files in Server/src/<strong>datasource/</strong>: <strong>track-api.js</strong> </h4>
+            </li>
+            <li>
+              <h4>Create module - resolvers.js</h4>
+              <a
+                href='https://www.apollographql.com/tutorials/lift-off-part2/05-the-shape-of-a-resolver'
+                target='_blank'
+                rel='author'
+              >
+                Resolvers tutorial here
+              </a>
+            </li>
+            <li>
+              <h4>Change 'schema.js' and 'index.js' structure</h4>
+            </li>
+          </ul>
           <Image
-            src={imgApolloStructure}
-            alt='ApolloStructure'
+            src={imgResolvers}
+            alt='Resolvers parameters'
           />
           <hr />
 
