@@ -25,12 +25,12 @@ const ChOne: NextPage = () => {
         <div className='col-9'>
           <h2>1. import &#123; useRouter &#125; from 'next/router'</h2>
           <ul>
-            <li><code>const router = useRouter</code></li>
+            <li>const router = useRouter</li>
             <li>&lt;a className = &#123;router.pathname == `/$&#123;pathName&#125;` ? `$&#123;style.active&#125;` : ""&#125; /&gt;</li>
           </ul>
           <hr/>
 
-          <h3>1.2 Dynamic router</h3>
+          <h3>1.1 Dynamic router</h3>
           <ul>
             <li>
               &lt;Link
@@ -45,7 +45,7 @@ const ChOne: NextPage = () => {
             </li>
           </ul>
 
-          <h3>1.3 Catch all routes [...slug]</h3>
+          <h3>1.2 Catch all routes [...slug]</h3>
           <ul className='hasTypeDisc'>
             <li>
               <a href='https://nextjs.org/docs/routing/dynamic-routes' target='_blank'>[...slug] read more</a>
@@ -54,6 +54,16 @@ const ChOne: NextPage = () => {
               Dynamic routes can be extended to catch all paths by adding three dots (...) inside the brackets. For example:
               <h5>pages/post/[...slug].js not only matches /post/a, but also /post/a/b, /post/a/b/c, and so on.</h5>
               <h5>pages/post/[...slug].js does not match /post.</h5>
+            </li>
+            <li>
+              <h4>Add <mark>as</mark> parameter to Link</h4>
+              <ul className='hasVerticalPadding-4'>
+                <li><strong>&lt;Link</strong></li>
+                <li>&nbsp;&nbsp;&lt;href = &#123; /post/[...slug] &#125;</li>
+                <li><mark>&lt;as = &#123; /post/2020/books &#125;</mark></li>
+                <li><strong>&gt;</strong></li>
+                <li><strong>&lt;/Link&gt;</strong></li>
+              </ul>
             </li>
           </ul>
 

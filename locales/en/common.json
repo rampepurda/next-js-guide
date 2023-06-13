@@ -13,7 +13,7 @@
     "int": "Internationalization"
   },
   "navGuide": {
-    "ch-one": "1. useRouter & Link and query",
+    "ch-one": "1. useRouter & Dynamic Link and [...slug]",
     "ch-two": "2. Interface - Declaration merging",
     "ch-three": "3. Environment",
     "ch-four": "4. classNames Library",
