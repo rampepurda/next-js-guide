@@ -41,6 +41,7 @@ const ChSixteen: NextPage = () => {
           <li>
             <mark>styled</mark> is a way to create React components that have styles attached to them.
           </li>
+          <li>See more in <strong>'next-emotion-styled'</strong></li>
         </ul>
         <hr/>
 
