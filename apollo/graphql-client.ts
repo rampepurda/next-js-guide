@@ -2,7 +2,7 @@ import {
   ApolloClient,
   InMemoryCache
 } from "@apollo/client"
-import { environment  } from '../configuration/environment'
+import { environment  } from '../configuration'
 
 const apolloClient = new ApolloClient({
   uri: environment.countriesURL,

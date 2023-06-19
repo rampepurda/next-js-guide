@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import { NextPage } from "next"
-import { Navigation } from "../../../../components"
+import { Navigation, Modal } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks, mInfo } from "../../../../configuration"
 import { useCallback } from "react"
-import { Modal } from "../../../../components/Modal"
 
 const ChFifteen: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -61,7 +60,15 @@ const ChFifteen: NextPage = () => {
             <li>The Escape key will deactivate the focus trap.</li>
           </ul>
           <hr />
-
+          <button
+            className='btn btn-submit'
+            type="button"
+            onClick={() => {
+              setIsModalOpen(true)
+            }}
+          >
+            Open accessible modal window
+          </button>
           <Modal
             title={'Example of Focus Trap library'}
             labels={mInfo}
