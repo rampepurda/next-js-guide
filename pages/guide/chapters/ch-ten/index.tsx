@@ -3,8 +3,7 @@ import { useSelect } from "../../../../hooks"
 import { NextPage } from "next"
 import Head from "next/head"
 import { InfoBox, Cars, Navigation, Select } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration"
-import { CarList, CarsOptions} from "../../../../configuration"
+import { navigationGuideLinks, CarList, CarsOptions} from "../../../../configuration"
 import { CarTypes } from '../../../../types'
 
 const ChTen: NextPage = () => {

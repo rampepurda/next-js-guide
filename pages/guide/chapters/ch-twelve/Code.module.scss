@@ -1,0 +1,13 @@
+@import "styles/variables";
+@import "styles/spacing";
+
+.Card {
+  h3 {
+    margin: $spacer-3 0;
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}

@@ -8,7 +8,7 @@ import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import Head from "next/head"
 import { Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration"
-import { NextPage } from "next";
+import { NextPage } from "next"
 
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.Photos)

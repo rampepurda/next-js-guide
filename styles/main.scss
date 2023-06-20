@@ -123,18 +123,19 @@ a {
   color: $white;
   font-size: 1.2rem;
 
+  &-info {
+    background-color: $green;
+
+    &:hover {
+      background-color: $greenDarker;
+    }
+  }
+
   &-primary {
     background-color: $grayLight;
 
     &:hover {
       background-color:$grayDarker;
-    }
-  }
-  &-submit {
-    background-color: $blueLight;
-
-    &:hover {
-      background-color:$blueDark;
     }
   }
 
@@ -146,6 +147,13 @@ a {
     }
   }
 
+  &-submit {
+    background-color: $blueLight;
+
+    &:hover {
+      background-color:$blueDark;
+    }
+  }
 }
 
 input {

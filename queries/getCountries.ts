@@ -8,17 +8,25 @@ export const GET_COUNTRIES_QUERY = gql`
   query Countries {
     countries {
       code
-      emoji
       name
+      native
+      phone
+      currency
+      emoji
+      emojiU
     }
   }
 `
-export const GET_COUNTRIES_DETAIL_QUERY = gql`
-  query getCountryDetail($code: code) {
-    countries(code: $code) {
+export const GET_COUNTRY_DETAIL_QUERY = gql`
+  query getCountryDetail($code: ID!) {
+     country(code: $code) {
       code
-      emoji
       name
+      native
+      phone
+      currency
+      emoji
+      emojiU
     }
   }
 `

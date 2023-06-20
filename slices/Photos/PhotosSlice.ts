@@ -3,15 +3,15 @@
  */
 
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { environment } from "../../configuration/environment"
+import { environment } from "../../configuration"
 
-type PhotoType = Array<{
+type PhotoType = {
   albumId?: number,
   id?: number,
   title: string,
   url: string,
   thumbnailUrl: string,
-}>
+}[]
 
 const initialState: {
   amount: number,

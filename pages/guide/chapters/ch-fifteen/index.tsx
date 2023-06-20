@@ -1,20 +1,9 @@
-import React, { useState } from "react"
 import { NextPage } from "next"
 import { Navigation, Modal } from "../../../../components"
 import Head from "next/head"
-import { navigationGuideLinks, mInfo } from "../../../../configuration"
-import { useCallback } from "react"
+import {navigationGuideLinks, mCh15} from "../../../../configuration"
 
 const ChFifteen: NextPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const isModalActive = useCallback(() => {
-    if(!isModalOpen) {
-      return document.body.classList.add("modal-open")
-    }
-    return document.body.classList.remove("modal-open")
-  }, [isModalOpen])
-
-  // @ts-ignore
   return (
     <>
       <Head>
@@ -60,18 +49,11 @@ const ChFifteen: NextPage = () => {
             <li>The Escape key will deactivate the focus trap.</li>
           </ul>
           <hr />
-          <button
-            className='btn btn-submit'
-            type="button"
-            onClick={() => {
-              setIsModalOpen(true)
-            }}
-          >
-            Open accessible modal window
-          </button>
+
           <Modal
-            title={'Example of Focus Trap library'}
-            labels={mInfo}
+            openModalDialog={mCh15.openModalDialog}
+            mHeader={mCh15.mHeader}
+            mFooter={mCh15.mFooter}
           >
             <p>Modal window is a user experience pattern that is useful when you want to bring the user&apos;s attention to something important without leaving the current context/page.</p>
             <p>You might also learn more about the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role">dialog</a> role.</p>

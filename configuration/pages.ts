@@ -8,6 +8,9 @@ export const Pages = {
     chTwelve: {
       headline: '12. GraphQL',
       subHeadline: {
+      },
+      detailTrack: {
+        linkBack: 'Back to Countries'
       }
     },
     chFourteen: {

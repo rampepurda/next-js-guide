@@ -1,21 +1,22 @@
-import { CountriesQL } from '../../types'
+import { Country as Countries } from '../../types'
 import Link from "next/link"
 import { ROUTE } from "../../configuration/routes"
 
-type Props = CountriesQL
+type Props = Countries
 
 export const Country = ({
-  code,
-  emoji,
-  name,
+    code,
+    name,
+    native,
+    phone,
+    currency,
+    emoji,
+    emojiU
   }: Props) => {
   return (
     <>
       <label>Country:</label>
       <h2>{name}</h2>
-      <label>Code:</label>
-      <h3>{code}</h3>
-      <hr style={{opacity: '40%'}} />
 
       <h3>
         <Link href={{
@@ -23,7 +24,12 @@ export const Country = ({
           query: {code: code}
         }}
         >
-          <a style={{display:'block', textDecoration: 'none'}}>Read more about <span style={{color:'orange'}}>{name}</span></a>
+          <button
+            className='btn btn-submit'
+            type='button'
+          >
+            Read more about {name}
+          </button>
         </Link>
       </h3>
     </>
