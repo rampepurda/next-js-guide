@@ -1,52 +1,53 @@
-import style from './Modal.module.scss'
-
-import { PropsWithChildren, useCallback, useState } from 'react'
-import FocusTrap from 'focus-trap-react'
-import classNames from "classnames"
-import useTranslation from "next-translate/useTranslation"
-
 /**
- * FocusTrap library in use as an Example how to create Modal Window
+ * FocusTrap library used as an Example how is possible to create Modal Window
  * INSTALLATION below:
  * https://www.npmjs.com/package/focus-trap-react
  *
  * ModalContent part includes mapping to build more than on BTNs
- * @param btnValue includes at the moment: label and conditionValue and there is more than possible that new one will be created
+ * @param title Modal Window Headline
+ * @param btnProps includes at the moment: 'title' and 'conditionValue' and there is more than possible that new one will be created
  */
-type btnValues = {
-  label: string
-  conditionValue?: string
+
+import style from './Modal.module.scss'
+
+import { PropsWithChildren, useState } from 'react'
+import FocusTrap from 'focus-trap-react'
+import classNames from "classnames"
+import useTranslation from "next-translate/useTranslation"
+
+enum mFooterBtnValue {
+  close = 'Close',
+  submit = 'Submit'
 }
 
 type Props = {
-  title: string,
-  labels: btnValues[]
+  openModalDialog: {
+    title: string,
+    className?: string,
+  }
+  mHeader: {
+    title: string
+  },
+  mFooter: {
+    conditionValue?: string,
+    title: string
+  }[]
 }
 
-export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
+export const Modal = ({ openModalDialog, mFooter, mHeader, children }: PropsWithChildren<Props>) => {
   const { t } = useTranslation('common')
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const domAddClass = useCallback(() => {
-    if(!isModalOpen) {
-      return document.body.classList.add(`${style.modalOpen}`)
-    }
-  }, [isModalOpen])
-  const domRemoveClass = useCallback(() => {
-    if(isModalOpen) {
-      return document.body.classList.remove("modal-open")
-    }
-  }, [isModalOpen])
 
   return (
     <>
       <button
-        className='btn btn-submit'
+        className={classNames('btn', `${openModalDialog.className}`)}
         type="button"
         onClick={() => {
           setIsModalOpen(true)
         }}
       >
-        Open accessible modal window
+        {openModalDialog.title}
       </button>
 
       <div
@@ -69,11 +70,11 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
             aria-modal={true}
           >
             <div className={style.modalHeader}>
-              <h2 id="modal-2-heading">{title}</h2>
+              <h2 id="modal-2-heading">{mHeader.title}</h2>
               <button
                 className={style.modalHeader__closeBtn}
                 type="button"
-                aria-label= {t('modal.close')}
+                aria-label= {t('close modal window')}
                 onClick={() => {setIsModalOpen(false)}}
               >
                 X
@@ -84,21 +85,23 @@ export const Modal = ({title, labels, children}: PropsWithChildren<Props>) => {
               <hr />
             </div>
             <div className={style.modalFooter}>
-              {labels.map((item, idx: number) => {
+              {mFooter.map((item, idx: number) => {
                 return (
                   <button
-                    className='btn btn-primary'
+                    className={classNames('btn',{
+                      ['btn-submit']: item.conditionValue === 'Submit',
+                      ['btn-primary']: item.conditionValue === 'Close'
+                    })}
                     key={idx}
                     type="button"
-                    aria-label= {t(`${item.label}`)}
+                    aria-label= {t(`${item.title}`)}
                     onClick={() => {
-                      if(item.conditionValue === 'Close') {
+                      if(item.conditionValue === mFooterBtnValue.close) {
                         setIsModalOpen(false)}
                       }
-                      // Possible more Condition will be here
                     }
                   >
-                    {t(`${item.label}`)}
+                    {t(`${item.title}`)}
                   </button>
                 )
               })}
