@@ -7,7 +7,8 @@ export const Loader = () => {
   return (
     <Image
       className={style.loader}
-      src={GridLoader} aria-hidden='true'
+      src={GridLoader}
+      aria-hidden='true'
     />
   )
 }
