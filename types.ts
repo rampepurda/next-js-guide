@@ -18,10 +18,14 @@ export interface initPagination {
   currentPage?: number,
   onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void,
 }
-export type CountriesQL = {
+export type Country = {
   code: string,
   name: string,
+  native?: string,
+  phone?: string | number,
+  currency?: string | number,
   emoji?: string,
+  emojiU?: string,
 }
 export interface CarTypes {
   id: string | number,

@@ -1,18 +1,18 @@
 import style from './Countries.module.scss'
 
 import { Country } from '../Country'
-import { CountriesQL } from "../../types"
+import { Country as country } from "../../types"
 import { useAppSelector } from "../../store/hooks"
 import { Loader } from "../../components"
 
-export const Countries = ({countries}: {countries: CountriesQL[]}) => {
+export const Countries = ({countries}: {countries: country[]}) => {
   const { error, loader } = useAppSelector(state => state.Countries)
   return (
     <div className={style.Card}>
-      {error}
+      <h2>{error}</h2>
       {loader ? <Loader /> : ''}
 
-      {countries?.map((country: CountriesQL, idx: number) => {
+      {countries?.map((country, idx: number) => {
         return (
           <div
             className={style.Box}
@@ -20,8 +20,8 @@ export const Countries = ({countries}: {countries: CountriesQL[]}) => {
           >
             <Country {...country} />
           </div>
-        )
-      })
+          )
+        })
       }
     </div>
   )

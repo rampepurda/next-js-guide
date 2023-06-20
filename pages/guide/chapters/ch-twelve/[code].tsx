@@ -1,31 +1,35 @@
-import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
-import React, { useEffect } from "react"
-import { getCountries } from "../../../../slices"
+import style from './Code.module.scss'
+
+import { useAppSelector } from "../../../../store/hooks"
+import React, { useEffect, useState } from "react"
 import { Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks, Pages } from "../../../../configuration"
 import Head from "next/head"
-import { useQuery } from "@apollo/client";
-import { GET_COUNTRIES_DETAIL_QUERY } from "../../../../queries"
+import { GetServerSideProps } from "next"
+import CountriesService from '../../../../services/Countries'
+import Link from "next/link"
+import classNames from "classnames"
+import { ROUTE } from "../../../../configuration/routes"
+import { Country } from "../../../../types"
+/**
+  const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
+  variables: { code },
+});
+ */
+type InitCountry = Country
 
-type Props = {
-  data: {
-    code: string,
-    emoji?: string,
-    name: string
-  }
-}
-
-function CountryId({ code }: {code: string}) {
-  const dispatch = useAppDispatch()
+function CountryId({ query }: {query: InitCountry}) {
   const { filterCountry } = useAppSelector(state => state.Countries)
-
-  const { data } = useQuery(GET_COUNTRIES_DETAIL_QUERY, {
-    variables: { code },
-  });
+  const [track, setTrack] = useState<InitCountry>(filterCountry)
+  const getTrack = async () => {
+    try {
+      const data = await CountriesService.getCountryDetail(`${query.code}`)
+      return setTrack(data)
+    } catch (err: any) { return err.message }
+  }
 
   useEffect(() => {
-    dispatch(getCountries())
-    //dispatch(getCountryDetail(`${countryDetail.code}`))
+    getTrack()
   }, [filterCountry])
 
   return (
@@ -39,32 +43,41 @@ function CountryId({ code }: {code: string}) {
           <Navigation links={navigationGuideLinks} />
         </div>
 
-        <div className='col-9 has-br'>
-          <label>Country:</label>
-          <h3>{filterCountry.code}</h3>
-          <label>Code:</label>
-          <h3>{filterCountry.name}</h3>
+        <div className={classNames('col-9 has-br', style.Card)}>
+          <div>
+            <label>Country name:</label>
+            <h2>{track.name}</h2>
+            <hr />
+            <label>Country code:</label>
+            <h3>{track.code}</h3>
+            <hr />
+            <label>Currency:</label>
+            <h3>{track.currency}</h3>
+            <hr />
+            <label>Phone:</label>
+            <h3>{track.phone}</h3>
+            <hr />
+            <label>Native:</label>
+            <h3>{track.native}</h3>
+            <hr />
+            <Link href={`${ROUTE.GUIDE_DYN_ROUTE}`}>
+              <button className='btn btn-submit' type='button'>
+                {Pages.Guide.chTwelve.detailTrack.linkBack}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </>
   )
 }
 
-/*
 export const getServerSideProps: GetServerSideProps = async (context) => {
-//const param = context.query.id
-const res = await fetch(
-  `${environment.countriesURL}/${context.query.code}`
-);
-const data = await res.json()
-
-const data = await CountriesService.getCountry()
-
-return {
-  props: {
-    data
+  const data = await CountriesService.getCountryDetail(`${context.query.code}`)
+  return {
+    props: {
+      query: data
+    }
   }
 }
-}
-*/
 export default CountryId

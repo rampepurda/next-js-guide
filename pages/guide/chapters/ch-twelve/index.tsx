@@ -9,28 +9,27 @@
  * @requires <Countries countries={data.countries.slice(70,80)} />
  */
 
-import React, {useEffect, useLayoutEffect} from "react"
+import React, { useEffect } from "react"
 import { NextPage } from "next"
 import { Navigation, InfoBox, Countries } from "../../../../components"
 import Head from "next/head"
-import { navigationGuideLinks } from "../../../../configuration"
+import { navigationGuideLinks, Pages } from "../../../../configuration"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
 import { getCountries } from "../../../../slices"
-import { Pages } from "../../../../configuration/pages"
 import { useQuery } from "@apollo/client"
 import { GET_COUNTRIES_QUERY } from "../../../../queries"
+import Image from "next/image"
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
-import Image from "next/image"
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
-  const { countriesGraphQL } = useAppSelector(state => state.Countries)
+  const { countries } = useAppSelector(state => state.Countries)
   const { data } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     dispatch(getCountries())
-  }, [countriesGraphQL])
+  }, [countries])
 
   return (
     <>
@@ -231,7 +230,7 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
-          <Countries countries={countriesGraphQL.slice(70,80)} />
+          <Countries countries={countries.slice(80,90)} />
         </div>
       </div>
     </>

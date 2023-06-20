@@ -1,49 +1,32 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { CountriesQL } from "../../types"
+import { Country } from "../../types"
 import CountriesService from '../../services/Countries'
-import { Message } from "../../configuration/common"
+import { Message } from "../../configuration"
 
 const initialState: {
   error?: string,
   filter: string,
   loader: boolean,
-  countriesGraphQL: CountriesQL[],
-  filterCountry: CountriesQL,
-  countryDetail: CountriesQL
+  countries: Country[],
+  filterCountry: Country
 } = {
   error: '',
   filter: '',
   loader: true,
-  countriesGraphQL: [],
+  countries: [],
   filterCountry: {
     code: 'CZ',
     name: 'CZECH REPUBLIC',
     emoji: ''
-  },
-  countryDetail: {
-    code: 'CZ dummy',
-    name: 'Czech Republic dummy',
-    emoji: ''
   }
 }
 
-export const getCountries = createAsyncThunk<CountriesQL>(
+export const getCountries = createAsyncThunk<Country>(
   'countries/getCountries',
   async (_, { rejectWithValue}) => {
     try {
       return await CountriesService.getCountry()
     } catch (err: any) {
-      return rejectWithValue(Message.error)
-    }
-  }
-)
-
-export const getCountryDetail = createAsyncThunk<CountriesQL, {code: string} >(
-  'country/getCountryDetails',
-  async ({code}, { rejectWithValue}) => {
-    try {
-      return await CountriesService.getCountryDetail(code)
-    } catch (err: unknown) {
       return rejectWithValue(Message.error)
     }
   }
@@ -60,7 +43,7 @@ export const CountrySlice = createSlice({
   extraReducers(builder) {
     builder.addCase(getCountries.fulfilled, (state, action) => {
       // @ts-ignore
-      state.countriesGraphQL = action.payload
+      state.countries = action.payload
       state.loader = false
     })
     builder.addCase(getCountries.rejected, (state, action) => {
@@ -70,11 +53,6 @@ export const CountrySlice = createSlice({
     builder.addCase(getCountries.pending, (state) => {
       state.loader = true
     })
-    // GET COUNTRY DETAIL
-    builder.addCase(getCountryDetail.fulfilled, (state, action) => {
-      state.countryDetail = action.payload
-    })
   }
 })
 
-export const { filteredCar} = CountrySlice.actions
