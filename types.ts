@@ -37,7 +37,7 @@ export interface CarTypes {
 
 
 // Hooks
-export type OptionsInit = { value: string }
+export type InitOptions = { value: string }
 
 // Playground
 export type Person = {

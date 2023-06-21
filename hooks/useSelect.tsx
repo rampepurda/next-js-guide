@@ -1,8 +1,14 @@
+/**
+ * Array.prototype.some()
+ * The some() method tests whether at least one element in the array passes the test implemented
+ * by the provided function. It returns true if, in the array, it finds an element for which
+ * the provided function returns true; otherwise it returns false. It doesn't modify the array.
+ */
 import { ChangeEvent, useCallback, useState } from "react"
-import { OptionsInit } from "../types"
+import { InitOptions } from "../types"
 import { useRouter } from "next/router"
 
-export const useSelect = (options: OptionsInit[], route: string) => {
+export const useSelect = (options: InitOptions[], route: string) => {
   const router = useRouter()
   const [Value, setValue] = useState<string | undefined>()
 
@@ -12,7 +18,7 @@ export const useSelect = (options: OptionsInit[], route: string) => {
     const isValueAllowed = options.some((option) => option.value === selectedValue)
 
     setValue(isValueAllowed ? selectedValue : undefined)
-    return router.push(`${route}?_selected=${Value}`)
+    return router.push(`${route}?_selected=${selectedValue}`)
   }, [options, Value])
 
   return {

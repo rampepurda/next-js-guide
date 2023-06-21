@@ -1,14 +1,14 @@
 import style from './Select.module.scss'
 
 import React, { ChangeEvent } from "react"
-import { OptionsInit } from "../../types"
+import { InitOptions } from "../../types"
 import classNames from "classnames"
 
 type Props = {
   ClassName: string,
   icon?: string,
   id: string,
-  options: OptionsInit[],
+  options: InitOptions[],
   OnChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
 }
 
@@ -22,6 +22,7 @@ export const Select = ({ClassName, icon, id, options, OnChange}: Props) => {
       { options.map(({value}, idx: number) => (
         <option
           key={idx}
+          defaultValue='all cars'
           defaultChecked={true}
           value={value}
         >
