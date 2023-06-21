@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import classNames from "classnames"
 import { InfoBox, Cars, Navigation, Select } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration"
+import { navigationGuideLinks, Pages } from "../../../../configuration"
 import Head from "next/head"
 import { selectXYZ } from "../../../../slices/Common/commonSelectors"
 import { useAppSelector } from "../../../../store/hooks"
@@ -11,8 +11,6 @@ import { CarsOptions } from "../../../../configuration"
 import { selectCarFilter } from "../../../../slices/Cars/carSelectors"
 import React, { useEffect } from "react"
 import { getFilterCar } from "../../../../slices"
-import { Pages } from  '../../../../configuration/pages'
-import { ROUTE } from '../../../../configuration/routes'
 import Image from "next/image"
 import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelector.png'
 
@@ -21,7 +19,7 @@ const ChFourteen: NextPage = () => {
   const totalSum = useAppSelector(selectXYZ)
   const dispatch = useDispatch()
   const { cars, filterCar } = useAppSelector(state => state.Cars)
-  const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.GUIDE.CH14.ROUTE.GET_SELECTED_CAR)
+  const { handleOption, Value = filterCar } = useSelect(CarsOptions, '')
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {

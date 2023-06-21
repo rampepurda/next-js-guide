@@ -13,13 +13,13 @@ import { ROUTE } from '../../../configuration/routes'
 
 const CarsPage: NextPage = () => {
   const dispatch = useDispatch()
-  const { cars, filterCar } = useAppSelector(state => state.Cars)
+  const { filterCar } = useAppSelector(state => state.Cars)
   const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR)
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
     dispatch(getFilterCar(Value))
-  }, [Value, cars, filteredCars, filterCar])
+  }, [Value, filteredCars, filterCar])
 
   return (
     <>

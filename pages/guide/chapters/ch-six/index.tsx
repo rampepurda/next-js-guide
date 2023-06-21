@@ -1,14 +1,15 @@
 import style from '../../chapters.module.scss'
+
 import useTranslation from "next-translate/useTranslation"
 import { useAppSelector } from "../../../../store/hooks"
 import Trans from "next-translate/Trans"
-import Image from "next/image"
-import i18n from '../../../../public/images/ch-six/i18n.png'
-import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import Head from "next/head"
 import { Navigation } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration"
 import { NextPage } from "next"
+import Image from "next/image"
+import i18n from '../../../../public/images/ch-six/i18n.png'
+import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.Photos)

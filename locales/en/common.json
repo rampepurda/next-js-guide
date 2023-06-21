@@ -26,7 +26,7 @@
     "ch-eleven": "11. Image",
     "ch-twelve": "12. GraphQL",
     "ch-thirteen": "13. Auth0",
-    "ch-fourteen": "14. createSelector",
+    "ch-fourteen": "14. Redux Toolkit - createSelector",
     "ch-fifteen": "15. Focus Trap library - ModalWindow",
     "ch-sixteen": "16. CSS in JS libraries"
   },

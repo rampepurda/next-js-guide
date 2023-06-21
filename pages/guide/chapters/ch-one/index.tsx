@@ -5,7 +5,7 @@
 
 import { NextPage } from "next"
 import { InfoBox, Navigation } from "../../../../components"
-import { navigationGuideLinks } from "../../../../configuration";
+import { navigationGuideLinks } from "../../../../configuration"
 import Head from "next/head"
 import Image from "next/image"
 import imgSlug from '../../../../public/images/ch-one/slug.png'

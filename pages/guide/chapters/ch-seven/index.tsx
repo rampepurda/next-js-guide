@@ -13,7 +13,7 @@ import { Loader } from "../../../../components"
 import classNames from "classnames"
 import { NextPage } from "next"
 import { Navigation, Photos } from "../../../../components"
-import { navigationGuideLinks} from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 import Head from "next/head"
 import Image from "next/image"
 import { imgAsyncThunk, imgExtraReducer, imgComponent, imgSlice, imgStore, imgHooks, imgThunkApi, imgThunkWithRejValue } from './index-img'

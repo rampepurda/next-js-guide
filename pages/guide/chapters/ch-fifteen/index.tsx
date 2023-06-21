@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import { Navigation, Modal } from "../../../../components"
 import Head from "next/head"
-import {navigationGuideLinks, mCh15} from "../../../../configuration"
+import { navigationGuideLinks, mCh15 } from "../../../../configuration"
 
 const ChFifteen: NextPage = () => {
   return (

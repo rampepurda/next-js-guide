@@ -4,7 +4,7 @@ import { NextPage } from "next"
 import { Navigation } from "../../../../components"
 import Image from "next/image"
 import imgPropsWithChildren from '../../../../public/images/ch-eight/propsWithChildren.png'
-import { navigationGuideLinks } from "../../../../configuration/navigation"
+import { navigationGuideLinks } from "../../../../configuration"
 
 type Props = {name: string, address: string }
 const user: Props = {
