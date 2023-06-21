@@ -9,7 +9,7 @@ export const Loader = () => {
       className={style.loader}
       src={GridLoader}
       alt='loader'
-      aria-hidden={true}
+      aria-hidden='true'
     />
   )
 }
