@@ -1,15 +1,15 @@
-import style from './Loader.module.scss'
+import style from './Loader.module.scss';
 
 import GridLoader from './c-grid-loader.svg'
-import Image from "next/image"
+import classNames from "classnames"
 
-export const Loader = () => {
+type Props = {
+  ClassName?: string
+}
+export const Loader = ({ClassName}: Props) => {
   return (
-    <Image
-      className={style.loader}
-      src={GridLoader}
-      alt='loader'
-      aria-hidden='true'
-    />
+    <div className={classNames(style.loader, ClassName)}>
+      <GridLoader />
+    </div>
   )
 }

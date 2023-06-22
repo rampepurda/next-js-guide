@@ -1,6 +1,6 @@
 @import "../../styles/mixins";
 
 .loader {
-  @include Size('100px');
+  @include Size(80px);
   display: inline-block;
 }
