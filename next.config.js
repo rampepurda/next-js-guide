@@ -15,6 +15,8 @@ const nextConfig = {
       },
     ],
   },
+  // allows to import SVG as a React component
+  // https://frontend-digest.com/how-to-import-svgs-into-nextjs-8ec6100e613f
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -22,6 +24,9 @@ const nextConfig = {
         {
           loader: '@svgr/webpack',
           options: {
+            // svgo: set all properties are included in svg (abort/ authorise)
+            // as for example 'animation' included in svg
+            // svgo: false attributes keeps the same value(animation in svg works) if true (animation will stop working)
             svgo: false,
           },
         },
