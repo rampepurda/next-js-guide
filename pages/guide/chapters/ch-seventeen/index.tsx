@@ -33,7 +33,7 @@ const ChSeventeen: NextPage = () => {
           </h4>
         </InfoBox>
 
-        <h3>1. How To Import SVGs into NextJS</h3>
+        <h3>1. How To Import SVGs into NextJS - use SVGR</h3>
         <a
           href='https://frontend-digest.com/how-to-import-svgs-into-nextjs-8ec6100e613f'
           target='_blank'
@@ -42,15 +42,30 @@ const ChSeventeen: NextPage = () => {
           How To Import SVGs into NextJS read more here
         </a>
 
-        <h4>1.1 Use SVGR</h4>
         <ul className='hasTypeDisc'>
+          <li>SVGR is a tool that <strong>allows us to import SVGs into your React applications as React components</strong></li>
+          <li>To use <a href='https://react-svgr.com/docs/options/' target='_blank' aria-label='read more about svgr'>SVGR</a>  with our project, we need to first <strong>install the dependency @svgr/webpack</strong>, and then modify our next.config.js file as follows.</li>
+          <li><strong>yarn add @svgr/webpack</strong></li>
           <li>
-            SVGR is a tool that <strong>allows us to import SVGs into your React applications as React components</strong>. If you have used Create-React-App in the past, you might be familiar with this, as it comes built-in.
-            <h4>yarn add @svgr/webpack</h4>
+            <a href='https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/' rel='author' target='_blank'>
+              <strong>svg and Web Accessibility read here</strong>
+            </a>
+            <a href='https://www.w3.org/TR/SVG11/struct.html#DescriptionAndTitleElements' rel='author' target='_blank' style={{display: 'block'}}>
+              <strong>svg Web Accessibility attributes here</strong>
+            </a>
           </li>
-          <li>To use SVGR with our project, we need to first <strong>install the dependency @svgr/webpack</strong>, and then modify our next.config.js file as follows.</li>
         </ul>
+        <InfoBox className='isDanger'>
+          <h4>! READ MORE ABOUT SVGR OPTIONS IN: 'next.config.js' !</h4>
+        </InfoBox>
 
+        <Loader ClassName={'loader'}/>
+        <ul className='hasVerticalPadding-3'>
+          <li>&lt;svg xmlns... <strong>aria-hidden="true" aria-labelledby="title"</strong>&gt;</li>
+          <li>&nbsp;&nbsp;<strong>&lt;title id="title"&gt;Loading&lt;/title&gt;</strong></li>
+          <li>&nbsp;&nbsp;design</li>
+          <li>&lt;/svg&gt;</li>
+        </ul>
       </div>
     </div>
   </>

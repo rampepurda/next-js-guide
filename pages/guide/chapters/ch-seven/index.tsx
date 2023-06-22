@@ -107,28 +107,28 @@ const ChSeven: NextPage = () => {
               <h3>store.ts</h3>
               <Image
                 src={imgStore}
-                aria-hidden={true}
+                aria-hidden='true'
                 alt='store'
               />
 
               <h3>hooks.ts</h3>
               <Image
                 src={imgHooks}
-                aria-hidden={true}
+                aria-hidden='true'
                 alt='hooks'
               />
 
               <h3>slice.ts</h3>
               <Image
                 src={imgSlice}
-                aria-hidden={true}
+                aria-hidden='true'
                 alt='store'
               />
 
               <h3>components</h3>
               <Image
                 src={imgComponent}
-                aria-hidden={true}
+                aria-hidden='true'
                 alt='use in component'
               />
               <hr/>
@@ -138,7 +138,7 @@ const ChSeven: NextPage = () => {
           <h3>2. createAsyncThunk</h3>
           <Image
             src={imgAsyncThunk}
-            aria-hidden={true}
+            aria-hidden='true'
             alt='syncThunk'
           />
           <hr/>
@@ -151,7 +151,7 @@ const ChSeven: NextPage = () => {
           </p>
           <Image
             src={imgExtraReducer}
-            aria-hidden={true}
+            aria-hidden='true'
             alt='store'
           />
 
@@ -165,7 +165,7 @@ const ChSeven: NextPage = () => {
           <p>Via thunkAPI <strong>states and actions</strong> are reachable in thunk, see below:</p>
           <Image
             src={imgThunkApi}
-            aria-hidden={true}
+            aria-hidden='true'
             alt='thunk'
           />
 
@@ -173,7 +173,7 @@ const ChSeven: NextPage = () => {
           <p>In case fetch failed <strong>error message</strong> is send and is reachable in Slice extraReducers via <strong>&#123; rejectWithValue &#125;</strong>, see below</p>
           <Image
             src={imgThunkWithRejValue}
-            aria-hidden={true}
+            aria-hidden='true'
             alt='thunk reject value'
           />
           <hr/>
@@ -214,7 +214,7 @@ const ChSeven: NextPage = () => {
           >
             Filter Photos
           </button>
-          <p>{isLoading && error === '' ? <Loader /> : ''}</p>
+          <div>{isLoading && error === '' ? <Loader ClassName={'loader'} /> : ''}</div>
           <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
           <Photos photos={selectedPhotos} />
           <hr/>
