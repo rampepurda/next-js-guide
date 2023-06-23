@@ -67,24 +67,30 @@ const ChFive: NextPage = () => {
           <InfoBox className={'isInfo'}>
             <h5>next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the app and pages directories to allow for incremental migration.</h5>
           </InfoBox>
-          <ul className={classNames(style.hasNoBorder)}>
-            <li>
-              <strong className='color-is-red'>const</strong> ComponentA = dynamic(() =&gt; import('../components/A'))
-              <h5>Load immediately, but in a separate client bundle</h5>
-            </li>
-            <li>
-              <strong className='color-is-red'>const</strong> ComponentB = dynamic(() =&gt; import('../components/B'))
-              <h5>Load on demand, only when/if the condition is met</h5>
-            </li>
-            <li>
-              <strong className='color-is-red'>const</strong> ComponentC = dynamic(() =&gt; import('../components/C'), &#123; ssr: false &#125;);
-              <h5> Load only on the client side</h5>
-            </li>
+          <ul className={classNames(style.hasNoBorder, 'hasVerticalPadding-3')}>
+            <li>const <strong className='color-is-red'>ComponentA = dynamic(()</strong> =&gt; import('../components/A'))</li>
+            <li>const <strong className='color-is-red'>ComponentB = dynamic(()</strong> =&gt; import('../components/B'))</li>
+            <li>const <strong className='color-is-red'>ComponentC = dynamic(()</strong> =&gt; import('../components/C'), &#123; ssr: false &#125;);</li>
             <li>
               <strong className='color-is-red'>const</strong> DynamicHeader = dynamic(() =&gt; import('../components/header'), &#123;<br />
               &nbsp; loading: () =&gt; &lt;p&gt;Loading...&lt;/p&gt;<br />
               &#125;);
             </li>
+            <li>return (</li>
+            <li>
+              <h5>// Load immediately, but in a separate client bundle //</h5>
+              <strong className='color-is-red'>&lt;ComponentA /&gt;</strong>
+            </li>
+            <li>
+              <h5>// Load on demand, only when/if the condition is met //</h5>
+              &#123;showMore && &lt;<strong className='color-is-red'>ComponentB</strong> /&gt;&#125;<br />
+              &lt;button onClick=&#123;() =&gt; setShowMore(!showMore)&#125;&gt;Toggle&lt;/button&gt;
+            </li>
+            <li>
+              <h5>// Load only on the client side //</h5>
+              <strong className='color-is-red'>&lt;ComponentC /&gt;</strong>
+            </li>
+            <li>)</li>
           </ul>
           <hr/>
 
