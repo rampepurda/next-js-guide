@@ -10,7 +10,8 @@ export const Pages = {
       subHeadline: {
       },
       detailTrack: {
-        linkBack: 'Back to Countries'
+        title: 'Next JS | Guide | Country detail',
+        linkBack: 'Back to Countries',
       }
     },
     chFourteen: {

@@ -2,6 +2,12 @@ export const Message = {
   error: 'Ops, something wrong, we are not able to provide any data'
 }
 
+export const trackCountry = {
+  code: 'undefined',
+  name: 'undefined',
+  emoji: 'undefined'
+}
+
 export const CarList = [
   {
     id: 'a1',
