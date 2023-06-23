@@ -26,7 +26,7 @@ export const getCountries = createAsyncThunk<Country>(
   async (_, { rejectWithValue}) => {
     try {
       return await CountriesService.getCountry()
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(Message.error)
     }
   }

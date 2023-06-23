@@ -9,7 +9,7 @@ import { useAppSelector } from "../../../store/hooks"
 import { selectCarFilter } from "../../../slices/Cars/carSelectors"
 import { useDispatch } from "react-redux"
 import { getFilterCar } from "../../../slices"
-import { ROUTE } from '../../../configuration/routes'
+import { ROUTE } from '../../../configuration'
 
 const CarsPage: NextPage = () => {
   const dispatch = useDispatch()

@@ -27,5 +27,4 @@ class CountriesService {
   }
 }
 
-
 export default new CountriesService()
