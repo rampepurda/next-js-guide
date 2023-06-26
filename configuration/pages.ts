@@ -21,3 +21,7 @@ export const Pages = {
     }
   }
 }
+export const Projects = {
+  Cars: {
+  }
+}

@@ -35,7 +35,6 @@ export interface CarTypes {
   price: string
 }
 
-
 // Hooks
 export type InitOptions = { value: string }
 

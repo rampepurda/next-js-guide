@@ -102,9 +102,3 @@ export const CarsOptions = [
   {value: 'hyundai'},
   {value: 'skoda'}
 ]
-export const CarsLocationsOptions = [
-  {value: 'Aš'},
-  {value: 'Brno'},
-  {value: 'Ceske Budeojovice'},
-  {value: 'Prague'}
-]
