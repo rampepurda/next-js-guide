@@ -32,7 +32,7 @@ const Countries: NextPage = () => {
 
         <div className='col-9'>
           <h2>Search for Countries</h2>
-          <label style={{display: 'block'}}>Write below name of country in lowercase letters you are looking for:</label>
+          <label htmlFor='searchCountry'>Write below name of country you are looking for:</label>
           <Input
             id={'searchCountry'}
             ariaLabel={'search country'}
@@ -42,6 +42,7 @@ const Countries: NextPage = () => {
               type: 'search',
               placeholder: 'search country'
             }}
+            isSearch={true}
           />
           {Value ? <CountriesData countries={filteredCountries} /> : null}
 

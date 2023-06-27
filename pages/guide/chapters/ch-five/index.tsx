@@ -3,7 +3,7 @@ import style from '../../chapters.module.scss'
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { Navigation, InfoBox } from "../../../../components"
+import {Navigation, InfoBox, Input} from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration"
 import Image from "next/image"
@@ -132,17 +132,17 @@ const ChFive: NextPage = () => {
 
           <h2>.match email validation</h2>
           <form name='email'>
-            <label htmlFor='email'>Email:</label>
-            <p>
-              <input
-                id='email'
-                type='email'
-                placeholder='@'
-                aria-label='email'
-                onChange={(e) => setInpEmail(e.target.value)}
-              />
-            </p>
-
+            <label htmlFor='email'>Your email:</label>
+            <Input
+              id={'email'}
+              ariaLabel={'write your email'}
+              tabIdx={1}
+              OnChange={(e) => setInpEmail(e.target.value)}
+              rest={{
+                type: 'email',
+                placeholder: '@'
+              }}
+            />
             <button
               className='btn btn-submit'
               type='button'

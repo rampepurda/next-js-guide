@@ -171,6 +171,12 @@ select {
   }
 }
 
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 mark {
   display: inline-block;
   margin: .2rem .3rem .2rem 0;
@@ -185,8 +191,4 @@ mark {
     border: 1px solid $gray;
     background-color: transparent;
   }
-}
-
-.has-padding {
-  padding: 1rem;
 }
