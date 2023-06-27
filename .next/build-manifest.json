@@ -25,25 +25,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/guide/chapters/ch-one": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/guide/chapters/ch-one.js"
-    ],
     "/guide/chapters/ch-twelve": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/guide/chapters/ch-twelve.js"
+    ],
+    "/guide/chapters/ch-twelve/[code]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/guide/chapters/ch-twelve/[code].js"
     ],
     "/projects": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/projects.js"
     ],
-    "/projects/dynamic-route": [
+    "/projects/countries": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/projects/dynamic-route.js"
+      "static/chunks/pages/projects/countries.js"
     ]
   },
   "ampFirstPages": []
