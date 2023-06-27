@@ -32,7 +32,7 @@ const ChFive: NextPage = () => {
         </div>
 
         <div className='col-9'>
-          <h2>5. Lazy loading</h2>
+          <h2>5. Dynamic & Lazy loading</h2>
 
           <ul className='hasTypeDisc'>
             <li>
@@ -72,7 +72,7 @@ const ChFive: NextPage = () => {
             <li>const <strong className='color-is-red'>ComponentB = dynamic(()</strong> =&gt; import('../components/B'))</li>
             <li>const <strong className='color-is-red'>ComponentC = dynamic(()</strong> =&gt; import('../components/C'), &#123; ssr: false &#125;);</li>
             <li>
-              <strong className='color-is-red'>const</strong> DynamicHeader = dynamic(() =&gt; import('../components/header'), &#123;<br />
+              const <strong className='color-is-red'>DynamicHeader = dynamic(()</strong> =&gt; import('../components/header'), &#123;<br />
               &nbsp; loading: () =&gt; &lt;p&gt;Loading...&lt;/p&gt;<br />
               &#125;);
             </li>
