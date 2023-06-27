@@ -33,7 +33,8 @@
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
-    "cars": "Cars"
+    "cars": "Cars",
+    "countries": "Countries"
   },
 
   "projects": {

@@ -13,5 +13,5 @@ export const selectCountryFilter = createSelector(
   selectCountries,
   selectCountrySearch,
   (countries, searchCountriesValue ) => {
-    return countries.filter((country: Country) => country.name.toLowerCase() === searchCountriesValue)
+    return countries.filter((country: Country) => country.name.toLowerCase().substring(0,3) === searchCountriesValue || country.name.toLowerCase() === searchCountriesValue)
   })

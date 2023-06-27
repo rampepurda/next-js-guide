@@ -33,7 +33,8 @@
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
-    "cars": "汽車"
+    "cars": "汽車",
+    "countries": "国家"
   },
   "projects": {
     "dynamicRoute": {

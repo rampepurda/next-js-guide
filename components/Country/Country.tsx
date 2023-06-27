@@ -1,6 +1,6 @@
 import { Country as Countries } from '../../types'
 import Link from "next/link"
-import { ROUTE } from "../../configuration/routes"
+import { ROUTE } from "../../configuration"
 
 type Props = Countries
 

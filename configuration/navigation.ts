@@ -90,5 +90,9 @@ export const navigationProjectsLinks = [
   {
     tKey: "navProjectsLeft.cars",
     link: ROUTE.PROJECT_CARS
-  }
+  },
+  {
+    tKey: "navProjectsLeft.countries",
+    link: ROUTE.PROJECT_COUNTRIES
+  },
 ]

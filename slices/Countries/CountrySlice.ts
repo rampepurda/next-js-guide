@@ -30,8 +30,8 @@ export const CountrySlice = createSlice({
   name: 'Countries',
   initialState,
   reducers: {
-    getCountryValue: (state, action) => {
-      state.searchCountriesValue = action.payload
+    getSearchCountry: (state, action) => {
+      state.searchCountriesValue = action.payload.SearchedCountryValue
     },
   },
   extraReducers(builder) {
@@ -50,5 +50,5 @@ export const CountrySlice = createSlice({
   }
 })
 
-export const { getCountryValue } = CountrySlice.actions
+export const { getSearchCountry } = CountrySlice.actions
 
