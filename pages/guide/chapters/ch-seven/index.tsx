@@ -2,17 +2,12 @@ import style from './ch-seven.module.scss'
 
 import React, { MouseEventHandler, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
-import {
-  incrementByAmount,
-  UserName,
-  Decrement,
-  getPhotos
-} from "../../../../slices"
+import { getPhotos } from "../../../../slices"
 import { useState } from "react"
 import { Loader } from "../../../../components"
 import classNames from "classnames"
 import { NextPage } from "next"
-import { Navigation, Photos } from "../../../../components"
+import { Navigation, Photos, Input } from "../../../../components"
 import { navigationGuideLinks } from "../../../../configuration"
 import Head from "next/head"
 import Image from "next/image"
@@ -102,29 +97,25 @@ const ChSeven: NextPage = () => {
             </a>
           </h3>
 
-          {
-            blockIsVisible ? <div>
+          {blockIsVisible ? <div>
               <h3>store.ts</h3>
               <Image
                 src={imgStore}
                 aria-hidden='true'
                 alt='store'
               />
-
               <h3>hooks.ts</h3>
               <Image
                 src={imgHooks}
                 aria-hidden='true'
                 alt='hooks'
               />
-
               <h3>slice.ts</h3>
               <Image
                 src={imgSlice}
                 aria-hidden='true'
                 alt='store'
               />
-
               <h3>components</h3>
               <Image
                 src={imgComponent}
@@ -132,8 +123,7 @@ const ChSeven: NextPage = () => {
                 alt='use in component'
               />
               <hr/>
-            </div> : ''
-          }
+            </div> : ''}
 
           <h3>2. createAsyncThunk</h3>
           <Image
@@ -189,73 +179,33 @@ const ChSeven: NextPage = () => {
           })}
 
           <h4>Select Numbers of Photos you want to see:</h4>
-          <input
-            type='number'
-            placeholder='0'
-            min='50'
-            max='500'
-            step='50'
-            aria-label='number'
-            onChange={(e) => setHasLimit(e.target.value)}
-          />
-          <button
-            className='btn btn-primary'
-            type='button'
-            aria-label='show photo gallery'
-            onClick={handlePhotos}
-          >
-            Show Gallery
-          </button>
-          <button
-            className='btn btn-submit'
-            type='button'
-            aria-label='filter photo gallery'
-            onClick={handleFilterPhotos}
-          >
-            Filter Photos
-          </button>
-          <div>{isLoading && error === '' ? <Loader ClassName={'loader'} /> : ''}</div>
-          <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
-          <Photos photos={selectedPhotos} />
-          <hr/>
-
-          <h3>User Name: {userName}</h3>
-          <div style={{
-            display: 'flex',
-            alignContent: 'center'
-          }}>
+          <div>
+            <Input
+              id={'email'}
+              ariaLabel={'select number'}
+              tabIdx={1}
+              OnChange={(e) => setHasLimit(e.target.value)}
+              rest={{
+                type: 'number',
+                placeholder: '0',
+                min: '50',
+                max: '500',
+                step: '50'
+              }}
+            />
             <button
               className='btn btn-primary'
               type='button'
-              onClick={(e) => dispatch(incrementByAmount(34))}
+              aria-label='show photo gallery'
+              onClick={handlePhotos}
             >
-              Increment By Amount
+              Show Gallery
             </button>
-            <span style={{
-              display: 'inline-block',
-              margin: '.2rem .3rem .2rem',
-              border: '1px solid gray',
-              padding: '.5rem',
-              fontWeight: 'bolder',
-              fontSize: '1.3rem'
-            }}>
-              {amount}
-            </span>
-
-            <button
-              className='btn btn-remove'
-              type='button'
-              onClick={() => dispatch(Decrement())}
-            >
-              Decrease Value
-            </button>
-
-            <input
-              type='text'
-              placeholder='onKey change the User name'
-              onKeyUp={(e) => dispatch(UserName({changeUserName: 'donovald truskavec'}))}
-            />
           </div>
+
+          <div>{isLoading ? <Loader ClassName={'loader'} /> : ''}</div>
+          <h4>{error === '' ? '' : <span style={{color: 'red'}}>{error}</span>}</h4>
+          <Photos photos={selectedPhotos} />
         </div>
       </div>
     </>
