@@ -5,20 +5,14 @@ import { Message } from "../../configuration"
 
 const initialState: {
   error?: string,
-  filter: string,
+  searchCountriesValue: string,
   loader: boolean,
-  countries: Country[],
-  filterCountry: Country
+  countries: Country[]
 } = {
   error: '',
-  filter: '',
+  searchCountriesValue: '',
   loader: true,
-  countries: [],
-  filterCountry: {
-    code: 'CZ',
-    name: 'CZECH REPUBLIC',
-    emoji: ''
-  }
+  countries: []
 }
 
 export const getCountries = createAsyncThunk<Country>(
@@ -36,8 +30,8 @@ export const CountrySlice = createSlice({
   name: 'Countries',
   initialState,
   reducers: {
-    filteredCar: (state, action) => {
-      state.filter = action.payload
+    getSearchCountry: (state, action) => {
+      state.searchCountriesValue = action.payload.SearchedCountryValue
     },
   },
   extraReducers(builder) {
@@ -55,4 +49,6 @@ export const CountrySlice = createSlice({
     })
   }
 })
+
+export const { getSearchCountry } = CountrySlice.actions
 

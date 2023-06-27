@@ -3,23 +3,20 @@ import { useSelect } from "../../../hooks"
 import { NextPage } from "next"
 import Head from "next/head"
 import { Cars, Navigation, Select } from "../../../components"
-import { navigationProjectsLinks } from "../../../configuration"
-import { CarsOptions } from "../../../configuration"
+import { navigationProjectsLinks, CarsOptions, ROUTE } from "../../../configuration"
 import { useAppSelector } from "../../../store/hooks"
 import { selectCarFilter } from "../../../slices/Cars/carSelectors"
 import { useDispatch } from "react-redux"
 import { getFilterCar } from "../../../slices"
-import { ROUTE } from '../../../configuration'
 
 const CarsPage: NextPage = () => {
   const dispatch = useDispatch()
-  const { filterCar } = useAppSelector(state => state.Cars)
-  const { handleOption, Value = filterCar } = useSelect(CarsOptions, ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR)
+  const { handleOption, Value = `${CarsOptions[0].value}`} = useSelect(CarsOptions, ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR)
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
     dispatch(getFilterCar(Value))
-  }, [Value, filteredCars, filterCar])
+  }, [Value, filteredCars])
 
   return (
     <>

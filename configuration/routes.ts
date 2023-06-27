@@ -6,6 +6,7 @@ export const ROUTE = {
   PROJECTS: '/projects',
   PROJECT_DYN_ROUTE: '/projects/dynamic-route',
   PROJECT_CARS: '/projects/cars',
+  PROJECT_COUNTRIES: '/projects/countries',
   PAGES: {
     GUIDE: {
       CH14: {

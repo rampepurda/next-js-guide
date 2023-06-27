@@ -2,6 +2,12 @@ export const Message = {
   error: 'Ops, something wrong, we are not able to provide any data'
 }
 
+export const trackCountry = {
+  code: 'undefined',
+  name: 'undefined',
+  emoji: 'undefined'
+}
+
 export const CarList = [
   {
     id: 'a1',
@@ -95,10 +101,4 @@ export const CarsOptions = [
   {value: 'citroen'},
   {value: 'hyundai'},
   {value: 'skoda'}
-]
-export const CarsLocationsOptions = [
-  {value: 'Aš'},
-  {value: 'Brno'},
-  {value: 'Ceske Budeojovice'},
-  {value: 'Prague'}
 ]

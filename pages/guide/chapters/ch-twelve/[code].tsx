@@ -1,15 +1,13 @@
 import style from './Code.module.scss'
 
-import { useAppSelector } from "../../../../store/hooks"
 import React, { useEffect, useState } from "react"
 import { Navigation } from "../../../../components"
-import { navigationGuideLinks, Pages } from "../../../../configuration"
+import { navigationGuideLinks, Pages, ROUTE, trackCountry } from "../../../../configuration"
 import Head from "next/head"
 import { GetServerSideProps } from "next"
 import CountriesService from '../../../../services/Countries'
 import Link from "next/link"
 import classNames from "classnames"
-import { ROUTE } from "../../../../configuration/routes"
 import { Country } from "../../../../types"
 /**
   const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
@@ -19,8 +17,7 @@ import { Country } from "../../../../types"
 type InitCountry = Country
 
 function CountryId({ query }: {query: InitCountry}) {
-  const { filterCountry } = useAppSelector(state => state.Countries)
-  const [track, setTrack] = useState<InitCountry>(filterCountry)
+  const [track, setTrack] = useState<InitCountry>(trackCountry)
   const getTrack = async () => {
     try {
       const data = await CountriesService.getCountryDetail(`${query.code}`)
@@ -28,14 +25,12 @@ function CountryId({ query }: {query: InitCountry}) {
     } catch (err: any) { return err.message }
   }
 
-  useEffect(() => {
-    getTrack()
-  }, [filterCountry])
+  useEffect(() => { getTrack() }, [])
 
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-twelve-Country</title>
+        <title>{Pages.Guide.chTwelve.detailTrack.title}</title>
       </Head>
 
       <div className='cols'>
@@ -80,4 +75,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 }
+
 export default CountryId
