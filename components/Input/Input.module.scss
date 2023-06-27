@@ -1,12 +1,29 @@
 @import "styles/variables";
 @import "styles/spacing";
 
+.cover {
+  position: relative;
+  display: inline-block;
+}
+
 .Input {
-  margin: $spacer-3 0;
+  margin: $spacer-3 $spacer-1 $spacer-3 0;
+  border-radius: .5rem;
+  border: 2px solid $grayLight;
+  padding: .8rem .5rem;
+  font-size: 1.1rem;
 }
 
 .isSearch {
-  position: relative;
   border-radius: 1.3rem;
-  padding: .7rem 1rem;
+  padding: .7rem 1rem .7rem 2.8rem;
+}
+
+.hasIcoMagnifying {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.3rem;
+  height: 3rem;
+  border: 0;
 }

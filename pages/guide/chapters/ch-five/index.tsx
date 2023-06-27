@@ -3,7 +3,7 @@ import style from '../../chapters.module.scss'
 import React, { useState } from "react"
 import classNames from "classnames"
 import { NextPage } from "next"
-import {Navigation, InfoBox, Input} from "../../../../components"
+import { Navigation, InfoBox, Input } from "../../../../components"
 import Head from "next/head"
 import { navigationGuideLinks } from "../../../../configuration"
 import Image from "next/image"
