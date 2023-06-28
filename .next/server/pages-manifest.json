@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/guide/chapters/ch-twelve": "pages/guide/chapters/ch-twelve.js",
-  "/projects": "pages/projects.js",
-  "/projects/countries": "pages/projects/countries.js",
-  "/guide/chapters/ch-twelve/[code]": "pages/guide/chapters/ch-twelve/[code].js"
+  "/guide/chapters/ch-five": "pages/guide/chapters/ch-five.js"
 }
