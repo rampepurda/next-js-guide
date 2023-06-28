@@ -9,6 +9,7 @@ dist/
 
 # next.js
 .next
+/.next/
 /out/
 
 # Compiled Java class files
