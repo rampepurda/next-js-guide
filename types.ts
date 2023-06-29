@@ -1,37 +1,37 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent } from 'react'
 
 export interface NavigationLink {
-  tKey: string,
+  tKey: string
   link: string
 }
 export interface initPhotos {
-  albumId?: number,
-  id?: number,
-  title: string,
-  url: string,
-  thumbnailUrl: string,
+  albumId?: number
+  id?: number
+  title: string
+  url: string
+  thumbnailUrl: string
   testMe?: boolean
 }
 export interface initPagination {
-  items: number,
-  itemsPerPage: number,
-  currentPage?: number,
-  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void,
+  items: number
+  itemsPerPage: number
+  currentPage?: number
+  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
 }
 export type Country = {
-  code: string,
-  name: string,
-  native?: string,
-  phone?: string | number,
-  currency?: string | number,
-  emoji?: string,
-  emojiU?: string,
+  code: string
+  name: string
+  native?: string
+  phone?: string | number
+  currency?: string | number
+  emoji?: string
+  emojiU?: string
 }
 export interface CarTypes {
-  id: string | number,
-  model: string,
-  name: string,
-  location?: string,
+  id: string | number
+  model: string
+  name: string
+  location?: string
   price: string
 }
 
@@ -40,18 +40,17 @@ export type InitOptions = { value: string }
 
 // Playground
 export type Person = {
-  name: string,
+  name: string
   age: number
 }
 // Slices
-interface InitValueSL
-{
-  title: string,
+interface InitValueSL {
+  title: string
   age: number
 }
 
 export interface PersonFn {
-  ( name: string, age: number): string | number
+  (name: string, age: number): string | number
 }
 
 export type PersonTypoFn = (name: string, age: number) => number | string

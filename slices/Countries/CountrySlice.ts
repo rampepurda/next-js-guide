@@ -1,23 +1,23 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { Country } from "../../types"
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { Country } from '../../types'
 import CountriesService from '../../services/Countries'
-import { Message } from "../../configuration"
+import { Message } from '../../configuration'
 
 const initialState: {
-  error?: string,
-  searchCountriesValue: string,
-  loader: boolean,
+  error?: string
+  searchCountriesValue: string
+  loader: boolean
   countries: Country[]
 } = {
   error: '',
   searchCountriesValue: '',
   loader: true,
-  countries: []
+  countries: [],
 }
 
-export const getCountries = createAsyncThunk<Country>(
+export const getCountries = createAsyncThunk<Country[]>(
   'countries/getCountries',
-  async (_, { rejectWithValue}) => {
+  async (_, { rejectWithValue }) => {
     try {
       return await CountriesService.getCountry()
     } catch (err: unknown) {
@@ -36,7 +36,6 @@ export const CountrySlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(getCountries.fulfilled, (state, action) => {
-      // @ts-ignore
       state.countries = action.payload
       state.loader = false
     })
@@ -47,8 +46,7 @@ export const CountrySlice = createSlice({
     builder.addCase(getCountries.pending, (state) => {
       state.loader = true
     })
-  }
+  },
 })
 
 export const { getSearchCountry } = CountrySlice.actions
-
