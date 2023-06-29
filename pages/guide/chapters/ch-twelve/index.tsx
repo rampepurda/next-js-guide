@@ -9,22 +9,22 @@
  * @requires <Countries countries={data.countries.slice(70,80)} />
  */
 
-import React, { useEffect } from "react"
-import { NextPage } from "next"
-import { Navigation, InfoBox, Countries } from "../../../../components"
-import Head from "next/head"
-import { navigationGuideLinks, Pages } from "../../../../configuration"
-import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
-import { getCountries } from "../../../../slices"
-import { useQuery } from "@apollo/client"
-import { GET_COUNTRIES_QUERY } from "../../../../queries"
-import Image from "next/image"
+import React, { useEffect } from 'react'
+import { NextPage } from 'next'
+import { Navigation, InfoBox, Countries } from '../../../../components'
+import Head from 'next/head'
+import { navigationGuideLinks, Pages } from '../../../../configuration'
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
+import { getCountries } from '../../../../slices'
+import { useQuery } from '@apollo/client'
+import { GET_COUNTRIES_QUERY } from '../../../../queries'
+import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
-  const { countries } = useAppSelector(state => state.Countries)
+  const { countries } = useAppSelector((state) => state.Countries)
   const { data } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
@@ -37,28 +37,28 @@ const ChTwelve: NextPage = () => {
         <title>Next JS | Guide | {Pages.Guide.chTwelve.headline}</title>
       </Head>
 
-      <div className='cols'>
-        <div className='col-3 has-br'>
+      <div className="cols">
+        <div className="col-3 has-br">
           <Navigation links={navigationGuideLinks} />
         </div>
 
-        <div className='col-9'>
+        <div className="col-9">
           <h2>{Pages.Guide.chTwelve.headline}</h2>
-          <nav aria-label='read more'>
+          <nav aria-label="read more">
             <ul>
               <li>
                 <a
-                  href='https://www.apollographql.com/tutorials/lift-off-part1/03-schema-definition-language-sdl'
-                  target='_blank'
+                  href="https://www.apollographql.com/tutorials/lift-off-part1/03-schema-definition-language-sdl"
+                  target="_blank"
                 >
                   Apollo GraphQL tutorial
                 </a>
               </li>
               <li>
                 <a
-                  href='https://www.apollographql.com/docs/react/data/queries/'
-                  target='_blank'
-                  style={{display: 'block'}}
+                  href="https://www.apollographql.com/docs/react/data/queries/"
+                  target="_blank"
+                  style={{ display: 'block' }}
                 >
                   Apollo GraphQL queries
                 </a>
@@ -69,7 +69,7 @@ const ChTwelve: NextPage = () => {
 
           <h2>Client Side</h2>
           <h3>1. Feature overview - Installation</h3>
-          <ul className='hasTypeDisc'>
+          <ul className="hasTypeDisc">
             <li>
               <h5>Apollo GraphQL</h5>
               yarn add graphql
@@ -82,14 +82,14 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <h3>2. Feature data requirements (CLIENT)</h3>
-          <ul className='hasTypeDisc'>
+          <ul className="hasTypeDisc">
             <li>
               <h5>Apollo Client</h5>
               <code>const apolloClient = new ApolloClient(&#123;</code>
             </li>
             <li>
               <h5>queries</h5>
-              <ul className='hasVerticalPadding-2'>
+              <ul className="hasVerticalPadding-2">
                 <li>import &#123; gql &#125; from "@apollo/client"</li>
                 <li>export const GET_COUNTRIES_QUERY = gql`</li>
                 <li>&nbsp;query Countries &#123;</li>
@@ -107,46 +107,58 @@ const ChTwelve: NextPage = () => {
             <li>
               <h5>_app.tsx</h5>
               <ul>
-                <li className='hasVerticalPadding-2'>import apolloClient from "../apollo/graphql-client"</li>
-                <li className='hasVerticalPadding-2'>import &#123; ApolloProvider &#125; from "@apollo/client"</li>
-                <li className='hasVerticalPadding-10'>&lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;</li>
+                <li className="hasVerticalPadding-2">
+                  import apolloClient from "../apollo/graphql-client"
+                </li>
+                <li className="hasVerticalPadding-2">
+                  import &#123; ApolloProvider &#125; from "@apollo/client"
+                </li>
+                <li className="hasVerticalPadding-10">
+                  &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;
+                </li>
               </ul>
             </li>
           </ul>
           <hr />
 
           <h3>3. Schema definition language (SDL)</h3>
-          <p>A schema is like a contract between the server and the client. It defines what a GraphQL API can and can't do, and how clients can request or change data. It's an abstraction layer that provides flexibility to consumers while hiding backend implementation details.</p>
+          <p>
+            A schema is like a contract between the server and the client. It defines what a GraphQL
+            API can and can't do, and how clients can request or change data. It's an abstraction
+            layer that provides flexibility to consumers while hiding backend implementation
+            details.
+          </p>
           <InfoBox className={'isInfo'}>
             <h5>Definition Schema Language(DSL)</h5>
             <hr />
-            <ul className='hasVerticalPadding-2'>
+            <ul className="hasVerticalPadding-2">
               <li>type SpaceCat &#123;</li>
-              <li>&nbsp;&nbsp;name: String! <span className='color-is-black'>// can`t be 'null' || type field</span></li>
-              <li>&nbsp;&nbsp;age: Int <span className='color-is-black'>// type field</span></li>
-              <li>&nbsp;&nbsp;missions: [Mission] <span className='color-is-black'>// type field</span></li>
+              <li>
+                &nbsp;&nbsp;name: String!{' '}
+                <span className="color-is-black">// can`t be 'null' || type field</span>
+              </li>
+              <li>
+                &nbsp;&nbsp;age: Int <span className="color-is-black">// type field</span>
+              </li>
+              <li>
+                &nbsp;&nbsp;missions: [Mission]{' '}
+                <span className="color-is-black">// type field</span>
+              </li>
               <li>&#125;</li>
             </ul>
             <hr />
             <h5>It`s a good practice to make documentation for each schema</h5>
           </InfoBox>
-          <Image
-            src={imgApolloStructure}
-            alt='ApolloStructure'
-          />
+          <Image src={imgApolloStructure} alt="ApolloStructure" />
           <hr />
 
           <h2>GraphQL Server Side</h2>
-          <a
-            href='https://www.apollographql.com/tutorials/'
-            target='_blank'
-            rel='author'
-          >
+          <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="author">
             Apollo GraphQL tutorials (Lift of II Resolvers)
           </a>
 
           <h3>1. Ready to Install GraphQL Server</h3>
-          <ul className='hasTypeDisc'>
+          <ul className="hasTypeDisc">
             <li>
               <h5>Clone Apollo GraphQL Server</h5>
               git clone https://github.com/apollographql/odyssey-lift-off-part1
@@ -162,26 +174,29 @@ const ChTwelve: NextPage = () => {
               Server/src create File: schema.ts
               <br />
               <a
-                href='https://www.apollographql.com/tutorials/lift-off-part1/04-building-our-schema'
-                target='_blank'
-                rel='author'
+                href="https://www.apollographql.com/tutorials/lift-off-part1/04-building-our-schema"
+                target="_blank"
+                rel="author"
               >
                 Building our schema
               </a>
               <br />
               <a
-                href='https://www.apollographql.com/docs/apollo-server/schema/schema'
-                target='_blank'
-                rel='author'
+                href="https://www.apollographql.com/docs/apollo-server/schema/schema"
+                target="_blank"
+                rel="author"
               >
                 Schema how to setup, read here
               </a>
               <h4>Naming conventions</h4>
-              Field names should use <strong>camelCase</strong> or <strong>PascalCase</strong>. Many GraphQL clients are written in JavaScript, Java, Kotlin, or Swift, all of which recommend camelCase for variable names.
+              Field names should use <strong>camelCase</strong> or <strong>PascalCase</strong>. Many
+              GraphQL clients are written in JavaScript, Java, Kotlin, or Swift, all of which
+              recommend camelCase for variable names.
             </li>
             <li>
               <h5>Mocking data on Server, need to install:</h5>
-              To enable mocked data, we'll need to use two new packages: @graphql-tools/mock and @graphql-tools/schema.
+              To enable mocked data, we'll need to use two new packages: @graphql-tools/mock and
+              @graphql-tools/schema.
               <h5>yarn add @graphql-tools/mock @graphql-tools/schema</h5>
               npm install @graphql-tools/mock @graphql-tools/schema
             </li>
@@ -193,28 +208,33 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <h3>2. Resolvers</h3>
-          <ul className='hasTypeDecimal'>
+          <ul className="hasTypeDecimal">
             <li>
               <h4>Install:</h4>
               <h4>yarn add @apollo/datasource-rest</h4>
               <a
-                href='https://www.apollographql.com/tutorials/lift-off-part2/04-implementing-our-restdatasource'
-                target='_blank'
-                rel='author'
-                >
+                href="https://www.apollographql.com/tutorials/lift-off-part2/04-implementing-our-restdatasource"
+                target="_blank"
+                rel="author"
+              >
                 Datasource tutorial here
               </a>
             </li>
             <li>
-              <h4>Create new files in Server/src: <strong>datasource</strong></h4>
-              <h4>Create new files in Server/src/<strong>datasource/</strong>: <strong>track-api.js</strong> </h4>
+              <h4>
+                Create new files in Server/src: <strong>datasource</strong>
+              </h4>
+              <h4>
+                Create new files in Server/src/<strong>datasource/</strong>:{' '}
+                <strong>track-api.js</strong>{' '}
+              </h4>
             </li>
             <li>
               <h4>Create module - resolvers.js</h4>
               <a
-                href='https://www.apollographql.com/tutorials/lift-off-part2/05-the-shape-of-a-resolver'
-                target='_blank'
-                rel='author'
+                href="https://www.apollographql.com/tutorials/lift-off-part2/05-the-shape-of-a-resolver"
+                target="_blank"
+                rel="author"
               >
                 Resolvers tutorial here
               </a>
@@ -223,14 +243,11 @@ const ChTwelve: NextPage = () => {
               <h4>Change 'schema.js' and 'index.js' structure</h4>
             </li>
           </ul>
-          <Image
-            src={imgResolvers}
-            alt='Resolvers parameters'
-          />
+          <Image src={imgResolvers} alt="Resolvers parameters" />
           <hr />
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
-          <Countries countries={countries.slice(80,90)} />
+          <Countries countries={countries.slice(20, 90)} />
         </div>
       </div>
     </>
@@ -238,4 +255,3 @@ const ChTwelve: NextPage = () => {
 }
 
 export default ChTwelve
-

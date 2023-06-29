@@ -24,8 +24,7 @@ const nextConfig = {
         {
           loader: '@svgr/webpack',
           options: {
-            // svgo: set all properties are included in svg (abort/ authorise)
-            // as for example 'animation' included in svg
+            // svgo: true = Case set to `true` all properties svg included are ABORTED!/ authorise).As for example 'animation'
             // svgo: false attributes keeps the same value(animation in svg works) if true (animation will stop working)
             svgo: false,
           },
@@ -36,6 +35,5 @@ const nextConfig = {
     return config
   },
 }
-
 
 module.exports = nextTranslate(nextConfig)
