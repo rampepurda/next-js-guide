@@ -9,7 +9,7 @@ dist/
 
 # next.js
 .next
-/.next/
+.next/*
 /out/
 
 # Compiled Java class files
@@ -54,6 +54,5 @@ Thumbs.db
 
 # local env files
 .env*.local
-.env
-/env/
-/.next/
+.env.*
+/env/*
