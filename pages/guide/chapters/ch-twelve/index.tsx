@@ -254,7 +254,10 @@ const ChTwelve: NextPage = () => {
             curly braces, we have our entry points, the fields we'll be using to mutate our data.
           </p>
           <InfoBox className={'isWarning'}>
-            <h4>type Mutation &#123; addSpaceCat(name: String!):SpaceCat &#125;</h4>
+            <h4>
+              type Mutation &#123; incrementTrackViews(id: ID!): IncrementTrackViewsResponse! &#125;
+            </h4>
+            <hr />
             <ul className="hasVerticalPadding-2">
               <li>type IncrementTrackViewsResponse &#123;</li>
               <li>&nbsp;code: Int!</li>
@@ -264,7 +267,6 @@ const ChTwelve: NextPage = () => {
               <li>&#125;</li>
             </ul>
           </InfoBox>
-
           <p>
             We recommend starting with a <strong>verb</strong> that describes the specific action of
             our update operation <strong>(such as add, delete, or create)</strong>, followed by
@@ -273,6 +275,38 @@ const ChTwelve: NextPage = () => {
             SDL syntax. The return type of the mutation comes after the colon.
           </p>
           <h4>For more see Next JS Apollo GraphQL Project</h4>
+
+          <h3>3.2 Mutation - `gql`</h3>
+          <InfoBox className={'isInfo'}>
+            <ul className="hasVerticalPadding-2">
+              <li>
+                export <strong>const GET_TRACK_NUM_VIEWS = gql`</strong>
+              </li>
+              <li>&nbsp;mutation GetTruckNumOfView($incrementTrackViewsId: ID!) &#123;</li>
+              <li>&nbsp;&nbsp; code</li>
+              <li>&nbsp;&nbsp; message</li>
+              <li>&nbsp;&nbsp; success</li>
+              <li>&nbsp;&nbsp; track &#123; ... &#125;</li>
+              <li>&#125;</li>
+            </ul>
+          </InfoBox>
+          <hr />
+          <h3>3.2 Mutation - use</h3>
+          <InfoBox className={'isInfo'}>
+            <h4>import &#123; useMutation &#125; from '@apollo/client';</h4>
+            <hr />
+            <ul className="hasVerticalPadding-2">
+              <li>
+                const [incrementTrackViews] = <strong>useMutation(GET_TRACK_NUM_VIEWS</strong>,
+                &#123;
+              </li>
+              <li>&nbsp;variables: &#123; incrementTrackViewsId: id &#125;</li>
+              <li>&#125;</li>
+            </ul>
+            <hr />
+            <code>&nbsp;return ( onClick=&#123;(ev) =&gt; incrementTrackViews()&#125; )</code>
+          </InfoBox>
+          <h4>If you unlike useMutation see Next Apollo GraphQL Project/Client/src/services</h4>
           <hr />
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
