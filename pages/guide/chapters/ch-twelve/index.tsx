@@ -255,6 +255,14 @@ const ChTwelve: NextPage = () => {
           </p>
           <InfoBox className={'isWarning'}>
             <h4>type Mutation &#123; addSpaceCat(name: String!):SpaceCat &#125;</h4>
+            <ul className="hasVerticalPadding-2">
+              <li>type IncrementTrackViewsResponse &#123;</li>
+              <li>&nbsp;code: Int!</li>
+              <li>&nbsp;success: Boolean!</li>
+              <li>&nbsp;message: String!</li>
+              <li>&nbsp;track: Track</li>
+              <li>&#125;</li>
+            </ul>
           </InfoBox>
 
           <p>
@@ -264,6 +272,8 @@ const ChTwelve: NextPage = () => {
             object, they often require arguments. We can add arguments as needed, following the same
             SDL syntax. The return type of the mutation comes after the colon.
           </p>
+          <h4>For more see Next JS Apollo GraphQL Project</h4>
+          <hr />
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
           <Countries countries={countries.slice(20, 90)} />
