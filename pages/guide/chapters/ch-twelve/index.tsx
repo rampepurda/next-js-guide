@@ -44,29 +44,22 @@ const ChTwelve: NextPage = () => {
 
         <div className="col-9">
           <h2>{Pages.Guide.chTwelve.headline}</h2>
-          <nav aria-label="read more">
-            <ul>
-              <li>
-                <a
-                  href="https://www.apollographql.com/tutorials/lift-off-part1/03-schema-definition-language-sdl"
-                  target="_blank"
-                >
-                  Apollo GraphQL tutorial
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.apollographql.com/docs/react/data/queries/"
-                  target="_blank"
-                  style={{ display: 'block' }}
-                >
-                  Apollo GraphQL queries
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <ul className="hasVerticalPadding-2">
+            <li>
+              <a
+                href="https://www.apollographql.com/tutorials/lift-off-part1/03-schema-definition-language-sdl"
+                target="_blank"
+              >
+                Apollo GraphQL tutorial
+              </a>
+            </li>
+            <li>
+              <a href="https://www.apollographql.com/docs/react/data/queries/" target="_blank">
+                Apollo GraphQL queries
+              </a>
+            </li>
+          </ul>
           <hr />
-
           <h2>Client Side</h2>
           <h3>1. Feature overview - Installation</h3>
           <ul className="hasTypeDisc">
@@ -80,7 +73,6 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
           <hr />
-
           <h3>2. Feature data requirements (CLIENT)</h3>
           <ul className="hasTypeDisc">
             <li>
@@ -120,7 +112,6 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
           <hr />
-
           <h3>3. Schema definition language (SDL)</h3>
           <p>
             A schema is like a contract between the server and the client. It defines what a GraphQL
@@ -151,12 +142,10 @@ const ChTwelve: NextPage = () => {
           </InfoBox>
           <Image src={imgApolloStructure} alt="ApolloStructure" />
           <hr />
-
           <h2>GraphQL Server Side</h2>
           <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="author">
             Apollo GraphQL tutorials (Lift of II Resolvers)
           </a>
-
           <h3>1. Ready to Install GraphQL Server</h3>
           <ul className="hasTypeDisc">
             <li>
@@ -206,7 +195,6 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
           <hr />
-
           <h3>2. Resolvers</h3>
           <ul className="hasTypeDecimal">
             <li>
@@ -245,6 +233,37 @@ const ChTwelve: NextPage = () => {
           </ul>
           <Image src={imgResolvers} alt="Resolvers parameters" />
           <hr />
+          <h3>3. Mutation</h3>
+          <InfoBox className={'isInfo'}>
+            <h4>
+              So far, our app has only used one type of GraphQL <strong>operation: queries</strong>.
+              These are <strong>read-only operations</strong> to retrieve data. To modify data, we
+              need to use another type of GraphQL <strong>operation: mutations</strong>, which are
+              write operations.
+            </h4>
+            <br />
+            <h4>
+              Much like the Query type, the <strong>Mutation type</strong> serves as an entry point
+              to our schema. It follows the same syntax as the schema definition language, or SDL,
+              that we've been using so far.
+            </h4>
+          </InfoBox>
+          <h3>3.1 Mutation - Schema syntax</h3>
+          <p>
+            We declare the Mutation type using the type keyword, then the name Mutation. Inside the
+            curly braces, we have our entry points, the fields we'll be using to mutate our data.
+          </p>
+          <InfoBox className={'isWarning'}>
+            <h4>type Mutation &#123; addSpaceCat(name: String!):SpaceCat &#125;</h4>
+          </InfoBox>
+
+          <p>
+            We recommend starting with a <strong>verb</strong> that describes the specific action of
+            our update operation <strong>(such as add, delete, or create)</strong>, followed by
+            whatever data the mutation acts on. Because mutations typically modify a specific
+            object, they often require arguments. We can add arguments as needed, following the same
+            SDL syntax. The return type of the mutation comes after the colon.
+          </p>
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
           <Countries countries={countries.slice(20, 90)} />
