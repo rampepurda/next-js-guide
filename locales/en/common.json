@@ -36,7 +36,13 @@
     "cars": "Cars",
     "countries": "Countries"
   },
-
+  "pages": {
+    "ch-6": {
+      "interpolation": {
+        "age": "My age is: {{num}}"
+      }
+    }
+  },
   "projects": {
     "dynamicRoute": {
       "btn":"Explore Event"
