@@ -4,14 +4,13 @@ import useTranslation from 'next-translate/useTranslation'
 import { useAppSelector } from '../../../../store/hooks'
 import Trans from 'next-translate/Trans'
 import Head from 'next/head'
-import { InfoBox, Input, Navigation } from '../../../../components'
+import { InfoBox, Input, Navigation, DateBox } from '../../../../components'
 import { navigationGuideLinks } from '../../../../configuration'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import i18n from '../../../../public/images/ch-six/i18n.png'
 import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import { useEffect, useState } from 'react'
-import { formatDateFromUTC } from '../../../../utils'
 
 /**
  * https://www.i18next.com/translation-function/formatting
@@ -20,7 +19,6 @@ import { formatDateFromUTC } from '../../../../utils'
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.Photos)
   const [age, setAge] = useState<string | number>(0)
-  const currentDate = new Date()
   const { t } = useTranslation('common')
 
   useEffect(() => {}, [age])
@@ -130,15 +128,22 @@ const ChSix: NextPage = () => {
               6. &#123; t( 'locales- appropriate target', query &#123; &#125;, option: &#123;
               returnObject: true &#125;) &#125;
             </h3>
+            <a
+              href="https://www.i18next.com/translation-function/formatting"
+              rel="external"
+              target="_blank"
+            >
+              Read more about i18n formatting
+            </a>
             <div>
               <h4>
-                {formatDateFromUTC(`${currentDate}`, t('months', {}, { returnObjects: true }))}
+                <DateBox />
               </h4>
             </div>
 
             <hr />
 
-            <h3>5. Translate example:</h3>
+            <h3>Translate example:</h3>
             <p>{t('home:createAccount')}</p>
             <p>{t('home:createAccount_headline', { count: amount })}</p>
             <p>{t('welcome')}</p>

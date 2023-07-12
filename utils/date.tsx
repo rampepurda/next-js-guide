@@ -3,6 +3,8 @@
  * @param dateUTC - UTC Datetime string
  * @param months - an object where keys are month names and their translations taken from Lokalise (months)
  * @returns formatted date
+ * Data(UTC) read more below
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC
  */
 
 export const formatDateFromUTC = (dateUTC: string, months: Record<string, string>) => {
