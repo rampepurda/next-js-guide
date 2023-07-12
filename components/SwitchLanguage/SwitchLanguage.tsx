@@ -1,13 +1,14 @@
 import style from './Switch.module.scss'
 
-import React, { ChangeEvent } from "react"
+import React, { ChangeEvent } from 'react'
 
 type Props = {
-  ClassName?: string,
-  OnChange: (ev: ChangeEvent<HTMLInputElement>) => void,
+  ClassName?: string
+  OnChange: (ev: ChangeEvent<HTMLInputElement>) => void
+  ariaLabel: string
 }
 
-export const Switch = ({ClassName, OnChange, ...rest}: Props) => {
+export const SwitchLanguage = ({ ClassName, OnChange, ariaLabel }: Props) => {
   return (
     <div className={style.Switch}>
       <input
@@ -15,7 +16,7 @@ export const Switch = ({ClassName, OnChange, ...rest}: Props) => {
         type="checkbox"
         defaultChecked={false}
         onChange={OnChange}
-        {...rest}
+        aria-label={ariaLabel}
       />
       <label>&nbsp;</label>
     </div>
