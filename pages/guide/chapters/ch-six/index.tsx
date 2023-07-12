@@ -117,7 +117,6 @@ const ChSix: NextPage = () => {
                 OnChange={(ev) => setAge(ev.target.value)}
               />
               <p>
-                {' '}
                 {t('pages.ch-6.interpolation.age', {
                   num: `${age}`,
                 })}
