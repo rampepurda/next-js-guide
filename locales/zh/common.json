@@ -1,5 +1,19 @@
 {
   "loading": "加载中",
+  "months": {
+    "january": "一月",
+    "february": "二月",
+    "march": "行进",
+    "april": "四月",
+    "may": "可能",
+    "june": "六月",
+    "july": "J七月",
+    "august": "八月",
+    "september": "九月",
+    "october": "十月",
+    "november": "十一月",
+    "december": "十二月"
+  },
   "welcome":"欢迎来到我的页面",
   "pageTitle": {
     "home": "下一個家",

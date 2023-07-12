@@ -3,7 +3,11 @@ module.exports = {
   locales: ['en', 'zh'],
   loader: true,
   pages: {
-    '*': ["common","home"],
-    '/projects': ["projects"],
-  }
+    '*': ['common', 'home'],
+    '/projects': ['projects'],
+  },
+  interpolation: {
+    prefix: '{{',
+    suffix: '}}',
+  },
 }

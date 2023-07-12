@@ -11,10 +11,16 @@ import Image from 'next/image'
 import i18n from '../../../../public/images/ch-six/i18n.png'
 import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
 import { useEffect, useState } from 'react'
+import { formatDateFromUTC } from '../../../../utils'
+
+/**
+ * https://www.i18next.com/translation-function/formatting
+ */
 
 const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.Photos)
   const [age, setAge] = useState<string | number>(0)
+  const currentDate = new Date()
   const { t } = useTranslation('common')
 
   useEffect(() => {}, [age])
@@ -85,40 +91,53 @@ const ChSix: NextPage = () => {
                 enables you to create powerful and dynamic strings for your software.
               </h4>
             </InfoBox>
-
-            <Input
-              id={'num'}
-              ariaLabel={'select number'}
-              rest={{ type: 'number', placeholder: '0' }}
-              OnChange={(ev) => setAge(ev.target.value)}
-            />
-            <ul>
-              <li>
+            <h4>locales - json:</h4>
+            <div>
+              <ul className="hasVerticalPadding-2">
+                <li>
+                  {' '}
+                  &quot;trans&quot;: &quot;Be in touch with
+                  <strong className="color-is-red">
+                    &lt;bold&gt; &#123;&#123;count&#125;&#125; test&lt;/bold&gt;
+                  </strong>
+                  &quot;
+                </li>
+                <li>
+                  &quot;trans2&quot;: &quot;Be in touch with your friends{' '}
+                  <strong className="color-is-red">&lt;total&gt;price&lt;/total&gt;</strong>&quot;
+                </li>
+                <li>
+                  "age": <strong>"My age is: &#123;&#123; num &#125;&#125;"</strong>
+                </li>
+              </ul>
+              <Input
+                id={'num'}
+                ariaLabel={'select number'}
+                rest={{ type: 'number', placeholder: '0' }}
+                OnChange={(ev) => setAge(ev.target.value)}
+              />
+              <p>
+                {' '}
                 {t('pages.ch-6.interpolation.age', {
                   num: `${age}`,
                 })}
-              </li>
-              <li>
-                <strong> "age": "My age is: &#123;&#123; num &#125;&#125;"</strong>
-              </li>
-            </ul>
-            <hr />
-
-            <h3>json</h3>
-            <code>
-              &quot;trans&quot;: &quot;Be in touch with your friends{' '}
-              <strong className="color-is-red">
-                &lt;bold&gt; &#123;&#123;count&#125;&#125; test&lt;/bold
-              </strong>
-              &gt;&quot;
-            </code>
-            <code>
-              &quot;trans2&quot;: &quot;Be in touch with your friends{' '}
-              <strong className="color-is-red">&lt;total&gt;price&lt;/total&gt;</strong>&quot;
-            </code>
-            <hr />
-
+              </p>
+            </div>
             <Image src={i18Trans} layout="fixed" alt="store" aria-hidden={true} />
+            <hr />
+
+            <h3>
+              {' '}
+              6. &#123; t( 'locales- appropriate target', query &#123; &#125;, option: &#123;
+              returnObject: true &#125;) &#125;
+            </h3>
+            <div>
+              <h4>
+                {formatDateFromUTC(`${currentDate}`, t('months', {}, { returnObjects: true }))}
+              </h4>
+            </div>
+
+            <hr />
 
             <h3>5. Translate example:</h3>
             <p>{t('home:createAccount')}</p>

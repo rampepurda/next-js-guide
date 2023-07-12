@@ -34,6 +34,7 @@ export interface CarTypes {
   location?: string
   price: string
 }
+export type InpRest = Record<string, string>
 
 // Hooks
 export type InitOptions = { value: string }
