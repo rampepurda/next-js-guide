@@ -1,0 +1,23 @@
+{
+  "ch6": {
+    "title": "next-translate: how to install and use",
+    "week": ["mon","tue","wed"],
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "interpolation": {
+      "age": "My age is: {{num}}"
+    }
+  }
+}

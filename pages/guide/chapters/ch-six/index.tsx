@@ -36,7 +36,7 @@ const ChSix: NextPage = () => {
 
         <div className="col-9">
           <div>
-            <h2>6. next-translate: how to install and use</h2>
+            <h2>6. {t('chapter:ch6.title')}</h2>
             <a
               href="https://www.npmjs.com/package/next-translate?activeTab=readme"
               target="_blank"
@@ -123,9 +123,17 @@ const ChSix: NextPage = () => {
             <Image src={i18Trans} layout="fixed" alt="store" aria-hidden={true} />
             <hr />
 
+            <h3>6. Objects and Arrays</h3>
+            <ul className="hasTypeDisc">
+              <li>&#123; "week": [ "mon", "tue", "wed" ] &#125;</li>
+              <li>&#123; t('key', &#123; &#125;, &#123; returnObjects: true &#125;)&#125;</li>
+            </ul>
+            <h4>{t('chapter:ch6.week', {}, { returnObjects: true })}</h4>
+            <hr />
+
             <h3>
               {' '}
-              6. &#123; t( 'locales- appropriate target', query &#123; &#125;, option: &#123;
+              7. &#123; t( 'locales- appropriate target', query &#123; &#125;, option: &#123;
               returnObject: true &#125;) &#125;
             </h3>
             <a

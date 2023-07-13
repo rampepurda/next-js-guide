@@ -26,6 +26,15 @@ yarn test
  *
  */
 
+# Starting with Next.js 13
+/**
+* Starting with Next.js 13, <Link> renders as <a>, so attempting to use <a> as a child is invalid.
+* Error message after run dev: Invalid `<Link>` with `<a>` child
+* https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
+* Possible Ways to Fix It
+  Run the new-link to automatically upgrade previous versions of Next.js to the new <Link> usage:
+* npx @next/codemod new-link
+*/
 
 
 

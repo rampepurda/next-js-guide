@@ -5,6 +5,9 @@
  * @returns formatted date
  * Data(UTC) read more below
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC
+ *
+ * Intl.NumberFormat
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
  */
 
 export const formatDateFromUTC = (dateUTC: string, months: Record<string, string>) => {

@@ -1,19 +1,5 @@
 {
   "loading": "Loading",
-  "months": {
-    "january": "January",
-    "february": "February",
-    "march": "March",
-    "april": "April",
-    "may": "May",
-    "june": "June",
-    "july": "July",
-    "august": "August",
-    "september": "September",
-    "october": "October",
-    "november": "November",
-    "december": "December"
-  },
   "headline":"Next-JS Guide",
   "pageTitle": {
     "home": "Next JS Guids | Home",
@@ -50,13 +36,6 @@
     "cars": "Cars",
     "countries": "Countries"
   },
-  "pages": {
-    "ch-6": {
-      "interpolation": {
-        "age": "My age is: {{num}}"
-      }
-    }
-  },
   "projects": {
     "dynamicRoute": {
       "btn":"Explore Event"
@@ -73,5 +52,19 @@
     "info": {
       "label": "Close"
     }
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
   }
 }
