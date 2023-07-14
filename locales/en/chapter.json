@@ -18,6 +18,10 @@
     },
     "interpolation": {
       "age": "My age is: {{num}}"
+    },
+    "trans": {
+      "example1": "<bold> Example 1 value is: {{num}}</bold>",
+      "example2": "<total> Example 2 </total>"
     }
   }
 }

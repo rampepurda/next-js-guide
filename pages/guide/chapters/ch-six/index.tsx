@@ -8,8 +8,8 @@ import { InfoBox, Input, Navigation, DateBox } from '../../../../components'
 import { navigationGuideLinks } from '../../../../configuration'
 import { NextPage } from 'next'
 import Image from 'next/image'
-import i18n from '../../../../public/images/ch-six/i18n.png'
-import i18Trans from '../../../../public/images/ch-six/i18Trans.png'
+import i18n from './img/i18n.png'
+import i18Trans from './img/i18Trans.png'
 import { useEffect, useState } from 'react'
 
 /**
@@ -67,18 +67,19 @@ const ChSix: NextPage = () => {
             <hr />
 
             <h3>4. Trans Component:</h3>
-            <h4>
-              <span className="color-is-red">Result: </span>
-              <Trans
-                i18nKey="common:trans"
-                components={{ bold: <strong /> }}
-                values={{ count: 42 }}
-              />
-            </h4>
-            <h4>
-              <span className="color-is-red">Result: </span>
-              <Trans i18nKey="common:trans2" components={{ total: <strong /> }} />
-            </h4>
+            <ul className="hasVerticalPadding-2">
+              <li>
+                <Trans
+                  i18nKey="chapter:ch6.trans.example1"
+                  components={{ bold: <strong /> }}
+                  values={{ num: 42 }}
+                />
+              </li>
+              <li>
+                <Trans i18nKey="chapter:ch6.trans.example2" components={{ total: <strong /> }} />
+              </li>
+            </ul>
+            <Image src={i18Trans} layout="fixed" alt="store" aria-hidden={true} />
             <hr />
 
             <h3>5. Interpolation</h3>
@@ -120,7 +121,6 @@ const ChSix: NextPage = () => {
                 })}
               </p>
             </div>
-            <Image src={i18Trans} layout="fixed" alt="store" aria-hidden={true} />
             <hr />
 
             <h3>6. Objects and Arrays</h3>
