@@ -35,7 +35,6 @@ export const Input = ({
       <input
         id={id}
         className={classNames(style.Input, ClassName, { [style.isSearch]: isSearch })}
-        aria-role="input"
         tabIndex={tabIdx}
         aria-label={ariaLabel}
         onChange={OnChange}
