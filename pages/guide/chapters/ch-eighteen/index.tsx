@@ -48,6 +48,7 @@ const ChEight: NextPage = () => {
             <li>need to write: &lt;HTML&gt; &lt;HEAD&gt; &lt;HEADER&gt;</li>
             <li>metaData &rarr; includes layout</li>
             <li>stylesheet index can not be only in layout</li>
+            <li>pages/ still in use</li>
           </ul>
           <Image src={imgInstallNext} alt="next13 installationprocess" aria-hidden="true" />
 
