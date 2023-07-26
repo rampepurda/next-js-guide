@@ -30,7 +30,8 @@
     "ch-fifteen": "15. Focus Trap library - ModalWindow",
     "ch-sixteen": "16. CSS in JS libraries",
     "ch-seventeen": "17. Webpack in React",
-    "ch-eighteen": "18. Next13(13.4.7) - changes"
+    "ch-eighteen": "18. Next13(13.4.7) - changes",
+    "ch-nineteen": "19. Internal API route"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
