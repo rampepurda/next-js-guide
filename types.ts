@@ -31,7 +31,7 @@ export interface CarTypes {
   id: string | number
   model: string
   name: string
-  location?: string
+  location?: string | undefined
   price: string
 }
 export type InpRest = Record<string, string>

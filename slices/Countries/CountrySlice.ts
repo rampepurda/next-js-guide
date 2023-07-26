@@ -3,6 +3,12 @@ import { Country } from '../../types'
 import CountriesService from '../../services/Countries'
 import { Message } from '../../configuration'
 
+/**
+ * @implements: createAsyncThunk
+ * @description: You can only pass one argument to the thunk when you dispatch it. If you need to pass multiple values, pass them in a single object
+ * If you want to use more than one param - see project: REACT/REACT-GUIDE/SLICE: postSchedule
+ */
+
 const initialState: {
   error?: string
   searchCountriesValue: string
