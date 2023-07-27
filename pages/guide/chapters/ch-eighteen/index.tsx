@@ -44,7 +44,7 @@ const ChEight: NextPage = () => {
           <h3>Use App Route: layout structure</h3>
           <InfoBox className="isDanger">
             <p>
-              Use App Route (recommended) Yes, during installation: REMEMBER - is still in Beta
+              Use App Route (recommended) Yes - during installation: REMEMBER - is still in Beta
               version!!
             </p>
           </InfoBox>
@@ -65,6 +65,7 @@ const ChEight: NextPage = () => {
               <a
                 href="https://nextjs.org/docs/pages/building-your-application/routing/api-routes"
                 target="_blank"
+                rel='noreferrer'
               >
                 API Routes - read more
               </a>{' '}
@@ -73,12 +74,12 @@ const ChEight: NextPage = () => {
           <hr />
           <h3>&lt;Link&gt; & NextJS 13</h3>
           <p>
-            Up to NextJS 13, you needed to add a nested &lt;a&gt; element in your &lt;Link&gt;s if
+            Up to NextJS 13, you needed to add a <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if
             you wanted to add custom attributes (e.g., className) to the anchor element.
           </p>
           <h4>With NextJS 13 or higher, this is no longer needed, you can instead just write:</h4>
           <ul className="hasVerticalPadding-2">
-            <li>&lt;Link href="/" className="some-class"&gt;</li>
+            <li>&lt;Link href=&quot;/&quot; className=&quot;some-class&quot;&gt;</li>
             <li>
               &nbsp;<strong>Click me</strong>
             </li>
@@ -86,7 +87,7 @@ const ChEight: NextPage = () => {
           </ul>
           <h3>and</h3>
           <ul className="hasVerticalPadding-2">
-            <li>&lt;Link href="/" className="some-class"&gt;</li>
+            <li>&lt;Link href=&quot;/&quot; className=&quot;some-class&quot;&gt;</li>
             <li>
               &nbsp;<strong>&lt;span&gt;Click me&lt;/span&gt;</strong>
             </li>
