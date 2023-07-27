@@ -8,6 +8,7 @@ import classNames from 'classnames'
 import { NextPage } from 'next'
 import { Navigation, Photos, Input } from '../../../../components'
 import { navigationGuideLinks } from '../../../../configuration'
+import { environment } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
 import {
@@ -32,7 +33,7 @@ const ChSeven: NextPage = () => {
   const [hasLimit, setHasLimit] = useState<string>('0')
   const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
   const handlePhotos: OnClick = () => {
-    dispatch(getPhotos(hasLimit))
+    dispatch(getPhotos({ url: `${environment.photosURL}`, hasLimit: hasLimit }))
     setSelectedPhotos(photos)
     if (hasLimit === '0') {
       alert(`${Alert}`)

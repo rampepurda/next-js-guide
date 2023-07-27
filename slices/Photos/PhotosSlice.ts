@@ -1,25 +1,24 @@
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 /**
  * https://redux-toolkit.js.org/api/createAsyncThunk
  */
 
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { environment } from "../../configuration"
-
 type PhotoType = {
-  albumId?: number,
-  id?: number,
-  title: string,
-  url: string,
-  thumbnailUrl: string,
+  albumId?: number
+  id?: number
+  title: string
+  url: string
+  thumbnailUrl: string
 }[]
 
 const initialState: {
-  amount: number,
-  isLoading: boolean,
-  id: number,
-  error: string,
-  photos: PhotoType,
-  userName?: string,
+  amount: number
+  isLoading: boolean
+  id: number
+  error: string
+  photos: PhotoType
+  userName?: string
 } = {
   amount: 2,
   isLoading: false,
@@ -47,12 +46,12 @@ const initialState: {
 )
  */
 
-export const getPhotos = createAsyncThunk<PhotoType, string>(
+export const getPhotos = createAsyncThunk<PhotoType, any>(
   'users/fetchById',
-  // Declare the type your function argument here:
-  async (hasLimit, { rejectWithValue}) => {
+  async (params, { rejectWithValue }) => {
+    const { url, hasLimit } = params
     try {
-      const response = await fetch(`${environment.photosURL}?_limit=${hasLimit}`)
+      const response = await fetch(`${url}?_limit=${hasLimit}`)
       return response.json()
     } catch (err) {
       return rejectWithValue('Ops, something wrong, we are not able to provide any data')
@@ -68,7 +67,7 @@ export const PhotosSlice = createSlice({
       state.userName = action.payload.changeUserName
     },
     incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.amount += action.payload;
+      state.amount += action.payload
     },
     Decrement: (state) => {
       state.amount--
@@ -76,7 +75,7 @@ export const PhotosSlice = createSlice({
         alert('Amount must not be under 0')
         state.amount = 20
       }
-    }
+    },
   },
   extraReducers(builder) {
     builder.addCase(getPhotos.fulfilled, (state, action: PayloadAction<PhotoType>) => {
@@ -89,12 +88,7 @@ export const PhotosSlice = createSlice({
     builder.addCase(getPhotos.pending, (state, action) => {
       state.isLoading = true
     })
-  }
+  },
 })
 
-export const {
-  UserName,
-  Decrement,
-  incrementByAmount
-} = PhotosSlice.actions
-
+export const { UserName, Decrement, incrementByAmount } = PhotosSlice.actions
