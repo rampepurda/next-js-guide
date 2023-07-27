@@ -10,7 +10,8 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'via.placeholder.com',
-        port: '',
+        // Commented because of 'unused port' generated error message during yarn dev
+        //port: '',
         pathname: '/*/*',
       },
     ],
