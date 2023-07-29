@@ -31,7 +31,8 @@
     "ch-sixteen": "16. CSS in JS 图书馆",
     "ch-seventeen": "17. Webpack",
     "ch-eighteen": "18. Next13(13.4.7) - 变化",
-    "ch-nineteen": "19. 内部API路由"
+    "ch-nineteen": "19. 内部API路由",
+    "ch-twenty": "20. Tailwind CSS"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
