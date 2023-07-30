@@ -19,13 +19,23 @@ const ChTwenty: NextPage = () => {
         <div className="col-9">
           <h2>20. Tailwind CSS</h2>
           <p>How does it work? See project: next-13-with-tailwind-css</p>
-          <a
-            href="https://nextjs.org/docs/app/building-your-application/styling/tailwind-css#installing-tailwind"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Tailwind css Tutorial read here
-          </a>
+          <ul className="hasTypeDisc">
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/styling/tailwind-css#installing-tailwind"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Tailwind css Tutorial read here
+              </a>
+            </li>
+            <li>
+              <a href="https://tailwindcss.com/docs/guides/nextjs" target="_blank" rel="noreferrer">
+                Tailwind all about read here
+              </a>
+            </li>
+          </ul>
+
           <hr />
           <h3>Installing Tailwind</h3>
           <p>
