@@ -1,0 +1,10 @@
+{
+  "formTitle":"Add Book you ask for",
+  "author":"Author",
+  "title":"Title",
+  "price":"Price",
+  "submit":"Submit",
+  "currency": {
+    "cz":"Kč"
+  }
+}

@@ -1,6 +1,7 @@
 export * from './Cars/Cars'
 export * from './Countries/Countries'
 export * from './Date/index'
+export * from './Forms/index'
 export * from './Header/index'
 export * from './InfoBox'
 export * from './Input'

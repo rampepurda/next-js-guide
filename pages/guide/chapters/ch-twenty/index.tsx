@@ -42,18 +42,24 @@ const ChTwenty: NextPage = () => {
             Install the Tailwind CSS packages and run the init command to generate both the
             tailwind.config.js and postcss.config.js files:
           </p>
-          <ul className="hasTypeDisc hasVerticalPadding-2">
+          <ul className="hasTypeDisc hasVerticalPadding-4">
+            <li>
+              <h4>Install Tailwind CSS with postcss & autoprefixer</h4>
+              <strong>yarn add -D tailwindcss postcss autoprefixer</strong>
+            </li>
+            <li>
+              <h4>Generate tailwind.config.js and postcss.config.js</h4>
+              <strong>yarn tailwindcss init -p</strong>
+            </li>
+            <li>
+              <h4>Modify tailwind.config.js file</h4>
+              See project: <strong>next-13-use-app-route-with-tailwind</strong>)
+            </li>
             <li>npm install -D tailwindcss postcss autoprefixer</li>
-            <li>yarn add tailwindcss</li>
             <li>npx tailwindcss init -p (init tailwindcss.config, postcss.config.js)</li>
-            <li>yarn add autoprefixer</li>
           </ul>
           <InfoBox className="isDanger">
-            <h4>Install: autoprefixer</h4>
-            <h4>
-              Till I did not install autoprefixer (See: next-13-use-app-route-with-tailwind) doesn`t
-              work!
-            </h4>
+            <h4>Don`t forget to install autoprefixer</h4>
           </InfoBox>
         </div>
       </div>

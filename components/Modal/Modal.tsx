@@ -1,3 +1,5 @@
+import style from './Modal.module.scss'
+
 /**
  * FocusTrap library used as an Example how is possible to create Modal Window
  * INSTALLATION below:
@@ -8,33 +10,36 @@
  * @param btnProps includes at the moment: 'title' and 'conditionValue' and there is more than possible that new one will be created
  */
 
-import style from './Modal.module.scss'
-
 import { PropsWithChildren, useState } from 'react'
 import FocusTrap from 'focus-trap-react'
-import classNames from "classnames"
-import useTranslation from "next-translate/useTranslation"
+import classNames from 'classnames'
+import useTranslation from 'next-translate/useTranslation'
 
 enum mFooterBtnValue {
   close = 'Close',
-  submit = 'Submit'
+  submit = 'Submit',
 }
 
 type Props = {
   openModalDialog: {
-    title: string,
-    className?: string,
+    title: string
+    className?: string
   }
   mHeader: {
     title: string
-  },
+  }
   mFooter: {
-    conditionValue?: string,
+    conditionValue?: string
     title: string
   }[]
 }
 
-export const Modal = ({ openModalDialog, mFooter, mHeader, children }: PropsWithChildren<Props>) => {
+export const Modal = ({
+  openModalDialog,
+  mFooter,
+  mHeader,
+  children,
+}: PropsWithChildren<Props>) => {
   const { t } = useTranslation('common')
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -74,13 +79,15 @@ export const Modal = ({ openModalDialog, mFooter, mHeader, children }: PropsWith
               <button
                 className={style.modalHeader__closeBtn}
                 type="button"
-                aria-label= {t('close modal window')}
-                onClick={() => {setIsModalOpen(false)}}
+                aria-label={t('close modal window')}
+                onClick={() => {
+                  setIsModalOpen(false)
+                }}
               >
                 X
               </button>
             </div>
-            <div className='modalBody'>
+            <div className="modalBody">
               {children}
               <hr />
             </div>
@@ -88,18 +95,18 @@ export const Modal = ({ openModalDialog, mFooter, mHeader, children }: PropsWith
               {mFooter.map((item, idx: number) => {
                 return (
                   <button
-                    className={classNames('btn',{
+                    className={classNames('btn', {
                       ['btn-submit']: item.conditionValue === 'Submit',
-                      ['btn-primary']: item.conditionValue === 'Close'
+                      ['btn-primary']: item.conditionValue === 'Close',
                     })}
                     key={idx}
                     type="button"
-                    aria-label= {t(`${item.title}`)}
+                    aria-label={t(`${item.title}`)}
                     onClick={() => {
-                      if(item.conditionValue === mFooterBtnValue.close) {
-                        setIsModalOpen(false)}
+                      if (item.conditionValue === mFooterBtnValue.close) {
+                        setIsModalOpen(false)
                       }
-                    }
+                    }}
                   >
                     {t(`${item.title}`)}
                   </button>

@@ -1,0 +1,10 @@
+{
+  "formTitle":"添加您要的书",
+  "author":"作者",
+  "title":"标题",
+  "price":"价格",
+  "submit":"提交",
+  "currency": {
+    "cz":"捷克皇冠"
+  }
+}

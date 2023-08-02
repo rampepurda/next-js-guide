@@ -80,11 +80,14 @@ const ChEight: NextPage = () => {
           </ul>
           <hr />
           <h3>&lt;Link&gt; & NextJS 13</h3>
-          <p>
-            Up to NextJS 13, you needed to add a{' '}
-            <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if you wanted to add
-            custom attributes (e.g., className) to the anchor element.
-          </p>
+          <InfoBox className="isDanger">
+            <h4>
+              Up to NextJS 13, you needed to add a{' '}
+              <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if you wanted to add
+              custom <strong>attributes (e.g., className)</strong> to the anchor element.
+            </h4>
+          </InfoBox>
+
           <h4>With NextJS 13 or higher, this is no longer needed, you can instead just write:</h4>
           <ul className="hasVerticalPadding-2">
             <li>&lt;Link href=&quot;/&quot; className=&quot;some-class&quot;&gt;</li>
