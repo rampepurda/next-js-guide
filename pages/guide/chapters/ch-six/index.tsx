@@ -10,7 +10,7 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import i18n from './img/i18n.png'
 import i18Trans from './img/i18Trans.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 /**
  * https://www.i18next.com/translation-function/formatting
@@ -20,6 +20,11 @@ const ChSix: NextPage = () => {
   const { amount } = useAppSelector((state) => state.Photos)
   const [age, setAge] = useState<string | number>(0)
   const { t } = useTranslation('common')
+  const isAge50 = useMemo(() => {
+    if (age === '50') {
+      return <mark>Ooops, something happened</mark>
+    }
+  }, [age])
 
   useEffect(() => {}, [age])
 
@@ -56,7 +61,7 @@ const ChSix: NextPage = () => {
             <ul className={style.hasNoBorder}>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               <li>
-                <strong>const nextTranslate = require&#40;'next-translate'&#41;</strong>
+                <strong>const nextTranslate = require&#40;&apos;next-translate&apos;&#41;</strong>
               </li>
               <li>
                 module.exports = <strong>nextTranslate</strong>(&#123;
@@ -106,39 +111,46 @@ const ChSix: NextPage = () => {
                   <strong className="color-is-red">&lt;total&gt;price&lt;/total&gt;</strong>&quot;
                 </li>
                 <li>
-                  "age": <strong>"My age is: &#123;&#123; num &#125;&#125;"</strong>
+                  &quot;age&quot;:{' '}
+                  <strong>&quot;My age is: &#123;&#123; num &#125;&#125;&quot;</strong>
                 </li>
               </ul>
               <Input
                 id={'num'}
                 ariaLabel={'select number'}
-                rest={{ type: 'number', placeholder: '0' }}
+                rest={{ type: 'number', placeholder: '30', step: '5', min: '30', max: '100' }}
                 OnChange={(ev) => setAge(ev.target.value)}
               />
               <p>
-                {t('pages.ch-6.interpolation.age', {
+                {t('chapter:ch6.interpolation.age', {
                   num: `${age}`,
                 })}
+                {isAge50}
               </p>
             </div>
             <hr />
 
             <h3>6. Objects and Arrays</h3>
             <ul className="hasTypeDisc">
-              <li>&#123; "week": [ "mon", "tue", "wed" ] &#125;</li>
-              <li>&#123; t('key', &#123; &#125;, &#123; returnObjects: true &#125;)&#125;</li>
+              <li>
+                &#123; &quot;week&quot;: [ &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot; ]
+                &#125;
+              </li>
+              <li>
+                &#123; t(&apos;key&apos;, &#123; &#125;, &#123; returnObjects: true &#125;)&#125;
+              </li>
             </ul>
             <h4>{t('chapter:ch6.week', {}, { returnObjects: true })}</h4>
             <hr />
 
             <h3>
               {' '}
-              7. &#123; t( 'locales- appropriate target', query &#123; &#125;, option: &#123;
-              returnObject: true &#125;) &#125;
+              7. &#123; t( &apos;locales- appropriate target&apos;, query &#123; &#125;, option:
+              &#123; returnObject: true &#125;) &#125;
             </h3>
             <a
               href="https://www.i18next.com/translation-function/formatting"
-              rel="external"
+              rel="noreferrer"
               target="_blank"
             >
               Read more about i18n formatting

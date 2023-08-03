@@ -17,6 +17,8 @@ type Props = {
   icon?: string
   OnChange?: (ev: ChangeEvent<HTMLInputElement>) => void
   isSearch?: boolean
+  isRequired?: boolean
+  Name?: string
   rest: InpRest
 }
 
@@ -28,21 +30,25 @@ export const Input = ({
   id,
   OnChange,
   isSearch = false,
+  isRequired = false,
+  Name,
   rest,
 }: Props) => {
   return (
-    <div className={style.cover}>
+    <>
       <input
         id={id}
         className={classNames(style.Input, ClassName, { [style.isSearch]: isSearch })}
         tabIndex={tabIdx}
         aria-label={ariaLabel}
         onChange={OnChange}
+        name={Name}
+        required={isRequired}
         {...rest}
       />
       {isSearch && (
         <IcoSearch className={classNames(style.Input, { [style.hasIcoMagnifying]: isSearch })} />
       )}
-    </div>
+    </>
   )
 }

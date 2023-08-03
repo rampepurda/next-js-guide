@@ -9,7 +9,6 @@ import { DateBox, Header, Navigation, SwitchLanguage } from '../components'
 import { navigationLinks } from '../configuration'
 import { useMemo, useState } from 'react'
 import Head from 'next/head'
-import style from '../components/Header/Header.module.scss'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<boolean>(false)

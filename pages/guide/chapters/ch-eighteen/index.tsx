@@ -21,19 +21,23 @@ const ChEight: NextPage = () => {
           <h2>18. Next 13.4.7 - What is new?</h2>
           <ul className="hasTypeDisc hasVerticalPadding-3">
             <li>
-              <a href="https://nextjs.org/blog/next-13-4" rel='noreferrer' target="_blank">
+              <a href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
                 Next.js 13.4 - read more
               </a>{' '}
             </li>
             <li>
-              <a href="https://www.youtube.com/watch?v=czvSZqnpTHs" rel='noreferrer' target="_blank">
+              <a
+                href="https://www.youtube.com/watch?v=czvSZqnpTHs"
+                rel="noreferrer"
+                target="_blank"
+              >
                 Server Actions: NextJS 13.4 s Best New Feature - read more
               </a>{' '}
             </li>
             <li>
               <a
                 href="https://nextjs.org/docs/pages/building-your-application/routing/api-routes"
-                rel='noreferrer'
+                rel="noreferrer"
                 target="_blank"
               >
                 API Routes - read more
@@ -58,14 +62,17 @@ const ChEight: NextPage = () => {
           </ul>
           <Image src={imgInstallNext} alt="next13 installationprocess" aria-hidden="true" />
           <h3>Next.js Internal App Routers</h3>
-          <p>For more info lets check project: NEXT_NEW_STRUCTURE</p>
+          <p>For more info lets check project: NEXT-13-USE-APP-ROUTE-WITH-tailwind</p>
+          <InfoBox className="isDanger">
+            <p>REMEMBER: In case using Internal Api Routes const must be outside of default Fn!</p>
+          </InfoBox>
           <ul className="hasTypeDisc">
             <li>configure: next.config.js</li>
             <li>
               <a
                 href="https://nextjs.org/docs/pages/building-your-application/routing/api-routes"
                 target="_blank"
-                rel='noreferrer'
+                rel="noreferrer"
               >
                 API Routes - read more
               </a>{' '}
@@ -73,10 +80,14 @@ const ChEight: NextPage = () => {
           </ul>
           <hr />
           <h3>&lt;Link&gt; & NextJS 13</h3>
-          <p>
-            Up to NextJS 13, you needed to add a <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if
-            you wanted to add custom attributes (e.g., className) to the anchor element.
-          </p>
+          <InfoBox className="isDanger">
+            <h4>
+              Up to NextJS 13, you needed to add a{' '}
+              <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if you wanted to add
+              custom <strong>attributes (e.g., className)</strong> to the anchor element.
+            </h4>
+          </InfoBox>
+
           <h4>With NextJS 13 or higher, this is no longer needed, you can instead just write:</h4>
           <ul className="hasVerticalPadding-2">
             <li>&lt;Link href=&quot;/&quot; className=&quot;some-class&quot;&gt;</li>
