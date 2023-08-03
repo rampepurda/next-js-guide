@@ -32,7 +32,8 @@
     "ch-seventeen": "17. Webpack in React",
     "ch-eighteen": "18. Next13(13.4.7) - changes",
     "ch-nineteen": "19. Internal API route",
-    "ch-twenty": "20. Tailwind CSS"
+    "ch-twenty": "20. Tailwind CSS",
+    "ch-twentyOne": "21. Form knowledge refresh"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
