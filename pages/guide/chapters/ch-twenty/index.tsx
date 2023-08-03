@@ -18,7 +18,7 @@ const ChTwenty: NextPage = () => {
 
         <div className="col-9">
           <h2>20. Tailwind CSS</h2>
-          <p>How does it work? See project: next-13-with-tailwind-css</p>
+          <p>How does it work? See project: next-13-use-app-route-with-tailwind-css</p>
           <ul className="hasTypeDisc">
             <li>
               <a
