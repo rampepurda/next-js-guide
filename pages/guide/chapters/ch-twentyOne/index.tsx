@@ -5,9 +5,6 @@ import { Navigation, InfoBox, Input, FormPostBook } from '../../../../components
 import Head from 'next/head'
 import { environment, navigationGuideLinks } from '../../../../configuration'
 
-type Props = {
-  ter: string
-}
 const ChTwentyOne: NextPage = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault()
@@ -25,7 +22,7 @@ const ChTwentyOne: NextPage = () => {
         body: JSON.stringify({ ...data }),
       })
       if (response.ok) {
-        alert(`We got Book you are asking for: ${data.author}`)
+        alert(`We got Book you are asking for: Author: ${data.author}`)
       }
     } catch (err) {
       alert(`${err}`)
