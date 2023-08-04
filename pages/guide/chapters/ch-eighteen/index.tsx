@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import { InfoBox, Navigation } from '../../../../components'
 import { navigationGuideLinks } from '../../../../configuration'
 import imgInstallNext from './img/installnext13.png'
+import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
 
 const ChEight: NextPage = () => {
@@ -79,6 +80,34 @@ const ChEight: NextPage = () => {
             </li>
           </ul>
           <hr />
+
+          <h3>Custom Document (api/_document.tsx)</h3>
+          <a
+            href="https://nextjs.org/docs/pages/building-your-application/routing/custom-document"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Read more about document here
+          </a>
+          <h4>During installation - ticked as is shown below:</h4>
+          <Image
+            src={imgNextWithoutApiRouter}
+            alt="next13 install without api router"
+            aria-hidden="true"
+          />
+          <h4>
+            A custom Document can update the &lt;html&gt; and &lt;body&gt; tags used to render a
+            Page. To override the default Document, create the file pages/_document
+          </h4>
+          <a
+            href="https://nextjs.org/docs/pages/building-your-application/routing/custom-document"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Read more about document here
+          </a>
+          <hr />
+
           <h3>&lt;Link&gt; & NextJS 13</h3>
           <InfoBox className="isDanger">
             <h4>
