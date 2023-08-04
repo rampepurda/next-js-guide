@@ -9,6 +9,9 @@ import { CarList } from '../../configuration'
 import { CarTypes } from '../../types'
 
 export default async function handler(_req: NextApiRequest, res: NextApiResponse<CarTypes[]>) {
+  if (_req.method === 'POST') {
+    //const notKnow = _req.body.email
+  }
   // TimeOut simulates real data fetching
   setTimeout(() => {
     res.status(200).json(CarList)
