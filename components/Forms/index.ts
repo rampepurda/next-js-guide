@@ -1,1 +1,1 @@
-export * from './Form-post-book'
+export * from './FormPostBook'

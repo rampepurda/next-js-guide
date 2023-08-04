@@ -1,6 +1,6 @@
 import { Input } from '../Input'
 import useTranslation from 'next-translate/useTranslation'
-import { FormEvent, useRef } from 'react'
+import { FormEvent } from 'react'
 
 /**
  * @CompName: FormAddBook is only for testing purpose. This project does not contain any books components.

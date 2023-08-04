@@ -1,10 +1,11 @@
-/**
- * @url link where the DATA will be POSTed
- * @function clearFormInpValue() set all input to value = ''
- */
 import { clearFormInputValue } from '../utils/clearFormInpValue'
+/**
+ * @param url link where the DATA will be POSTed
+ * @param title Alert message includes: title
+ * @function clearFormInputValue() set all inputs to value = ''
+ */
 
-export const usePostBook = (url: string) => {
+export const usePostBook = (url: string, title: string) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault()
     const data: Record<string, () => void> = {
@@ -12,14 +13,16 @@ export const usePostBook = (url: string) => {
       title: event.target.title.value,
       price: event.target.price.value,
     }
+    const option = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application.json' },
+      body: JSON.stringify({ ...data }),
+    }
+
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application.json' },
-        body: JSON.stringify({ ...data }),
-      })
+      const response = await fetch(url, option)
       if (response) {
-        alert('Account was created')
+        alert(`${title}`)
         clearFormInputValue()
       }
     } catch (err) {
