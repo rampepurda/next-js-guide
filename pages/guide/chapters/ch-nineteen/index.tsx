@@ -51,7 +51,7 @@ const ChNineteen: NextPage = () => {
             <li>const getInternalAPI = async () =&gt; &#123;</li>
             <li>&nbsp;try &#123;</li>
             <li>
-              &nbsp;&nbsp;const res = await fetch(<strong>'/app/mock'</strong>)
+              &nbsp;&nbsp;const res = await fetch(<strong>&apos;/app/mock&apos;</strong>)
             </li>
             <li>&nbsp;&nbsp;if (res.ok) &#123;</li>
             <li>&nbsp;&nbsp;&nbsp;const data = await res.json()</li>
@@ -63,8 +63,8 @@ const ChNineteen: NextPage = () => {
           </ul>
           <h4>See example below:</h4>
           {loading(internalData)}
-          {internalData.map((i: CarTypes, idx) => {
-            return <div key={idx}>Model: {i.model}</div>
+          {internalData.map((car: CarTypes, idx) => {
+            return <div key={idx}>Model: {car.model}</div>
           })}
           <hr />
 

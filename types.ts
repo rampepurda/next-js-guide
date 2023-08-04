@@ -12,12 +12,6 @@ export interface initPhotos {
   thumbnailUrl: string
   testMe?: boolean
 }
-export interface initPagination {
-  items: number
-  itemsPerPage: number
-  currentPage?: number
-  onPageChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
-}
 export type Country = {
   code: string
   name: string
