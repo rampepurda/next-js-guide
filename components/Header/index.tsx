@@ -13,7 +13,7 @@ export const Header = ({ className, children }: PropsWithChildren<Props>) => {
 
   return (
     <header className={classNames(style.Header, className)}>
-      <h1>{t('headline')}</h1>
+      <h1>{t('title')}</h1>
       <div>{children}</div>
     </header>
   )

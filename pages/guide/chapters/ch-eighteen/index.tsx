@@ -99,6 +99,10 @@ const ChEight: NextPage = () => {
             A custom Document can update the &lt;html&gt; and &lt;body&gt; tags used to render a
             Page. To override the default Document, create the file pages/_document
           </h4>
+          <InfoBox className="isInfo">
+            <h4>Next13 automatically generated _document for us.</h4>
+            <h4>Next&lt;13 we need to manually create _document</h4>
+          </InfoBox>
           <a
             href="https://nextjs.org/docs/pages/building-your-application/routing/custom-document"
             rel="noreferrer"

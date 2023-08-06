@@ -10,7 +10,7 @@ import Link from 'next/link'
 const ChNineteen: NextPage = () => {
   const [internalData, setInternalData] = useState<CarTypes[]>([])
   const loading = (data: CarTypes[]) => {
-    return <h4>{data.length === 0 ? <h2>...Loading</h2> : ''}</h4>
+    return <h4>{data.length === 0 ? <p>...Loading</p> : ''}</h4>
   }
 
   useEffect(() => {
@@ -39,11 +39,9 @@ const ChNineteen: NextPage = () => {
               Fn name: <strong>handler</strong> (is obliged/ rule to use)
             </li>
           </ul>
-          <InfoBox className="isInfo">
-            <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-eighteen`}>
-              <a>More about Internal routes Api in Next 13 find in Chapter18-Next13</a>
-            </Link>
-          </InfoBox>
+          <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-eighteen`}>
+            More about Internal routes Api in Next 13 find in Chapter18-Next13
+          </Link>
           <hr />
 
           <h3>How to get Internal API</h3>
