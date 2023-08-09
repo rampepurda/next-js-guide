@@ -27,7 +27,9 @@ function CountryId({ query }: { query: InitCountry }) {
   return (
     <>
       <Head>
-        <title>{Pages.Guide.chTwelve.detailTrack.title}</title>
+        <title>
+          {Pages.Guide.chTwelve.detailTrack.title} | {track.code}
+        </title>
       </Head>
 
       <div className="cols">
