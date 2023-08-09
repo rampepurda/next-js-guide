@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelect } from '../../../hooks'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Cars, Navigation, Select, FormPostBook } from '../../../components'
 import { navigationProjectsLinks, CarsOptions, ROUTE } from '../../../configuration'
-import { useAppSelector } from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { selectCarFilter } from '../../../slices/Cars/carSelectors'
-import { useDispatch } from 'react-redux'
 import { getFilterCar } from '../../../slices'
 
 const CarsPage: NextPage = () => {
-  const dispatch = useDispatch()
-  const { handleOption, Value = `${CarsOptions[0].value}` } = useSelect(
+  const dispatch = useAppDispatch()
+  const { handleOption, Value = 'all cars' } = useSelect(
     CarsOptions,
     ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR
   )

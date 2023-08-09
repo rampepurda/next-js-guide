@@ -4,8 +4,7 @@ import { InfoBox, Cars, Navigation, Select } from '../../../../components'
 import { navigationGuideLinks, Pages } from '../../../../configuration'
 import Head from 'next/head'
 import { selectXYZ } from '../../../../slices/Common/commonSelectors'
-import { useAppSelector } from '../../../../store/hooks'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
 import { useSelect } from '../../../../hooks'
 import { CarsOptions } from '../../../../configuration'
 import { selectCarFilter } from '../../../../slices/Cars/carSelectors'
@@ -17,14 +16,14 @@ import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelec
 const ChFourteen: NextPage = () => {
   const { x, y, txt } = useAppSelector((state) => state.Common)
   const totalSum = useAppSelector(selectXYZ)
-  const dispatch = useDispatch()
-  const { cars, filterCar } = useAppSelector((state) => state.Cars)
-  const { handleOption, Value = filterCar } = useSelect(CarsOptions, '')
+  const dispatch = useAppDispatch()
+  const { cars, selectedCar } = useAppSelector((state) => state.Cars)
+  const { handleOption, Value = selectedCar } = useSelect(CarsOptions, '')
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
     dispatch(getFilterCar(Value))
-  }, [Value, cars, filteredCars, filterCar])
+  }, [Value, cars, filteredCars, selectedCar])
 
   return (
     <>
@@ -64,11 +63,11 @@ const ChFourteen: NextPage = () => {
           <InfoBox className={'isInfo'}>
             <ul>
               <li>
-                // Arrow function, direct lookup
+                <strong>Arrow function, direct lookup</strong>
                 <h5>const selectEntities = state =&gt; state.entities</h5>
               </li>
               <li>
-                // Function declaration, mapping over an array to derive values
+                <strong>Function declaration, mapping over an array to derive values</strong>
                 <h5>
                   function selectItemIds(state) &#123;
                   <br />
@@ -77,7 +76,7 @@ const ChFourteen: NextPage = () => {
                 &#123;
               </li>
               <li>
-                // Function declaration, encapsulating a deep lookup
+                <strong>Function declaration, encapsulating a deep lookup</strong>
                 <h5>
                   function selectSomeSpecificField(state) &#123;
                   <br />
@@ -87,7 +86,7 @@ const ChFourteen: NextPage = () => {
                 </h5>
               </li>
               <li>
-                // Arrow function, deriving values from an array
+                <strong>Arrow function, deriving values from an array</strong>
                 <h5>
                   const selectItemsWhoseNamesStartWith = (items, namePrefix) =&gt;
                   <br />
@@ -105,7 +104,6 @@ const ChFourteen: NextPage = () => {
           <hr />
 
           <h3>Examples:</h3>
-
           <h4>slice/Cars/carSlice.ts</h4>
           <ul className="hasTypeDisc">
             <li>Defined InitialValues and Action to be in used</li>
@@ -129,7 +127,7 @@ const ChFourteen: NextPage = () => {
           <h4>pages/cars/index</h4>
           <ul>
             <li>
-              <strong>const dispatch = useDispatch()</strong>
+              <strong>const dispatch = useAppDispatch()</strong>
             </li>
             <li>
               <strong>

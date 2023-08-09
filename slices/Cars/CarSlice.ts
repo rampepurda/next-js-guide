@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { CarTypes } from "../../types"
-import { CarList } from "../../configuration"
+import { createSlice } from '@reduxjs/toolkit'
+import { CarTypes } from '../../types'
+import { CarList } from '../../configuration'
 
 type initCars = {
-  filterCar: string
+  selectedCar: string
   cars: CarTypes[]
 }
 const initialState: initCars = {
-  filterCar: 'all cars',
-  cars: CarList
+  selectedCar: 'all cars',
+  cars: CarList,
 }
 
 export const CarSlice = createSlice({
@@ -16,9 +16,9 @@ export const CarSlice = createSlice({
   initialState,
   reducers: {
     getFilterCar: (state, action) => {
-      state.filterCar = action.payload
+      state.selectedCar = action.payload
     },
-  }
+  },
 })
 
 export const { getFilterCar } = CarSlice.actions

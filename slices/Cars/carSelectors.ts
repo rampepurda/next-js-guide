@@ -1,5 +1,5 @@
-import { createSelector } from "@reduxjs/toolkit"
-import { CarTypes } from "../../types"
+import { createSelector } from '@reduxjs/toolkit'
+import { CarTypes } from '../../types'
 
 /**
  * Try to define reusable selectors alongside their corresponding reducers.
@@ -7,14 +7,11 @@ import { CarTypes } from "../../types"
  */
 
 const selectCars = (state: any) => state.Cars.cars
-const selectFilter = (state: any) => state.Cars.filterCar
+const selectFilter = (state: any) => state.Cars.selectedCar
 
-export const selectCarFilter = createSelector(
-  selectCars,
-  selectFilter,
-  (cars, filterCar ) => {
-    if (filterCar === 'all cars') {
-      return cars
-    }
-    return cars.filter((car: CarTypes) => car.name === filterCar)
+export const selectCarFilter = createSelector(selectCars, selectFilter, (cars, selectedCar) => {
+  if (selectedCar === 'all cars') {
+    return cars
+  }
+  return cars.filter((car: CarTypes) => car.name === selectedCar)
 })
