@@ -1,24 +1,38 @@
-import React, { useEffect } from 'react'
-import { useSelect } from '../../../hooks'
+import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Cars, Navigation, Select, FormPostBook } from '../../../components'
-import { navigationProjectsLinks, CarsOptions, ROUTE } from '../../../configuration'
+import { Cars, InfoBox, Navigation, Select } from '../../../components'
+import { navigationProjectsLinks, CarsOptions, ROUTE, carsCity } from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
-import { selectCarFilter } from '../../../slices/Cars/carSelectors'
-import { getFilterCar } from '../../../slices'
+import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSelectors'
+import { getCarCity, getCarName, getFilterCar } from '../../../slices'
+import CarsSearchBase from './carsSearchBase'
+import { useRouter } from 'next/router'
 
 const CarsPage: NextPage = () => {
+  const router = useRouter()
   const dispatch = useAppDispatch()
-  const { handleOption, Value = 'all cars' } = useSelect(
-    CarsOptions,
-    ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR
-  )
+  const { carName, carCity } = useAppSelector((state) => state.Cars)
+  const [selectedCar, setSelectedCar] = useState<string>('')
+  const [selectedCity, setSelectedCity] = useState<string>('')
+  const [isDisplay, setIsDisplay] = useState<boolean>(false)
   const filteredCars = useAppSelector(selectCarFilter)
+  const carsMutation = useAppSelector(selectCarMutation)
 
-  useEffect(() => {
-    dispatch(getFilterCar(Value))
-  }, [Value, filteredCars])
+  const handleSearch = () => {
+    dispatch(getCarName(selectedCar))
+    dispatch(getCarCity(selectedCity))
+    return (
+      router.push(
+        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?_selected=${carName}${
+          selectedCity.length !== 0 ? `&location=${selectedCity}` : ''
+        }`
+      ),
+      setIsDisplay(true)
+    )
+  }
+
+  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, carCity, carName])
 
   return (
     <>
@@ -32,16 +46,47 @@ const CarsPage: NextPage = () => {
         </div>
 
         <div className="col-9">
-          <h3>Filter Cars by Name:</h3>
-          <Select id="oldCars" ClassName="select" options={CarsOptions} OnChange={handleOption} />
-          <hr />
-
-          <div>
-            <mark>
-              {Value?.toUpperCase()} | Total found: <strong>{filteredCars.length}</strong>
-            </mark>
+          <h3>1. Find Car by Name and City:</h3>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'start',
+              gap: '2rem',
+            }}
+          >
+            <Select
+              ClassName="select"
+              options={CarsOptions}
+              DefaultValue={'all cities'}
+              OnChange={(ev) => setSelectedCar(ev.target.value)}
+            />
+            <Select
+              ClassName="select"
+              options={carsCity}
+              DefaultValue={'Select City'}
+              OnChange={(ev) => setSelectedCity(ev.target.value)}
+            />
+            <div>
+              <button className="btn btn-submit" type="button" onClick={(ev) => handleSearch()}>
+                Search
+              </button>
+            </div>
           </div>
-          <Cars cars={filteredCars} />
+          {carsMutation.length === 0 ? (
+            <InfoBox className="isDanger">
+              <h3>Sorry any result find. Please tray again</h3>
+            </InfoBox>
+          ) : (
+            ''
+          )}
+          {isDisplay ? <Cars cars={carsMutation} /> : ''}
+          <hr />
+          {/*
+            CarsSearchBase is not Component.
+             It`s just an example of more simple search variation where 'createSelector' is build
+             */}
+          <CarsSearchBase />
         </div>
       </div>
     </>

@@ -41,21 +41,21 @@ export const CarList = [
     id: 'bmw2',
     model: 'C5',
     name: 'citroen',
-    location: '',
+    location: 'Brno',
     price: '230 000Kč',
   },
   {
     id: 'hy1',
     model: 'i30',
     name: 'hyundai',
-    location: '',
+    location: 'Prague',
     price: '450 000Kč',
   },
   {
     id: 'hy2',
     model: 'Tuscon',
     name: 'hyundai',
-    location: '',
+    location: 'Ceske Budejovice',
     price: '800 000Kč',
   },
   {
@@ -69,14 +69,14 @@ export const CarList = [
     id: 's1',
     model: 'Fabia',
     name: 'skoda',
-    location: '',
+    location: 'Prague',
     price: '150 000Kč',
   },
   {
     id: 's2',
     model: 'Octavia',
     name: 'skoda',
-    location: '',
+    location: 'Brno',
     price: '650 000Kč',
   },
   {
@@ -90,6 +90,7 @@ export const CarList = [
     id: 's4',
     model: 'Suberb Laurin&Clement',
     name: 'skoda',
+    location: 'Brno',
     price: '1 950 000Kč',
   },
 ]
@@ -101,4 +102,10 @@ export const CarsOptions = [
   { value: 'citroen' },
   { value: 'hyundai' },
   { value: 'skoda' },
+]
+export const carsCity = [
+  { value: 'all cities' },
+  { value: 'Brno' },
+  { value: 'Prague' },
+  { value: 'Ceske Budejovice' },
 ]

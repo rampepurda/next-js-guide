@@ -19,7 +19,7 @@ type Props = {
   isSearch?: boolean
   isRequired?: boolean
   Name?: string
-  rest: InpRest
+  rest: Record<string, string>
 }
 
 export const Input = ({
