@@ -104,7 +104,7 @@ export const CarsOptions = [
   { value: 'skoda' },
 ]
 export const carsCity = [
-  { value: 'select location' },
+  { value: 'all cities' },
   { value: 'Brno' },
   { value: 'Prague' },
   { value: 'Ceske Budejovice' },

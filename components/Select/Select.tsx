@@ -9,14 +9,22 @@ type Props = {
   icon?: string
   id?: string
   options: InitOptions[]
+  DefaultValue?: string
   OnChange?: (ev: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const Select = ({ ClassName, icon, id, options, OnChange }: Props) => {
+export const Select = ({
+  ClassName,
+  icon,
+  id,
+  options,
+  DefaultValue = 'all cars',
+  OnChange,
+}: Props) => {
   return (
     <select id={id} className={classNames(ClassName, style.Select)} onChange={OnChange}>
       {options.map(({ value }, idx: number) => (
-        <option key={idx} defaultValue="all cars" defaultChecked={true} value={value}>
+        <option key={idx} defaultValue={DefaultValue} defaultChecked={true} value={value}>
           {value.toUpperCase()}
         </option>
       ))}

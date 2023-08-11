@@ -5,13 +5,16 @@ import { CarTypes } from '../../types'
  * Try to define reusable selectors alongside their corresponding reducers.
  * input selectors
  */
+// Filter By Car Name
+const selectCarList = (state: any) => state.Cars.cars
+const selectCar = (state: any) => state.Cars.selectedCar
 
-const selectCars = (state: any) => state.Cars.cars
+// Filter By Car Name and City
 const selectCarsMutation = (state: any) => state.Cars.carsMutation
-const selectFilter = (state: any) => state.Cars.selectedCar
-const selectLocation = (state: any) => state.Cars.selectedLocation
+const selectCarName = (state: any) => state.Cars.carName
+const selectCarCity = (state: any) => state.Cars.carCity
 
-export const selectCarFilter = createSelector(selectCars, selectFilter, (cars, selectedCar) => {
+export const selectCarFilter = createSelector(selectCarList, selectCar, (cars, selectedCar) => {
   if (selectedCar === 'all cars') {
     return cars
   }
@@ -20,12 +23,16 @@ export const selectCarFilter = createSelector(selectCars, selectFilter, (cars, s
 
 export const selectCarMutation = createSelector(
   selectCarsMutation,
-  selectFilter,
-  selectLocation,
-  (carsMutation, selectedCar, selectedLocation) => {
+  selectCarName,
+  selectCarCity,
+  (carsMutation, carName, carCity) => {
+    if (carName === 'all cars' || carCity === 'all cities') {
+      return carsMutation
+    }
     return carsMutation.filter(
       (car: CarTypes) =>
-        car.name.includes(`${selectedCar}`) && car.location?.includes(`${selectedLocation}`)
+        (car.name.includes(`${carName}`) && car.location?.includes(`${carCity}`)) ||
+        (car.name.includes(`${carName}`) && carCity === 'all cities')
     )
   }
 )
