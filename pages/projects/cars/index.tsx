@@ -24,7 +24,7 @@ const CarsPage: NextPage = () => {
     dispatch(getCarCity(selectedCity))
     return (
       router.push(
-        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?_selected=${carName}${
+        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?selected=${carName}${
           selectedCity.length !== 0 ? `&location=${selectedCity}` : ''
         }`
       ),
