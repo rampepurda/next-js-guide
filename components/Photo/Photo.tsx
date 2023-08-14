@@ -1,17 +1,13 @@
 import style from './Photo.module.scss'
 
-import Image from "next/image"
-import Link from "next/link"
-import { initPhotos } from "../../types"
-import useTranslation from "next-translate/useTranslation"
-import classNames from "classnames"
-import { ROUTE } from "../../configuration/routes"
+import Image from 'next/image'
+import Link from 'next/link'
+import { initPhotos } from '../../types'
+import useTranslation from 'next-translate/useTranslation'
+import classNames from 'classnames'
+import { ROUTE } from '../../configuration'
 
-export const Photo = ({
-  id,
-  title,
-  thumbnailUrl
-}: initPhotos) => {
+export const Photo = ({ id, title, thumbnailUrl }: initPhotos) => {
   const { t } = useTranslation('common')
 
   return (
@@ -27,20 +23,15 @@ export const Photo = ({
 
       <h3>{title}</h3>
       <div>
-        <button
-          className='btn btn-submit'
-          type='button'
-        >
+        <button className="btn btn-submit" type="button">
           <Link
             href={{
               pathname: `${ROUTE.PROJECT_DYN_ROUTE}/[id]`,
-              query: {id: id}
+              query: { id: id },
             }}
-            style={{color: 'red'}}
+            style={{ color: 'red' }}
           >
-            <a className={style.link} >
-              {t('projects.dynamicRoute.btn')}
-            </a>
+            <a className={style.link}>{t('projects.dynamicRoute.btn')}</a>
           </Link>
         </button>
       </div>
