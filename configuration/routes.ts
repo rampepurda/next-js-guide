@@ -11,17 +11,16 @@ export const ROUTE = {
     GUIDE: {
       CH14: {
         ROUTE: {
-          GET_SELECTED_CAR: '/ch_fourteen'
-        }
-      }
+          GET_SELECTED_CAR: '/ch_fourteen',
+        },
+      },
     },
     PROJECTS: {
       CARS: {
         ROUTE: {
-          GET_SELECTED_CAR: 'cars'
-        }
-      }
-    }
-  }
+          GET_SELECTED_CAR: 'cars',
+        },
+      },
+    },
+  },
 }
-

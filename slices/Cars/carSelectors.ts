@@ -11,8 +11,8 @@ const selectCar = (state: any) => state.Cars.selectedCar
 
 // Filter By Car Name and City
 const selectCarsMutation = (state: any) => state.Cars.carsMutation
-const selectCarName = (state: any) => state.Cars.carName
-const selectCarCity = (state: any) => state.Cars.carCity
+const selectCarName = (state: any) => state.Cars.param.carName
+const selectCarCity = (state: any) => state.Cars.param.carCity
 
 export const selectCarFilter = createSelector(selectCarList, selectCar, (cars, selectedCar) => {
   if (selectedCar === 'all cars') {

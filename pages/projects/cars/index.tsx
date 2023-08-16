@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const CarsPage: NextPage = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
-  const { carName, carCity } = useAppSelector((state) => state.Cars)
+  const { param } = useAppSelector((state) => state.Cars)
   const [selectedCar, setSelectedCar] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [isDisplay, setIsDisplay] = useState<boolean>(false)
@@ -24,7 +24,7 @@ const CarsPage: NextPage = () => {
     dispatch(getCarCity(selectedCity))
     return (
       router.push(
-        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?selected=${carName}${
+        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?selected=${param.carName}${
           selectedCity.length !== 0 ? `&location=${selectedCity}` : ''
         }`
       ),
@@ -32,7 +32,7 @@ const CarsPage: NextPage = () => {
     )
   }
 
-  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, carCity, carName])
+  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
 
   return (
     <>
@@ -84,7 +84,7 @@ const CarsPage: NextPage = () => {
           <hr />
           {/*
             CarsSearchBase is not Component.
-             It`s just an example of more simple search variation where 'createSelector' is build
+             It`s just an example of more simple search variation where 'createSelector' is in used
              */}
           <CarsSearchBase />
         </div>
