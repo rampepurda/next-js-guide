@@ -16,7 +16,7 @@ export const formatDateFromUTC = (dateUTC: string, months: Record<string, string
   const month = getDate.toLocaleDateString(['en-Us'], { month: 'long' })
   const year = getDate.toLocaleDateString(['en-Us'], { year: 'numeric' })
 
-  const myMonth = months[month.toLowerCase()]
+  const actualMonth = months[month.toLowerCase()]
 
-  return `${day} ${myMonth} ${year}`
+  return `${day} ${actualMonth} ${year}`
 }

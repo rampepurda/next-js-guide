@@ -10,7 +10,9 @@ export const DateBox = ({ ClassName }: { ClassName?: string }) => {
 
   return (
     <div className={classNames(ClassName, style.dateBox)}>
-      <mark>{formatDateFromUTC(`${currentDate}`, t('months', {}, { returnObjects: true }))}</mark>
+      <mark aria-label="today's date">
+        {formatDateFromUTC(`${currentDate}`, t('months', {}, { returnObjects: true }))}
+      </mark>
     </div>
   )
 }
