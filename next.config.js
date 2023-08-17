@@ -17,6 +17,7 @@ const nextConfig = {
     ],
   },
   // allows to import SVG as a React component
+  // Need to Install: SVGR
   // https://frontend-digest.com/how-to-import-svgs-into-nextjs-8ec6100e613f
   webpack(config) {
     config.module.rules.push({
