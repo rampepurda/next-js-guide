@@ -23,11 +23,14 @@ const CarsPage: NextPage = () => {
     dispatch(getCarName(selectedCar))
     dispatch(getCarCity(selectedCity))
     return (
-      router.push(
-        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?selected=${param.carName}${
-          selectedCity.length !== 0 ? `&location=${selectedCity}` : ''
-        }`
-      ),
+      // WARNING: appropriate query value is displayed later after one more click
+      router.push({
+        pathname: `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}`,
+        query: {
+          car: param.carName,
+          city: selectedCity.length !== 0 ? selectedCity : 'all',
+        },
+      }),
       setIsDisplay(true)
     )
   }
@@ -68,7 +71,11 @@ const CarsPage: NextPage = () => {
               OnChange={(ev) => setSelectedCity(ev.target.value)}
             />
             <div>
-              <button className="btn btn-submit" type="button" onClick={(ev) => handleSearch()}>
+              <button
+                className="btn btn-submit"
+                type="button"
+                onClick={(ev: React.MouseEvent<HTMLButtonElement>) => handleSearch()}
+              >
                 Search
               </button>
             </div>
@@ -82,6 +89,7 @@ const CarsPage: NextPage = () => {
           )}
           {isDisplay ? <Cars cars={carsMutation} /> : ''}
           <hr />
+
           {/*
             CarsSearchBase is not Component.
              It`s just an example of more simple search variation where 'createSelector' is in used
