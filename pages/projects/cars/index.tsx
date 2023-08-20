@@ -18,7 +18,6 @@ const CarsPage: NextPage = () => {
   const [isDisplay, setIsDisplay] = useState<boolean>(false)
   const filteredCars = useAppSelector(selectCarFilter)
   const carsMutation = useAppSelector(selectCarMutation)
-
   const handleSearch = () => {
     dispatch(getCarName(selectedCar))
     dispatch(getCarCity(selectedCity))
