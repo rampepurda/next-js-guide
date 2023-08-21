@@ -12,27 +12,29 @@ import { useRouter } from 'next/router'
 const CarsPage: NextPage = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
-  const { carName, carCity } = useAppSelector((state) => state.Cars)
+  const { param } = useAppSelector((state) => state.Cars)
   const [selectedCar, setSelectedCar] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [isDisplay, setIsDisplay] = useState<boolean>(false)
   const filteredCars = useAppSelector(selectCarFilter)
   const carsMutation = useAppSelector(selectCarMutation)
-
   const handleSearch = () => {
     dispatch(getCarName(selectedCar))
     dispatch(getCarCity(selectedCity))
     return (
-      router.push(
-        `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}?selected=${carName}${
-          selectedCity.length !== 0 ? `&location=${selectedCity}` : ''
-        }`
-      ),
+      // WARNING: appropriate query value is displayed later after one more click
+      router.push({
+        pathname: `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}`,
+        query: {
+          car: param.carName,
+          city: selectedCity.length !== 0 ? selectedCity : 'all',
+        },
+      }),
       setIsDisplay(true)
     )
   }
 
-  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, carCity, carName])
+  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
 
   return (
     <>
@@ -68,7 +70,11 @@ const CarsPage: NextPage = () => {
               OnChange={(ev) => setSelectedCity(ev.target.value)}
             />
             <div>
-              <button className="btn btn-submit" type="button" onClick={(ev) => handleSearch()}>
+              <button
+                className="btn btn-submit"
+                type="button"
+                onClick={(ev: React.MouseEvent<HTMLButtonElement>) => handleSearch()}
+              >
                 Search
               </button>
             </div>
@@ -82,9 +88,10 @@ const CarsPage: NextPage = () => {
           )}
           {isDisplay ? <Cars cars={carsMutation} /> : ''}
           <hr />
+
           {/*
             CarsSearchBase is not Component.
-             It`s just an example of more simple search variation where 'createSelector' is build
+             It`s just an example of more simple search variation where 'createSelector' is in used
              */}
           <CarsSearchBase />
         </div>

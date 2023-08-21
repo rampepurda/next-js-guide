@@ -2,12 +2,7 @@ import style from './Input.module.scss'
 
 import React, { ChangeEvent } from 'react'
 import classNames from 'classnames'
-import IcoSearch from './magnifying-glass-search.svg'
-import { InpRest } from '../../types'
-
-/**
- * @param Props(children) the goal is put inside div buttons, images
- */
+import IcoSearch from './ico-magnifying-glass.svg'
 
 type Props = {
   id: string
@@ -21,6 +16,9 @@ type Props = {
   Name?: string
   rest: Record<string, string>
 }
+/**
+ * @param isSearch: Default as false, case true input type='search' get another class attribute
+ */
 
 export const Input = ({
   ariaLabel,
@@ -35,7 +33,7 @@ export const Input = ({
   rest,
 }: Props) => {
   return (
-    <>
+    <div className={style.cover}>
       <input
         id={id}
         className={classNames(style.Input, ClassName, { [style.isSearch]: isSearch })}
@@ -46,9 +44,7 @@ export const Input = ({
         required={isRequired}
         {...rest}
       />
-      {isSearch && (
-        <IcoSearch className={classNames(style.Input, { [style.hasIcoMagnifying]: isSearch })} />
-      )}
-    </>
+      {isSearch && <IcoSearch className={classNames(style.hasIcoMagnifying)} />}
+    </div>
   )
 }

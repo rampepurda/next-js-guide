@@ -13,7 +13,7 @@
   }
 
   @if $orange {
-    h5 {
+    h3, h5 {
       color: $white;
     }
   }

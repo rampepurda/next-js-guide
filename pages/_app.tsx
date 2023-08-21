@@ -11,14 +11,14 @@ import { useMemo, useState } from 'react'
 import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, setTheme] = useState<boolean>(false)
+  const [mode, setMode] = useState<boolean>(false)
   const isDark = useMemo((): string => {
-    if (theme) {
+    if (mode) {
       return 'isDark'
     } else {
       return ''
     }
-  }, [theme])
+  }, [mode])
 
   return (
     <Provider store={store}>
@@ -30,7 +30,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </Head>
         <Header className={isDark}>
           <DateBox />
-          <SwitchLanguage OnChange={() => setTheme(!theme)} ariaLabel={'controlled'} />
+          <SwitchLanguage
+            OnChange={() => setMode(!mode)}
+            ariaLabel={'controlled'}
+            isModeDark={mode}
+          />
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
 

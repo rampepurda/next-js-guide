@@ -1,6 +1,9 @@
 {
   "loading": "Loading",
   "title":"Next-JS Guide",
+  "darkMode":"mode is dark",
+  "lightMode":"mode is light",
+
   "pageTitle": {
     "home": "Next JS Guids | Home",
     "projects": "Next JS | Projects",
@@ -33,7 +36,8 @@
     "ch-eighteen": "18. Next13(13.4.7) - changes",
     "ch-nineteen": "19. Internal API route",
     "ch-twenty": "20. Tailwind CSS",
-    "ch-twentyOne": "21. Form knowledge refresh"
+    "ch-twentyOne": "21. Form knowledge refresh",
+    "ch-twentyTwo": "22. searchQueryParams: Next =<13"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",

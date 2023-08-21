@@ -15,15 +15,23 @@
 }
 
 .isSearch {
+  position: relative;
   border-radius: 1.3rem;
   padding: .7rem 1rem .7rem 2.8rem;
+
+  &::before {
+    top: 0;
+    left: 0;
+    width: 24px !important;
+    height: 24px !important;
+    border: 0;
+  }
 }
 
 .hasIcoMagnifying {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 3.3rem;
-  height: 3rem;
-  border: 0;
+  top: 1.5rem;
+  left: .7rem;
+  width: 24px !important;
+  height: 24px !important;
 }

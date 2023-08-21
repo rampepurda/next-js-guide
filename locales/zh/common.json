@@ -1,6 +1,8 @@
 {
   "loading": "加载中",
   "title":"欢迎来到我的页面",
+  "darkMode":"模式为暗模式",
+  "lightMode":"模式为轻",
   "pageTitle": {
     "home": "下一個家",
     "projects": "項目",
@@ -33,7 +35,8 @@
     "ch-eighteen": "18. Next13(13.4.7) - 变化",
     "ch-nineteen": "19. 内部API路由",
     "ch-twenty": "20. Tailwind CSS",
-    "ch-twentyOne": "21. 表格知识刷新"
+    "ch-twentyOne": "21. 表格知识刷新",
+    "ch-twentyTwo": "22. 搜索查询参数: Next =<13"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
