@@ -2,7 +2,7 @@ import style from './ch-seven.module.scss'
 
 import React, { MouseEventHandler, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
-import { getPhotos } from '../../../../slices'
+import { getPhotosWithLimit } from '../../../../slices'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { NextPage } from 'next'
@@ -33,7 +33,7 @@ const ChSeven: NextPage = () => {
   const [hasLimit, setHasLimit] = useState<string>('0')
   const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
   const handlePhotos: OnClick = () => {
-    dispatch(getPhotos({ url: `${environment.photosURL}`, hasLimit: hasLimit }))
+    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: hasLimit }))
     setSelectedPhotos(photos)
     if (hasLimit === '0') {
       alert(`${Alert}`)

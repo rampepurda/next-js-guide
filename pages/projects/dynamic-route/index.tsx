@@ -1,24 +1,32 @@
-import { initPhotos } from "../../../types"
-import { GetServerSideProps, NextPage } from "next"
-import Head from "next/head"
-import { Navigation, Pagination, Photos } from "../../../components"
-import { navigationProjectsLinks } from "../../../configuration"
-import { environment } from "../../../configuration"
-import { useEffect } from "react"
-import { usePaginate } from "../../../hooks"
-import { paginateCurrentPost } from "../../../utils"
+import { initPhotos } from '../../../types'
+import { NextPage } from 'next'
+import Head from 'next/head'
+import { Navigation, Pagination, Photos } from '../../../components'
+import { navigationProjectsLinks } from '../../../configuration'
+import { environment } from '../../../configuration'
+import { useEffect } from 'react'
+import { usePaginate } from '../../../hooks'
+import { paginateCurrentPost } from '../../../utils'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { getPhotosWithLimit } from '../../../slices'
 
 interface initValues {
   photos: [initPhotos]
 }
 
-export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
+export const DynamicalRouting: NextPage<initValues> = () => {
+  const dispatch = useAppDispatch()
+  const { photos } = useAppSelector((state) => state.Photos)
   const { currentPage = 1, handlePageChange } = usePaginate('dynamic-route')
-  const postPerPage: number = 50 // can be dynamical
+  const postPerPage: number = 10
   const itemsTotal: number = Number(photos.length)
   const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
 
-  useEffect(() => {},[postPerPage, photos, currentPost])
+  useEffect(() => {
+    if (photos.length === 0) {
+      dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: '233' }))
+    }
+  }, [postPerPage, photos, currentPost])
 
   return (
     <>
@@ -26,11 +34,11 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
         <title>Next JS | Projects | Dynamic router</title>
       </Head>
 
-      <div className='cols'>
-        <div className='col-3 has-br'>
+      <div className="cols">
+        <div className="col-3 has-br">
           <Navigation links={navigationProjectsLinks} />
         </div>
-        <div className='col-9'>
+        <div className="col-9">
           {!photos ? <h4>...loading, wait</h4> : ''}
 
           <Pagination
@@ -39,6 +47,10 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
             postPerPage={postPerPage}
             paginate={handlePageChange}
           />
+          <h4>
+            Items total: <mark>{itemsTotal}</mark>
+          </h4>
+
           <Photos photos={currentPost} />
         </div>
       </div>
@@ -46,16 +58,4 @@ export const DynamicalRouting: NextPage<initValues> = ({ photos}) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${environment.photosURL}?_limit=200`)
-  const photos = await res.json()
-
-  return {
-    props: {
-      photos
-    }
-  }
-}
-
 export default DynamicalRouting
-

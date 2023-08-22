@@ -1,7 +1,6 @@
 @import "styles/variables";
-.card {
+.paginate {
   display: inline-block;
-  border-radius: .4rem;
   border: 1px solid transparentize($grayDarker, .7);
 }
 
@@ -40,5 +39,23 @@
 .hasRadiusRight {
   border-top-right-radius: .4rem;
   border-bottom-right-radius: .4rem;
+}
+
+.btn {
+  cursor: pointer;
+  margin-left: .3rem;
+  border: 0;
+  background-color: transparent;
+  color: $blueLight;
+  font-size: 1.3rem;
+
+  &.previous {
+    margin-left: 0;
+    margin-right: .3rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
