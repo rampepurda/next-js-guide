@@ -42,3 +42,16 @@
   border-bottom-right-radius: .4rem;
 }
 
+.btn {
+  cursor: pointer;
+  margin-left: .7rem;
+  border: 0;
+  background-color: transparent;
+  color: $blueLight;
+  font-size: 1.3rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
