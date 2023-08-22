@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { environment } from '../../configuration'
 
 /**
  * https://redux-toolkit.js.org/api/createAsyncThunk

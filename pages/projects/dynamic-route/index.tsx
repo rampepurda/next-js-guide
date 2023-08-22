@@ -24,7 +24,7 @@ export const DynamicalRouting: NextPage<initValues> = () => {
 
   useEffect(() => {
     if (photos.length === 0) {
-      dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: '111' }))
+      dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: '233' }))
     }
   }, [postPerPage, photos, currentPost])
 
@@ -47,7 +47,10 @@ export const DynamicalRouting: NextPage<initValues> = () => {
             postPerPage={postPerPage}
             paginate={handlePageChange}
           />
-          <label>Total items: {itemsTotal}</label>
+          <h4>
+            Items total: <mark>{itemsTotal}</mark>
+          </h4>
+
           <Photos photos={currentPost} />
         </div>
       </div>

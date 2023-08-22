@@ -3,6 +3,7 @@ import style from './Pagination.module.scss'
 import { ChangeEvent, useMemo, useState } from 'react'
 import classNames from 'classnames'
 import { paginateCurrentPost } from '../../utils'
+import useTranslation from 'next-translate/useTranslation'
 
 type Props = {
   currentPage: number
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: Props) => {
+  const { t } = useTranslation('common')
   const pageTotal = useMemo(() => {
     return Math.ceil(itemsTotal / postPerPage)
   }, [itemsTotal, postPerPage])
@@ -25,7 +27,7 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
   const linkPrevious = useMemo(() => {
     return (
       <button
-        className={style.btn}
+        className={classNames(style.btn, style.previous)}
         onClick={(ev) => {
           ev.preventDefault()
           if (currentPaginate <= paginateTotal) {
@@ -33,7 +35,7 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        previous
+        {t('paginate.linkPrevious')}
       </button>
     )
   }, [currentPaginate, paginateTotal])
@@ -48,7 +50,7 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        next
+        {t('paginate.linkNext')}
       </button>
     )
   }, [currentPaginate, paginateTotal])
@@ -56,29 +58,24 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
   return (
     <nav aria-label="paginate">
       {currentPaginate !== 1 ? linkPrevious : ''}
-      <ul className={style.card}>
-        {pageArray
-          .slice(
-            currentPaginate * paginatePerPage - paginatePerPage,
-            currentPaginate * paginatePerPage
+      <ul className={style.paginate}>
+        {paginateCurrentPost(currentPaginate, pageArray, paginatePerPage).map((page: number) => {
+          return (
+            <li className={style.inline} key={page}>
+              <button
+                className={classNames(style.link, {
+                  [style.isActive]: page === currentPage,
+                  //[style.hasRadiusLeft]: page === Math.min(...pageArray),
+                  //[style.hasRadiusRight]: page === Math.max(...pageArray),
+                })}
+                onClick={(ev) => paginate(page)}
+                aria-current={true}
+              >
+                {page}
+              </button>
+            </li>
           )
-          .map((page: number) => {
-            return (
-              <li className={style.inline} key={page}>
-                <button
-                  className={classNames(style.link, {
-                    [style.isActive]: page === currentPage,
-                    [style.hasRadiusLeft]: page === Math.min(...pageArray),
-                    [style.hasRadiusRight]: page === Math.max(...pageArray),
-                  })}
-                  onClick={(ev) => paginate(page)}
-                  aria-current={true}
-                >
-                  {page}
-                </button>
-              </li>
-            )
-          })}
+        })}
       </ul>
       {currentPaginate < paginateTotal ? linkNext : ''}
     </nav>

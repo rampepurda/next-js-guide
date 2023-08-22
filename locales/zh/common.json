@@ -3,6 +3,10 @@
   "title":"欢迎来到我的页面",
   "darkMode":"模式为暗模式",
   "lightMode":"模式为轻",
+  "paginate": {
+    "linkPrevious": "以前的",
+    "linkNext": "下一个"
+  },
   "pageTitle": {
     "home": "下一個家",
     "projects": "項目",

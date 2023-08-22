@@ -3,7 +3,10 @@
   "title":"Next-JS Guide",
   "darkMode":"mode is dark",
   "lightMode":"mode is light",
-
+  "paginate": {
+    "linkPrevious": "previous",
+    "linkNext": "next"
+  },
   "pageTitle": {
     "home": "Next JS Guids | Home",
     "projects": "Next JS | Projects",
