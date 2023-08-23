@@ -188,3 +188,10 @@ mark {
     background-color: transparent;
   }
 }
+
+@media #{$screen-md} {
+  h1 {
+    font-size: calc(1.3rem + 1.2vw);
+  }
+}
+

@@ -7,8 +7,9 @@ import { ApolloProvider } from '@apollo/client'
 import { store } from '../store/store'
 import { DateBox, Header, Navigation, SwitchLanguage } from '../components'
 import { navigationLinks } from '../configuration'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Head from 'next/head'
+import { useWindWidth } from '../hooks/useWindWidth'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [mode, setMode] = useState<boolean>(false)
@@ -19,6 +20,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       return ''
     }
   }, [mode])
+  const { windowSize, md, getWindWidth } = useWindWidth()
+  useEffect(() => {
+    getWindWidth()
+  }, [])
 
   return (
     <Provider store={store}>
@@ -29,7 +34,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header className={isDark}>
-          <DateBox />
+          {windowSize >= md && <DateBox />}
           <SwitchLanguage
             OnChange={() => setMode(!mode)}
             ariaLabel={'controlled'}
