@@ -31,7 +31,7 @@ export const Photo = ({ id, title, thumbnailUrl }: initPhotos) => {
             }}
             style={{ color: 'red' }}
           >
-            <a className={style.link}>{t('projects.dynamicRoute.btn')}</a>
+            <a className={style.link}>{t('projects:dynamicRoute.btn')}</a>
           </Link>
         </button>
       </div>

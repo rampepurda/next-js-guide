@@ -1,4 +1,6 @@
 @import "styles/variables";
+@import "styles/breakpoints";
+
 .paginate {
   display: inline-block;
   border: 1px solid transparentize($grayDarker, .7);
@@ -31,6 +33,13 @@
   color: $white;
 }
 
+.isSmallDevice {
+  display: none;
+}
+
+/*
+Commented because of new UI
+
 .hasRadiusLeft {
   border-top-left-radius: .4rem;
   border-bottom-left-radius: .4rem;
@@ -40,6 +49,7 @@
   border-top-right-radius: .4rem;
   border-bottom-right-radius: .4rem;
 }
+ */
 
 .btn {
   cursor: pointer;
@@ -56,6 +66,41 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media #{$screen-sm} {
+  .inline {
+    padding: 0 .6rem;
+  }
+
+  .link {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 -.6rem;
+    border: 0;
+    padding: .5rem .6rem;
+  }
+
+  .btn {
+    margin-left: .5rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 100%;
+    background-color: $blueLight;
+    color: $white;
+
+    &.previous {
+      margin-right: .5rem;
+    }
+  }
+
+  .isLargeDevice {
+    display: none;
+  }
+
+  .isSmallDevice {
+    display: inline-block;
   }
 }
 

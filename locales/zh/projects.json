@@ -1,5 +1,10 @@
 {
-  "projects": {
-    "titleOne":"動態路由"
+  "title":"Next | 项目",
+  "navigationLinks": {
+    "dynamicRouting":  "動態路由"
+  },
+  "headline": "选择合适的项目",
+  "dynamicRoute": {
+    "btn":"探索活動"
   }
 }

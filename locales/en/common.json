@@ -47,11 +47,6 @@
     "cars": "Cars",
     "countries": "Countries"
   },
-  "projects": {
-    "dynamicRoute": {
-      "btn":"Explore Event"
-    }
-  },
   "ariaLabels": {
     "navigation": {
       "isMain":"main",

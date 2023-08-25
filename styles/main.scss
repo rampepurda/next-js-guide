@@ -1,6 +1,7 @@
 @import "spacing";
 @import "variables";
 @import "functions";
+@import "breakpoints";
 
 html,
 body {
@@ -189,9 +190,19 @@ mark {
   }
 }
 
+.isLargeDevice {
+  display: none;
+}
+
+
 @media #{$screen-md} {
   h1 {
     font-size: calc(1.3rem + 1.2vw);
   }
+
+  .isLargeDevice {
+    display: block;
+  }
+
 }
 

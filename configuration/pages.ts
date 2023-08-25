@@ -2,26 +2,24 @@ export const Pages = {
   Guide: {
     chSeven: {
       headline: 'List of Cars',
-      subHeadline: {
-      }
+      subHeadline: {},
     },
     chTwelve: {
       headline: '12. GraphQL',
-      subHeadline: {
-      },
+      subHeadline: {},
       detailTrack: {
         title: 'Next JS | Guide | Country detail',
         linkBack: 'Back to Countries',
-      }
+      },
     },
     chFourteen: {
       headline: '14. createSelector(Redux Toolkit)',
-      subHeadline: {
-      }
-    }
-  }
+      subHeadline: {},
+    },
+  },
 }
 export const Projects = {
-  Cars: {
-  }
+  accordion: {
+    title: ['headline'],
+  },
 }

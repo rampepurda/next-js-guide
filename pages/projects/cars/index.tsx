@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Cars, InfoBox, Navigation, Select } from '../../../components'
-import { navigationProjectsLinks, CarsOptions, ROUTE, carsCity } from '../../../configuration'
+import { Accordion, Cars, InfoBox, Navigation, Select } from '../../../components'
+import {
+  navigationProjectsLinks,
+  CarsOptions,
+  ROUTE,
+  carsCity,
+  Projects as project,
+} from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSelectors'
 import { getCarCity, getCarName, getFilterCar } from '../../../slices'
 import CarsSearchBase from './carsSearchBase'
 import { useRouter } from 'next/router'
+import { useWindWidth } from '../../../hooks/useWindWidth'
 
 const CarsPage: NextPage = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
   const { param } = useAppSelector((state) => state.Cars)
+  const accordionTitle = project.accordion.title
   const [selectedCar, setSelectedCar] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [isDisplay, setIsDisplay] = useState<boolean>(false)
@@ -33,8 +41,11 @@ const CarsPage: NextPage = () => {
       setIsDisplay(true)
     )
   }
+  const { windowSize, getWindWidth, isMediumDevice } = useWindWidth()
 
-  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
+  useEffect(() => {
+    getWindWidth()
+  }, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
 
   return (
     <>
@@ -43,11 +54,16 @@ const CarsPage: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
+        <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
           <Navigation links={navigationProjectsLinks} />
-        </div>
+        </Accordion>
+        {windowSize > isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationProjectsLinks} />
+          </div>
+        )}
 
-        <div className="col-9">
+        <div className="col-9 col-m-12">
           <h3>1. Find Car by Name and City:</h3>
           <div
             style={{

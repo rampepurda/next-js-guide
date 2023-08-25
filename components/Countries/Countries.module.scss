@@ -1,6 +1,6 @@
 @import "styles/variables";
 
-.Card {
+.card {
   display: flex;
   gap: .5rem;
   flex-flow: row wrap;
@@ -8,7 +8,7 @@
   justify-content: left;
 }
 
-.Box {
+.track {
   flex-basis: 40%;
   border-radius: .6rem;
   border: 1px solid $gray;

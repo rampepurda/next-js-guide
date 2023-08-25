@@ -20,7 +20,7 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
   }, [itemsTotal, postPerPage])
   const pageArray = Array.from({ length: pageTotal }, (_, i) => i + 1)
   // PAGINATE PREVIOUS|NEXT
-  const paginatePerPage: number = 10
+  const paginatePerPage: number = 8
   const [currentPaginate, setCurrentPaginate] = useState<number>(1)
   const paginateLength = pageArray.length
   const paginateTotal = Math.ceil(paginateLength / paginatePerPage)
@@ -35,7 +35,8 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        {t('paginate.linkPrevious')}
+        <span className={style.isLargeDevice}>{t('paginate.linkPrevious')}</span>
+        <span className={style.isSmallDevice}> {'<'} </span>
       </button>
     )
   }, [currentPaginate, paginateTotal])
@@ -50,7 +51,8 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        {t('paginate.linkNext')}
+        <span className={style.isLargeDevice}>{t('paginate.linkNext')}</span>
+        <span className={style.isSmallDevice}> {'>'} </span>
       </button>
     )
   }, [currentPaginate, paginateTotal])

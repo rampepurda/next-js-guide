@@ -1,15 +1,16 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 /**
  * @const windowSize Accordingly size will use in @media queries
  * @function getWindWidth must be part of useEffect in Component to provide actual Window Size which will be in touch with @media queries
+ * @function useEffect | getWindWidth must be placed here
  */
 
 export const useWindWidth = () => {
-  const sm: number = 576
-  const md: number = 900
-  const lg: number = 1224
-  const xl: number = 1824
+  const isSmallDevice: number = 576
+  const isMediumDevice: number = 900
+  const isLargeDevice: number = 1224
+  const isExtraLargeDevice: number = 1824
   const [windowSize, setWindowSize] = useState<any>(undefined)
   const handleWindowResize = () => {
     setWindowSize([window.innerWidth])
@@ -26,9 +27,9 @@ export const useWindWidth = () => {
   return {
     getWindWidth,
     windowSize,
-    sm,
-    md,
-    lg,
-    xl,
+    isSmallDevice,
+    isMediumDevice,
+    isLargeDevice,
+    isExtraLargeDevice,
   }
 }

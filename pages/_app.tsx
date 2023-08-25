@@ -20,7 +20,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       return ''
     }
   }, [mode])
-  const { windowSize, md, getWindWidth } = useWindWidth()
+  const { windowSize, isMediumDevice, getWindWidth } = useWindWidth()
+  const dataAccor = [
+    {
+      title: 'Select project',
+    },
+  ]
+
   useEffect(() => {
     getWindWidth()
   }, [])
@@ -34,7 +40,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header className={isDark}>
-          {windowSize >= md && <DateBox />}
+          {windowSize >= isMediumDevice && <DateBox />}
           <SwitchLanguage
             OnChange={() => setMode(!mode)}
             ariaLabel={'controlled'}
