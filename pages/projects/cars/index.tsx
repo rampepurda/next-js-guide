@@ -1,8 +1,11 @@
+import style from './Cars.module.scss'
+
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Accordion, Cars, InfoBox, Navigation, Select } from '../../../components'
 import {
+  breakPoints,
   navigationProjectsLinks,
   CarsOptions,
   ROUTE,
@@ -14,7 +17,7 @@ import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSele
 import { getCarCity, getCarName, getFilterCar } from '../../../slices'
 import CarsSearchBase from './carsSearchBase'
 import { useRouter } from 'next/router'
-import { useWindWidth } from '../../../hooks/useWindWidth'
+import { useWindWidth } from '../../../hooks'
 
 const CarsPage: NextPage = () => {
   const router = useRouter()
@@ -41,7 +44,7 @@ const CarsPage: NextPage = () => {
       setIsDisplay(true)
     )
   }
-  const { windowSize, getWindWidth, isMediumDevice } = useWindWidth()
+  const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
     getWindWidth()
@@ -57,7 +60,7 @@ const CarsPage: NextPage = () => {
         <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
           <Navigation links={navigationProjectsLinks} />
         </Accordion>
-        {windowSize > isMediumDevice && (
+        {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />
           </div>
@@ -65,14 +68,7 @@ const CarsPage: NextPage = () => {
 
         <div className="col-9 col-m-12">
           <h3>1. Find Car by Name and City:</h3>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '2rem',
-            }}
-          >
+          <div className={style.searchBox}>
             <Select
               ClassName="select"
               options={CarsOptions}
@@ -95,6 +91,7 @@ const CarsPage: NextPage = () => {
               </button>
             </div>
           </div>
+
           {carsMutation.length === 0 ? (
             <InfoBox className="isDanger">
               <h3>Sorry any result find. Please tray again</h3>

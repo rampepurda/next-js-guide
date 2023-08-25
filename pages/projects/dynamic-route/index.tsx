@@ -2,14 +2,14 @@ import { initPhotos } from '../../../types'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Accordion, Navigation, Pagination, Photos } from '../../../components'
-import { navigationProjectsLinks, Projects as project } from '../../../configuration'
+import { breakPoints, navigationProjectsLinks, Projects as project } from '../../../configuration'
 import { environment } from '../../../configuration'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { getPhotosWithLimit } from '../../../slices'
-import { useWindWidth } from '../../../hooks/useWindWidth'
+import { useWindWidth } from '../../../hooks'
 import useTranslation from 'next-translate/useTranslation'
 
 interface initValues {
@@ -24,7 +24,7 @@ export const DynamicalRouting: NextPage<initValues> = () => {
   const postPerPage: number = 10
   const itemsTotal: number = Number(photos.length)
   const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
-  const { windowSize, isMediumDevice, getWindWidth } = useWindWidth()
+  const { windowSize, getWindWidth } = useWindWidth()
   const accordionTitle = project.accordion.title
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const DynamicalRouting: NextPage<initValues> = () => {
         <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
           <Navigation links={navigationProjectsLinks} />
         </Accordion>
-        {windowSize > isMediumDevice && (
+        {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />
           </div>

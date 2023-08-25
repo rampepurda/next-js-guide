@@ -1,7 +1,14 @@
 @import "../../styles/variables";
+@import "../../styles/breakpoints";
 
 .dateBox {
   position: absolute;
   top: 24%;
   left: 1.2rem;
+}
+
+@media #{$screen-sm} {
+  .dateBox {
+    display: none;
+  }
 }

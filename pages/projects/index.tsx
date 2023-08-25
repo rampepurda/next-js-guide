@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 import { Navigation, Accordion } from '../../components'
-import { navigationProjectsLinks, Projects as project } from '../../configuration'
-import { useWindWidth } from '../../hooks/useWindWidth'
+import { breakPoints, navigationProjectsLinks, Projects as project } from '../../configuration'
+import { useWindWidth } from '../../hooks'
 import { useEffect } from 'react'
 
 export default function Projects() {
   const { t } = useTranslation('projects')
-  const { windowSize, isMediumDevice, getWindWidth } = useWindWidth()
+  const { windowSize, getWindWidth } = useWindWidth()
   const accordionTitle = project.accordion.title
 
   useEffect(() => {
@@ -24,14 +24,14 @@ export default function Projects() {
         <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
           <Navigation links={navigationProjectsLinks} />
         </Accordion>
-        {windowSize > isMediumDevice && (
+        {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />
           </div>
         )}
 
         <div className="col-9 col-m-12">
-          {windowSize > isMediumDevice && <h1>{t('headline')}</h1>}
+          {windowSize > breakPoints.isMediumDevice && <h1>{t('headline')}</h1>}
         </div>
       </div>
     </>
