@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { Navigation, Countries as CountriesData, Input, Accordion } from '../../../components'
 import Head from 'next/head'
-import { breakPoints, navigationProjectsLinks, Projects as project } from '../../../configuration'
+import { breakPoints, navigationProjectsLinks, Pages } from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { getCountries, getSearchCountry } from '../../../slices'
 import { selectCountryFilter } from '../../../slices/Countries/countrySelectors'
@@ -13,7 +13,7 @@ const Countries: NextPage = () => {
   const filteredCountries = useAppSelector(selectCountryFilter)
   const { handleInput, Value } = useInput()
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = project.accordion.title
+  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()

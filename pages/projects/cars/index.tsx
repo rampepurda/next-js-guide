@@ -10,7 +10,7 @@ import {
   CarsOptions,
   ROUTE,
   carsCity,
-  Projects as project,
+  Pages,
 } from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSelectors'
@@ -23,7 +23,7 @@ const CarsPage: NextPage = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
   const { param } = useAppSelector((state) => state.Cars)
-  const accordionTitle = project.accordion.title
+  const accordionTitle = Pages.projects.accordion.title
   const [selectedCar, setSelectedCar] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [isDisplay, setIsDisplay] = useState<boolean>(false)

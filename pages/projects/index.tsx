@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 import { Navigation, Accordion } from '../../components'
-import { breakPoints, navigationProjectsLinks, Projects as project } from '../../configuration'
+import { breakPoints, navigationProjectsLinks, Pages } from '../../configuration'
 import { useWindWidth } from '../../hooks'
 import { useEffect } from 'react'
 
 export default function Projects() {
   const { t } = useTranslation('projects')
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = project.accordion.title
+  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()

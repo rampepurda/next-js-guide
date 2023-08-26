@@ -2,7 +2,7 @@ import { initPhotos } from '../../../types'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Accordion, Navigation, Pagination, Photos } from '../../../components'
-import { breakPoints, navigationProjectsLinks, Projects as project } from '../../../configuration'
+import { breakPoints, navigationProjectsLinks, Pages } from '../../../configuration'
 import { environment } from '../../../configuration'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
@@ -25,7 +25,7 @@ export const DynamicalRouting: NextPage<initValues> = () => {
   const itemsTotal: number = Number(photos.length)
   const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = project.accordion.title
+  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()

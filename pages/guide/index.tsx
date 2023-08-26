@@ -1,14 +1,20 @@
-import { navigationGuideLinks } from '../../configuration'
+import {
+  breakPoints,
+  navigationGuideLinks,
+  navigationProjectsLinks,
+  Pages,
+} from '../../configuration'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
-import { Navigation } from '../../components'
+import { Accordion, Navigation } from '../../components'
 import { useEffect } from 'react'
-import { useWindWidth } from '../../hooks/useWindWidth'
+import { useWindWidth } from '../../hooks'
 
 const Guide: NextPage = () => {
   const { t } = useTranslation('common')
-  const { windowSize, getWindWidth, isMediumDevice } = useWindWidth()
+  const { windowSize, getWindWidth } = useWindWidth()
+  const accordionTitle = Pages.guide.accordion.title
 
   useEffect(() => {
     getWindWidth()
@@ -22,7 +28,10 @@ const Guide: NextPage = () => {
 
       <div>
         <div className="cols">
-          {windowSize > isMediumDevice && (
+          <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
+            <Navigation links={navigationGuideLinks} />
+          </Accordion>
+          {windowSize > breakPoints.isMediumDevice && (
             <div className="col-3 has-br">
               <Navigation links={navigationGuideLinks} />
             </div>

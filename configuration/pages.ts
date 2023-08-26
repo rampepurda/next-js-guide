@@ -1,5 +1,8 @@
 export const Pages = {
-  Guide: {
+  guide: {
+    accordion: {
+      title: ['guide.accordion.headline'],
+    },
     chSeven: {
       headline: 'List of Cars',
       subHeadline: {},
@@ -17,9 +20,9 @@ export const Pages = {
       subHeadline: {},
     },
   },
-}
-export const Projects = {
-  accordion: {
-    title: ['headline'],
+  projects: {
+    accordion: {
+      title: ['projects.accordion.headline'],
+    },
   },
 }
