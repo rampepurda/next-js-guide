@@ -3,6 +3,7 @@ import style from './Accordion.module.scss'
 import React, { PropsWithChildren, useState } from 'react'
 import classNames from 'classnames'
 import useTranslation from 'next-translate/useTranslation'
+import IcoArrowDown from '../../public/ico-chevron-down.svg'
 
 interface Props {
   ClassName?: string
@@ -20,7 +21,7 @@ export const Accordion = ({ ClassName, titles, children }: PropsWithChildren<Pro
   }
 
   return (
-    <div className={classNames(style.accordion, ClassName)} role="dialog">
+    <div className={classNames(style.cover, ClassName)} role="dialog">
       {titles.map((title, idx: number) => {
         return (
           <div key={idx}>
@@ -35,11 +36,16 @@ export const Accordion = ({ ClassName, titles, children }: PropsWithChildren<Pro
                 }}
               >
                 {t(`${title}`)}
+                <IcoArrowDown
+                  className={classNames(style.icoArrow, {
+                    [style.icoArrow__isOpen]: isOpen !== null,
+                  })}
+                />
               </button>
             </h2>
             <div
               className={classNames(style.content, [
-                isOpen === idx ? style.accordion__isOpen : style.accordion__isClose,
+                isOpen === idx ? style.content__isOpen__isOpen : style.content__isClose,
               ])}
               aria-labelledby={title}
             >
