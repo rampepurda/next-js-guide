@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import apolloClient from '../apollo/graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { store } from '../store/store'
-import { DateBox, Header, Navigation, SwitchLanguage } from '../components'
+import { DateBox, Header, Navigation, Theme } from '../components'
 import { navigationLinks } from '../configuration'
 import { useEffect, useMemo, useState } from 'react'
 import Head from 'next/head'
@@ -34,11 +34,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </Head>
         <Header className={isDark}>
           <DateBox />
-          <SwitchLanguage
-            OnChange={() => setMode(!mode)}
-            ariaLabel={'controlled'}
-            isModeDark={mode}
-          />
+          <Theme OnChange={() => setMode(!mode)} ariaLabel={'controlled'} isModeDark={mode} />
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
         {SubNavigationMedia}
