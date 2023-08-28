@@ -1,17 +1,24 @@
 import { NextPage } from 'next'
 import { Navigation, InfoBox, FormPostBook } from '../../../../components'
 import Head from 'next/head'
-import { environment, navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
 import ImgSubmitHandle from './ch21-submit-structure.png'
-import { usePostBook } from '../../../../hooks'
+import { usePostBook, useWindWidth } from '../../../../hooks'
 import ImgForm from './ch21-form.png'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const ChTwentyOne: NextPage = () => {
   const { handleSubmit } = usePostBook(
     `${environment.fireBaseBookURL}`,
     'Book you asking for was send to us'
   )
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -19,9 +26,11 @@ const ChTwentyOne: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>21. Form - what is new | knowledge refresher</h2>

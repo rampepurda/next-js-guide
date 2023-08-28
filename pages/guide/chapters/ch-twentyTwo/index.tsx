@@ -1,11 +1,12 @@
 import { NextPage } from 'next'
 import { Navigation, InfoBox, FormPostBook } from '../../../../components'
 import Head from 'next/head'
-import { environment, navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
 import Link from 'next/link'
-import { usePostBook } from '../../../../hooks'
+import { usePostBook, useWindWidth } from '../../../../hooks'
 import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const ChTwentyTwo: NextPage = () => {
   const router = useRouter()
@@ -14,6 +15,12 @@ const ChTwentyTwo: NextPage = () => {
     `${environment.fireBaseBookURL}`,
     'Book you asking for was send to us'
   )
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -21,9 +28,11 @@ const ChTwentyTwo: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>22. useSearchParams: Next =&lt; 13</h2>

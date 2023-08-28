@@ -7,8 +7,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import { NextPage } from 'next'
 import { Navigation, Photos, Input } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
-import { environment } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks, environment } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
 import {
@@ -22,6 +21,7 @@ import {
   imgThunkWithRejValue,
 } from './index-img'
 import { initPhotos } from '../../../../types'
+import { useWindWidth } from '../../../../hooks'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
@@ -39,8 +39,10 @@ const ChSeven: NextPage = () => {
       alert(`${Alert}`)
     }
   }
+  const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
+    getWindWidth()
     setSelectedPhotos(photos)
   }, [amount, isLoading, error])
 
@@ -51,9 +53,11 @@ const ChSeven: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>7. Next JS and Redux-Toolkit</h2>

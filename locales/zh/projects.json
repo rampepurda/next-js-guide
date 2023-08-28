@@ -1,5 +1,23 @@
 {
+  "guide": {
+    "title":"Next | 指导",
+    "navigationLinks": {
+      "dynamicRouting":  ""
+    },
+    "accordion": {
+      "headline": "选择章节"
+    }
+  },
   "projects": {
-    "titleOne":"動態路由"
+    "title":"Next | 项目",
+    "navigationLinks": {
+      "dynamicRouting":  "動態路由"
+    },
+    "accordion": {
+      "headline": "选择合适的项目"
+    },
+    "dynamicRoute": {
+      "btn":"探索活動"
+    }
   }
 }

@@ -1,19 +1,22 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { InfoBox, Navigation } from '../../../../components'
-import { navigationGuideLinks, ROUTE } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks, ROUTE } from '../../../../configuration'
 import React, { useEffect, useState } from 'react'
 import { getInternalAPI } from '../../../../utils'
 import { CarTypes } from '../../../../types'
 import Link from 'next/link'
+import { useWindWidth } from '../../../../hooks'
 
 const ChNineteen: NextPage = () => {
   const [internalData, setInternalData] = useState<CarTypes[]>([])
   const loading = (data: CarTypes[]) => {
     return <h4>{data.length === 0 ? <p>...Loading</p> : ''}</h4>
   }
+  const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
+    getWindWidth()
     getInternalAPI('/api/mock', setInternalData)
   }, [])
   return (
@@ -23,9 +26,11 @@ const ChNineteen: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>19. Internal API routes</h2>

@@ -13,7 +13,7 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { Navigation, InfoBox, Countries } from '../../../../components'
 import Head from 'next/head'
-import { navigationGuideLinks, Pages } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks, Pages } from '../../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
 import { getCountries } from '../../../../slices'
 import { useQuery } from '@apollo/client'
@@ -21,40 +21,50 @@ import { GET_COUNTRIES_QUERY } from '../../../../queries'
 import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
+import { useWindWidth } from '../../../../hooks'
 
 const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
   const { countries } = useAppSelector((state) => state.Countries)
+  const { windowSize, getWindWidth } = useWindWidth()
   const { data } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
+    getWindWidth()
     dispatch(getCountries())
   }, [countries])
 
   return (
     <>
       <Head>
-        <title>Next JS | Guide | {Pages.Guide.chTwelve.headline}</title>
+        <title>Next JS | Guide | {Pages.guide.chTwelve.headline}</title>
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
-          <h2>{Pages.Guide.chTwelve.headline}</h2>
+          <h2>{Pages.guide.chTwelve.headline}</h2>
           <ul className="hasVerticalPadding-2">
             <li>
               <a
                 href="https://www.apollographql.com/tutorials/lift-off-part1/03-schema-definition-language-sdl"
                 target="_blank"
+                rel="noreferrer"
               >
                 Apollo GraphQL tutorial
               </a>
             </li>
             <li>
-              <a href="https://www.apollographql.com/docs/react/data/queries/" target="_blank">
+              <a
+                href="https://www.apollographql.com/docs/react/data/queries/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Apollo GraphQL queries
               </a>
             </li>
@@ -82,7 +92,7 @@ const ChTwelve: NextPage = () => {
             <li>
               <h5>queries</h5>
               <ul className="hasVerticalPadding-2">
-                <li>import &#123; gql &#125; from "@apollo/client"</li>
+                <li>import &#123; gql &#125; from &quot;@apollo/client&quot;</li>
                 <li>export const GET_COUNTRIES_QUERY = gql`</li>
                 <li>&nbsp;query Countries &#123;</li>
                 <li>&nbsp;&nbsp;countries &#123;</li>
@@ -100,10 +110,10 @@ const ChTwelve: NextPage = () => {
               <h5>_app.tsx</h5>
               <ul>
                 <li className="hasVerticalPadding-2">
-                  import apolloClient from "../apollo/graphql-client"
+                  import apolloClient from &quot;../apollo/graphql-client&quot;
                 </li>
                 <li className="hasVerticalPadding-2">
-                  import &#123; ApolloProvider &#125; from "@apollo/client"
+                  import &#123; ApolloProvider &#125; from &quot;@apollo/client&quot;
                 </li>
                 <li className="hasVerticalPadding-10">
                   &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;
@@ -115,7 +125,7 @@ const ChTwelve: NextPage = () => {
           <h3>3. Schema definition language (SDL)</h3>
           <p>
             A schema is like a contract between the server and the client. It defines what a GraphQL
-            API can and can't do, and how clients can request or change data. It's an abstraction
+            API can and can not do, and how clients can request or change data. It's an abstraction
             layer that provides flexibility to consumers while hiding backend implementation
             details.
           </p>
@@ -126,14 +136,14 @@ const ChTwelve: NextPage = () => {
               <li>type SpaceCat &#123;</li>
               <li>
                 &nbsp;&nbsp;name: String!{' '}
-                <span className="color-is-black">// can`t be 'null' || type field</span>
+                <span className="color-is-black">|| can`t be &apos;null&apos; || type field</span>
               </li>
               <li>
-                &nbsp;&nbsp;age: Int <span className="color-is-black">// type field</span>
+                &nbsp;&nbsp;age: Int <span className="color-is-black">|| type field</span>
               </li>
               <li>
                 &nbsp;&nbsp;missions: [Mission]{' '}
-                <span className="color-is-black">// type field</span>
+                <span className="color-is-black">|| type field</span>
               </li>
               <li>&#125;</li>
             </ul>
@@ -143,7 +153,7 @@ const ChTwelve: NextPage = () => {
           <Image src={imgApolloStructure} alt="ApolloStructure" />
           <hr />
           <h2>GraphQL Server Side</h2>
-          <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="author">
+          <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
             Apollo GraphQL tutorials (Lift of II Resolvers)
           </a>
           <h3>1. Ready to Install GraphQL Server</h3>
@@ -165,7 +175,7 @@ const ChTwelve: NextPage = () => {
               <a
                 href="https://www.apollographql.com/tutorials/lift-off-part1/04-building-our-schema"
                 target="_blank"
-                rel="author"
+                rel="noreferrer"
               >
                 Building our schema
               </a>
@@ -173,7 +183,7 @@ const ChTwelve: NextPage = () => {
               <a
                 href="https://www.apollographql.com/docs/apollo-server/schema/schema"
                 target="_blank"
-                rel="author"
+                rel="noreferrer"
               >
                 Schema how to setup, read here
               </a>
@@ -203,7 +213,7 @@ const ChTwelve: NextPage = () => {
               <a
                 href="https://www.apollographql.com/tutorials/lift-off-part2/04-implementing-our-restdatasource"
                 target="_blank"
-                rel="author"
+                rel="noreferrer"
               >
                 Datasource tutorial here
               </a>
@@ -222,13 +232,13 @@ const ChTwelve: NextPage = () => {
               <a
                 href="https://www.apollographql.com/tutorials/lift-off-part2/05-the-shape-of-a-resolver"
                 target="_blank"
-                rel="author"
+                rel="noreferrer"
               >
                 Resolvers tutorial here
               </a>
             </li>
             <li>
-              <h4>Change 'schema.js' and 'index.js' structure</h4>
+              <h4>Change &apos;schema.js&apos; and &apos;index.js&apos; structure</h4>
             </li>
           </ul>
           <Image src={imgResolvers} alt="Resolvers parameters" />
@@ -293,7 +303,7 @@ const ChTwelve: NextPage = () => {
           <hr />
           <h3>3.2 Mutation - use</h3>
           <InfoBox className={'isInfo'}>
-            <h4>import &#123; useMutation &#125; from '@apollo/client';</h4>
+            <h4>import &#123; useMutation &#125; from &apos;@apollo/client&apos;;</h4>
             <hr />
             <ul className="hasVerticalPadding-2">
               <li>

@@ -5,14 +5,16 @@ import { useAppSelector } from '../../../../store/hooks'
 import Trans from 'next-translate/Trans'
 import Head from 'next/head'
 import { InfoBox, Input, Navigation, DateBox } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import i18n from './img/i18n.png'
 import i18Trans from './img/i18Trans.png'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { useWindWidth } from '../../../../hooks'
 
 /**
+ * i18next - All About
  * https://www.i18next.com/translation-function/formatting
  */
 
@@ -25,8 +27,11 @@ const ChSix: NextPage = () => {
       return <mark>Ooops, something happened</mark>
     }
   }, [age])
+  const { windowSize, getWindWidth } = useWindWidth()
 
-  useEffect(() => {}, [age])
+  useEffect(() => {
+    getWindWidth()
+  }, [age])
 
   return (
     <>
@@ -35,9 +40,11 @@ const ChSix: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <div>
@@ -50,13 +57,11 @@ const ChSix: NextPage = () => {
               next-translate read more
             </a>
             <hr />
-
             <h3>1. How to Install next-translate</h3>
             <strong>yarn add next-translate</strong>
             <h3>2. create: i18n.js</h3>
             <Image src={i18n} layout="fixed" alt="i18n" aria-hidden={true} />
             <hr />
-
             <h3>3. next.config.js</h3>
             <ul className={style.hasNoBorder}>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -70,7 +75,6 @@ const ChSix: NextPage = () => {
               <li>&#125;)</li>
             </ul>
             <hr />
-
             <h3>4. Trans Component:</h3>
             <ul className="hasVerticalPadding-2">
               <li>
@@ -86,7 +90,6 @@ const ChSix: NextPage = () => {
             </ul>
             <Image src={i18Trans} layout="fixed" alt="store" aria-hidden={true} />
             <hr />
-
             <h3>5. Interpolation</h3>
             <InfoBox className={'isInfo'}>
               <h4>
@@ -129,7 +132,6 @@ const ChSix: NextPage = () => {
               </p>
             </div>
             <hr />
-
             <h3>6. Objects and Arrays</h3>
             <ul className="hasTypeDisc">
               <li>
@@ -142,12 +144,11 @@ const ChSix: NextPage = () => {
             </ul>
             <h4>{t('chapter:ch6.week', {}, { returnObjects: true })}</h4>
             <hr />
-
-            <h3>
-              {' '}
-              7. &#123; t( &apos;locales- appropriate target&apos;, query &#123; &#125;, option:
-              &#123; returnObject: true &#125;) &#125;
-            </h3>
+            <h3>7. returnObject: true</h3>
+            <h5>
+              &#123; t( &apos;tKey&apos;, query &#123; &#125;, option: &#123; returnObject: true
+              &#125;) &#125;
+            </h5>
             <a
               href="https://www.i18next.com/translation-function/formatting"
               rel="noreferrer"
@@ -155,14 +156,10 @@ const ChSix: NextPage = () => {
             >
               Read more about i18n formatting
             </a>
-            <div>
-              <h4>
-                <DateBox />
-              </h4>
+            <div style={{ position: 'relative', margin: '2rem 0' }}>
+              <DateBox />
             </div>
-
             <hr />
-
             <h3>Translate example:</h3>
             <p>{t('home:createAccount')}</p>
             <p>{t('home:createAccount_headline', { count: amount })}</p>

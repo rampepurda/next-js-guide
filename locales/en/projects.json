@@ -1,5 +1,26 @@
 {
-  "navigationLinks": {
-    "dynamicRouting":  "Dynamic Routing"
+  "guide": {
+    "title":"Next | Guide",
+    "navigationLinks": {
+      "dynamicRouting":  "Dynamic Routing"
+    },
+    "accordion": {
+      "headline": "Select chapter"
+    },
+    "dynamicRoute": {
+      "btn":"Explore Event"
+    }
+  },
+  "projects": {
+    "title":"Next | Projects",
+    "navigationLinks": {
+      "dynamicRouting":  "Dynamic Routing"
+    },
+    "accordion": {
+      "headline": "Select appropriate project"
+    },
+    "dynamicRoute": {
+      "btn":"Explore Event"
+    }
   }
 }

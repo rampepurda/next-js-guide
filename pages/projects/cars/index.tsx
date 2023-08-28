@@ -1,13 +1,23 @@
+import style from './Cars.module.scss'
+
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Cars, InfoBox, Navigation, Select } from '../../../components'
-import { navigationProjectsLinks, CarsOptions, ROUTE, carsCity } from '../../../configuration'
+import {
+  breakPoints,
+  navigationProjectsLinks,
+  CarsOptions,
+  ROUTE,
+  carsCity,
+  Pages,
+} from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSelectors'
 import { getCarCity, getCarName, getFilterCar } from '../../../slices'
 import CarsSearchBase from './carsSearchBase'
 import { useRouter } from 'next/router'
+import { useWindWidth } from '../../../hooks'
 
 const CarsPage: NextPage = () => {
   const router = useRouter()
@@ -33,8 +43,11 @@ const CarsPage: NextPage = () => {
       setIsDisplay(true)
     )
   }
+  const { windowSize, getWindWidth } = useWindWidth()
 
-  useEffect(() => {}, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
+  useEffect(() => {
+    getWindWidth()
+  }, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
 
   return (
     <>
@@ -43,20 +56,15 @@ const CarsPage: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationProjectsLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationProjectsLinks} />
+          </div>
+        )}
 
-        <div className="col-9">
+        <div className="col-9 col-m-12">
           <h3>1. Find Car by Name and City:</h3>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '2rem',
-            }}
-          >
+          <div className={style.searchBox}>
             <Select
               ClassName="select"
               options={CarsOptions}
@@ -79,6 +87,7 @@ const CarsPage: NextPage = () => {
               </button>
             </div>
           </div>
+
           {carsMutation.length === 0 ? (
             <InfoBox className="isDanger">
               <h3>Sorry any result find. Please tray again</h3>

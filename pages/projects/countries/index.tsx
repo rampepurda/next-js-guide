@@ -2,18 +2,20 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { Navigation, Countries as CountriesData, Input } from '../../../components'
 import Head from 'next/head'
-import { navigationProjectsLinks } from '../../../configuration'
+import { breakPoints, navigationProjectsLinks } from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { getCountries, getSearchCountry } from '../../../slices'
 import { selectCountryFilter } from '../../../slices/Countries/countrySelectors'
-import { useInput } from '../../../hooks'
+import { useInput, useWindWidth } from '../../../hooks'
 
 const Countries: NextPage = () => {
   const dispatch = useAppDispatch()
   const filteredCountries = useAppSelector(selectCountryFilter)
   const { handleInput, Value } = useInput()
+  const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
+    getWindWidth()
     dispatch(getCountries())
     dispatch(getSearchCountry({ SearchedCountryValue: Value }))
   }, [filteredCountries, Value])
@@ -25,9 +27,11 @@ const Countries: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationProjectsLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationProjectsLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>Search for Countries</h2>

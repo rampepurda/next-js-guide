@@ -7,10 +7,14 @@ import { ApolloProvider } from '@apollo/client'
 import { store } from '../store/store'
 import { DateBox, Header, Navigation, SwitchLanguage } from '../components'
 import { navigationLinks } from '../configuration'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { SubNavMedia } from './subNavigationMedia/subNavMedia'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  const SubNavigationMedia = SubNavMedia(router.pathname)
   const [mode, setMode] = useState<boolean>(false)
   const isDark = useMemo((): string => {
     if (mode) {
@@ -37,6 +41,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           />
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
+        {SubNavigationMedia}
 
         <main className={isDark}>
           <Component {...pageProps} />

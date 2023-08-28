@@ -10,15 +10,15 @@ export const Photos = ({ photos }: { photos: Props }) => {
   const { isLoading, error } = useAppSelector((state) => state.Photos)
 
   return (
-    <div>
-      <div>
-        {isLoading ? <Loader ClassName={'loader'} /> : ''}
-        <h4>{error === '' ? '' : <span style={{ color: 'red' }}>{error}</span>}</h4>
-      </div>
+    <>
+      <>
+        {isLoading && <Loader ClassName={'loader'} />}
+        {error && <h4 style={{ color: 'red' }}>{error}</h4>}
+      </>
 
       {photos.map((photo, idx) => (
         <Photo {...photo} key={idx} />
       ))}
-    </div>
+    </>
   )
 }
