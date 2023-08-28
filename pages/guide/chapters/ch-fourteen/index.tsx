@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
 import { InfoBox, Cars, Navigation, Select } from '../../../../components'
-import { navigationGuideLinks, Pages } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks, Pages } from '../../../../configuration'
 import Head from 'next/head'
 import { selectXYZ } from '../../../../slices/Common/commonSelectors'
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
-import { useSelect } from '../../../../hooks'
+import { useSelect, useWindWidth } from '../../../../hooks'
 import { CarsOptions } from '../../../../configuration'
 import { selectCarFilter } from '../../../../slices/Cars/carSelectors'
 import React, { useEffect } from 'react'
@@ -20,8 +20,10 @@ const ChFourteen: NextPage = () => {
   const { cars, selectedCar } = useAppSelector((state) => state.Cars)
   const { handleOption, Value = selectedCar } = useSelect(CarsOptions, '')
   const filteredCars = useAppSelector(selectCarFilter)
+  const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
+    getWindWidth()
     dispatch(getFilterCar(Value))
   }, [Value, cars, filteredCars, selectedCar])
 
@@ -32,12 +34,14 @@ const ChFourteen: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className={classNames('col-3 has-br')}>
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className={classNames('col-9')}>
-          <h2>{Pages.Guide.chFourteen.headline}</h2>
+          <h2>{Pages.guide.chFourteen.headline}</h2>
           <a
             href="https://redux.js.org/usage/deriving-data-selectors#writing-memoized-selectors-with-reselect"
             target="_blank"
@@ -51,7 +55,7 @@ const ChFourteen: NextPage = () => {
               Less logic is needed to calculate those additional values and keep them in sync with
               the rest of the data
             </li>
-            <li>The original state is still there as a reference and isn't being replaced</li>
+            <li>The original state is still there as a reference and isn&apos;t being replaced</li>
           </ul>
           <hr />
 
@@ -113,12 +117,12 @@ const ChFourteen: NextPage = () => {
           <h4>slice/Cars/carSelector.ts</h4>
           <ul>
             <li className="hasVerticalPadding-2">
-              <strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong> // Imported
-              from CarSlice
+              <strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong>|| Imported from
+              CarSlice
             </li>
             <li className="hasVerticalPadding-2">
-              <strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong> //
-              Imported from CarSlice
+              <strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong>
+              || Imported from CarSlice
             </li>
           </ul>
           <Image src={imgCreateSelector} alt="how create selector" aria-hidden={true} />

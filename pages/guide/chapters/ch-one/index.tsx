@@ -5,12 +5,21 @@
 
 import { NextPage } from 'next'
 import { InfoBox, Navigation } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
+
 import imgSlug from '../../../../public/images/ch-one/slug.png'
+import { useWindWidth } from '../../../../hooks'
+import { useEffect } from 'react'
 
 const ChOne: NextPage = () => {
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -18,9 +27,11 @@ const ChOne: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>1. import &#123; useRouter &#125; from &apos;next/router&apos;</h2>

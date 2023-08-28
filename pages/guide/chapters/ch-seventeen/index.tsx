@@ -1,10 +1,18 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
 import { InfoBox, Navigation, Loader } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
+import { useWindWidth } from '../../../../hooks'
+import { useEffect } from 'react'
 
 const ChSeventeen: NextPage = () => {
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -12,9 +20,11 @@ const ChSeventeen: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className={classNames('col-3 has-br')}>
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className={classNames('col-9')}>
           <h2>17. Webpack in React</h2>
@@ -110,7 +120,9 @@ const ChSeventeen: NextPage = () => {
 
           <h3>2. &apos; svg &apos; format in Next 13</h3>
           <InfoBox className="isInfo">
-            <h4>In Next 13 we can use 'svg' format as Component without SVGR installation</h4>
+            <h4>
+              In Next 13 we can use &apos;svg&apos; format as Component without SVGR installation
+            </h4>
           </InfoBox>
         </div>
       </div>

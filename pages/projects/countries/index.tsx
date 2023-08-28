@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { NextPage } from 'next'
-import { Navigation, Countries as CountriesData, Input, Accordion } from '../../../components'
+import { Navigation, Countries as CountriesData, Input } from '../../../components'
 import Head from 'next/head'
-import { breakPoints, navigationProjectsLinks, Pages } from '../../../configuration'
+import { breakPoints, navigationProjectsLinks } from '../../../configuration'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { getCountries, getSearchCountry } from '../../../slices'
 import { selectCountryFilter } from '../../../slices/Countries/countrySelectors'
@@ -13,7 +13,6 @@ const Countries: NextPage = () => {
   const filteredCountries = useAppSelector(selectCountryFilter)
   const { handleInput, Value } = useInput()
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()
@@ -28,9 +27,6 @@ const Countries: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
-          <Navigation links={navigationProjectsLinks} />
-        </Accordion>
         {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />

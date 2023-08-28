@@ -1,8 +1,8 @@
 import { initPhotos } from '../../../types'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Accordion, Navigation, Pagination, Photos } from '../../../components'
-import { breakPoints, navigationProjectsLinks, Pages } from '../../../configuration'
+import { Navigation, Pagination, Photos } from '../../../components'
+import { breakPoints, navigationProjectsLinks } from '../../../configuration'
 import { environment } from '../../../configuration'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
@@ -25,7 +25,6 @@ export const DynamicalRouting: NextPage<initValues> = () => {
   const itemsTotal: number = Number(photos.length)
   const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()
@@ -41,9 +40,6 @@ export const DynamicalRouting: NextPage<initValues> = () => {
       </Head>
 
       <div className="cols">
-        <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
-          <Navigation links={navigationProjectsLinks} />
-        </Accordion>
         {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />

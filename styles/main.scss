@@ -190,6 +190,7 @@ mark {
   }
 }
 
+.isMediumDevice,
 .isLargeDevice {
   display: none;
 }
@@ -200,7 +201,7 @@ mark {
     font-size: calc(1.3rem + 1.2vw);
   }
 
-  .isLargeDevice {
+  .isMediumDevice {
     display: block;
   }
 

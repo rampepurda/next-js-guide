@@ -45,9 +45,10 @@ export const Accordion = ({ ClassName, titles, children }: PropsWithChildren<Pro
             </h2>
             <div
               className={classNames(style.content, [
-                isOpen === idx ? style.content__isOpen__isOpen : style.content__isClose,
+                isOpen === idx ? style.content__isOpen : style.content__isClose,
               ])}
               aria-labelledby={title}
+              onClick={(ev) => setIsOpen(null)}
             >
               {children}
             </div>

@@ -3,6 +3,10 @@
 .cover {
   position: relative;
 
+  h2 {
+    margin-bottom: 0;
+  }
+
   .btn {
     cursor: pointer;
     position: relative;
@@ -10,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0 0 .1rem 0;
+    margin: 0;
     border: 0;
     background-color: $orange;
     padding: .8rem .6rem;
@@ -50,21 +54,6 @@
       display: none;
       transition: all ease-out 2s;
     }
-  }
-
-  &__isOpen {
-    display: block;
-    transition: all ease 2s;
-    margin-bottom: 0.5rem;
-  }
-
-  &__isClose {
-    display: none;
-    transition: all ease-out 2s;
-  }
-
-  &__icoOpen {
-    transform: rotate(180deg);
   }
 }
 

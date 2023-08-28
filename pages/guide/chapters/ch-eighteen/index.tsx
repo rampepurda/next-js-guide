@@ -1,12 +1,20 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { InfoBox, Navigation } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import imgInstallNext from './img/installnext13.png'
 import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
+import { useWindWidth } from '../../../../hooks'
+import { useEffect } from 'react'
 
 const ChEight: NextPage = () => {
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -14,9 +22,11 @@ const ChEight: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>18. Next 13.4.7 - What is new?</h2>

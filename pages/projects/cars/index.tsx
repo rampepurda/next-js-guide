@@ -3,7 +3,7 @@ import style from './Cars.module.scss'
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Accordion, Cars, InfoBox, Navigation, Select } from '../../../components'
+import { Cars, InfoBox, Navigation, Select } from '../../../components'
 import {
   breakPoints,
   navigationProjectsLinks,
@@ -23,7 +23,6 @@ const CarsPage: NextPage = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
   const { param } = useAppSelector((state) => state.Cars)
-  const accordionTitle = Pages.projects.accordion.title
   const [selectedCar, setSelectedCar] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [isDisplay, setIsDisplay] = useState<boolean>(false)
@@ -57,9 +56,6 @@ const CarsPage: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
-          <Navigation links={navigationProjectsLinks} />
-        </Accordion>
         {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />

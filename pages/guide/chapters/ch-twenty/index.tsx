@@ -1,10 +1,17 @@
 import { NextPage } from 'next'
 import { InfoBox, Navigation } from '../../../../components'
-import { navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useWindWidth } from '../../../../hooks'
 
 const ChTwenty: NextPage = () => {
+  const { windowSize, getWindWidth } = useWindWidth()
+
+  useEffect(() => {
+    getWindWidth()
+  }, [])
+
   return (
     <>
       <Head>
@@ -12,9 +19,11 @@ const ChTwenty: NextPage = () => {
       </Head>
 
       <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationGuideLinks} />
-        </div>
+        {windowSize > breakPoints.isMediumDevice && (
+          <div className="col-3 has-br">
+            <Navigation links={navigationGuideLinks} />
+          </div>
+        )}
 
         <div className="col-9">
           <h2>20. Tailwind CSS</h2>

@@ -17,13 +17,10 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>{t('title')}</title>
+        <title>{t('projects.title')}</title>
       </Head>
 
       <div className="cols">
-        <Accordion ClassName={'isLargeDevice'} titles={accordionTitle}>
-          <Navigation links={navigationProjectsLinks} />
-        </Accordion>
         {windowSize > breakPoints.isMediumDevice && (
           <div className="col-3 has-br">
             <Navigation links={navigationProjectsLinks} />
@@ -31,7 +28,7 @@ export default function Projects() {
         )}
 
         <div className="col-9 col-m-12">
-          {windowSize > breakPoints.isMediumDevice && <h1>{t('headline')}</h1>}
+          <h1>{t('projects.title')}</h1>
         </div>
       </div>
     </>
