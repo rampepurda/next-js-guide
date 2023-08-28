@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 export default function Projects() {
   const { t } = useTranslation('projects')
   const { windowSize, getWindWidth } = useWindWidth()
-  const accordionTitle = Pages.projects.accordion.title
 
   useEffect(() => {
     getWindWidth()

@@ -1,8 +1,13 @@
 export const Pages = {
-  guide: {
+  subNavMedia: {
     accordion: {
-      title: ['guide.accordion.headline'],
+      title: {
+        guide: ['guide.accordion.headline'],
+        project: ['projects.accordion.headline'],
+      },
     },
+  },
+  guide: {
     chSeven: {
       headline: 'List of Cars',
       subHeadline: {},
@@ -18,11 +23,6 @@ export const Pages = {
     chFourteen: {
       headline: '14. createSelector(Redux Toolkit)',
       subHeadline: {},
-    },
-  },
-  projects: {
-    accordion: {
-      title: ['projects.accordion.headline'],
     },
   },
 }
