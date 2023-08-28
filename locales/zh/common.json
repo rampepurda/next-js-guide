@@ -40,7 +40,8 @@
     "ch-nineteen": "19. 内部API路由",
     "ch-twenty": "20. Tailwind CSS",
     "ch-twentyOne": "21. 表格知识刷新",
-    "ch-twentyTwo": "22. 搜索查询参数: Next =<13"
+    "ch-twentyTwo": "22. 搜索查询参数: Next =<13",
+    "ch-twentyThree": "23. useMediaQueries 图书馆"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",

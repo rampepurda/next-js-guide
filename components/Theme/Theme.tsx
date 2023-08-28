@@ -1,4 +1,4 @@
-import style from './Switch.module.scss'
+import style from './Theme.module.scss'
 
 import React, { ChangeEvent } from 'react'
 import useTranslation from 'next-translate/useTranslation'
@@ -10,10 +10,10 @@ type Props = {
   ariaLabel: string
 }
 
-export const SwitchLanguage = ({ ClassName, OnChange, ariaLabel, isModeDark = false }: Props) => {
+export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = false }: Props) => {
   const { t } = useTranslation('common')
   return (
-    <div className={style.Switch} tabIndex={0} aria-label="change theme">
+    <div className={style.switch} tabIndex={0} aria-label="change theme">
       <input
         className={style.inpCheckbox}
         type="checkbox"
