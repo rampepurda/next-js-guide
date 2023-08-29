@@ -2,10 +2,11 @@ import { clearFormInputValue } from '../utils/clearFormInpValue'
 /**
  * @param url link where the DATA will be POSTed
  * @param title Alert message includes: title
+ * @param fetchDataResponse Take response from Server and send updated data
  * @function clearFormInputValue() set all inputs to value = ''
  */
 
-export const usePostBook = (url: string, title: string) => {
+export const usePostBook = (url: string, title: string, fetchDataResponse: Function) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault()
     const data: Record<string, () => void> = {
@@ -24,6 +25,7 @@ export const usePostBook = (url: string, title: string) => {
       if (response) {
         alert(`${title}`)
         clearFormInputValue()
+        fetchDataResponse()
       }
     } catch (err) {
       alert(`${err}`)
@@ -32,5 +34,6 @@ export const usePostBook = (url: string, title: string) => {
 
   return {
     handleSubmit,
+    fetchDataResponse,
   }
 }

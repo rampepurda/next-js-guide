@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { InfoBox, Navigation } from '../../../../components'
 import { breakPoints, navigationGuideLinks, ROUTE } from '../../../../configuration'
 import React, { useEffect, useState } from 'react'
-import { getInternalAPI } from '../../../../utils'
+import { fetchInternalAPI } from '../../../../utils'
 import { CarTypes } from '../../../../types'
 import Link from 'next/link'
 import { useWindWidth } from '../../../../hooks'
@@ -17,7 +17,7 @@ const ChNineteen: NextPage = () => {
 
   useEffect(() => {
     getWindWidth()
-    getInternalAPI('/api/mock', setInternalData)
+    fetchInternalAPI('/api/mock', setInternalData)
   }, [])
   return (
     <>
