@@ -35,15 +35,17 @@ export const FormPostBook = ({ OnSubmit }: Props) => {
           Name={'title'}
           isRequired={true}
         />
-        <label htmlFor="price">{t('price')}</label>
+        <label htmlFor="price">
+          {t('price')} / <strong>{t('currency.cz')}</strong>
+        </label>
         <Input
           id={'price'}
-          ClassName={'width-is-6'}
+          ClassName={'width-is-12'}
           rest={{ type: 'number', min: '50' }}
           Name={'price'}
           ariaLabel={t('price')}
         />
-        <strong>{t('currency.cz')}</strong>
+
         <div>
           <button className="btn btn-submit" type="submit">
             {t('submit')}

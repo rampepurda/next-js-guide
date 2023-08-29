@@ -4,7 +4,7 @@
  * @param setData - will get appropriate data json
  */
 
-export const getInternalAPI = async (internalApiSrc: string, setData: any) => {
+export const fetchInternalAPI = async (internalApiSrc: string, setData: any) => {
   try {
     const res = await fetch(internalApiSrc)
     if (res.ok) {
