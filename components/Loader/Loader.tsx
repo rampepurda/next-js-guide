@@ -8,7 +8,7 @@ type Props = {
 }
 export const Loader = ({ ClassName }: Props) => {
   return (
-    <div className={classNames(style.loader, ClassName)}>
+    <div className={classNames('isLoaderDark', style.loader, ClassName)}>
       <GridLoaderSWG />
     </div>
   )

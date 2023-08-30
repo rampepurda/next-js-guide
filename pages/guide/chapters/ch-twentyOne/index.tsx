@@ -21,7 +21,7 @@ const ChTwentyOne: NextPage = () => {
     try {
       if (res) {
         const data = await res.json()
-        // Need to use 'for' interface, cause data in Firebase are wrapped in one more object
+        // Need to use 'for' iterables, cause data in Firebase are wrapped in one more object
         // Thats why is not possible to simply defined data as: setBooks(data)
         let getData: Book[] = []
         for (let i in data) {
@@ -35,12 +35,11 @@ const ChTwentyOne: NextPage = () => {
   }
   const deleteBook = async (id: number) => {
     try {
-      const res = await fetch(`https://vuecliserver.firebaseio.com/0/bookForNext/${id}.json`, {
+      const res = await fetch(`${environment.fireBaseBookDelete}/${id}.json`, {
         method: 'DELETE',
       })
       if (res) {
-        alert('Deleted')
-        getBook()
+        getBook().then(() => alert('Deleted'))
       }
     } catch (err) {
       return err
@@ -115,6 +114,7 @@ const ChTwentyOne: NextPage = () => {
             </div>
             <div className="col col-6">
               <h3>Books</h3>
+              {books.length === 0 && <h4>List is empty</h4>}
               <ul>
                 {books.length > 0 &&
                   books?.map((book: Book, idx: number) => {
