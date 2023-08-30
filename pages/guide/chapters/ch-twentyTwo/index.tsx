@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { Navigation, InfoBox, FormPostBook } from '../../../../components'
+import { Navigation, InfoBox } from '../../../../components'
 import Head from 'next/head'
 import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
 import Link from 'next/link'
@@ -11,10 +11,6 @@ import { useEffect } from 'react'
 const ChTwentyTwo: NextPage = () => {
   const router = useRouter()
   const { provider, name } = router.query
-  const { handleSubmit } = usePostBook(
-    `${environment.fireBaseBookURL}`,
-    'Book you asking for was send to us'
-  )
   const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
@@ -81,28 +77,34 @@ const ChTwentyTwo: NextPage = () => {
               <InfoBox className={'isInfo'}>
                 <ul className="hasVerticalPadding-3">
                   <li>
-                    <h3>useHook</h3>
+                    <h3>Is useful to use &apos;hook&apos;, see below</h3>
                   </li>
                   <li>
                     import <strong>&#123; useSearchParams &#125;</strong> from
                     &quot;next/navigation&quot;
                   </li>
-                  <li></li>
+                  <li>&nbsp;</li>
                   <li>
                     export const <strong>useQuery</strong> = () =&lt; &#123;
+                    <h4>
+                      <strong>
+                        NOTE: if we are using GraphQL identical name - useQuery hook is imported
+                        from &apos;@apollo/client&apos;
+                      </strong>
+                    </h4>
                   </li>
                   <li>&nbsp;const params = useSearchParams()</li>
                   <li>&nbsp;const queryParam = params</li>
                   <li>
                     <strong>return &#123; queryParam &#125; &#125;</strong>
                   </li>
+                  <li>&nbsp;</li>
                   <li>
-                    <h3>page</h3>
+                    <h3>return(</h3>
                   </li>
-                  <li>...return (</li>
                   <li>
                     &lt;p&gt; &#123; queryParam.<strong>get(&apos;paramName&apos;)</strong>&#125;
-                    &lt;/p&gt
+                    &lt;/p&gt;
                   </li>
                   <li>)</li>
                 </ul>
