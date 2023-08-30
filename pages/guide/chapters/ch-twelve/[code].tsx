@@ -9,12 +9,14 @@ import CountriesService from '../../../../services/Countries'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { Country } from '../../../../types'
+
 /**
  * USEQUERY
   const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
   variables: { code },
 });
  */
+
 type InitCountry = Country
 
 function CountryId({ query }: { query: InitCountry }) {
@@ -28,7 +30,7 @@ function CountryId({ query }: { query: InitCountry }) {
     <>
       <Head>
         <title>
-          {Pages.Guide.chTwelve.detailTrack.title} | {track.code}
+          {Pages.guide.chTwelve.detailTrack.title} | {track.code}
         </title>
       </Head>
 
@@ -45,6 +47,9 @@ function CountryId({ query }: { query: InitCountry }) {
             <label>Country code:</label>
             <h3>{track.code}</h3>
             <hr />
+            <label>Capital:</label>
+            <h3>{track.capital}</h3>
+            <hr />
             <label>Currency:</label>
             <h3>{track.currency}</h3>
             <hr />
@@ -56,7 +61,12 @@ function CountryId({ query }: { query: InitCountry }) {
             <hr />
             <Link href={`${ROUTE.GUIDE_DYN_ROUTE}`}>
               <button className="btn btn-submit" type="button">
-                {Pages.Guide.chTwelve.detailTrack.linkBack}
+                {Pages.guide.chTwelve.detailTrack.linkBack}
+              </button>
+            </Link>
+            <Link href={`${ROUTE.PROJECT_COUNTRIES}`}>
+              <button className="btn btn-submit" type="button">
+                {Pages.projects.countries.linkBack}
               </button>
             </Link>
           </div>

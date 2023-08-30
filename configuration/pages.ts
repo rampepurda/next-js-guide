@@ -17,12 +17,17 @@ export const Pages = {
       subHeadline: {},
       detailTrack: {
         title: 'Next JS | Guide | Country detail',
-        linkBack: 'Back to Countries',
+        linkBack: 'Back to Ch12-GraphQL',
       },
     },
     chFourteen: {
       headline: '14. createSelector(Redux Toolkit)',
       subHeadline: {},
+    },
+  },
+  projects: {
+    countries: {
+      linkBack: 'Back to Project - Countries',
     },
   },
 }
