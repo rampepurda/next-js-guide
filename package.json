@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env ENV_FILE_PATH=env/.env.integration next dev",
+    "dev:server": "cross-env ENV_FILE_PATH=env/.env.integration",
     "build": "cross-env ENV_FILE_PATH=env/.env.development next build",
     "start": "next start",
     "lint": "next lint",
