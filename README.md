@@ -9,6 +9,7 @@ Currently Next.js supports only [3 predefined environment values](https://nextjs
 
 Inspired by https://stackoverflow.com/questions/59462614/how-to-use-different-env-files-with-nextjs#answer-62464710
 
+`cross-env*`
 We use [cross-env](https://www.npmjs.com/package/cross-env) to run the commands and set the environment variables properly on both Windows and Unix systems.
 
 ## Prettier
