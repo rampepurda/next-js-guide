@@ -7,8 +7,8 @@ type initCars = {
   cars: CarTypes[]
   // Filter Car by Name or City
   param: {
-    carName: string
-    carCity: string
+    car: string
+    city: string
   }
   carsMutation: CarTypes[]
 }
@@ -16,8 +16,8 @@ const initialState: initCars = {
   selectedCar: 'all cars',
   cars: CarList,
   param: {
-    carName: 'all cars',
-    carCity: 'all cities',
+    car: '',
+    city: '',
   },
   carsMutation: CarList,
 }
@@ -31,10 +31,10 @@ export const CarSlice = createSlice({
     },
     // Filter By Name and City
     getCarName: (state, action) => {
-      state.param.carName = action.payload
+      state.param.car = action.payload
     },
     getCarCity: (state, action) => {
-      state.param.carCity = action.payload
+      state.param.city = action.payload
     },
   },
 })

@@ -92,23 +92,12 @@ const ChThree: NextPage = () => {
               Update package.json:
               <h5>
                 <code>
-                  script: &#123; build: "cross-env ENV_FILE_PATH=env/.env.development next
-                  build"&#125;
+                  script: &#123; build: &quot;cross-env ENV_FILE_PATH=env/.env.development next
+                  build&quot;&#125;
                 </code>
               </h5>
             </li>
           </ul>
-          <InfoBox className={'isWarning'}>
-            <h5>Tried to set up environment outside of ROOT by 'dotenv', without success yet</h5>
-            <p>
-              Actual structure is: .env.development(inRoot) imported to config/environment.ts and
-              taken for example in Apollo Client as uri.
-            </p>
-            <code style={{ display: 'block' }}>
-              import &#123; environment &#125; from '../configuration/environment'
-            </code>
-            <code>uri: environment.clientURL,</code>
-          </InfoBox>
         </div>
       </div>
     </>

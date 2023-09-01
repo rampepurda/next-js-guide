@@ -36,8 +36,8 @@ const CarsPage: NextPage = () => {
       router.push({
         pathname: `${ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR}`,
         query: {
-          car: param.carName,
-          city: selectedCity.length !== 0 ? selectedCity : 'all',
+          car: param.car,
+          city: selectedCity.length !== 0 ? selectedCity : param.city,
         },
       }),
       setIsDisplay(true)
@@ -47,7 +47,7 @@ const CarsPage: NextPage = () => {
 
   useEffect(() => {
     getWindWidth()
-  }, [filteredCars, selectedCar, selectedCity, param.carName, param.carCity])
+  }, [filteredCars, selectedCar, selectedCity, param.car, param.city])
 
   return (
     <>

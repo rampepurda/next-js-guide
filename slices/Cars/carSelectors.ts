@@ -1,18 +1,19 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { CarTypes } from '../../types'
+import { AppState } from '../../store'
 
 /**
  * Try to define reusable selectors alongside their corresponding reducers.
  * input selectors
  */
 // Filter By Car Name
-const selectCarList = (state: any) => state.Cars.cars
-const selectCar = (state: any) => state.Cars.selectedCar
+const selectCarList = (state: AppState) => state.Cars.cars
+const selectCar = (state: AppState) => state.Cars.selectedCar
 
 // Filter By Car Name and City
-const selectCarsMutation = (state: any) => state.Cars.carsMutation
-const selectCarName = (state: any) => state.Cars.param.carName
-const selectCarCity = (state: any) => state.Cars.param.carCity
+const selectCarsMutation = (state: AppState) => state.Cars.carsMutation
+const selectCarName = (state: AppState) => state.Cars.param.car
+const selectCarCity = (state: AppState) => state.Cars.param.city
 
 export const selectCarFilter = createSelector(selectCarList, selectCar, (cars, selectedCar) => {
   if (selectedCar === 'all cars') {
@@ -25,6 +26,7 @@ export const selectCarMutation = createSelector(
   selectCarsMutation,
   selectCarName,
   selectCarCity,
+  // follow the order: 1. selectCarsMutation = carsMutation 2. selectCarName = carName ...
   (carsMutation, carName, carCity) => {
     if (carName === 'all cars' || carCity === 'all cities') {
       return carsMutation
