@@ -11,10 +11,15 @@ import classNames from 'classnames'
 import { Country } from '../../../../types'
 
 /**
- * USEQUERY
+ * @param useQuery
   const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
   variables: { code },
 });
+
+ * RECT NEXT Js - Client Side Rendering
+ * https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering
+ * @function getStaticProps - Only Run on Server Side - data are rendered during the build process
+ * @function getServerSideProps - Only Run on Client Side - data are rendered when Client ask for data (onCLick, ...)
  */
 
 type InitCountry = Country
