@@ -12,7 +12,7 @@ import {
   carsCity,
   Pages,
 } from '../../../configuration'
-import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store'
 import { selectCarFilter, selectCarMutation } from '../../../slices/Cars/carSelectors'
 import { getCarCity, getCarName, getFilterCar } from '../../../slices'
 import CarsSearchBase from './carsSearchBase'

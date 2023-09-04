@@ -1,7 +1,7 @@
 import style from './ch-seven.module.scss'
 
 import React, { MouseEventHandler, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../../store'
 import { getPhotosWithLimit } from '../../../../slices'
 import { useState } from 'react'
 import classNames from 'classnames'

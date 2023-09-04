@@ -1,7 +1,7 @@
 import style from '../../chapters.module.scss'
 
 import useTranslation from 'next-translate/useTranslation'
-import { useAppSelector } from '../../../../store/hooks'
+import { useAppSelector } from '../../../../store'
 import Trans from 'next-translate/Trans'
 import Head from 'next/head'
 import { InfoBox, Input, Navigation, DateBox } from '../../../../components'

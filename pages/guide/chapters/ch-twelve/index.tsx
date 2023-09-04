@@ -14,7 +14,7 @@ import { NextPage } from 'next'
 import { Navigation, InfoBox, Countries } from '../../../../components'
 import Head from 'next/head'
 import { breakPoints, navigationGuideLinks, Pages } from '../../../../configuration'
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../../store'
 import { getCountries } from '../../../../slices'
 import { useQuery } from '@apollo/client'
 import { GET_COUNTRIES_QUERY } from '../../../../queries'
@@ -27,7 +27,7 @@ const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
   const { countries } = useAppSelector((state) => state.Countries)
   const { windowSize, getWindWidth } = useWindWidth()
-  const { data } = useQuery(GET_COUNTRIES_QUERY)
+  const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     getWindWidth()
@@ -70,8 +70,8 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
           <hr />
-          <h2>Client Side</h2>
-          <h3>1. Feature overview - Installation</h3>
+          <h2>Client side</h2>
+          <h3>1. Installation</h3>
           <ul className="hasTypeDisc">
             <li>
               <h5>Apollo GraphQL</h5>
@@ -87,10 +87,10 @@ const ChTwelve: NextPage = () => {
           <ul className="hasTypeDisc">
             <li>
               <h5>Apollo Client</h5>
-              <code>const apolloClient = new ApolloClient(&#123;</code>
+              <code>const apolloClient = new ApolloClient(&#123; url &#125;)</code>
             </li>
             <li>
-              <h5>queries</h5>
+              <h5>queries, mutations</h5>
               <ul className="hasVerticalPadding-2">
                 <li>import &#123; gql &#125; from &quot;@apollo/client&quot;</li>
                 <li>export const GET_COUNTRIES_QUERY = gql`</li>
@@ -103,8 +103,7 @@ const ChTwelve: NextPage = () => {
               </ul>
             </li>
             <li>
-              <h5>Services</h5>
-              fetch data
+              <h5>Fetch Apollo Client</h5>
             </li>
             <li>
               <h5>_app.tsx</h5>
@@ -116,42 +115,32 @@ const ChTwelve: NextPage = () => {
                   import &#123; ApolloProvider &#125; from &quot;@apollo/client&quot;
                 </li>
                 <li className="hasVerticalPadding-10">
-                  &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;...&lt;/&gt;
+                  <h4>&lt;ApolloProvider client=&#123;apolloClient&#125;&gt; content &lt;/&gt;</h4>
                 </li>
               </ul>
             </li>
           </ul>
           <hr />
-          <h3>3. Schema definition language (SDL)</h3>
-          <p>
-            A schema is like a contract between the server and the client. It defines what a GraphQL
-            API can and can not do, and how clients can request or change data. It's an abstraction
-            layer that provides flexibility to consumers while hiding backend implementation
-            details.
-          </p>
-          <InfoBox className={'isInfo'}>
-            <h5>Definition Schema Language(DSL)</h5>
-            <hr />
-            <ul className="hasVerticalPadding-2">
-              <li>type SpaceCat &#123;</li>
-              <li>
-                &nbsp;&nbsp;name: String!{' '}
-                <span className="color-is-black">|| can`t be &apos;null&apos; || type field</span>
-              </li>
-              <li>
-                &nbsp;&nbsp;age: Int <span className="color-is-black">|| type field</span>
-              </li>
-              <li>
-                &nbsp;&nbsp;missions: [Mission]{' '}
-                <span className="color-is-black">|| type field</span>
-              </li>
-              <li>&#125;</li>
-            </ul>
-            <hr />
-            <h5>It`s a good practice to make documentation for each schema</h5>
-          </InfoBox>
-          <Image src={imgApolloStructure} alt="ApolloStructure" />
+
+          <h3>3. useQuery hook</h3>
+          <code>import &#123; useQuery &#125; from &quot;@apollo/client&quot;</code>
+          <ul className="hasVerticalPadding-3">
+            <li>
+              <code>const &#123; data, error, loading &#125; = useQuery(GET_QUERY)</code>
+            </li>
+            <li>
+              <code>if(?data) &#123; loading &#125;)</code>
+            </li>
+            <li>
+              <code>if(?data) &#123; error &#125;)</code>
+            </li>
+            <li>
+              <code>&#123; data.map(() =&gt; &#123; &#125;)</code>
+            </li>
+          </ul>
+
           <hr />
+
           <h2>GraphQL Server Side</h2>
           <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
             Apollo GraphQL tutorials (Lift of II Resolvers)
@@ -205,7 +194,39 @@ const ChTwelve: NextPage = () => {
             </li>
           </ul>
           <hr />
-          <h3>2. Resolvers</h3>
+
+          <h3>3. Schema definition language (SDL)</h3>
+          <p>
+            A schema is like a contract between the server and the client. It defines what a GraphQL
+            API can and can not do, and how clients can request or change data. It`&#39;s an
+            abstraction layer that provides flexibility to consumers while hiding backend
+            implementation details.
+          </p>
+          <InfoBox className={'isInfo'}>
+            <h5>Definition Schema Language(DSL)</h5>
+            <hr />
+            <ul className="hasVerticalPadding-2">
+              <li>type SpaceCat &#123;</li>
+              <li>
+                &nbsp;&nbsp;name: String!{' '}
+                <span className="color-is-black">|| can`t be &apos;null&apos; || type field</span>
+              </li>
+              <li>
+                &nbsp;&nbsp;age: Int <span className="color-is-black">|| type field</span>
+              </li>
+              <li>
+                &nbsp;&nbsp;missions: [Mission]{' '}
+                <span className="color-is-black">|| type field</span>
+              </li>
+              <li>&#125;</li>
+            </ul>
+            <hr />
+            <h5>It`s a good practice to make documentation for each schema</h5>
+          </InfoBox>
+          <Image src={imgApolloStructure} alt="ApolloStructure" />
+
+          <hr />
+          <h3>3. Resolvers</h3>
           <ul className="hasTypeDecimal">
             <li>
               <h4>Install:</h4>
@@ -243,7 +264,7 @@ const ChTwelve: NextPage = () => {
           </ul>
           <Image src={imgResolvers} alt="Resolvers parameters" />
           <hr />
-          <h3>3. Mutation</h3>
+          <h3>4. Mutation</h3>
           <InfoBox className={'isInfo'}>
             <h4>
               So far, our app has only used one type of GraphQL <strong>operation: queries</strong>.

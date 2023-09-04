@@ -2,7 +2,7 @@ import React from 'react'
 import { Photo } from '../Photo'
 import { initPhotos } from '../../types'
 import { Loader } from '../Loader/Loader'
-import { useAppSelector } from '../../store/hooks'
+import { useAppSelector } from '../../store'
 
 type Props = initPhotos[]
 

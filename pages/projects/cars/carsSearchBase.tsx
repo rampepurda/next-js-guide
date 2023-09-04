@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelect } from '../../../hooks'
 import { Cars, Select } from '../../../components'
 import { CarsOptions, ROUTE } from '../../../configuration'
-import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store'
 import { selectCarFilter } from '../../../slices/Cars/carSelectors'
 import { getFilterCar } from '../../../slices'
 
