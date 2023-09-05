@@ -1,4 +1,4 @@
-import { initPhotos } from '../../../types'
+import { PhotoType } from '../../../types'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Navigation, Pagination, Photos } from '../../../components'
@@ -13,7 +13,7 @@ import { useWindWidth } from '../../../hooks'
 import useTranslation from 'next-translate/useTranslation'
 
 interface initValues {
-  photos: [initPhotos]
+  photos: PhotoType[]
 }
 
 export const DynamicalRouting: NextPage<initValues> = () => {

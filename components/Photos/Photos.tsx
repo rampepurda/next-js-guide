@@ -1,10 +1,10 @@
 import React from 'react'
 import { Photo } from '../Photo'
-import { initPhotos } from '../../types'
+import { PhotoType } from '../../types'
 import { Loader } from '../Loader/Loader'
 import { useAppSelector } from '../../store'
 
-type Props = initPhotos[]
+type Props = PhotoType[]
 
 export const Photos = ({ photos }: { photos: Props }) => {
   const { isLoading, error } = useAppSelector((state) => state.Photos)
