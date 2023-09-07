@@ -2,12 +2,12 @@ import style from './Photo.module.scss'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { initPhotos } from '../../types'
+import { PhotoType } from '../../types'
 import useTranslation from 'next-translate/useTranslation'
 import classNames from 'classnames'
 import { ROUTE } from '../../configuration'
 
-export const Photo = ({ id, title, thumbnailUrl }: initPhotos) => {
+export const Photo = ({ id, title, thumbnailUrl }: PhotoType) => {
   const { t } = useTranslation('common')
 
   return (

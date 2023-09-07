@@ -2,7 +2,7 @@ import style from './Countries.module.scss'
 
 import { Country } from '../Country'
 import { Country as country } from '../../types'
-import { useAppSelector } from '../../store/hooks'
+import { useAppSelector } from '../../store'
 import { Loader } from '../../components'
 
 export const Countries = ({ countries }: { countries: country[] }) => {

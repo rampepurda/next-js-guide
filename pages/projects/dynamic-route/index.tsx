@@ -1,4 +1,4 @@
-import { initPhotos } from '../../../types'
+import { PhotoType } from '../../../types'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Navigation, Pagination, Photos } from '../../../components'
@@ -7,13 +7,13 @@ import { environment } from '../../../configuration'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
-import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store'
 import { getPhotosWithLimit } from '../../../slices'
 import { useWindWidth } from '../../../hooks'
 import useTranslation from 'next-translate/useTranslation'
 
 interface initValues {
-  photos: [initPhotos]
+  photos: PhotoType[]
 }
 
 export const DynamicalRouting: NextPage<initValues> = () => {

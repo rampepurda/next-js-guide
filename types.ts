@@ -1,16 +1,13 @@
-import { ChangeEvent } from 'react'
-
 export interface NavigationLink {
   tKey: string
   link: string
 }
-export interface initPhotos {
+export type PhotoType = {
   albumId?: number
   id?: number
   title: string
   url: string
   thumbnailUrl: string
-  testMe?: boolean
 }
 export type Country = {
   code: string

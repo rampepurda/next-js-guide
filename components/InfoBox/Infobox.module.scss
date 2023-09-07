@@ -25,13 +25,28 @@
 
 .isSuccess {
   background-color: $green;
+
+  mark {
+    background-color: $black;
+    color: $white;
+  }
 }
 
 .isWarning {
   background-color: $orange;
+
+  mark {
+    background-color: $black;
+    color: $white;
+  }
 }
 
 .isInfo {
   background-color: $blueLight;
+
+  mark {
+    background-color: $black;
+    color: $white;
+  }
 }
 

@@ -1,7 +1,7 @@
 import style from './ch-seven.module.scss'
 
 import React, { MouseEventHandler, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../../store'
 import { getPhotosWithLimit } from '../../../../slices'
 import { useState } from 'react'
 import classNames from 'classnames'
@@ -20,7 +20,7 @@ import {
   imgThunkApi,
   imgThunkWithRejValue,
 } from './index-img'
-import { initPhotos } from '../../../../types'
+import { PhotoType } from '../../../../types'
 import { useWindWidth } from '../../../../hooks'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
@@ -31,7 +31,7 @@ const ChSeven: NextPage = () => {
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>('0')
-  const [selectedPhotos, setSelectedPhotos] = useState<initPhotos[]>(photos)
+  const [selectedPhotos, setSelectedPhotos] = useState<PhotoType[]>(photos)
   const handlePhotos: OnClick = () => {
     dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: hasLimit }))
     setSelectedPhotos(photos)

@@ -1,23 +1,16 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PhotoType } from '../../types'
 
 /**
  * https://redux-toolkit.js.org/api/createAsyncThunk
  */
-
-type PhotoType = {
-  albumId?: number
-  id?: number
-  title: string
-  url: string
-  thumbnailUrl: string
-}[]
 
 const initialState: {
   amount: number
   isLoading: boolean
   id: number
   error: string
-  photos: PhotoType
+  photos: PhotoType[]
   userName?: string
 } = {
   amount: 2,
@@ -46,7 +39,7 @@ const initialState: {
 )
  */
 
-export const getPhotosWithLimit = createAsyncThunk<PhotoType, any>(
+export const getPhotosWithLimit = createAsyncThunk<PhotoType[], any>(
   'photos/GET',
   async (params, { rejectWithValue }) => {
     const { url, hasLimit } = params
@@ -78,7 +71,7 @@ export const PhotosSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getPhotosWithLimit.fulfilled, (state, action: PayloadAction<PhotoType>) => {
+    builder.addCase(getPhotosWithLimit.fulfilled, (state, action: PayloadAction<PhotoType[]>) => {
       state.isLoading = false
       state.photos = action.payload
     })

@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { initPhotos } from '../../../types'
+import { PhotoType } from '../../../types'
 import { environment, navigationProjectsLinks } from '../../../configuration'
 import Image from 'next/image'
 import { Navigation } from '../../../components'
@@ -14,7 +14,7 @@ import React from 'react'
  */
 
 interface Props {
-  photo: initPhotos
+  photo: PhotoType
 }
 
 function ProjectFileBasedId({ photo }: Props) {
