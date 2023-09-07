@@ -41,7 +41,8 @@
     "ch-twenty": "20. Tailwind CSS",
     "ch-twentyOne": "21. Form knowledge refresh",
     "ch-twentyTwo": "22. searchQueryParams: Next =<13",
-    "ch-twentyThree": "23. useMediaQueries Libraries and other hooks"
+    "ch-twentyThree": "23. useMediaQueries Libraries and other hooks",
+    "ch-twentyFour": "24. useSwr hook"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",

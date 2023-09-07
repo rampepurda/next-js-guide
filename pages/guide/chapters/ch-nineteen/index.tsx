@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { InfoBox, Navigation } from '../../../../components'
+import { Navigation } from '../../../../components'
 import { breakPoints, navigationGuideLinks, ROUTE } from '../../../../configuration'
 import React, { useEffect, useState } from 'react'
 import { fetchInternalAPI } from '../../../../utils'
@@ -17,7 +17,7 @@ const ChNineteen: NextPage = () => {
 
   useEffect(() => {
     getWindWidth()
-    fetchInternalAPI('/api/mock', setInternalData)
+    fetchInternalAPI('/api/mock', setInternalData).then()
   }, [])
   return (
     <>

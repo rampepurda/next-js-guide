@@ -1,5 +1,3 @@
-import { ChangeEvent } from 'react'
-
 export interface NavigationLink {
   tKey: string
   link: string
