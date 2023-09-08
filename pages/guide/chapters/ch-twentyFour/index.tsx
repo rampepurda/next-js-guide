@@ -28,10 +28,25 @@ const ChTwentyFour: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>24. useSwr hook (React, Next)</h2>
-          <a href="https://swr.vercel.app/docs/with-nextjs" target="_blank" rel="noreferrer">
-            Read more about useSwr hook here
-          </a>
+          <h2>24. useSwr hook (React, Next) - Client-side Fetching</h2>
+          <ul className="hasTypeDisc hasVerticalPadding-3">
+            <li>
+              <a href="https://swr.vercel.app/docs/with-nextjs" target="_blank" rel="noreferrer">
+                Read more about useSwr hook here
+              </a>
+            </li>
+            <li>
+              {' '}
+              <a
+                href="https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read more about Client-side Fetching here
+              </a>
+            </li>
+          </ul>
+
           <hr />
 
           <InfoBox className={'isInfo'}>
