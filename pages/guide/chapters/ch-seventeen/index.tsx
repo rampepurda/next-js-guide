@@ -117,13 +117,6 @@ const ChSeventeen: NextPage = () => {
             <li>&nbsp;&nbsp;design</li>
             <li>&lt;/svg&gt;</li>
           </ul>
-
-          <h3>2. &apos; svg &apos; format in Next 13</h3>
-          <InfoBox className="isInfo">
-            <h4>
-              In Next 13 we can use &apos;svg&apos; format as Component without SVGR installation
-            </h4>
-          </InfoBox>
         </div>
       </div>
     </>
