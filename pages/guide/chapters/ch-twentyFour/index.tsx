@@ -80,7 +80,7 @@ const ChTwentyFour: NextPage = () => {
               </h5>
             </li>
           </ul>
-          <h4>For more info see procejt: next-13-with-tailwind-git</h4>
+          <h4>For more info see project: next-13-with-tailwind-git</h4>
           <InfoBox className={'isDanger'}>
             <h4>useSWR outside comp where will be imported</h4>
           </InfoBox>
