@@ -11,16 +11,16 @@ export const Country = ({ code, name, native, phone, currency, emoji, emojiU }: 
       <h2>{name}</h2>
 
       <h3>
-        <Link
-          href={{
-            pathname: `${ROUTE.GUIDE_DYN_ROUTE}/[code]`,
-            query: { code: code },
-          }}
-        >
-          <button className="btn btn-submit" type="button">
+        <button className="btn btn-submit" type="button">
+          <Link
+            href={{
+              pathname: `${ROUTE.COUNTRY_DETAIL}/[code]`,
+              query: { code: code },
+            }}
+          >
             Read more about {name}
-          </button>
-        </Link>
+          </Link>
+        </button>
       </h3>
     </>
   )

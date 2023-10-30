@@ -1,41 +1,30 @@
 import style from './Code.module.scss'
-
-import React, { useEffect, useState } from 'react'
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { Navigation } from '../../../../components'
 import { navigationGuideLinks, Pages, ROUTE, trackCountry } from '../../../../configuration'
 import Head from 'next/head'
-import { GetServerSideProps } from 'next'
 import CountriesService from '../../../../services/Countries'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { Country } from '../../../../types'
 
-/**
- * @param useQuery
-  const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
-  variables: { code },
-});
-
- * RECT NEXT Js - Client Side Rendering
- * https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering
- * @function getStaticProps - Run only on the Server Side - data are rendered during the build process
- * @function getServerSideProps - Only Run on Client Side - data are rendered when Client ask for data (onCLick, ...)
- */
-
 type InitCountry = Country
 
-function CountryId({ query }: { query: InitCountry }) {
-  const [track, setTrack] = useState<InitCountry>(trackCountry)
+export const getServerSideProps = (async (context) => {
+  const data = await CountriesService.getCountryDetail(`${context.query.code}`)
+  return { props: { country: data } }
+}) satisfies GetServerSideProps<{
+  country: InitCountry
+}>
 
-  useEffect(() => {
-    setTrack(query)
-  }, [query])
-
+export default function CountryDetail({
+  country,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
         <title>
-          {Pages.guide.chTwelve.detailTrack.title} | {track.code}
+          {Pages.guide.chTwelve.detailTrack.title} | {country.code}
         </title>
       </Head>
 
@@ -47,33 +36,34 @@ function CountryId({ query }: { query: InitCountry }) {
         <div className={classNames('col-9 has-br', style.Card)}>
           <div>
             <label>Country name:</label>
-            <h2>{track.name}</h2>
+            <h2>{country.name}</h2>
             <hr />
             <label>Country code:</label>
-            <h3>{track.code}</h3>
+            <h3>{country.code}</h3>
             <hr />
             <label>Capital:</label>
-            <h3>{track.capital}</h3>
+            <h3>{country.capital}</h3>
             <hr />
             <label>Currency:</label>
-            <h3>{track.currency}</h3>
+            <h3>{country.currency}</h3>
             <hr />
             <label>Phone:</label>
-            <h3>{track.phone}</h3>
+            <h3>{country.phone}</h3>
             <hr />
             <label>Native:</label>
-            <h3>{track.native}</h3>
+            <h3>{country.native}</h3>
             <hr />
-            <Link href={`${ROUTE.GUIDE_DYN_ROUTE}`}>
-              <button className="btn btn-submit" type="button">
+
+            <button className="btn btn-submit" type="button">
+              <Link href={`${ROUTE.COUNTRY_DETAIL}`}>
                 {Pages.guide.chTwelve.detailTrack.linkBack}
-              </button>
-            </Link>
-            <Link href={`${ROUTE.PROJECT_COUNTRIES}`}>
-              <button className="btn btn-submit" type="button">
-                {Pages.projects.countries.linkBack}
-              </button>
-            </Link>
+              </Link>
+            </button>
+
+            <button className="btn btn-submit" type="button">
+              {' '}
+              <Link href={`${ROUTE.PROJECT_COUNTRIES}`}>{Pages.projects.countries.linkBack}</Link>
+            </button>
           </div>
         </div>
       </div>
@@ -81,13 +71,14 @@ function CountryId({ query }: { query: InitCountry }) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const data = await CountriesService.getCountryDetail(`${context.query.code}`)
-  return {
-    props: {
-      query: data,
-    },
-  }
-}
+/**
+ * @param useQuery
+ const { data } = useQuery(GET_COUNTRY_DETAIL_QUERY, {
+ variables: { code },
+ });
 
-export default CountryId
+ * RECT NEXT Js - Client Side Rendering
+ * https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering
+ * @function getStaticProps - Run only on the Server Side - data are rendered during the build process
+ * @function getServerSideProps - Only Run on Client Side - data are rendered when Client ask for data (onCLick, ...)
+ */

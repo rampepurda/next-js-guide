@@ -341,7 +341,7 @@ const ChTwelve: NextPage = () => {
           <hr />
 
           <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
-          <Countries countries={countries.slice(20, 30)} />
+          <Countries countries={countries.slice(80, 90)} />
         </div>
       </div>
     </>
