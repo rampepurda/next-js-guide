@@ -74,7 +74,10 @@
 
 .isLinkActive {
   background-color: $gray;
-  color: $white!important;
+
+  a {
+    color: $white!important;
+  }
 }
 
 .langSwitch {

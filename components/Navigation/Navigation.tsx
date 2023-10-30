@@ -43,17 +43,14 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
       <ul>
         {links?.map(({ tKey, link }, idx) => {
           return (
-            <li key={idx}>
-              <Link href={link}>
-                <a
-                  className={classNames({
-                    [style.isLinkActive]: isNavLinkActive(router.pathname, link, isMain),
-                  })}
-                  aria-current={router.pathname === link ? 'page' : undefined}
-                >
-                  {t(tKey)}
-                </a>
-              </Link>
+            <li
+              className={classNames({
+                [style.isLinkActive]: isNavLinkActive(router.pathname, link, isMain),
+              })}
+              aria-current={router.pathname === link ? 'page' : undefined}
+              key={idx}
+            >
+              <Link href={link}>{t(tKey)}</Link>
             </li>
           )
         })}

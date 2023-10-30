@@ -2,9 +2,9 @@ export const ROUTE = {
   HOME: '',
   GUIDE: '/guide',
   GUIDE_CHAPTERS: '/guide/chapters',
-  GUIDE_DYN_ROUTE: '/guide/chapters/ch-twelve',
+  COUNTRY_DETAIL: '/guide/chapters/ch-twelve',
+  PHOTO_DETAIL: '/projects/dynamic-route',
   PROJECTS: '/projects',
-  PROJECT_DYN_ROUTE: '/projects/dynamic-route',
   PROJECT_CARS: '/projects/cars',
   PROJECT_COUNTRIES: '/projects/countries',
   PAGES: {

@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { PhotoType } from '../../../types'
 import { environment, navigationProjectsLinks } from '../../../configuration'
 import Image from 'next/image'
@@ -6,18 +6,17 @@ import { Navigation } from '../../../components'
 import Head from 'next/head'
 import React from 'react'
 
-/**
- * RECT NEXT Js - Client Side Rendering
- * https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering
- * @function getStaticProps - Only Run on Server Side - data are rendered during the build process, NEVER RUN ON CLIENT SIDE
- * @function getServerSideProps - Only Run on Client Side - data are rendered when Client ask for data (onCLick, ...)
- */
-
 interface Props {
   photo: PhotoType
 }
 
-function ProjectFileBasedId({ photo }: Props) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${environment.photosURL}/${context.query.id}`)
+  const photo = await res.json()
+  return { props: { photo } }
+}
+
+export default function Page({ photo }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
@@ -39,16 +38,3 @@ function ProjectFileBasedId({ photo }: Props) {
     </>
   )
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${environment.photosURL}/${context.query.id}`)
-  const photo = await res.json()
-
-  return {
-    props: {
-      photo,
-    },
-  }
-}
-
-export default ProjectFileBasedId

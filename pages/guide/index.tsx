@@ -29,7 +29,7 @@ const Guide: NextPage = () => {
           )}
 
           <div className="col-9 col-m-12">
-            <h1>{t('pageTitle.guide')}</h1>
+            <h2>{t('pageTitle.guide')}</h2>
           </div>
         </div>
       </div>

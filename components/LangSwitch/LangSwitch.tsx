@@ -18,13 +18,14 @@ export const LangSwitch = ({ route, ClassName }: Props) => {
     if (lng === lang) return null
 
     return (
-      <Link href={`/${route}`} locale={lng} key={lng}>
-        <a
-          className={classNames('btn', style.linkColor, ClassName)}
-          title={`${lng === 'zh' ? 'Chinese simplified' : ''}`}
-        >
-          {t(lng) === 'zh' ? '中国人' : 'en'}
-        </a>
+      <Link
+        href={`/${route}`}
+        locale={lng}
+        key={lng}
+        className={classNames('btn', style.linkColor, ClassName)}
+        title={`${lng === 'zh' ? 'Chinese simplified' : ''}`}
+      >
+        {t(lng) === 'zh' ? '中国人' : 'en'}
       </Link>
     )
   })
