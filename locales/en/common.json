@@ -42,7 +42,8 @@
     "ch-twentyOne": "21. Form knowledge refresh",
     "ch-twentyTwo": "22. searchQueryParams: Next =<13",
     "ch-twentyThree": "23. useMediaQueries Libraries and other hooks",
-    "ch-twentyFour": "24. useSwr hook"
+    "ch-twentyFour": "24. useSwr hook",
+    "ch-twentyFive": "25. Font and how to work with in Next"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
