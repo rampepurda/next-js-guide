@@ -6,7 +6,7 @@ import { LangSwitch } from '../index'
 import classNames from 'classnames'
 import { isNavLinkActive } from '../../utils'
 import useTranslation from 'next-translate/useTranslation'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
 
 type Props = {
@@ -30,6 +30,12 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
       return `${t('ariaLabels.navigation.isSub')}`
     }
   }, [isMain, isSub])
+  const currentLink = useCallback(
+    (routerPath: string | undefined) => {
+      return router === routerPath ? 'page' : undefined
+    },
+    [router]
+  )
 
   return (
     <nav
@@ -49,7 +55,7 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
               })}
               key={idx}
             >
-              <Link href={link} aria-current={router === link ? 'page' : undefined}>
+              <Link href={link} aria-current={currentLink(link)}>
                 {t(tKey)}
               </Link>
             </li>
