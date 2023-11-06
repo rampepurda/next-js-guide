@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { Navigation, InfoBox } from '../../../../components'
+import { Navigation } from '../../../../components'
 import Head from 'next/head'
 import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Link from 'next/link'
@@ -7,16 +7,11 @@ import { useWindWidth } from '../../../../hooks'
 import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 const ChTwentyTwo: NextPage = () => {
   const router = useRouter()
-  const t4 = usePathname()
-  const router2 = useSearchParams()
-  const t1 = router.query
-  const t2 = router.pathname
-  const t3 = router.push
-
+  const queries = useSearchParams()
   const { provider, name } = router.query
   const { windowSize, getWindWidth } = useWindWidth()
 
@@ -50,36 +45,29 @@ const ChTwentyTwo: NextPage = () => {
                   const <strong>router</strong> = <strong>useRouter()</strong>
                 </li>
                 <li>
-                  const &#123; provider, name &#125; = <strong>router.query</strong>
+                  const &#123; name, provider &#125; = <strong>router.query</strong>
                 </li>
               </ul>
-
               <hr />
 
+              <h3>get: query</h3>
               <ul className="hasVerticalPadding-3">
                 <li>
-                  <h3>get: query</h3>
                   return (<br />
-                  &lt;h4&gt;Query param is:&#123; <strong>name</strong> &#125; &#123;
-                  <strong>provider</strong> &#125;&lt;/h4&gt;
-                  <br />)
-                </li>
-                <li>
-                  <h3>get: pathname</h3>
-                  return (<br />
-                  &lt;Link className =&#123; <strong>router.pathname</strong> = &apos;home&apos; ?
-                  &apos; red &apos; : &apos;black&apos; &#125; &#125; &gt; ...link &lt;/Link&gt;
+                  &lt;h4&gt;&#123; <strong>name</strong> &#125; &#123; <strong>provider</strong>
+                  &#125;&lt;/h4&gt;
                   <br />)
                 </li>
               </ul>
+              <h4>Query parameter is:</h4>
+              <mark className="hasBgRed">
+                {name === undefined && provider === undefined ? (
+                  <span>...select Link below</span>
+                ) : (
+                  `${name !== undefined ? name : ''} ${provider !== undefined ? provider : ''}`
+                )}
+              </mark>
 
-              <h4>
-                Query parameter is: &nbsp;
-                <mark className="hasBgRed">
-                  {name}
-                  {provider}
-                </mark>
-              </h4>
               <ul className="hasVerticalPadding-3">
                 <li>
                   <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo?name=netflix`}>Netflix</Link>
@@ -90,34 +78,50 @@ const ChTwentyTwo: NextPage = () => {
                   </Link>
                 </li>
               </ul>
+              <hr />
+
+              <h3>get: pathname</h3>
+              <ul>
+                <li>
+                  return (<br />
+                  &lt;Link className =&#123; <strong>router.pathname</strong> = &apos;home&apos; ?
+                  &apos; red &apos; : &apos;black&apos; &#125; &#125; &gt; ...link &lt;/Link&gt;
+                  <br />)
+                </li>
+              </ul>
             </div>
+
             <div className="col-6">
               <h3>Next 13 &gt;</h3>
               <mark>usePathname</mark>
               <mark>useSearchParams</mark>
-              <hr />
               <ul className="hasVerticalPadding-3">
-                <li>&nbsp;</li>
                 <li>
-                  export const <strong>useQuery</strong> = () =&lt; &#123;
-                </li>
-                <li>&nbsp;const params = useSearchParams()</li>
-                <li>&nbsp;const queryParam = params</li>
-                <li>
-                  <strong>return &#123; queryParam &#125; &#125;</strong>
-                </li>
-                <li>&nbsp;</li>
-                <li>
-                  <h3>return(</h3>
+                  const <strong>pathName</strong> = <strong>usePathname()</strong>
                 </li>
                 <li>
-                  &lt;p&gt; &#123; queryParam.<strong>get(&apos;paramName&apos;)</strong>&#125;
-                  &lt;/p&gt;
+                  const <strong>query</strong> = <strong>useSearchParams()</strong>
                 </li>
-                <li>)</li>
               </ul>
-              <mark>const queryParam = useSearchParams</mark>
-              <mark>queryParam.get(&apos;&apos;)</mark>
+              <hr />
+
+              <h3>get: query</h3>
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  return (<br />
+                  &lt;h4&gt; <strong>&#123;query.get(&apos;name&apos;)&#125;</strong> &lt;/h4&gt;
+                  <br />)
+                </li>
+              </ul>
+
+              <h4>Query parameter is:</h4>
+              <mark className="hasBgRed">{queries.get('name2')}&nbsp;</mark>
+
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo?name2=netflixis`}>Netflix</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
