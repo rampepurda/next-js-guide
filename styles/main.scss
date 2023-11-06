@@ -107,9 +107,16 @@ hr {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: $darkmagenta;
   font-size: 1.2rem;
+}
+
+// has InfoBox
+h2, h3, h4, p {
+  a {
+    color: $white;
+  }
 }
 
 img {
@@ -187,7 +194,7 @@ label {
 mark {
   display: inline-block;
   margin: .2rem .3rem .2rem 0;
-  border-radius: .6rem;
+  border-radius: .3rem;
   background-color: transparentize($grayLighter, 0.5);
   padding: .2rem 1rem;
   color: $black;
@@ -197,6 +204,19 @@ mark {
   &.hasBorder {
     border: 1px solid $gray;
     background-color: transparent;
+  }
+
+  &.hasBgRed {
+    background-color: $redDarker;
+    color: $white;
+  }
+
+  &.hasBgGreen {
+    background-color: $green;
+  }
+
+  &.hasBgDarkmagenta {
+    background-color: $darkmagenta;
   }
 }
 

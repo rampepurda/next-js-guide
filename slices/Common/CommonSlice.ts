@@ -1,30 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { CarSlice } from '../Cars/CarSlice'
 
 type Init = {
-  x: number
-  y: number
-  z: number
-  txt: string
-  modes: boolean
+  isThemeDark: boolean
 }
 
 const initialState: Init = {
-  x: 10,
-  y: 2,
-  z: 3,
-  txt: 'Prague',
-  modes: false,
+  isThemeDark: false,
 }
 
 export const CommonSlice = createSlice({
   name: 'Common',
   initialState,
   reducers: {
-    changeMode(state, action) {
-      state.modes = action.payload
+    handleChangeTheme(state, action) {
+      state.isThemeDark = action.payload
     },
   },
 })
 
-export const { changeMode } = CommonSlice.actions
+export const { handleChangeTheme } = CommonSlice.actions

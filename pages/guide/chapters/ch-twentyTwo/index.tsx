@@ -1,15 +1,17 @@
 import { NextPage } from 'next'
-import { Navigation, InfoBox } from '../../../../components'
+import { Navigation } from '../../../../components'
 import Head from 'next/head'
-import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
+import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Link from 'next/link'
-import { usePostBook, useWindWidth } from '../../../../hooks'
+import { useWindWidth } from '../../../../hooks'
 import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const ChTwentyTwo: NextPage = () => {
   const router = useRouter()
+  const queries = useSearchParams()
   const { provider, name } = router.query
   const { windowSize, getWindWidth } = useWindWidth()
 
@@ -20,7 +22,7 @@ const ChTwentyTwo: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-22 | useSearchParams </title>
+        <title>Next JS | Guide | Ch-22 | router </title>
       </Head>
 
       <div className="cols">
@@ -31,36 +33,41 @@ const ChTwentyTwo: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>22. useSearchParams: Next =&lt; 13</h2>
+          <h2>22. router: Next =&lt; 13</h2>
           <hr />
 
           <div className="cols">
             <div className="col-6">
               <h3>Next &lt; 13</h3>
-              <InfoBox className={'isInfo'}>
-                <ul className="hasVerticalPadding-3">
-                  <li>
-                    const router = <strong>useRouter()</strong>
-                  </li>
-                  <li>
-                    <strong>const &#123; provider, name &#125;</strong> = router.query
-                  </li>
-                  <li>&nbsp;</li>
-                  <li>
-                    <strong>return</strong> ( &lt;h4&gt;Query param is:&#123; name &#125; &#123;
-                    provider &#125;&lt;/h4&gt;)
-                  </li>
-                </ul>
-              </InfoBox>
+              <mark>useRouter</mark>
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  const <strong>router</strong> = <strong>useRouter()</strong>
+                </li>
+                <li>
+                  const &#123; name, provider &#125; = <strong>router.query</strong>
+                </li>
+              </ul>
+              <hr />
 
-              <h4>
-                Query parameter is: &nbsp;
-                <mark>
-                  &nbsp;
-                  {name}
-                  {provider}&nbsp;
-                </mark>
-              </h4>
+              <h3>get: query</h3>
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  return (<br />
+                  &lt;h4&gt;&#123; <strong>name</strong> &#125; &#123; <strong>provider</strong>
+                  &#125;&lt;/h4&gt;
+                  <br />)
+                </li>
+              </ul>
+              <h4>Query parameter is:</h4>
+              <mark className="hasBgRed">
+                {name === undefined && provider === undefined ? (
+                  <span>...select Link below</span>
+                ) : (
+                  `${name !== undefined ? name : ''} ${provider !== undefined ? provider : ''}`
+                )}
+              </mark>
+
               <ul className="hasVerticalPadding-3">
                 <li>
                   <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo?name=netflix`}>Netflix</Link>
@@ -71,46 +78,50 @@ const ChTwentyTwo: NextPage = () => {
                   </Link>
                 </li>
               </ul>
+              <hr />
+
+              <h3>get: pathname</h3>
+              <ul>
+                <li>
+                  return (<br />
+                  &lt;Link className =&#123; <strong>router.pathname</strong> = &apos;home&apos; ?
+                  &apos; red &apos; : &apos;black&apos; &#125; &#125; &gt; ...link &lt;/Link&gt;
+                  <br />)
+                </li>
+              </ul>
             </div>
+
             <div className="col-6">
-              <h3>Next 13</h3>
-              <InfoBox className={'isInfo'}>
-                <ul className="hasVerticalPadding-3">
-                  <li>
-                    <h3>Is useful to use &apos;hook&apos;, see below</h3>
-                  </li>
-                  <li>
-                    import <strong>&#123; useSearchParams &#125;</strong> from
-                    &quot;next/navigation&quot;
-                  </li>
-                  <li>&nbsp;</li>
-                  <li>
-                    export const <strong>useQuery</strong> = () =&lt; &#123;
-                    <h4>
-                      <strong>
-                        NOTE: if we are using GraphQL identical name - useQuery hook is imported
-                        from &apos;@apollo/client&apos;
-                      </strong>
-                    </h4>
-                  </li>
-                  <li>&nbsp;const params = useSearchParams()</li>
-                  <li>&nbsp;const queryParam = params</li>
-                  <li>
-                    <strong>return &#123; queryParam &#125; &#125;</strong>
-                  </li>
-                  <li>&nbsp;</li>
-                  <li>
-                    <h3>return(</h3>
-                  </li>
-                  <li>
-                    &lt;p&gt; &#123; queryParam.<strong>get(&apos;paramName&apos;)</strong>&#125;
-                    &lt;/p&gt;
-                  </li>
-                  <li>)</li>
-                </ul>
-              </InfoBox>
-              <mark>const queryParam = useSearchParams</mark>
-              <mark>queryParam.get(&apos;&apos;)</mark>
+              <h3>Next 13 &gt;</h3>
+              <mark>usePathname</mark>
+              <mark>useSearchParams</mark>
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  const <strong>pathName</strong> = <strong>usePathname()</strong>
+                </li>
+                <li>
+                  const <strong>query</strong> = <strong>useSearchParams()</strong>
+                </li>
+              </ul>
+              <hr />
+
+              <h3>get: query</h3>
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  return (<br />
+                  &lt;h4&gt; <strong>&#123;query.get(&apos;name&apos;)&#125;</strong> &lt;/h4&gt;
+                  <br />)
+                </li>
+              </ul>
+
+              <h4>Query parameter is:</h4>
+              <mark className="hasBgRed">{queries.get('name2')}&nbsp;</mark>
+
+              <ul className="hasVerticalPadding-3">
+                <li>
+                  <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo?name2=netflixis`}>Netflix</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

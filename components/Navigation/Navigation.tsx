@@ -1,13 +1,13 @@
 import style from './Navigation.module.scss'
 
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { NavigationLink } from '../../types'
 import { LangSwitch } from '../index'
 import classNames from 'classnames'
 import { isNavLinkActive } from '../../utils'
 import useTranslation from 'next-translate/useTranslation'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   ClassName?: string
@@ -17,7 +17,7 @@ type Props = {
 }
 
 export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: Props) => {
-  const router = useRouter()
+  const router = usePathname()
   const { t } = useTranslation('common')
   const navAriaLabel = useMemo(() => {
     if (isMain) {
@@ -30,6 +30,12 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
       return `${t('ariaLabels.navigation.isSub')}`
     }
   }, [isMain, isSub])
+  const currentLink = useCallback(
+    (routerPath: string | undefined) => {
+      return router === routerPath ? 'page' : undefined
+    },
+    [router]
+  )
 
   return (
     <nav
@@ -45,12 +51,13 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
           return (
             <li
               className={classNames({
-                [style.isLinkActive]: isNavLinkActive(router.pathname, link, isMain),
+                [style.isLinkActive]: isNavLinkActive(router, link, isMain),
               })}
-              aria-current={router.pathname === link ? 'page' : undefined}
               key={idx}
             >
-              <Link href={link}>{t(tKey)}</Link>
+              <Link href={link} aria-current={currentLink(link)}>
+                {t(tKey)}
+              </Link>
             </li>
           )
         })}
