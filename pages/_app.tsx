@@ -4,10 +4,10 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import apolloClient from '../apollo/graphql-client'
 import { ApolloProvider } from '@apollo/client'
-import { store, useAppSelector } from '../store'
-import { DateBox, Header, Navigation, Theme } from '../components'
+import { store } from '../store'
+import { DateBox, Header, Main, Navigation, Theme } from '../components'
 import { navigationLinks } from '../configuration'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { SubNavMedia } from './subNavigationMedia/subNavMedia'
@@ -15,14 +15,6 @@ import { SubNavMedia } from './subNavigationMedia/subNavMedia'
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const SubNavigationMedia = SubNavMedia(router.pathname)
-  const [mode, setMode] = useState<boolean>(false)
-  const isDark = useMemo((): string => {
-    if (mode) {
-      return 'isDark'
-    } else {
-      return ''
-    }
-  }, [mode])
 
   return (
     <Provider store={store}>
@@ -32,16 +24,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header className={isDark}>
+
+        <Header>
           <DateBox />
-          <Theme OnChange={() => setMode(!mode)} ariaLabel={'controlled'} isModeDark={mode} />
+          <Theme ariaLabel={'controlled'} />
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
         {SubNavigationMedia}
 
-        <main className={isDark}>
+        <Main>
           <Component {...pageProps} />
-        </main>
+        </Main>
       </ApolloProvider>
     </Provider>
   )

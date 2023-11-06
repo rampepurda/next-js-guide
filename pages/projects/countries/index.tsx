@@ -10,6 +10,7 @@ import { useInput, useWindWidth } from '../../../hooks'
 
 const Countries: NextPage = () => {
   const dispatch = useAppDispatch()
+  const { countries } = useAppSelector((state) => state.Countries)
   const filteredCountries = useAppSelector(selectCountryFilter)
   const { handleInput, Value } = useInput()
   const { windowSize, getWindWidth } = useWindWidth()
@@ -34,7 +35,7 @@ const Countries: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>Search for Countries</h2>
+          <h2>Search for {countries.length} Countries </h2>
           <label htmlFor="searchCountry">Write below name of country you are looking for:</label>
           <Input
             id={'searchCountry'}
