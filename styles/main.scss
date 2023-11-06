@@ -205,6 +205,19 @@ mark {
     border: 1px solid $gray;
     background-color: transparent;
   }
+
+  &.hasBgRed {
+    background-color: $redDarker;
+    color: $white;
+  }
+
+  &.hasBgGreen {
+    background-color: $green;
+  }
+
+  &.hasBgDarkmagenta {
+    background-color: $darkmagenta;
+  }
 }
 
 .isMediumDevice,

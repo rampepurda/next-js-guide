@@ -18,6 +18,7 @@ import { getCarCity, getCarName, getFilterCar } from '../../../slices'
 import CarsSearchBase from './carsSearchBase'
 import { useRouter } from 'next/router'
 import { useWindWidth } from '../../../hooks'
+import { useSearchParams } from 'next/navigation'
 
 const CarsPage: NextPage = () => {
   const router = useRouter()
@@ -44,6 +45,7 @@ const CarsPage: NextPage = () => {
     )
   }
   const { windowSize, getWindWidth } = useWindWidth()
+  const router2 = useSearchParams()
 
   useEffect(() => {
     getWindWidth()
