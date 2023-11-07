@@ -4,6 +4,5 @@
 
 export * from './Cars/CarSlice'
 export * from './Countries/CountrySlice'
-export * from './Common/CommonSlice'
+export * from './Common/Common'
 export * from './Photos/PhotosSlice'
-

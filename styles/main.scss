@@ -171,6 +171,7 @@ code {
 
   a {
     color: $white;
+    text-decoration: none;
   }
 }
 
@@ -207,16 +208,16 @@ mark {
   }
 
   &.hasBgRed {
-    background-color: $redDarker;
+    background-color: $redDarker!important;
     color: $white;
   }
 
   &.hasBgGreen {
-    background-color: $green;
+    background-color: $green!important;
   }
 
   &.hasBgDarkmagenta {
-    background-color: $darkmagenta;
+    background-color: $darkmagenta!important;
   }
 }
 

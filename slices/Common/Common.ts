@@ -8,7 +8,7 @@ const initialState: Init = {
   isThemeDark: false,
 }
 
-export const CommonSlice = createSlice({
+export const Common = createSlice({
   name: 'Common',
   initialState,
   reducers: {
@@ -18,4 +18,4 @@ export const CommonSlice = createSlice({
   },
 })
 
-export const { handleChangeTheme } = CommonSlice.actions
+export const { handleChangeTheme } = Common.actions

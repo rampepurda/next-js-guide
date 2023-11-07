@@ -8,8 +8,11 @@ import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useAppSelector } from '../../../../store'
+import classNames from 'classnames'
 
 const ChTwentyTwo: NextPage = () => {
+  const { isThemeDark } = useAppSelector((state) => state.Common)
   const router = useRouter()
   const queries = useSearchParams()
   const { provider, name } = router.query
@@ -33,7 +36,7 @@ const ChTwentyTwo: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>22. router: Next =&lt; 13</h2>
+          <h2>22. router: Next =&lt; 13 {isThemeDark ? 'TRUE' : 'FALSE'}</h2>
           <hr />
 
           <div className="cols">
@@ -60,7 +63,7 @@ const ChTwentyTwo: NextPage = () => {
                 </li>
               </ul>
               <h4>Query parameter is:</h4>
-              <mark className="hasBgRed">
+              <mark className={classNames('hasBgRed', { ['hasBgRed']: isThemeDark })}>
                 {name === undefined && provider === undefined ? (
                   <span>...select Link below</span>
                 ) : (
