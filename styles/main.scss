@@ -214,10 +214,12 @@ mark {
 
   &.hasBgGreen {
     background-color: $green!important;
+    color: $white;
   }
 
   &.hasBgDarkmagenta {
     background-color: $darkmagenta!important;
+    color: $white;
   }
 }
 

@@ -63,7 +63,7 @@ const ChTwentyTwo: NextPage = () => {
                 </li>
               </ul>
               <h4>Query parameter is:</h4>
-              <mark className={classNames('hasBgRed', { ['hasBgRed']: isThemeDark })}>
+              <mark className={classNames('hasBgDarkmagenta', { ['hasBgRed']: isThemeDark })}>
                 {name === undefined && provider === undefined ? (
                   <span>...select Link below</span>
                 ) : (
@@ -118,7 +118,7 @@ const ChTwentyTwo: NextPage = () => {
               </ul>
 
               <h4>Query parameter is:</h4>
-              <mark className="hasBgRed">{queries.get('name2')}&nbsp;</mark>
+              <mark className="hasBgDarkmagenta">{queries.get('name2')}&nbsp;</mark>
 
               <ul className="hasVerticalPadding-3">
                 <li>

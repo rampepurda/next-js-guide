@@ -62,7 +62,7 @@ const ChSeven: NextPage = () => {
         <div className="col-9">
           <h2>7. Next JS and Redux-Toolkit</h2>
           <ul className="hasTypeDisc">
-            <li>yarn add @reduxjs/toolkit</li>
+            <li>yarn add @reduxjs/toolkit react-redux</li>
             <li>
               <a
                 href="https://redux-toolkit.js.org/tutorials/typescript"
