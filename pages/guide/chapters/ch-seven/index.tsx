@@ -10,6 +10,7 @@ import { Navigation, Photos, Input } from '../../../../components'
 import { breakPoints, navigationGuideLinks, environment } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
+import IcoChevron from '../../../../public/ico-chevron-down.svg'
 import {
   imgAsyncThunk,
   imgExtraReducer,
@@ -29,7 +30,7 @@ const ChSeven: NextPage = () => {
   const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
-  const [blockIsVisible, setBlockIsVisible] = useState<boolean>(false)
+  const [isBlockVisible, setIsBlockVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>('0')
   const [selectedPhotos, setSelectedPhotos] = useState<PhotoType[]>(photos)
   const handlePhotos: OnClick = () => {
@@ -85,31 +86,17 @@ const ChSeven: NextPage = () => {
           <hr />
 
           <h3>
-            <a
-              onClick={(e) => setBlockIsVisible(!blockIsVisible)}
-              style={{
-                cursor: 'pointer',
-                fontSize: '1.7rem',
-                color: 'black',
-              }}
-            >
+            <a className={style.hasToggle} onClick={(e) => setIsBlockVisible(!isBlockVisible)}>
               1. Toolkit: how to setup
-              {blockIsVisible ? (
-                <span className={classNames(style.chevron)} style={{ color: 'red' }}>
-                  &#94;
-                </span>
-              ) : (
-                <span
-                  className={classNames(style.chevron, style.chevron__down)}
-                  style={{ color: 'green' }}
-                >
-                  &#94;
-                </span>
-              )}
+              <span
+                className={classNames(style.chevron, { [style.chevron__isOpen]: isBlockVisible })}
+              >
+                <IcoChevron className={style.hasIcoChevron} aria-hidden={true} />
+              </span>
             </a>
           </h3>
 
-          {blockIsVisible ? (
+          {isBlockVisible ? (
             <div>
               <h3>store.ts</h3>
               <Image src={imgStore} aria-hidden="true" alt="store" />
