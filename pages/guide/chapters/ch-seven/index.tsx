@@ -1,16 +1,12 @@
-import style from './ch-seven.module.scss'
-
 import React, { MouseEventHandler, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../store'
 import { getPhotosWithLimit } from '../../../../slices'
 import { useState } from 'react'
-import classNames from 'classnames'
 import { NextPage } from 'next'
 import { Navigation, Photos, Input } from '../../../../components'
 import { breakPoints, navigationGuideLinks, environment } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
-import IcoChevron from '../../../../public/ico-chevron-down.svg'
 import {
   imgAsyncThunk,
   imgExtraReducer,
@@ -22,7 +18,7 @@ import {
   imgThunkWithRejValue,
 } from './index-img'
 import { PhotoType } from '../../../../types'
-import { useWindWidth } from '../../../../hooks'
+import { useWindWidth, useChevron } from '../../../../hooks'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
@@ -30,7 +26,6 @@ const ChSeven: NextPage = () => {
   const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
-  const [isBlockVisible, setIsBlockVisible] = useState<boolean>(false)
   const [hasLimit, setHasLimit] = useState<string>('0')
   const [selectedPhotos, setSelectedPhotos] = useState<PhotoType[]>(photos)
   const handlePhotos: OnClick = () => {
@@ -40,6 +35,7 @@ const ChSeven: NextPage = () => {
       alert(`${Alert}`)
     }
   }
+  const { toggleChevron, isChevronOpen } = useChevron('1. Toolkit: how to setup')
   const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
@@ -85,18 +81,9 @@ const ChSeven: NextPage = () => {
           </ul>
           <hr />
 
-          <h3>
-            <a className={style.hasToggle} onClick={(e) => setIsBlockVisible(!isBlockVisible)}>
-              1. Toolkit: how to setup
-              <span
-                className={classNames(style.chevron, { [style.chevron__isOpen]: isBlockVisible })}
-              >
-                <IcoChevron className={style.hasIcoChevron} aria-hidden={true} />
-              </span>
-            </a>
-          </h3>
+          {toggleChevron()}
 
-          {isBlockVisible ? (
+          {isChevronOpen ? (
             <div>
               <h3>store.ts</h3>
               <Image src={imgStore} aria-hidden="true" alt="store" />
