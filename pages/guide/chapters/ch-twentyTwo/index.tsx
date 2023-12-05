@@ -36,7 +36,7 @@ const ChTwentyTwo: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>22. router: Next =&lt; 13 {isThemeDark ? 'TRUE' : 'FALSE'}</h2>
+          <h2>22. useHooks in Next =&lt; 13 </h2>
           <hr />
 
           <div className="cols">

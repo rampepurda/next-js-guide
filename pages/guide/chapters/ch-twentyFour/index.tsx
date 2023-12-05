@@ -17,7 +17,7 @@ const ChTwentyFour: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-24 | useSwr </title>
+        <title>Next JS | Guide | Ch-24 | useSwr</title>
       </Head>
 
       <div className="cols">
