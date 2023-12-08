@@ -1,14 +1,36 @@
 import { NextPage } from 'next'
-import { InfoBox, Navigation } from '../../../../components'
-import { breakPoints, navigationGuideLinks } from '../../../../configuration'
+import { InfoBox, Navigation, Photos } from '../../../../components'
+import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
 import { useWindWidth } from '../../../../hooks'
 import { useEffect } from 'react'
 import ImgSwr from './ch24-use-sw.png'
 import Image from 'next/image'
+import { useSwr } from '../../../../hooks/useSwr'
+import { PhotoType } from '../../../../types'
 
 const ChTwentyFour: NextPage = () => {
+  const url: string | undefined = `${environment.photosURL}`
   const { windowSize, getWindWidth } = useWindWidth()
+  const PhotosSWR = ({ url }: { url: string }) => {
+    const { data: photos, error } = useSwr(url, 10)
+
+    if (error) return <h2>Something went wrong!</h2>
+    if (!photos) return <h2>Loading...</h2>
+
+    return (
+      <>
+        {photos ? '' : <h2>...loading</h2>}
+        {photos.map((photo: PhotoType, idx: number) => {
+          return (
+            <p key={idx}>
+              <strong>{idx + 1}.</strong> {photo.title}
+            </p>
+          )
+        })}
+      </>
+    )
+  }
 
   useEffect(() => {
     getWindWidth()
@@ -86,6 +108,9 @@ const ChTwentyFour: NextPage = () => {
           </InfoBox>
 
           <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
+
+          <h3>getPhoto by useSWR:</h3>
+          <PhotosSWR url={url} />
         </div>
       </div>
     </>
