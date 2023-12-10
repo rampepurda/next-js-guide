@@ -13,14 +13,14 @@ const ChTwentyFour: NextPage = () => {
   const url: string | undefined = `${environment.photosURL}`
   const { windowSize, getWindWidth } = useWindWidth()
   const PhotosSWR = ({ url }: { url: string }) => {
-    const { data: photos, error } = useSwr(url, 10)
+    const { data, error } = useSwr(url, 10)
+    const photos: PhotoType[] = data
 
     if (error) return <h2>Something went wrong!</h2>
     if (!photos) return <h2>Loading...</h2>
 
     return (
       <>
-        {photos ? '' : <h2>...loading</h2>}
         {photos.map((photo: PhotoType, idx: number) => {
           return (
             <p key={idx}>
@@ -109,7 +109,7 @@ const ChTwentyFour: NextPage = () => {
 
           <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
 
-          <h3>getPhoto by useSWR:</h3>
+          <h3>fetch data.json by useSWR:</h3>
           <PhotosSWR url={url} />
         </div>
       </div>
