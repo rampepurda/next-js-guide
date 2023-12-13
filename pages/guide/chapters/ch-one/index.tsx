@@ -101,7 +101,7 @@ const ChOne: NextPage = () => {
             </li>
           </ul>
 
-          <InfoBox className={'isInfo'}>
+          <InfoBox className="isInfo">
             <h4>Note: You can use names other than slug, such as: [...param]</h4>
           </InfoBox>
 
