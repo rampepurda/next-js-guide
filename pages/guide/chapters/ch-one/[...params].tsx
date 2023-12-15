@@ -6,7 +6,8 @@ const ChOneSlug: () => void = () => {
   const { params = [] } = router.query
   const pathName = Array.from(params)
   const configuration = {
-    pathName: 'Pathname is: guide/chapters/ch-one/test/sub',
+    //pathName: 'Pathname is: guide/chapters/ch-one/test/sub',
+    pathName: router.pathname,
   }
 
   return (
