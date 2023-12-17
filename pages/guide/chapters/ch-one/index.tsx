@@ -8,12 +8,14 @@ import { InfoBox, Navigation } from '../../../../components'
 import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
 import Image from 'next/image'
-
 import imgSlug from '../../../../public/images/ch-one/slug.png'
 import { useWindWidth } from '../../../../hooks'
 import { useEffect } from 'react'
+import Link from 'next/link'
+import { useAppSelector } from '../../../../store'
 
 const ChOne: NextPage = () => {
+  const { ch1SlugNavigation } = useAppSelector((state) => state.Common)
   const { windowSize, getWindWidth } = useWindWidth()
 
   useEffect(() => {
@@ -35,13 +37,6 @@ const ChOne: NextPage = () => {
 
         <div className="col-9">
           <h2>1. import &#123; useRouter &#125; from &apos;next/router&apos;</h2>
-          <ul>
-            <li>const router = useRouter</li>
-            <li>
-              &lt;a className = &#123;router.pathname == `/$&#123;pathName&#125;` ?
-              `$&#123;style.active&#125;` : &quot;&quot;&#125; /&gt;
-            </li>
-          </ul>
           <hr />
 
           <h3>1.1 Dynamic router</h3>
@@ -100,6 +95,19 @@ const ChOne: NextPage = () => {
               </ul>
             </li>
           </ul>
+
+          <h3>See Example below:</h3>
+          <nav>
+            <ul>
+              {ch1SlugNavigation.map((link, idx: number) => {
+                return (
+                  <li key={idx}>
+                    <Link href={`/guide/chapters/ch-one/${link}`}>{link}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
 
           <InfoBox className="isInfo">
             <h4>Note: You can use names other than slug, such as: [...param]</h4>
