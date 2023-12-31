@@ -14,8 +14,6 @@ import Image from 'next/image'
 import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelector.png'
 
 const ChFourteen: NextPage = () => {
-  const { x, y, txt } = useAppSelector((state) => state.Common)
-  const totalSum = useAppSelector(selectXYZ)
   const dispatch = useAppDispatch()
   const { cars, selectedCar } = useAppSelector((state) => state.Cars)
   const { handleOption, Value = selectedCar } = useSelect(CarsOptions, '')
@@ -156,8 +154,6 @@ const ChFourteen: NextPage = () => {
           <Cars cars={filteredCars} />
           <hr />
           <h4>See more: slice/Common/commonSelector.ts</h4>
-          <h2>{totalSum}</h2>
-          <h2>{[x, txt]}</h2>
         </div>
       </div>
     </>

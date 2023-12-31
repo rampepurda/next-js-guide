@@ -6,10 +6,6 @@ import { Navigation } from '../../../components'
 import Head from 'next/head'
 import React from 'react'
 
-interface Props {
-  photo: PhotoType
-}
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${environment.photosURL}/${context.query.id}`)
   const photo = await res.json()

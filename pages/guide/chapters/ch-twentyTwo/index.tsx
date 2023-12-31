@@ -7,7 +7,7 @@ import { useWindWidth } from '../../../../hooks'
 import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useAppSelector } from '../../../../store'
 import classNames from 'classnames'
 
@@ -15,6 +15,7 @@ const ChTwentyTwo: NextPage = () => {
   const { isThemeDark } = useAppSelector((state) => state.Common)
   const router = useRouter()
   const queries = useSearchParams()
+  const pathName = usePathname()
   const { provider, name } = router.query
   const { windowSize, getWindWidth } = useWindWidth()
 
@@ -36,7 +37,7 @@ const ChTwentyTwo: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>22. router: Next =&lt; 13 {isThemeDark ? 'TRUE' : 'FALSE'}</h2>
+          <h2>22. useHooks in Next =&lt; 13</h2>
           <hr />
 
           <div className="cols">
@@ -125,6 +126,10 @@ const ChTwentyTwo: NextPage = () => {
                   <Link href={`${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo?name2=netflixis`}>Netflix</Link>
                 </li>
               </ul>
+              <hr />
+
+              <h3>get: pathName</h3>
+              <h4>{pathName}</h4>
             </div>
           </div>
         </div>
