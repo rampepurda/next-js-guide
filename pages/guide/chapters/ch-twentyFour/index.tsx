@@ -1,17 +1,23 @@
 import { NextPage } from 'next'
-import { InfoBox, Navigation, Photos } from '../../../../components'
+import { InfoBox, Navigation } from '../../../../components'
 import { breakPoints, environment, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
 import { useWindWidth } from '../../../../hooks'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ImgSwr from './ch24-use-sw.png'
 import Image from 'next/image'
-import { useSwr } from '../../../../hooks/useSwr'
-import { PhotoType } from '../../../../types'
+import { useSwr, useSwrGQL } from '../../../../hooks/useSwr'
+import { Country, PhotoType } from '../../../../types'
+
+export type CountriesResponse = {
+  countries: Country[]
+}
 
 const ChTwentyFour: NextPage = () => {
   const url: string | undefined = `${environment.photosURL}`
   const { windowSize, getWindWidth } = useWindWidth()
+  const { data, error } = useSwrGQL()
+  const [dataCountries, setDataCountries] = useState<any>()
   const PhotosSWR = ({ url }: { url: string }) => {
     const { data, error } = useSwr(url, 10)
     const photos: PhotoType[] = data
@@ -34,6 +40,7 @@ const ChTwentyFour: NextPage = () => {
 
   useEffect(() => {
     getWindWidth()
+    setDataCountries([data])
   }, [])
 
   return (
@@ -68,9 +75,7 @@ const ChTwentyFour: NextPage = () => {
               </a>
             </li>
           </ul>
-
           <hr />
-
           <InfoBox className={'isInfo'}>
             <p>
               The name “SWR” is derived from <mark>stale-while-revalidate</mark>, a HTTP cache
@@ -78,7 +83,6 @@ const ChTwentyFour: NextPage = () => {
               then send the fetch request (revalidate), and finally come with the up-to-date data.
             </p>
           </InfoBox>
-
           <h3>Install:</h3>
           <ul className="hasVerticalPadding-2">
             <li>
@@ -106,11 +110,42 @@ const ChTwentyFour: NextPage = () => {
           <InfoBox className={'isDanger'}>
             <h4>useSWR outside comp where will be imported</h4>
           </InfoBox>
-
           <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
-
           <h3>fetch data.json by useSWR:</h3>
           <PhotosSWR url={url} />
+          <hr />
+
+          <h3>fetch data queries by useSWR:</h3>
+          <label>Install:</label>
+          <h4>graphql-request library</h4>
+
+          <label>Import:</label>
+          <code>
+            <h4>import &#123;request&#125; from &apos;graphql-request&apos;</h4>
+            <hr />
+          </code>
+          <code>
+            <ul>
+              <li>
+                const fetcherGQL = async (query: any) =&gt; await
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                request('https://countries.trevorblades.com', query)
+              </li>
+              <li>
+                const &#123; data, error &#125; = useSWR&lt;any&gt;(GET_COUNTRIES_QUERY, fetcherGQL)
+                return &#123; data, error&#125;
+              </li>
+            </ul>
+          </code>
+
+          <InfoBox className={'isWarning'}>
+            <p>
+              I was not satisfied to get queries data in that case. Got 'data' but wasn`t able to
+              use it!
+              <br />
+              <strong>(May the problem is in 'fetcher' typescript - check it later)</strong>
+            </p>
+          </InfoBox>
         </div>
       </div>
     </>

@@ -17,6 +17,7 @@ import { useAppSelector } from '../../../../store'
 const ChOne: NextPage = () => {
   const { ch1SlugNavigation } = useAppSelector((state) => state.Common)
   const { windowSize, getWindWidth } = useWindWidth()
+  const mockDataNav: string[] = ['Auction', 'Cars']
 
   useEffect(() => {
     getWindWidth()
@@ -108,6 +109,7 @@ const ChOne: NextPage = () => {
               })}
             </ul>
           </nav>
+          <hr />
 
           <InfoBox className="isInfo">
             <h4>Note: You can use names other than slug, such as: [...param]</h4>

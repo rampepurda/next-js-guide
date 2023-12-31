@@ -16,6 +16,7 @@ const ChOneSlug: () => void = () => {
   const navLink: string = 'Countries'
   const nameArray: string[] = ['Countries', 'leonor', 'darmojed']
   const activeLink: string = '/guide/chapters/ch-one'
+  const mockData: string[] = ['Audi', 'BMW', 'Fiat', 'Hyundai', 'Kia']
 
   return (
     <>

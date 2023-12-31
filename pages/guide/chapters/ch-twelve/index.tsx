@@ -27,7 +27,7 @@ const ChTwelve: NextPage = () => {
   const dispatch = useAppDispatch()
   const { countries } = useAppSelector((state) => state.Countries)
   const { windowSize, getWindWidth } = useWindWidth()
-  const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
+  //const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     getWindWidth()

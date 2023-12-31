@@ -84,4 +84,4 @@ export const PhotosSlice = createSlice({
   },
 })
 
-export const { UserName, Decrement, incrementByAmount } = PhotosSlice.actions
+//export const { UserName, Decrement, incrementByAmount } = PhotosSlice.actions
