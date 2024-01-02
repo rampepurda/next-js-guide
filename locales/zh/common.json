@@ -43,7 +43,8 @@
     "ch-twentyTwo": "22. 搜索查询参数: Next =<13",
     "ch-twentyThree": "23. useMediaQueries 图书馆",
     "ch-twentyFour": "24. useSwr hook",
-    "ch-twentyFive": "25. 字体以及如何在 Next 中使用"
+    "ch-twentyFive": "25. 字体以及如何在 Next 中使用",
+    "ch-twentySix": "26. useForm 钩 in Next JS"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",
