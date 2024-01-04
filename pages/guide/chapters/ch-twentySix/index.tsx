@@ -1,15 +1,30 @@
+import style from '../../../../components/Input/Input.module.scss'
 import { NextPage } from 'next'
-import { InfoBox, Navigation } from '../../../../components'
+import { InfoBox, Input, Navigation } from '../../../../components'
 import { breakPoints, navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
 import { useWindWidth } from '../../../../hooks'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import { FormEvent } from 'react'
+import { useForm, type FieldValues } from 'react-hook-form'
 
 const ChTwentySix: NextPage = () => {
   const { windowSize, getWindWidth } = useWindWidth()
-  /*
-            const submitUpdatedProfile = async (event: FormEvent<HTMLFormElement>) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    watch,
+    reset,
+    getValues,
+  } = useForm()
+
+  const submitDummyOne = async (data: FieldValues) => {
+    alert(`First Name: ${data.firstNameDummy} | Last Name: ${data.lastNameDummy}`)
+    reset()
+  }
+  const submitDummyTwo = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const form = event.currentTarget
     const formData = new FormData(event.currentTarget)
@@ -22,22 +37,16 @@ const ChTwentySix: NextPage = () => {
 
     try {
       if (response) {
-        // WILL BE REMOVED-ONLY TESTING PURPOSE!!
         alert(
           `First Name: ${formDataObject.firstName}
-           Last Name: ${formDataObject.lastName}
-            Date Of Birth: ${formDataObject.dateOfBirth}
-            CountrySelected: ${formDataObject.countrySelected}
-            ZipCode: ${formDataObject?.zipCountryCode}
-           Status: SUCCESSFULLY SEND`
+           Last Name: ${formDataObject.lastName}`
         )
-        reset()
+        form.reset()
       }
     } catch (err) {
       alert(`${err}`)
     }
   }
-   */
 
   useEffect(() => {
     getWindWidth()
@@ -80,20 +89,18 @@ const ChTwentySix: NextPage = () => {
           <h3>Installation:</h3>
           <ul className="hasTypeDisc hasVerticalPadding-3">
             <li>npm install react-hook-form</li>
-            <li>yarn react-hook-form</li>
+            <li>yarn add react-hook-form</li>
           </ul>
-
           <hr />
 
           <h3>Usage:</h3>
-
           <code>
             import &#123; useForm, <mark>type FieldValues</mark> &#125; from
             &apos;react-hook-form&apos;
           </code>
 
           <h3>const register = &#123;</h3>
-          <ul className="">
+          <ul>
             <li>
               <mark>register</mark>
               <h4>
@@ -135,9 +142,126 @@ const ChTwentySix: NextPage = () => {
           <div className="cols">
             <div className="col-6 has-br">
               <h3>Next JS Form - useForm hook:</h3>
+              <form name="dummyOne" onSubmit={handleSubmit(submitDummyOne)}>
+                <div>
+                  <input
+                    id="nameOne"
+                    className={style.Input}
+                    placeholder="first name"
+                    {...register('firstNameDummy', {
+                      required: 'First Name is required',
+                      maxLength: {
+                        value: 15,
+                        message: 'First Name max length can be only 20 letters',
+                      },
+                      pattern: {
+                        value: /^[a-zA-Z]+$/,
+                        message: 'Use only alphabetical characters',
+                      },
+                    })}
+                    aria-label="write name"
+                  />
+                  {errors.firstNameDummy && (
+                    <p style={{ color: 'red' }}>{`${errors.firstNameDummy?.message}`}</p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    id="lastNameOne"
+                    className={style.Input}
+                    placeholder="Last name"
+                    {...register('lastNameDummy', {
+                      required: 'Last Name is required',
+                      maxLength: {
+                        value: 15,
+                        message: 'Last Name max length can be only 15 letters',
+                      },
+                      pattern: {
+                        value: /^[a-zA-Z]+$/,
+                        message: 'Use only alphabetical characters',
+                      },
+                    })}
+                    aria-label="write name"
+                  />
+                  {errors.lastNameDummy && (
+                    <p style={{ color: 'red' }}>{`${errors.lastNameDummy?.message}`}</p>
+                  )}
+                </div>
+
+                <button className="btn btn-submit" type="submit">
+                  Submit
+                </button>
+              </form>
+              <hr />
+
+              <ul>
+                <li>
+                  const submitDummyOne = async
+                  <strong>
+                    (data: <mark>FieldValues</mark>)
+                  </strong>
+                  =&gt; &#123;
+                </li>
+                <li>alert(`First Name: $&#123;data.firstNameDummy&#125;`)</li>
+                <li>
+                  <mark>reset()</mark>
+                </li>
+                <li>&#125;</li>
+              </ul>
+
+              <InfoBox className="isDanger">
+                <h3>NOTE:</h3>
+                <p>
+                  Looks that when I`ve used Component &apos;Input&apos; useForm hook stopped working
+                </p>
+                <hr />
+                <p>For more see code how for example &apos;register, errors&apos; work</p>
+              </InfoBox>
             </div>
+
             <div className="col-6">
               <h3>Next JS Form:</h3>
+              <form name="dummyTwo" onSubmit={submitDummyTwo}>
+                <div>
+                  <Input
+                    id={'name'}
+                    ariaLabel={'write name'}
+                    rest={{ type: 'text', name: 'firstName' }}
+                    isRequired={true}
+                    placeholder={'first name'}
+                  />
+                </div>
+                <div>
+                  <Input
+                    id={'lastName'}
+                    ariaLabel={'write last name'}
+                    rest={{ type: 'text', name: 'lastName' }}
+                    isRequired={true}
+                    placeholder={'last name'}
+                  />
+                </div>
+
+                <button className="btn btn-submit" type="submit">
+                  Submit
+                </button>
+              </form>
+              <hr />
+
+              <code>
+                <ul>
+                  <li>
+                    const submitDummyTwo = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt;
+                    &#123;
+                  </li>
+                  <li>
+                    const formData = <strong>new FormData(event.currentTarget)</strong>
+                  </li>
+                  <li>
+                    const formDataObject = <strong>Object.fromEntries(formData)</strong>
+                  </li>
+                  <li> &#125;</li>
+                </ul>
+              </code>
             </div>
           </div>
         </div>

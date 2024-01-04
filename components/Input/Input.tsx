@@ -14,6 +14,7 @@ type Props = {
   isSearch?: boolean
   isRequired?: boolean
   Name?: string
+  placeholder?: string
   rest: Record<string, string>
 }
 /**
@@ -30,6 +31,7 @@ export const Input = ({
   isSearch = false,
   isRequired = false,
   Name,
+  placeholder,
   rest,
 }: Props) => {
   return (
@@ -42,6 +44,7 @@ export const Input = ({
         onChange={OnChange}
         name={Name}
         required={isRequired}
+        placeholder={placeholder}
         {...rest}
       />
       {isSearch && <IcoSearch className={classNames(style.hasIcoMagnifying)} />}
