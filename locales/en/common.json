@@ -43,7 +43,8 @@
     "ch-twentyTwo": "22. useHooks in Next =<13",
     "ch-twentyThree": "23. useMediaQueries Libraries and other hooks",
     "ch-twentyFour": "24. useSwr hook",
-    "ch-twentyFive": "25. Font and how to work with in Next"
+    "ch-twentyFive": "25. Font and how to work with in Next",
+    "ch-twentySix": "26. useForm hook in Next JS"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",
