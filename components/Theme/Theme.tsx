@@ -8,11 +8,11 @@ import { handleChangeTheme } from '../../slices'
 type Props = {
   ClassName?: string
   OnChange?: (ev: ChangeEvent<HTMLInputElement>) => void
-  isModeDark?: boolean
+  isModeDark: boolean
   ariaLabel: string
 }
 
-export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = false }: Props) => {
+export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = true }: Props) => {
   const dispatch = useAppDispatch()
   const { isThemeDark } = useAppSelector((state) => state.Common)
   const { t } = useTranslation('common')
@@ -24,7 +24,7 @@ export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = false }: Pr
       <input
         className={style.inpCheckbox}
         type="checkbox"
-        defaultChecked={false}
+        defaultChecked={true}
         onChange={(ev: ChangeEvent<HTMLInputElement>) => {
           dispatch(handleChangeTheme(!isThemeDark))
         }}
