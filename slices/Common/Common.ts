@@ -6,7 +6,7 @@ type Init = {
 }
 
 const initialState: Init = {
-  isThemeDark: false,
+  isThemeDark: true,
   ch1SlugNavigation: ['Countries', 'TabTwo'],
 }
 
