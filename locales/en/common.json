@@ -44,7 +44,7 @@
     "ch-twentyThree": "23. useMediaQueries Libraries and other hooks",
     "ch-twentyFour": "24. useSwr hook",
     "ch-twentyFive": "25. Font and how to work with in Next",
-    "ch-twentySix": "26. useForm hook in Next JS"
+    "ch-twentySix": "26. useForm hook in Next JS and use 'controller' with Material UI"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",

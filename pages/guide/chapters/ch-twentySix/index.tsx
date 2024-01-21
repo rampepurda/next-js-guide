@@ -117,7 +117,7 @@ const ChTwentySix: NextPage = () => {
               <mark>formState: &#123; errors, isSubmitting &#125;</mark>
               <h4>
                 This object contains information about the entire form state. It helps you to keep
-                on track with the user's interaction with your form application.
+                on track with the user&apos;s interaction with your form application.
               </h4>
             </li>
             <li>
@@ -194,6 +194,7 @@ const ChTwentySix: NextPage = () => {
               </form>
               <hr />
 
+              <h4>onSubmit difference:</h4>
               <ul>
                 <li>
                   const submitDummyOne = async
@@ -208,15 +209,6 @@ const ChTwentySix: NextPage = () => {
                 </li>
                 <li>&#125;</li>
               </ul>
-
-              <InfoBox className="isDanger">
-                <h3>NOTE:</h3>
-                <p>
-                  Looks that when I`ve used Component &apos;Input&apos; useForm hook stopped working
-                </p>
-                <hr />
-                <p>For more see code how for example &apos;register, errors&apos; work</p>
-              </InfoBox>
             </div>
 
             <div className="col-6">
@@ -247,6 +239,7 @@ const ChTwentySix: NextPage = () => {
               </form>
               <hr />
 
+              <h4>onSubmit difference:</h4>
               <code>
                 <ul>
                   <li>
@@ -264,6 +257,33 @@ const ChTwentySix: NextPage = () => {
               </code>
             </div>
           </div>
+
+          <InfoBox className="isDanger">
+            <h3>NOTE:</h3>
+            <p>
+              Looks that when I`ve used Component &apos;Input&apos; useForm hook stopped working
+            </p>
+          </InfoBox>
+          <hr />
+
+          <h2>useForm with &apos;controller&apos; and with Material UI</h2>
+          <p>
+            For more Info please see Tutorial:{' '}
+            <em>
+              <strong>React MUI</strong>
+            </em>{' '}
+            or project:{' '}
+            <em>
+              <strong>Newsweek</strong>
+            </em>
+          </p>
+
+          <h3>How to install MUI</h3>
+          <ul>
+            <li>yarn add @mui/material @emotion/react @emotion/styled</li>
+            <li>yarn add @mui/x-date-pickers</li>
+            <li>yarn add dayjs</li>
+          </ul>
         </div>
       </div>
     </>
