@@ -9,6 +9,11 @@ import Link from 'next/link'
 import { FormEvent } from 'react'
 import { useForm, type FieldValues } from 'react-hook-form'
 
+interface IFormInputs {
+  firstNameDummy: string
+  lastNameDummy: string
+}
+
 const ChTwentySix: NextPage = () => {
   const { windowSize, getWindWidth } = useWindWidth()
   const {
@@ -18,9 +23,14 @@ const ChTwentySix: NextPage = () => {
     watch,
     reset,
     getValues,
-  } = useForm()
+  } = useForm<IFormInputs>({
+    defaultValues: {
+      firstNameDummy: '',
+      lastNameDummy: '',
+    },
+  })
 
-  const submitDummyOne = async (data: FieldValues) => {
+  const submitDummyOne = async (data: IFormInputs) => {
     alert(`First Name: ${data.firstNameDummy} | Last Name: ${data.lastNameDummy}`)
     reset()
   }
@@ -195,15 +205,35 @@ const ChTwentySix: NextPage = () => {
               <hr />
 
               <h4>onSubmit difference:</h4>
+              <InfoBox className="isDanger">
+                <h3>Note:</h3>
+                <p>
+                  We are using TS, that`s why instead undefined (data: <strong>FieldValues</strong>)
+                  use data type as is shown below:
+                </p>
+                <hr />
+
+                <h3>Don`t forget:</h3>
+                <code>
+                  const &#123;...&#125; ={' '}
+                  <strong>useForm&lt;IFormInputs&gt;(&#123; defaultValues:</strong> &#123;
+                  firstName: &apos; &apos;, lastName: &apos; &apos;, &#125;..etc,
+                </code>
+              </InfoBox>
               <ul>
+                <li>
+                  interface IFormInputs &#123;
+                  <br />
+                  firstName string <br /> lastName: string &#125;
+                </li>
                 <li>
                   const submitDummyOne = async
                   <strong>
-                    (data: <mark>FieldValues</mark>)
+                    (data: <strong>IFormInputs</strong>)
                   </strong>
                   =&gt; &#123;
                 </li>
-                <li>alert(`First Name: $&#123;data.firstNameDummy&#125;`)</li>
+                <li>alert(data.firstName)</li>
                 <li>
                   <mark>reset()</mark>
                 </li>
@@ -257,33 +287,34 @@ const ChTwentySix: NextPage = () => {
               </code>
             </div>
           </div>
-
-          <InfoBox className="isDanger">
-            <h3>NOTE:</h3>
-            <p>
-              Looks that when I`ve used Component &apos;Input&apos; useForm hook stopped working
-            </p>
-          </InfoBox>
           <hr />
 
           <h2>useForm with &apos;controller&apos; and with Material UI</h2>
-          <p>
-            For more Info please see Tutorial:{' '}
-            <em>
-              <strong>React MUI</strong>
-            </em>{' '}
-            or project:{' '}
-            <em>
-              <strong>Newsweek</strong>
-            </em>
-          </p>
-
           <h3>How to install MUI</h3>
           <ul>
             <li>yarn add @mui/material @emotion/react @emotion/styled</li>
             <li>yarn add @mui/x-date-pickers</li>
             <li>yarn add dayjs</li>
           </ul>
+          <h4>
+            For more Info please visit Tutorial: <strong>React MUI</strong> or: Tutorial/Framework/
+            <strong>next-14-useForm</strong>
+          </h4>
+          <hr />
+
+          <h3>Note:</h3>
+          <p>When I used useForm with MUI I noted problem to reset() Form</p>
+          <h4>
+            For that reason I used <mark>watch</mark> to help me clear Form data.
+            <a
+              href="https://react-hook-form.com/docs/useform/watch"
+              target="_blank"
+              rel="noreferrer"
+              style={{ display: 'block' }}
+            >
+              Read more about <strong>watch</strong> here.
+            </a>{' '}
+          </h4>
         </div>
       </div>
     </>
