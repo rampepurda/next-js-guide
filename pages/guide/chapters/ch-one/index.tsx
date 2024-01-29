@@ -17,7 +17,11 @@ import { useAppSelector } from '../../../../store'
 const ChOne: NextPage = () => {
   const { ch1SlugNavigation } = useAppSelector((state) => state.Common)
   const { windowSize, getWindWidth } = useWindWidth()
-
+  const dummyRoutes: { title: string; url: string }[] = [
+    { title: 'Link Dummy I', url: '/guide/chapters/ch-one/dummyOne?chanel=netflix' },
+    { title: 'Link Dummy III', url: '/guide/chapters/ch-one/dummyThree' },
+    { title: 'Link Dummy II', url: '/guide/chapters/ch-one/dummyTwo' },
+  ]
   useEffect(() => {
     getWindWidth()
   }, [])
@@ -77,6 +81,13 @@ const ChOne: NextPage = () => {
               .
             </h4>
           </InfoBox>
+          {dummyRoutes.map((link) => {
+            return (
+              <Link href={`${link.url}`} key={link.title} style={{ display: 'block' }}>
+                {link.title}
+              </Link>
+            )
+          })}
           <hr />
 
           <h3>1.2 Catch all segments [...slug]</h3>
