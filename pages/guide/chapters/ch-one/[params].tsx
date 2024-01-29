@@ -27,8 +27,8 @@ const ChOneSlug: () => void = () => {
       <h4 style={styleSheet.headline}>{path}</h4>
       {queries.get('chanel') === 'netflix' && (
         <>
-          <label>If has search param queries:</label>
-          <h4 style={styleSheet.headline}>Query name is: `${queries.get('chanel')}`</h4>
+          <label>If has search param queries value - is:</label>
+          <h4 style={styleSheet.headline}>{queries.get('chanel')}</h4>
         </>
       )}
       <hr />
