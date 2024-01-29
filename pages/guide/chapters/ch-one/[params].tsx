@@ -7,7 +7,6 @@ const ChOneSlug: () => void = () => {
   const path = usePathname()
   const router = useRouter()
   const { params = [] } = router.query
-  const pathName = Array.from(params)
 
   return (
     <>

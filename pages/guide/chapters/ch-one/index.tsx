@@ -17,7 +17,6 @@ import { useAppSelector } from '../../../../store'
 const ChOne: NextPage = () => {
   const { ch1SlugNavigation } = useAppSelector((state) => state.Common)
   const { windowSize, getWindWidth } = useWindWidth()
-  const mockDataNav: string[] = ['Auction', 'Cars']
 
   useEffect(() => {
     getWindWidth()
@@ -37,25 +36,50 @@ const ChOne: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>1. import &#123; useRouter &#125; from &apos;next/router&apos;</h2>
+          <h2>1. Dynamic routes and Catch All Segments</h2>
           <hr />
 
-          <h3>1.1 Dynamic router</h3>
-          <ul>
+          <h3>1.1 Dynamic routes [slug]</h3>
+          <ul className="hasTypeDisc">
             <li>
-              &lt;Link href=&#123;&#123;
-              <br />
-              <strong className="color-is-red">&nbsp;&nbsp;&nbsp;pathname:</strong>{' '}
-              &apos;/projects/file-based/[id]&apos;,
-              <br />
-              <strong className="color-is-red">&nbsp;&nbsp;&nbsp;query:</strong> &#123; id: props.id
-              &#125;
-              <br />
-              &#125;&#125;
+              <a
+                href="https://nextjs.org/docs/routing/dynamic-routes"
+                target="_blank"
+                rel="noreferrer"
+              >
+                [slug] read more
+              </a>
             </li>
           </ul>
+          <p>
+            When you <strong>don't know the exact segment names</strong> ahead of time and want to
+            create routes from dynamic data, you can use{' '}
+            <strong>
+              Dynamic Segments that are filled in at request time or prerendered at build time
+            </strong>
+            .
+          </p>
+          <h3>Convention</h3>
+          <p>
+            A Dynamic Segment can be created by wrapping a file or folder name in{' '}
+            <strong>square brackets: [segmentName]. For example, [id] or [slug]</strong>.
+          </p>
+          <InfoBox className="isInfo">
+            <h4>
+              Dynamic Segments can be accessed from &nbsp;
+              <a
+                href="https://nextjs.org/docs/pages/api-reference/functions/use-router"
+                target="_blank"
+                rel="external"
+              >
+                useRouter
+              </a>
+              .
+            </h4>
+          </InfoBox>
+          <hr />
 
-          <h3>1.2 Catch all routes [...slug]</h3>
+          <h3>1.2 Catch all segments [...slug]</h3>
           <ul className="hasTypeDisc">
             <li>
               <a
