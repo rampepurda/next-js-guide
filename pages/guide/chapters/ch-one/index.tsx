@@ -1,8 +1,3 @@
-/**
- * Read more about [...slug]
- https://nextjs.org/docs/routing/dynamic-routes
- */
-
 import { NextPage } from 'next'
 import { InfoBox, Navigation } from '../../../../components'
 import { breakPoints, navigationGuideLinks } from '../../../../configuration'
@@ -12,10 +7,13 @@ import imgSlug from '../../../../public/images/ch-one/slug.png'
 import { useWindWidth } from '../../../../hooks'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import { useAppSelector } from '../../../../store'
+
+/**
+ * Read more about [slug] and [...slug]
+ https://nextjs.org/docs/routing/dynamic-routes
+ */
 
 const ChOne: NextPage = () => {
-  const { ch1SlugNavigation } = useAppSelector((state) => state.Common)
   const { windowSize, getWindWidth } = useWindWidth()
   const dummyRoutes: { title: string; url: string }[] = [
     { title: 'Link Dummy I', url: '/guide/chapters/ch-one/dummyOne?chanel=netflix' },
@@ -29,7 +27,7 @@ const ChOne: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-one | Routers</title>
+        <title>Next JS | Guide | Ch-one | Routes</title>
       </Head>
 
       <div className="cols">
@@ -81,13 +79,17 @@ const ChOne: NextPage = () => {
               .
             </h4>
           </InfoBox>
-          {dummyRoutes.map((link) => {
-            return (
-              <Link href={`${link.url}`} key={link.title} style={{ display: 'block' }}>
-                {link.title}
-              </Link>
-            )
-          })}
+
+          <ul>
+            {dummyRoutes.map((link) => {
+              return (
+                <li key={link.title}>
+                  <Link href={`${link.url}`}>{link.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+
           <hr />
 
           <h3>1.2 Catch all segments [...slug]</h3>
@@ -110,45 +112,7 @@ const ChOne: NextPage = () => {
               </h5>
               <h5>pages/post/[...slug].js does not match /post.</h5>
             </li>
-            <li>
-              <h4>
-                Add <mark>as</mark> parameter to Link
-              </h4>
-              <ul className="hasVerticalPadding-2">
-                <li>
-                  <strong>&lt;Link</strong>
-                </li>
-                <li>&nbsp;&nbsp;&lt;href = &#123; /post/[...slug] &#125;</li>
-                <li>
-                  <mark>&lt;as = &#123; /post/2020/books &#125;</mark>
-                </li>
-                <li>
-                  <strong>&gt;</strong>
-                </li>
-                <li>
-                  <strong>&lt;/Link&gt;</strong>
-                </li>
-              </ul>
-            </li>
           </ul>
-
-          <h3>See Example below:</h3>
-          <nav>
-            <ul>
-              {ch1SlugNavigation.map((link, idx: number) => {
-                return (
-                  <li key={idx}>
-                    <Link href={`/guide/chapters/ch-one/${link}`}>{link}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-          <hr />
-
-          <InfoBox className="isInfo">
-            <h4>Note: You can use names other than slug, such as: [...param]</h4>
-          </InfoBox>
 
           <Image src={imgSlug} aria-hidden={true} alt="slug how it works" />
         </div>
