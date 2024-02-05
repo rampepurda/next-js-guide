@@ -1,10 +1,12 @@
 @import "../../styles/variables";
 @import "../../styles/breakpoints";
+@import "../../styles/spacing";
 
 .main {
   z-index: 2;
-  position: sticky;
-  top: 4rem;
+  position: fixed;
+  top: 4.5rem;
+  width: 100%;
   margin: 0;
   background-color: $grayLighter;
 
@@ -33,8 +35,11 @@
 }
 
 .navigationLeft {
-  margin-left: -.5rem;
-  margin-right: -.5rem;
+  position: fixed;
+  overflow-y: auto;
+  width: 24.99%;
+  height: 100vh;
+  margin: $spacer-8 - $spacer-2 0 - $spacer-2;
   padding-right: 0;
 
   ul {
@@ -88,7 +93,14 @@
 
 @media #{$screen-md} {
   .main {
+    position: sticky;
     top: 3.6rem;
+  }
+
+  .navigationLeft {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
   }
 }
 
