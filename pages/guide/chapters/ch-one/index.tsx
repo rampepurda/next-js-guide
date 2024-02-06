@@ -89,7 +89,6 @@ const ChOne: NextPage = () => {
               )
             })}
           </ul>
-
           <hr />
 
           <h3>1.2 Catch all segments [...slug]</h3>
@@ -113,8 +112,36 @@ const ChOne: NextPage = () => {
               <h5>pages/post/[...slug].js does not match /post.</h5>
             </li>
           </ul>
-
           <Image src={imgSlug} aria-hidden={true} alt="slug how it works" />
+
+          <h3>1.3 Link href dynamic [id] or name up to you</h3>
+          <ul className="hasTypeDisc">
+            <li>
+              <a
+                href="https://nextjs.org/docs/messages/app-dir-dynamic-href"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read more here about dynamic link href
+              </a>
+            </li>
+          </ul>
+          <h3>Before:</h3>
+          <code>
+            &lt;Link <br />
+            &nbsp;&nbsp;href=&#123;&#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;<strong>pathname: &apos;/route/[slug]&apos;</strong>,
+            <br /> &nbsp;&nbsp;&nbsp;<strong>query: &#123; slug: &apos;1&apos; &#125;</strong>,
+            <br />
+            &#125;&#125; &gt;link &lt;/Link&gt;
+          </code>
+
+          <h3>After:</h3>
+          <code>
+            &lt;Link <strong>href=&#123;&apos;/route/[slug]&apos;&#125;</strong>
+            &gt;link &lt;/Link&gt;
+          </code>
         </div>
       </div>
     </>
