@@ -39,8 +39,8 @@
   overflow-y: auto;
   width: 24.99%;
   height: 100vh;
-  margin: $spacer-8 - $spacer-2 0 - $spacer-2;
-  padding-right: 0;
+  margin: calc($spacer-7 + 2px) - $spacer-2 0 - $spacer-2;
+  padding: .3rem 0 7rem 0;
 
   ul {
     li {
@@ -101,11 +101,12 @@
     position: relative;
     width: 100%;
     margin-top: 0;
+    padding-top: 0;
   }
 }
 
 @media #{$screen-sm} {
   .main {
-    top: 3rem;
+    top: 3.55rem;
   }
 }
