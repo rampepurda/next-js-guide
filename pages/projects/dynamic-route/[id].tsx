@@ -1,5 +1,4 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { PhotoType } from '../../../types'
 import { environment, navigationProjectsLinks } from '../../../configuration'
 import Image from 'next/image'
 import { Navigation } from '../../../components'
