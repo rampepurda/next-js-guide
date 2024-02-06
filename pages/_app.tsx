@@ -7,12 +7,12 @@ import { store } from '../store'
 import { DateBox, Header, Main, Navigation, Theme } from '../components'
 import { navigationLinks } from '../configuration'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { SubNavMedia } from './subNavigationMedia/subNavMedia'
+import { usePathname } from 'next/navigation'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-  const SubNavigationMedia = SubNavMedia(router.pathname)
+  const path = usePathname()
+  const SubNavigationMedia = SubNavMedia(path)
 
   return (
     <Provider store={store}>
