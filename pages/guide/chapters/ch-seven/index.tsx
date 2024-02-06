@@ -1,6 +1,5 @@
 import React, { MouseEventHandler, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../store'
-import { getPhotosWithLimit } from '../../../../slices'
+import { useAppSelector } from '../../../../store'
 import { useState } from 'react'
 import { NextPage } from 'next'
 import { Navigation, Photos, Input } from '../../../../components'
@@ -17,21 +16,16 @@ import {
   imgThunkApi,
   imgThunkWithRejValue,
 } from './index-img'
-import { PhotoType } from '../../../../types'
 import { useWindWidth, useChevron } from '../../../../hooks'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
 const ChSeven: NextPage = () => {
-  const dispatch = useAppDispatch()
   const Alert: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
-  const [hasLimit, setHasLimit] = useState<string>('0')
-  const [selectedPhotos, setSelectedPhotos] = useState<PhotoType[]>(photos)
+  const [hasLimit, setHasLimit] = useState<number>(0)
   const handlePhotos: OnClick = () => {
-    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: hasLimit }))
-    setSelectedPhotos(photos)
-    if (hasLimit === '0') {
+    if (hasLimit === 0) {
       alert(`${Alert}`)
     }
   }
@@ -40,7 +34,6 @@ const ChSeven: NextPage = () => {
 
   useEffect(() => {
     getWindWidth()
-    setSelectedPhotos(photos)
   }, [amount, isLoading, error])
 
   return (
@@ -137,7 +130,7 @@ const ChSeven: NextPage = () => {
               id={'email'}
               ariaLabel={'select number'}
               tabIdx={1}
-              OnChange={(e) => setHasLimit(e.target.value)}
+              OnChange={(ev) => setHasLimit(Number(ev.target.value))}
               rest={{
                 type: 'number',
                 placeholder: '0',
@@ -156,7 +149,7 @@ const ChSeven: NextPage = () => {
             </button>
           </div>
 
-          <Photos photos={selectedPhotos} />
+          <Photos photos={photos.slice(0, hasLimit)} />
         </div>
       </div>
     </>

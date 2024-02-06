@@ -44,7 +44,14 @@ export const getPhotosWithLimit = createAsyncThunk<PhotoType[], any>(
   async (params, { rejectWithValue }) => {
     const { url, hasLimit } = params
     try {
-      const response = await fetch(`${url}?_limit=${hasLimit}`)
+      const response = await fetch(`${url}?_limit=${hasLimit}`, {
+        /* In Case data are dynamic makes sense use THUNK with appropriate attributes as is shown below:
+                cache: 'no-store',
+        next: {
+          revalidate: 5,
+        },
+         */
+      })
       return response.json()
     } catch (err) {
       return rejectWithValue('Ops, something wrong, we are not able to provide any data')

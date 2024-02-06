@@ -3,22 +3,17 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { Navigation, Pagination, Photos } from '../../../components'
 import { breakPoints, navigationProjectsLinks } from '../../../configuration'
-import { environment } from '../../../configuration'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
-import { useAppDispatch, useAppSelector } from '../../../store'
-import { getPhotosWithLimit } from '../../../slices'
+import { useAppSelector } from '../../../store'
 import { useWindWidth } from '../../../hooks'
-import useTranslation from 'next-translate/useTranslation'
 
 interface initValues {
   photos: PhotoType[]
 }
 
 export const DynamicalRouting: NextPage<initValues> = () => {
-  const { t } = useTranslation('projects')
-  const dispatch = useAppDispatch()
   const { photos } = useAppSelector((state) => state.Photos)
   const { currentPage = 1, handlePageChange } = usePaginate('dynamic-route')
   const postPerPage: number = 10
@@ -28,9 +23,6 @@ export const DynamicalRouting: NextPage<initValues> = () => {
 
   useEffect(() => {
     getWindWidth()
-    if (photos.length === 0) {
-      dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: '233' }))
-    }
   }, [postPerPage, photos, currentPost])
 
   return (
