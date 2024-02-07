@@ -142,6 +142,20 @@ const ChOne: NextPage = () => {
             &lt;Link <strong>href=&#123;&apos;/route/[slug]&apos;&#125;</strong>
             &gt;link &lt;/Link&gt;
           </code>
+          <hr />
+
+          <h3>1.4 Fetching dynamical data parameters.</h3>
+          <code>
+            const response = await fetch(url, &#123; <br />
+            &nbsp;&#123;
+            <br />
+            &nbsp;&nbsp;<strong>cache</strong>: &apos;no-store&apos;,
+            <br />
+            &nbsp;&nbsp;<strong>next:</strong> &#123; revalidate: 5&#125;
+            <br />
+            &nbsp;&#125;
+            <br /> &#125;)
+          </code>
         </div>
       </div>
     </>

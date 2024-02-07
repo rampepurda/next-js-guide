@@ -26,7 +26,7 @@ const ChTwentyTwo: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-22 | router </title>
+        <title>Next JS | Guide | Ch-22 | useHooks </title>
       </Head>
 
       <div className="cols">
@@ -37,7 +37,7 @@ const ChTwentyTwo: NextPage = () => {
         )}
 
         <div className="col-9">
-          <h2>22. useHooks in Next =&lt; 13</h2>
+          <h2>22. useHooks in Next =&lt; 13 and higher</h2>
           <hr />
 
           <div className="cols">

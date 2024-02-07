@@ -31,7 +31,7 @@ $display-values: block flex inline inline-block inline-flex;
 
   @if $i == 9 {
     .col-9 {
-      padding: 5rem 1.5rem 1rem 1.5rem;
+      padding: 5rem 1.5rem 4rem 1.5rem;
     }
 
     @media #{$screen-md} {

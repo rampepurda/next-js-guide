@@ -19,7 +19,7 @@
     "int": "Internationalization"
   },
   "navGuide": {
-    "ch-one": "1. Dynamic routes[slug] and Catch All Segments[...slug]",
+    "ch-one": "1. Dynamic routes[slug] and Catch All Segments[...slug] and fetching parameters",
     "ch-two": "2. Interface - Declaration merging",
     "ch-three": "3. Environment",
     "ch-four": "4. classNames Library",
