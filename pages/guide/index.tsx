@@ -22,7 +22,7 @@ const Guide: NextPage = () => {
 
       <div className="cols">
         {windowSize > breakPoints.isMediumDevice && (
-          <div className="col-3 has-br">
+          <div className="col-3">
             <Navigation links={navigationGuideLinks} />
           </div>
         )}

@@ -40,6 +40,7 @@
   width: 24.99%;
   height: 100vh;
   margin: calc($spacer-7 + 2px) - $spacer-2 0 - $spacer-2;
+  border-right: 1px solid $grayLighter;
   padding: .3rem 0 7rem 0;
 
   ul {

@@ -21,7 +21,7 @@ export default function Projects() {
 
       <div className="cols">
         {windowSize > breakPoints.isMediumDevice && (
-          <div className="col-3 has-br">
+          <div className="col-3">
             <Navigation links={navigationProjectsLinks} />
           </div>
         )}
