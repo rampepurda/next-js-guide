@@ -2,15 +2,11 @@ import { Navigation, Accordion } from '../../components'
 import { navigationGuideLinks, navigationProjectsLinks, Pages } from '../../configuration'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { Chapters } from '../../types'
 
 enum PathName {
   guide = '/guide',
   project = '/projects',
-}
-
-type Chapters = {
-  tKey: string
-  link: string
 }
 
 export const NavAccordion = () => {

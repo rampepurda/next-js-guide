@@ -46,6 +46,8 @@
   padding: 2.6rem 0;
 
   ul {
+    padding-bottom: 3rem;
+
     li {
       cursor: pointer;
       border-bottom: 1px solid transparentize($darkmagenta, .9);
@@ -54,7 +56,6 @@
 
       &:last-child {
         border-bottom: 0;
-        padding-bottom: 4rem;
       }
 
       a {
@@ -118,6 +119,8 @@
     padding-bottom: 0;
 
     ul {
+      padding-bottom: 0;
+
       li {
         &:last-child {
           padding-bottom: 1rem;

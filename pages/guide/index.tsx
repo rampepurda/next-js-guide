@@ -20,16 +20,8 @@ const Guide: NextPage = () => {
         <title>{t('pageTitle.guide')}</title>
       </Head>
 
-      <div className="cols">
-        {windowSize > breakPoints.isMediumDevice && (
-          <div className="col-3">
-            <Navigation links={navigationGuideLinks} />
-          </div>
-        )}
-
-        <div className="col-9 col-m-12">
-          <h2>{t('pageTitle.guide')}</h2>
-        </div>
+      <div>
+        <h2>{t('pageTitle.guide')}</h2>
       </div>
     </>
   )

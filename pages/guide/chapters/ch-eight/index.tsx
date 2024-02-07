@@ -1,11 +1,8 @@
-import React, { PropsWithChildren, useEffect } from 'react'
+import React, { PropsWithChildren } from 'react'
 import Head from 'next/head'
 import { NextPage } from 'next'
-import { Navigation } from '../../../../components'
 import Image from 'next/image'
 import imgPropsWithChildren from '../../../../public/images/ch-eight/propsWithChildren.png'
-import { breakPoints, navigationGuideLinks } from '../../../../configuration'
-import { useWindWidth } from '../../../../hooks'
 
 type Props = { name: string; address: string }
 const user: Props = {
@@ -26,37 +23,22 @@ const WithChild = ({ user, children }: PropsWithChildren<{ user: Props }>) => {
 }
 
 const ChEight: NextPage = () => {
-  const { windowSize, getWindWidth } = useWindWidth()
-
-  useEffect(() => {
-    getWindWidth()
-  }, [])
-
   return (
     <>
       <Head>
         <title>Next JS | Guide | Chapter8</title>
       </Head>
 
-      <div className="cols">
-        {windowSize > breakPoints.isMediumDevice && (
-          <div className="col-3 has-br">
-            <Navigation links={navigationGuideLinks} />
-          </div>
-        )}
+      <div>
+        <h2>8. PropsWithChildren</h2>
 
-        <div className="col-9">
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          <h2>8. PropsWithChildren</h2>
-
-          <WithChild user={user}>
-            <hr />
-            <h4 className="color-is-red">This is PropsWithChildren Area</h4>
-          </WithChild>
+        <WithChild user={user}>
           <hr />
+          <h4 className="color-is-red">This is PropsWithChildren Area</h4>
+        </WithChild>
+        <hr />
 
-          <Image src={imgPropsWithChildren} aria-hidden={true} alt="propsWithChildren" />
-        </div>
+        <Image src={imgPropsWithChildren} aria-hidden={true} alt="propsWithChildren" />
       </div>
     </>
   )

@@ -2,6 +2,10 @@ export interface NavigationLink {
   tKey: string
   link: string
 }
+export type Chapters = {
+  tKey: string
+  link: string
+}
 export type PhotoType = {
   albumId?: number
   id?: number
