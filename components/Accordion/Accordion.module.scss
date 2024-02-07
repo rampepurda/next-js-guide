@@ -1,4 +1,6 @@
 @import "../../styles/variables";
+@import "../../styles/spacing";
+@import "../../styles/breakpoints";
 
 .cover {
   position: relative;
@@ -54,6 +56,15 @@
       display: none;
       transition: all ease-out 2s;
     }
+  }
+}
+
+@media #{$screen-md} {
+  .isSubNavigation {
+    position: fixed;
+    top: 7rem;
+    display: block;
+    width: 100%;
   }
 }
 

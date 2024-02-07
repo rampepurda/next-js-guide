@@ -1,5 +1,4 @@
 import style from './Accordion.module.scss'
-
 import React, { PropsWithChildren, useState } from 'react'
 import classNames from 'classnames'
 import useTranslation from 'next-translate/useTranslation'
@@ -8,9 +7,15 @@ import IcoArrowDown from '../../public/ico-chevron-down.svg'
 interface Props {
   ClassName?: string
   titles: string[]
+  isSubNav?: boolean
 }
 
-export const Accordion = ({ ClassName, titles, children }: PropsWithChildren<Props>) => {
+export const Accordion = ({
+  ClassName,
+  titles,
+  isSubNav = false,
+  children,
+}: PropsWithChildren<Props>) => {
   const { t } = useTranslation('projects')
   const [isOpen, setIsOpen] = useState<unknown>(null)
   const handleOpen = (idx: number) => {
@@ -21,7 +26,10 @@ export const Accordion = ({ ClassName, titles, children }: PropsWithChildren<Pro
   }
 
   return (
-    <div className={classNames(style.cover, ClassName)} role="dialog">
+    <div
+      className={classNames(style.cover, isSubNav && style.isSubNavigation, ClassName)}
+      role="dialog"
+    >
       {titles.map((title, idx: number) => {
         return (
           <div key={idx}>

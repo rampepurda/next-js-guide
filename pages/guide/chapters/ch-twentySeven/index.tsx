@@ -1,19 +1,12 @@
 import style from '../../../../components/Input/Input.module.scss'
 import { NextPage } from 'next'
 import { Navigation } from '../../../../components'
-import { breakPoints, navigationGuideLinks } from '../../../../configuration'
+import { navigationGuideLinks } from '../../../../configuration'
 import Head from 'next/head'
-import { useWindWidth } from '../../../../hooks'
-import { useEffect } from 'react'
+
 import Link from 'next/link'
 
 const ChTwentySeven: NextPage = () => {
-  const { windowSize, getWindWidth } = useWindWidth()
-
-  useEffect(() => {
-    getWindWidth()
-  }, [])
-
   return (
     <>
       <Head>
@@ -21,11 +14,9 @@ const ChTwentySeven: NextPage = () => {
       </Head>
 
       <div className="cols">
-        {windowSize > breakPoints.isMediumDevice && (
-          <div className="col-3">
-            <Navigation links={navigationGuideLinks} />
-          </div>
-        )}
+        <div className="col-3">
+          <Navigation links={navigationGuideLinks} />
+        </div>
 
         <div className="col-9">
           <h2>27. &apos;use client&apos; vs &apos;use server&apos;</h2>
