@@ -114,7 +114,7 @@ const ChOne: NextPage = () => {
           </ul>
           <Image src={imgSlug} aria-hidden={true} alt="slug how it works" />
 
-          <h3>1.3 Link href dynamic [id] or name up to you</h3>
+          <h3>1.3 Link href dynamic [slug] in Next 13 and higher.</h3>
           <ul className="hasTypeDisc">
             <li>
               <a
