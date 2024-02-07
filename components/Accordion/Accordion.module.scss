@@ -59,6 +59,10 @@
   }
 }
 
+.isSubNavigation {
+  display: none;
+}
+
 @media #{$screen-md} {
   .isSubNavigation {
     position: fixed;

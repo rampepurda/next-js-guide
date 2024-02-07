@@ -21,11 +21,11 @@ export const NavAccordion = () => {
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
       setChapters(navigationGuideLinks)
-      setTitle(Pages.subNavMedia.accordion.title.project)
+      setTitle(Pages.subNavMedia.accordion.title.guide)
     }
     if (pathName.startsWith(`${PathName.project}`)) {
       setChapters(navigationProjectsLinks)
-      setTitle(Pages.subNavMedia.accordion.title.guide)
+      setTitle(Pages.subNavMedia.accordion.title.project)
     }
   }, [pathName, chapters, title])
 
