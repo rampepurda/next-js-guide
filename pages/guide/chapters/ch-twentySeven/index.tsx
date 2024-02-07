@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { InfoBox } from '../../../../components'
 
 const ChTwentySeven: NextPage = () => {
   return (
@@ -17,18 +18,39 @@ const ChTwentySeven: NextPage = () => {
               useForm hook - read more
             </Link>
           </li>
-          <li>
-            <Link href="https://www.youtube.com/watch?v=R_Pj593TH_Q" target="_blank">
-              See Video Tutorial
-            </Link>
-          </li>
-          <li>
-            <Link href="https://www.youtube.com/watch?v=R_Pj593TH_Q" target="_blank">
-              See Video Tutorial - useForm hook in React
-            </Link>
-          </li>
         </ul>
         <hr />
+
+        <div className="cols">
+          <div className="col-6">
+            <h3>&apos;use client&apos;</h3>
+            <InfoBox className="isInfo">
+              <p>Use only in case when is absolutely necessary!</p>
+            </InfoBox>
+            <ul className="hasTypeDisc">
+              <li>useState</li>
+              <li>useEffect</li>
+              <li>Interactivity (onClick...etc)</li>
+            </ul>
+          </div>
+          <div className="col-6">
+            <h3>&apos;use server&apos;</h3>
+            <InfoBox className="isInfo">
+              <p>Inside APP files are &apos;use server&apos; as default</p>
+            </InfoBox>
+            <ul className="hasTypeDisc">
+              <li>
+                <strong className="color-is-red">x</strong>
+              </li>
+              <li>
+                <strong className="color-is-red">x</strong>
+              </li>
+              <li>
+                <strong className="color-is-red">x</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </>
   )
