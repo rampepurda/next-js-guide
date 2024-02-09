@@ -1,6 +1,5 @@
 import { NextPage } from 'next'
-import { InfoBox, Navigation } from '../../../../components'
-import { breakPoints, navigationGuideLinks } from '../../../../configuration'
+import { InfoBox } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgSlug from '../../../../public/images/ch-one/slug.png'
@@ -31,10 +30,41 @@ const ChOne: NextPage = () => {
       </Head>
 
       <div>
-        <h2>1. Dynamic routes and Catch All Segments</h2>
+        <h2>1. Routing</h2>
+        <ul className="hasTypeDisc">
+          <li>
+            <a
+              href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read more about routing
+            </a>
+          </li>
+        </ul>
         <hr />
 
-        <h3>1.1 Dynamic routes [slug]</h3>
+        <h3>1.1 Pages and Layout</h3>
+        <mark>app/blog/page.ts &rarr; app/blog</mark>
+        <InfoBox className="isInfo">
+          <h4>
+            A page is UI that is unique to a route. You can define pages by exporting a component
+            from a page.js file. Use nested folders to define a route and a page.js file to make the
+            route publicly accessible.
+          </h4>
+        </InfoBox>
+
+        <h3>1.2 route-groups</h3>
+        <mark>app/(chapters)/ch1/page.ts &rarr; app/ch1</mark>
+        <h4>Convention</h4>
+        <InfoBox className="isInfo">
+          <h4>
+            A route group can be created by wrapping a folder&apos;s name in parenthesis:{' '}
+            <strong>(folderName)</strong>
+          </h4>
+        </InfoBox>
+
+        <h3>1.3 Dynamic routes [slug]</h3>
         <ul className="hasTypeDisc">
           <li>
             <a
@@ -47,8 +77,8 @@ const ChOne: NextPage = () => {
           </li>
         </ul>
         <p>
-          When you <strong>don't know the exact segment names</strong> ahead of time and want to
-          create routes from dynamic data, you can use{' '}
+          When you <strong>don&apos;t know the exact segment names</strong> ahead of time and want
+          to create routes from dynamic data, you can use{' '}
           <strong>
             Dynamic Segments that are filled in at request time or prerendered at build time
           </strong>
@@ -72,7 +102,6 @@ const ChOne: NextPage = () => {
             .
           </h4>
         </InfoBox>
-
         <ul>
           {dummyRoutes.map((link) => {
             return (
@@ -84,7 +113,7 @@ const ChOne: NextPage = () => {
         </ul>
         <hr />
 
-        <h3>1.2 Catch all segments [...slug]</h3>
+        <h3>1.4 Catch all segments [...slug]</h3>
         <ul className="hasTypeDisc">
           <li>
             <a
@@ -107,7 +136,7 @@ const ChOne: NextPage = () => {
         </ul>
         <Image src={imgSlug} aria-hidden={true} alt="slug how it works" />
 
-        <h3>1.3 Link href dynamic [slug] in Next 13 and higher.</h3>
+        <h3>1.5 Link href dynamic [slug] in Next 13 and higher.</h3>
         <ul className="hasTypeDisc">
           <li>
             <a
@@ -137,7 +166,7 @@ const ChOne: NextPage = () => {
         </code>
         <hr />
 
-        <h3>1.4 Fetching dynamical data parameters.</h3>
+        <h3>1.6 Fetching dynamical data parameters.</h3>
         <code>
           const response = await fetch(url, &#123; <br />
           &nbsp;&#123;

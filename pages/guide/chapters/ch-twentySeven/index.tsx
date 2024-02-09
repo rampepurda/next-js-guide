@@ -14,8 +14,8 @@ const ChTwentySeven: NextPage = () => {
         <h2>27. &apos;use client&apos; vs &apos;use server&apos;</h2>
         <ul className="hasVerticalPadding-3">
           <li>
-            <Link href="https://react-hook-form.com/docs/useform" target="_blank">
-              useForm hook - read more
+            <Link href="" target="_blank">
+              see Tutorial here ...not DONE
             </Link>
           </li>
         </ul>
@@ -31,6 +31,7 @@ const ChTwentySeven: NextPage = () => {
               <li>useState</li>
               <li>useEffect</li>
               <li>Interactivity (onClick...etc)</li>
+              <li>&lt;Link&gt;</li>
             </ul>
           </div>
           <div className="col-6">
@@ -48,6 +49,7 @@ const ChTwentySeven: NextPage = () => {
               <li>
                 <strong className="color-is-red">x</strong>
               </li>
+              <li>&lt;Link&gt;</li>
             </ul>
           </div>
         </div>
