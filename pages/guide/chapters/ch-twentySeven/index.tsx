@@ -28,10 +28,19 @@ const ChTwentySeven: NextPage = () => {
               <p>Use only in case when is absolutely necessary!</p>
             </InfoBox>
             <ul className="hasTypeDisc">
-              <li>useState</li>
-              <li>useEffect</li>
+              <li>useState, useEffect, usePathname()</li>
               <li>Interactivity (onClick...etc)</li>
               <li>&lt;Link&gt;</li>
+              <li>
+                <strong className="color-is-red">x</strong>
+              </li>
+              <li>
+                <strong className="color-is-red">x</strong>
+                <br />
+                Error: async/await is not yet supported in Client Components, only Server
+                Components. This error is often caused by accidentally adding `'use client'` to a
+                module that was originally written for the server.
+              </li>
             </ul>
           </div>
           <div className="col-6">
@@ -46,10 +55,9 @@ const ChTwentySeven: NextPage = () => {
               <li>
                 <strong className="color-is-red">x</strong>
               </li>
-              <li>
-                <strong className="color-is-red">x</strong>
-              </li>
               <li>&lt;Link&gt;</li>
+              <li>metadata</li>
+              <li>async/await</li>
             </ul>
           </div>
         </div>

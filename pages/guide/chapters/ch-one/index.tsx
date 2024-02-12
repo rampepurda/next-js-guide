@@ -171,7 +171,7 @@ const ChOne: NextPage = () => {
           const response = await fetch(url, &#123; <br />
           &nbsp;&#123;
           <br />
-          &nbsp;&nbsp;<strong>cache</strong>: &apos;no-store&apos;,
+          &nbsp;&nbsp;<strong>cache</strong>: &apos;no-store&apos; / &apos;force-cache&apos;,
           <br />
           &nbsp;&nbsp;<strong>next:</strong> &#123; revalidate: 5&#125;
           <br />
