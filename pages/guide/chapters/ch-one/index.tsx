@@ -166,7 +166,7 @@ const ChOne: NextPage = () => {
         </code>
         <hr />
 
-        <h3>1.6 Fetching dynamical data parameters.</h3>
+        <h3>1.6 Fetching dynamical data options.</h3>
         <code>
           const response = await fetch(url, &#123; <br />
           &nbsp;&#123;
