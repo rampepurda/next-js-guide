@@ -10,7 +10,7 @@
   "pageTitle": {
     "home": "Next Js Guide | Home",
     "projects": "Next Js | Projects",
-    "guide": "Next Js | Guide"
+    "guide": "Next | Guide"
   },
   "navMain": {
     "home": "Home",
@@ -19,7 +19,7 @@
     "int": "Internationalization"
   },
   "navGuide": {
-    "ch-one": "1. Dynamic routes[slug] and Catch All Segments[...slug]",
+    "ch-one": "1. Routing",
     "ch-two": "2. Interface - Declaration merging",
     "ch-three": "3. Environment",
     "ch-four": "4. classNames Library",
@@ -40,11 +40,12 @@
     "ch-nineteen": "19. Internal API route",
     "ch-twenty": "20. Tailwind CSS",
     "ch-twentyOne": "21. Form knowledge refresh",
-    "ch-twentyTwo": "22. useHooks in Next =<13",
+    "ch-twentyTwo": "22. useHooks in Next14 > lower",
     "ch-twentyThree": "23. useMediaQueries Libraries and other hooks",
     "ch-twentyFour": "24. useSwr hook",
     "ch-twentyFive": "25. Font and how to work with in Next",
-    "ch-twentySix": "26. useForm hook in Next JS and use 'controller' with Material UI"
+    "ch-twentySix": "26. useForm hook in Next JS and use 'controller' with Material UI",
+    "ch-twentySeven": "27. 'use client' vs 'use server'"
   },
   "navProjectsLeft": {
     "dynamicRouter": "Dynamic Router",

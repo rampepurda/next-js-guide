@@ -44,7 +44,8 @@
     "ch-twentyThree": "23. useMediaQueries 图书馆",
     "ch-twentyFour": "24. useSwr hook",
     "ch-twentyFive": "25. 字体以及如何在 Next 中使用",
-    "ch-twentySix": "26. useForm 钩 in Next JS"
+    "ch-twentySix": "26. useForm 钩 in Next JS",
+    "ch-twentySeven": "27. 'use client' vs 'use server'"
   },
   "navProjectsLeft": {
     "dynamicRouter": "動態路由器",

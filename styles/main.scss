@@ -237,6 +237,11 @@ mark {
   .isMediumDevice {
     display: block;
   }
+}
 
+@media #{$screen-sm} {
+  h1 {
+    text-align: left;
+  }
 }
 

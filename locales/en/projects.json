@@ -17,7 +17,7 @@
       "dynamicRouting":  "Dynamic Routing"
     },
     "accordion": {
-      "headline": "Select appropriate project"
+      "headline": "Select project"
     },
     "dynamicRoute": {
       "btn":"Explore Event"

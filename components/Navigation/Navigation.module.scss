@@ -1,10 +1,12 @@
 @import "../../styles/variables";
 @import "../../styles/breakpoints";
+@import "../../styles/spacing";
 
-.main {
+.primary {
   z-index: 2;
-  position: sticky;
-  top: 4rem;
+  position: fixed;
+  top: 4.5rem;
+  width: 100%;
   margin: 0;
   background-color: $grayLighter;
 
@@ -32,12 +34,20 @@
   }
 }
 
-.navigationLeft {
-  margin-left: -.5rem;
-  margin-right: -.5rem;
-  padding-right: 0;
+.sideBar,
+.accordionNav {
+  position: fixed;
+  left: 0;
+  overflow-y: auto;
+  width: 24.99%;
+  height: 100vh;
+  margin: 0;
+  border-right: 1px solid $grayLighter;
+  padding: 2.6rem 0;
 
   ul {
+    padding-bottom: 3rem;
+
     li {
       cursor: pointer;
       border-bottom: 1px solid transparentize($darkmagenta, .9);
@@ -70,6 +80,10 @@
   }
 }
 
+.accordionNav {
+  display: none;
+}
+
 .navigationSub {}
 
 .isLinkActive {
@@ -87,13 +101,37 @@
 }
 
 @media #{$screen-md} {
-  .main {
+  .primary {
     top: 3.6rem;
+  }
+
+  .sideBar {
+    display: none;
+  }
+
+  .accordionNav {
+    display: block;
+    top: 10rem;
+    width: 100%;
+    height: 50vh;
+    background-color: $whiteDark;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    ul {
+      padding-bottom: 0;
+
+      li {
+        &:last-child {
+          padding-bottom: 1rem;
+        }
+      }
+    }
   }
 }
 
 @media #{$screen-sm} {
-  .main {
-    top: 3rem;
+  .primary {
+    top: 3.55rem;
   }
 }

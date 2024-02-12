@@ -8,7 +8,7 @@ import { handleChangeTheme } from '../../slices'
 type Props = {
   ClassName?: string
   OnChange?: (ev: ChangeEvent<HTMLInputElement>) => void
-  isModeDark: boolean
+  isModeDark?: boolean
   ariaLabel: string
 }
 

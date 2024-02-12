@@ -4,16 +4,11 @@ import { Provider } from 'react-redux'
 import apolloClient from '../apollo/graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { store } from '../store'
-import { DateBox, Header, Main, Navigation, Theme } from '../components'
+import { DateBox, Header, Main, Navigation, NavAccordion, Theme } from '../components'
 import { navigationLinks } from '../configuration'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { SubNavMedia } from './subNavigationMedia/subNavMedia'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-  const SubNavigationMedia = SubNavMedia(router.pathname)
-
   return (
     <Provider store={store}>
       <ApolloProvider client={apolloClient}>
@@ -28,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <Theme ariaLabel={'controlled'} />
         </Header>
         <Navigation isMain={true} links={navigationLinks} />
-        {SubNavigationMedia}
+        <NavAccordion />
 
         <Main>
           <Component {...pageProps} />

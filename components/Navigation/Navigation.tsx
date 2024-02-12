@@ -12,11 +12,18 @@ import { usePathname } from 'next/navigation'
 type Props = {
   ClassName?: string
   isMain?: boolean
+  isNavAccordion?: boolean
   isSub?: boolean
   links: NavigationLink[]
 }
 
-export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: Props) => {
+export const Navigation = ({
+  ClassName,
+  links,
+  isMain = false,
+  isNavAccordion = false,
+  isSub = false,
+}: Props) => {
   const router = usePathname()
   const { t } = useTranslation('common')
   const navAriaLabel = useMemo(() => {
@@ -39,11 +46,14 @@ export const Navigation = ({ ClassName, links, isMain = false, isSub = false }: 
 
   return (
     <nav
-      className={classNames(ClassName, {
-        [style.main]: isMain,
-        [`navLeft ${style.navigationLeft}`]: !isMain,
-        [style.navigationSub]: isSub,
-      })}
+      className={classNames(
+        ClassName,
+        isMain && style.primary,
+        isNavAccordion && style.accordionNav,
+        {
+          [`navLeft ${style.sideBar}`]: !isMain,
+        }
+      )}
       aria-label={navAriaLabel}
     >
       <ul>

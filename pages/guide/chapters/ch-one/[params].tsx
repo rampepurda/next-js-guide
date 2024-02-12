@@ -9,7 +9,7 @@ const ChOneSlug: () => void = () => {
   const { params = [] } = router.query
   const styleSheet: any = {
     cover: {
-      padding: '1rem',
+      padding: '5rem 2rem',
     },
     headline: {
       margin: '.2rem 0 1rem 0',

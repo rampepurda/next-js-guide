@@ -1,8 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { PhotoType } from '../../../types'
-import { environment, navigationProjectsLinks } from '../../../configuration'
+import { environment } from '../../../configuration'
 import Image from 'next/image'
-import { Navigation } from '../../../components'
 import Head from 'next/head'
 import React from 'react'
 
@@ -16,20 +14,12 @@ export default function Page({ photo }: InferGetServerSidePropsType<typeof getSe
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Photo detail</title>
+        <title>Next JS | Guide | {photo.id}</title>
       </Head>
 
-      <div className="cols">
-        <div className="col-3 has-br">
-          <Navigation links={navigationProjectsLinks} />
-        </div>
-
-        <div className="col-9">
-          <div style={{ padding: '1rem' }}>
-            <h2>{photo.title}</h2>
-            <Image src={`${photo.url}`} alt={`${photo.title}`} height={400} width={400} />
-          </div>
-        </div>
+      <div>
+        <h2>{photo.title}</h2>
+        <Image src={`${photo.url}`} alt={`${photo.title}`} height={400} width={400} />
       </div>
     </>
   )
