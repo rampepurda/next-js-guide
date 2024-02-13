@@ -178,6 +178,32 @@ const ChOne: NextPage = () => {
           &nbsp;&#125;
           <br /> &#125;)
         </code>
+        <hr />
+
+        <h3>1.7 Absolute vs relative path and attribute - relative</h3>
+        <mark>/Absolute</mark>
+        <mark>relative</mark>
+        <mark>Link relative = &apos;path&apos;/&apos;route&apos;</mark>
+        <ul className="hasTypeDisc">
+          <li>
+            <h4>/Absolute</h4>
+            <code>
+              &lt;Link to=&#123;`$&#123;<strong className="color-is-red">/</strong>
+              photo.id&#125;`&#125;/&gt;
+            </code>
+          </li>
+          <li>
+            <h4>Relative - to parent</h4>
+            <code>&lt;Link to=&#123;`$&#123;photo.id&#125;`&#125;/&gt;</code>
+          </li>
+          <li>
+            <h4>Link relative to: &apos;path&apos;/ &apos;route&apos;</h4>
+            <code>
+              &lt;Link to=&#123;`$&#123;photo.id&#125;`&#125;{' '}
+              <strong>relative = &apos;route&apos;</strong>&gt;
+            </code>
+          </li>
+        </ul>
       </div>
     </>
   )
