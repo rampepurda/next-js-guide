@@ -21,7 +21,7 @@ const ChTwentyTwo: NextPage = () => {
       </Head>
 
       <div>
-        <h2>22. useHooks in Next =&lt; 13 and higher</h2>
+        <h2>22. useHooks in Next14 and &gt; 13</h2>
         <hr />
 
         <div className="cols">
