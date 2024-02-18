@@ -14,7 +14,8 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
     const model = _req.body.model
   }
   // TimeOut simulates real data fetching
-  setTimeout(() => {
-    res.status(200).json(CarList)
-  }, 2000)
+  if (res.status(200))
+    setTimeout(() => {
+      res.status(200).json(CarList)
+    }, 2000)
 }
