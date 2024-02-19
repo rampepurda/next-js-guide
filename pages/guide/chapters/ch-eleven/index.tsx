@@ -13,11 +13,24 @@ export const ChEleven: NextPage = () => {
 
       <div>
         <h2>11. &lt;Image /&gt;</h2>
-        <a href="https://nextjs.org/docs/api-reference/next/image" target="_blank" rel="noreferrer">
-          Read more
+        <a
+          href="https://nextjs.org/docs/app/building-your-application/optimizing/images"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read more about &lt;Image&gt; 14
         </a>
-        <hr />
+        <div>
+          <a
+            href="https://nextjs.org/docs/api-reference/next/image"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Read more about &lt;Image&gt;
+          </a>
+        </div>
 
+        <hr />
         <h3>src</h3>
         <ul className="hasTypeDisc">
           <li>A statically imported image file</li>
@@ -26,7 +39,6 @@ export const ChEleven: NextPage = () => {
             depending on the loader prop.
           </li>
         </ul>
-
         <h3>1. Local Image</h3>
         <h4>
           To use a <strong>local image</strong>, <strong>import</strong> your .jpg, .png, or .webp
@@ -56,7 +68,6 @@ export const ChEleven: NextPage = () => {
             determine the rendered size of the image file. Learn more about Image Sizing.
           </li>
         </ul>
-
         <h3>3. External Image</h3>
         <InfoBox className="isWarning">
           <h4>
@@ -64,7 +75,6 @@ export const ChEleven: NextPage = () => {
           </h4>
         </InfoBox>
         <Image src={imgNextConfig} aria-hidden={true} alt="next configuration" />
-
         <h3>Image Component with Next.js</h3>
         <a href="https://image-component.nextjs.gallery/" target="_blank" rel="noreferrer">
           Read more
