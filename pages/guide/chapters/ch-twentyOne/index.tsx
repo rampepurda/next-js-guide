@@ -45,7 +45,7 @@ const ChTwentyOne: NextPage = () => {
       return err
     }
   }
-  const { handleSubmit } = usePostBook(
+  const { handleSubmitObject } = usePostBook(
     `${environment.fireBaseBookURL}`,
     'Book you asking for was send to us',
     getBook
@@ -89,18 +89,31 @@ const ChTwentyOne: NextPage = () => {
 
         <div className="cols">
           <div className="col col-6">
-            <FormPostBook OnSubmit={handleSubmit} />
-            <InfoBox className={'isDanger'}>
-              <h3>Reminder:</h3>
-              <h4>Add Book to Firebase:</h4>
-              <p>
-                Without problem to add but can not be DELETED cause got from Firebase nonsensical ID
-              </p>
-              <hr />
+            <FormPostBook OnSubmit={handleSubmitObject} />
 
-              <h4>DELETE from Firebase:</h4>
-              <p>Looks like after Item is deleted got from Firebase data as null</p>
+            <InfoBox className={'isDanger'}>
+              <h3>Remember:</h3>
+              <ul className="hasTypeDisc" style={{ marginLeft: '1rem' }}>
+                <li>
+                  const formDataObject = <strong>Object</strong>.fromEntries(formData)
+                </li>
+                <li>
+                  Form entry data <strong>name</strong> must be identical with data object names:
+                  <br />
+                  <code>
+                    &lt;input name=&apos;<strong>address</strong>&apos; /&gt; || object: &#123;
+                    <strong> address</strong>: &apos; &apos; &#125;
+                  </code>
+                </li>
+              </ul>
             </InfoBox>
+
+            <h3>Note:</h3>
+            <h4>&apos;POST&apos; Book to Firebase and &apos;DELETE&apos;:</h4>
+            <p>
+              &apos;POST&apos; without problem but can not be DELETED cause got from Firebase
+              nonsensical ID
+            </p>
           </div>
           <div className="col col-6">
             <h3>Books</h3>

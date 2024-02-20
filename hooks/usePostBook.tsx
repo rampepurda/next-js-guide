@@ -1,4 +1,6 @@
 import { clearFormInputValue } from '../utils/clearFormInpValue'
+import { FormEvent } from 'react'
+
 /**
  * @param url link where the DATA will be POSTed
  * @param title Alert message includes: title
@@ -7,9 +9,31 @@ import { clearFormInputValue } from '../utils/clearFormInpValue'
  */
 
 export const usePostBook = (url: string, title: string, fetchDataResponse: Function) => {
-  const handleSubmit = async (event: any) => {
+  const handleSubmitObject = async (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget)
+    const formDataObject = Object.fromEntries(formData)
+    const form = event.currentTarget
+    const option = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application.json' },
+      body: JSON.stringify({ ...formDataObject }),
+    }
+
     event.preventDefault()
-    const data: Record<string, () => void> = {
+    try {
+      const response = await fetch(url, option)
+      if (response) {
+        alert(`${title}`)
+        clearFormInputValue()
+        fetchDataResponse()
+        form.reset()
+      }
+    } catch (err) {
+      alert(`${err}`)
+    }
+  }
+  const handleSubmit = async (event: any) => {
+    const data: Record<string, () => string | undefined> = {
       author: event.target.author.value,
       title: event.target.title.value,
       price: event.target.price.value,
@@ -19,6 +43,8 @@ export const usePostBook = (url: string, title: string, fetchDataResponse: Funct
       headers: { 'Content-Type': 'application.json' },
       body: JSON.stringify({ ...data }),
     }
+
+    event.preventDefault()
 
     try {
       const response = await fetch(url, option)
@@ -34,6 +60,7 @@ export const usePostBook = (url: string, title: string, fetchDataResponse: Funct
 
   return {
     handleSubmit,
+    handleSubmitObject,
     fetchDataResponse,
   }
 }
