@@ -1,5 +1,4 @@
 import style from './Navigation.module.scss'
-
 import Link from 'next/link'
 import { NavigationLink } from '../../types'
 import { LangSwitch } from '../index'
@@ -12,8 +11,9 @@ import { usePathname } from 'next/navigation'
 type Props = {
   ClassName?: string
   isMain?: boolean
-  isNavAccordion?: boolean
+  isSidebar?: boolean
   isSub?: boolean
+  isNavAccordion?: boolean
   links: NavigationLink[]
 }
 
@@ -21,8 +21,9 @@ export const Navigation = ({
   ClassName,
   links,
   isMain = false,
-  isNavAccordion = false,
+  isSidebar = false,
   isSub = false,
+  isNavAccordion = false,
 }: Props) => {
   const router = usePathname()
   const { t } = useTranslation('common')
@@ -30,7 +31,7 @@ export const Navigation = ({
     if (isMain) {
       return `${t('ariaLabels.navigation.isMain')}`
     }
-    if (!isMain) {
+    if (isSidebar) {
       return `${t('ariaLabels.navigation.isLeft')}`
     }
     if (isSub) {

@@ -29,7 +29,7 @@ export const Main = ({ children }: any) => {
     <main className={classNames({ ['isDark']: isThemeDark })}>
       <div className="cols">
         <div className="col-3">
-          <Navigation links={chapters} />
+          <Navigation links={chapters} isSidebar={true} />
         </div>
 
         <div className="col-9 col-m-12">{children}</div>

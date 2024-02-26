@@ -1,7 +1,5 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { useWindWidth } from '../../../../hooks'
-import { useEffect } from 'react'
 
 const ChTwo: NextPage = () => {
   return (
