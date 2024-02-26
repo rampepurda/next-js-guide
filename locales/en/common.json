@@ -55,8 +55,8 @@
   },
   "ariaLabels": {
     "navigation": {
-      "isMain":"main",
-      "isLeft":"left",
+      "isMain":"primary",
+      "isLeft":"sidebar",
       "isSub":"sub"
     }
   },

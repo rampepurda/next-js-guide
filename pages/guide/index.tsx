@@ -1,8 +1,6 @@
-import { breakPoints, navigationGuideLinks } from '../../configuration'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
-import { Navigation } from '../../components'
 import { useEffect } from 'react'
 import { useWindWidth } from '../../hooks'
 
