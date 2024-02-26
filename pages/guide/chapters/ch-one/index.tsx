@@ -13,7 +13,7 @@ import Link from 'next/link'
  */
 
 const ChOne: NextPage = () => {
-  const { windowSize, getWindWidth } = useWindWidth()
+  const { getWindWidth } = useWindWidth()
   const dummyRoutes: { title: string; url: string }[] = [
     { title: 'Link Dummy I', url: '/guide/chapters/ch-one/dummyOne?chanel=netflix' },
     { title: 'Link Dummy III', url: '/guide/chapters/ch-one/dummyThree' },
