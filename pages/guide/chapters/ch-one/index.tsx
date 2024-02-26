@@ -161,7 +161,7 @@ const ChOne: NextPage = () => {
 
         <h3>After:</h3>
         <code>
-          &lt;Link <strong>href=&#123;&apos;/route/[slug]&apos;&#125;</strong>
+          &lt;Link <strong>href=&#123;&apos;/route/slug&apos;&#125;</strong>
           &gt;link &lt;/Link&gt;
         </code>
         <hr />

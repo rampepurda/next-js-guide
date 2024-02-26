@@ -24,13 +24,7 @@ export const Photo = ({ id, title, thumbnailUrl }: PhotoType) => {
       <h3>{title}</h3>
       <div>
         <button className="btn btn-submit" type="button">
-          <Link
-            className={style.link}
-            href={{
-              pathname: `${ROUTE.PHOTO_DETAIL}/[id]`,
-              query: { id: id },
-            }}
-          >
+          <Link className={style.link} href={`${ROUTE.PHOTO_DETAIL}/${id}`}>
             {t('projects:projects.dynamicRoute.btn')}
           </Link>
         </button>
