@@ -42,7 +42,6 @@
   width: 24.99%;
   height: 100vh;
   margin: 0;
-  border-right: 1px solid $grayLighter;
   padding: 2.6rem 0;
 
   ul {
@@ -98,6 +97,10 @@
   position: absolute;
   top: 1rem;
   right: 0;
+}
+
+.hasBr {
+  border-right: 1px solid $grayLighter;
 }
 
 @media #{$screen-md} {

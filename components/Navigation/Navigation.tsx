@@ -50,6 +50,7 @@ export const Navigation = ({
       className={classNames(
         ClassName,
         isMain && style.primary,
+        isSidebar && links.length !== 0 && style.hasBr,
         isNavAccordion && style.accordionNav,
         {
           [`navLeft ${style.sideBar}`]: !isMain,
