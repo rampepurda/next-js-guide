@@ -1,6 +1,6 @@
 import style from './Navigation.module.scss'
 import Link from 'next/link'
-import { NavigationLink } from '../../types'
+import { NavigationLink, NavType } from '../../types'
 import { LangSwitch } from '../index'
 import classNames from 'classnames'
 import { isNavLinkActive } from '../../utils'
@@ -10,71 +10,61 @@ import { usePathname } from 'next/navigation'
 
 type Props = {
   ClassName?: string
-  isMain?: boolean
-  isSidebar?: boolean
-  isSub?: boolean
-  isNavAccordion?: boolean
+  isNav: NavType
   links: NavigationLink[]
 }
 
-export const Navigation = ({
-  ClassName,
-  links,
-  isMain = false,
-  isSidebar = false,
-  isSub = false,
-  isNavAccordion = false,
-}: Props) => {
-  const router = usePathname()
+export const Navigation = ({ ClassName, links, isNav }: Props) => {
+  const pathName = usePathname()
   const { t } = useTranslation('common')
-  const navAriaLabel = useMemo(() => {
-    if (isMain) {
+  const ariaNav = useMemo(() => {
+    if (isNav === NavType.Primary) {
       return `${t('ariaLabels.navigation.isMain')}`
     }
-    if (isSidebar) {
+    if (isNav === NavType.Sidebar) {
       return `${t('ariaLabels.navigation.isLeft')}`
     }
-    if (isSub) {
+    if (isNav === NavType.SubNav) {
       return `${t('ariaLabels.navigation.isSub')}`
     }
-  }, [isMain, isSub])
-  const currentLink = useCallback(
+  }, [isNav])
+  const ariaLink = useCallback(
     (routerPath: string | undefined) => {
-      return router === routerPath ? 'page' : undefined
+      return pathName === routerPath ? 'page' : undefined
     },
-    [router]
+    [pathName]
   )
 
   return (
     <nav
       className={classNames(
         ClassName,
-        isMain && style.primary,
-        isSidebar && links.length !== 0 && style.hasBr,
-        isNavAccordion && style.accordionNav,
+        isNav === NavType.Primary && style.primary,
+        isNav === NavType.Sidebar && links.length !== 0 && style.hasBr,
+        isNav === NavType.Accordion && style.accordionNav,
         {
-          [`navLeft ${style.sideBar}`]: !isMain,
+          [`navLeft ${style.sideBar}`]: isNav !== NavType.Primary,
         }
       )}
-      aria-label={navAriaLabel}
+      aria-label={ariaNav}
     >
       <ul>
         {links?.map(({ tKey, link }, idx) => {
           return (
             <li
               className={classNames({
-                [style.isLinkActive]: isNavLinkActive(router, link, isMain),
+                [style.isLinkActive]: isNavLinkActive(pathName, link, isNav === NavType.Primary),
               })}
               key={idx}
             >
-              <Link href={link} aria-current={currentLink(link)}>
+              <Link href={link} aria-current={ariaLink(link)}>
                 {t(tKey)}
               </Link>
             </li>
           )
         })}
       </ul>
-      {isMain && (
+      {isNav === NavType.Primary && (
         <span className={classNames(style.langSwitch)}>
           <LangSwitch route={''} />
         </span>

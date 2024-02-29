@@ -1,3 +1,9 @@
+export enum NavType {
+  Primary = 'primary',
+  Sidebar = 'sidebar',
+  SubNav = 'sub',
+  Accordion = 'accordion',
+}
 export interface NavigationLink {
   tKey: string
   link: string
