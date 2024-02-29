@@ -1,10 +1,10 @@
 import { useAppSelector } from '../../store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import { navigationGuideLinks, navigationProjectsLinks, Pages } from '../../configuration'
+import { navigationGuideLinks, navigationProjectsLinks } from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Chapters } from '../../types'
+import { Chapters, NavType } from '../../types'
 
 enum PathName {
   guide = '/guide',
@@ -29,7 +29,7 @@ export const Main = ({ children }: any) => {
     <main className={classNames({ ['isDark']: isThemeDark })}>
       <div className="cols">
         <div className="col-3">
-          <Navigation links={chapters} isSidebar={true} />
+          <Navigation links={chapters} isNav={NavType.Sidebar} />
         </div>
 
         <div className="col-9 col-m-12">{children}</div>

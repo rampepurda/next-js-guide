@@ -7,6 +7,7 @@ import { store } from '../store'
 import { DateBox, Header, Main, Navigation, NavAccordion, Theme } from '../components'
 import { navigationLinks } from '../configuration'
 import Head from 'next/head'
+import { NavType } from '../types'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -22,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <DateBox />
           <Theme ariaLabel={'controlled'} />
         </Header>
-        <Navigation isMain={true} links={navigationLinks} />
+        <Navigation isNav={NavType.Primary} links={navigationLinks} />
         <NavAccordion />
 
         <Main>
