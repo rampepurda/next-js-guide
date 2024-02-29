@@ -1,25 +1,15 @@
-import { render, screen, within } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Navigation } from './'
-import { navigationLinks as navigationLinksMockData } from '../../configuration/navigation'
-
-// https://github.com/vercel/next.js/issues/7479
-jest.mock('next/router', () => ({
-  useRouter: () => ({
-    route: '/',
-    pathname: '',
-    query: '',
-    asPath: '',
-  }),
-}))
+import { NavType } from '../../types'
+import { navigationProjectsLinks } from '../../configuration'
 
 describe('Navigation', () => {
-  test('Renders navigation', () => {
-    render(<Navigation isMain={true} links={navigationLinksMockData} />)
+  it('Renders navigation', () => {
+    render(<Navigation isNav={NavType.Sidebar} links={navigationProjectsLinks} />)
 
     const navigation = screen.getByRole('navigation')
     const links = screen.getAllByRole('link')
     expect(navigation).toBeInTheDocument()
-    expect(links.length).toBe(4)
+    expect(links.length).toBe(3)
   })
-
 })
