@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 type Props = {
   ClassName?: string
-  OnChange?: MouseEventHandler<HTMLButtonElement>
+  OnClick?: MouseEventHandler<HTMLButtonElement>
   hasLink?: boolean
   url?: string
   isDisabled?: boolean
@@ -17,7 +17,7 @@ type Props = {
 
 export const Button = ({
   ClassName,
-  OnChange,
+  OnClick,
   hasLink = false,
   url,
   title,
@@ -28,7 +28,7 @@ export const Button = ({
     <button
       className={classNames('btn', ClassName)}
       type="button"
-      onClick={OnChange}
+      onClick={OnClick}
       disabled={isDisabled}
       {...rest}
     >
