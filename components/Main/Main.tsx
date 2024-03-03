@@ -1,10 +1,11 @@
-import { useAppSelector } from '../../store'
+import { useAppDispatch, useAppSelector } from '../../store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
 import { navigationGuideLinks, navigationProjectsLinks } from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType } from '../../types'
+import { getCountries } from '../../slices'
 
 enum PathName {
   guide = '/guide',
@@ -12,9 +13,11 @@ enum PathName {
 }
 
 export const Main = ({ children }: any) => {
+  const dispatch = useAppDispatch()
   const pathName = usePathname()
   const [chapters, setChapters] = useState<Chapters[]>([])
   const { isThemeDark } = useAppSelector((state) => state.Common)
+  //const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
@@ -23,6 +26,7 @@ export const Main = ({ children }: any) => {
     if (pathName.startsWith(`${PathName.project}`)) {
       setChapters(navigationProjectsLinks)
     }
+    dispatch(getCountries())
   }, [pathName, chapters])
 
   return (

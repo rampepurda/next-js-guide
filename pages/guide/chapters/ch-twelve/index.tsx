@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { InfoBox, Countries } from '../../../../components'
 import Head from 'next/head'
 import { Pages } from '../../../../configuration'
-import { useAppDispatch, useAppSelector } from '../../../../store'
-import { getCountries } from '../../../../slices'
+import { useAppSelector } from '../../../../store'
 import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
@@ -21,13 +19,8 @@ import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.p
  */
 
 const ChTwelve: NextPage = () => {
-  const dispatch = useAppDispatch()
   const { countries } = useAppSelector((state) => state.Countries)
   //const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
-
-  useEffect(() => {
-    dispatch(getCountries())
-  }, [countries])
 
   return (
     <>
