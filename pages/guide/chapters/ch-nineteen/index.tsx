@@ -43,7 +43,7 @@ const ChNineteen: NextPage = () => {
           <li>const getInternalAPI = async () =&gt; &#123;</li>
           <li>&nbsp;try &#123;</li>
           <li>
-            &nbsp;&nbsp;const res = await fetch(<strong>&apos;/app/mock&apos;</strong>)
+            &nbsp;&nbsp;const res = await fetch(<strong>&apos;/api/mock&apos;</strong>)
           </li>
           <li>&nbsp;&nbsp;if (res.ok) &#123;</li>
           <li>&nbsp;&nbsp;&nbsp;const data = await res.json()</li>

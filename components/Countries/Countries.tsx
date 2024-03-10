@@ -15,9 +15,9 @@ export const Countries = ({ countries }: { countries: country[] }) => {
 
       {countries?.map((country, idx: number) => {
         return (
-          <div className={style.track} key={idx}>
+          <section className={style.track} key={idx}>
             <Country {...country} />
-          </div>
+          </section>
         )
       })}
     </div>
