@@ -109,3 +109,41 @@ export const carsCity = [
   { value: 'Prague' },
   { value: 'Ceske Budejovice' },
 ]
+/*
+export type Country = {
+  code: string
+  capital?: string
+  name: string
+  native?: string
+  phone?: string | number
+  currency?: string | number
+  emoji?: string
+  emojiU?: string
+}
+ */
+export const countriesDummy = [
+  {
+    code: 'CZ',
+    name: 'Czech Republic',
+  },
+  {
+    code: 'SK',
+    name: 'Slovakia',
+  },
+  {
+    code: 'AT',
+    name: 'Austria',
+  },
+]
+export const photosDummy = [
+  {
+    title: 'photo One',
+    url: '/',
+    thumbnailUrl: '/',
+  },
+  {
+    title: 'photo One',
+    url: '/',
+    thumbnailUrl: '/',
+  },
+]

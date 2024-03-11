@@ -8,8 +8,11 @@ describe('Navigation', () => {
     render(<Navigation isNav={NavType.Sidebar} links={navigationProjectsLinks} />)
 
     const navigation = screen.getByRole('navigation')
+    const ariaLabelNav = screen.getByLabelText(/isLeft/i)
     const links = screen.getAllByRole('link')
+
     expect(navigation).toBeInTheDocument()
+    expect(ariaLabelNav).toBeInTheDocument()
     expect(links.length).toBe(3)
   })
 })
