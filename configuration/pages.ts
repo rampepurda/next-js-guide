@@ -4,6 +4,7 @@ export const Pages = {
       title: {
         guide: ['guide.accordion.headline'],
         project: ['projects.accordion.headline'],
+        tsDoc: ['projects.accordion.headline'],
       },
     },
   },

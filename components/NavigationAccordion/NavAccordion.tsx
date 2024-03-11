@@ -1,5 +1,5 @@
 import { Accordion, Navigation } from '../../components'
-import { navigationGuideLinks, navigationProjectsLinks, Pages } from '../../configuration'
+import { sidebarGuide, sidebarProjects, Pages, sidebarTypeScriptDoc } from '../../configuration'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType } from '../../types'
@@ -7,6 +7,7 @@ import { Chapters, NavType } from '../../types'
 enum PathName {
   guide = '/guide',
   project = '/projects',
+  typeScriptDoc = '/typeScriptDoc',
 }
 
 export const NavAccordion = () => {
@@ -16,12 +17,16 @@ export const NavAccordion = () => {
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
-      setChapters(navigationGuideLinks)
+      setChapters(sidebarGuide)
       setTitle(Pages.subNavMedia.accordion.title.guide)
     }
     if (pathName.startsWith(`${PathName.project}`)) {
-      setChapters(navigationProjectsLinks)
+      setChapters(sidebarProjects)
       setTitle(Pages.subNavMedia.accordion.title.project)
+    }
+    if (pathName.startsWith(`${PathName.typeScriptDoc}`)) {
+      setChapters(sidebarTypeScriptDoc)
+      setTitle(Pages.subNavMedia.accordion.title.tsDoc)
     }
   }, [pathName, chapters, title])
 

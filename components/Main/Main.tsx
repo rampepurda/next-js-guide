@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import { sidebarGuide, sidebarProjects, sidebarTypeScript } from '../../configuration'
+import { sidebarGuide, sidebarProjects, sidebarTypeScriptDoc } from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType } from '../../types'
@@ -28,7 +28,7 @@ export const Main = ({ children }: any) => {
       setChapters(sidebarProjects)
     }
     if (pathName.startsWith(`${PathName.tsDocumentation}`)) {
-      setChapters(sidebarTypeScript)
+      setChapters(sidebarTypeScriptDoc)
     }
     dispatch(getCountries())
   }, [pathName, chapters])

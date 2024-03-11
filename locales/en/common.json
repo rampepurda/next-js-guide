@@ -21,7 +21,6 @@
   },
   "navGuide": {
     "ch-one": "1. Routing",
-    "ch-two": "2. Interface - Declaration merging",
     "ch-three": "3. Environment",
     "ch-four": "4. classNames Library",
     "ch-five": "5. Dynamic & Lazy loading & .match email validation",
@@ -55,7 +54,8 @@
     "countries": "Countries"
   },
   "sidebarTypeScript": {
-    "genericFunction": "Generics"
+    "genericFunction": "Generics",
+    "interfaces": "Interface"
   },
   "ariaLabels": {
     "navigation": {
