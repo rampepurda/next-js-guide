@@ -15,7 +15,7 @@ export const navPrimary = [
   },
 ]
 
-export const navigationGuideLinks = [
+export const sidebarGuide = [
   {
     tKey: 'navGuide.ch-one',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
@@ -130,7 +130,7 @@ export const navigationGuideLinks = [
   },
 ]
 
-export const navigationProjectsLinks = [
+export const sidebarProjects = [
   {
     tKey: 'navProjectsLeft.dynamicRouter',
     link: ROUTE.PHOTO_DETAIL,
