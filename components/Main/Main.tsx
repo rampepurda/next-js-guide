@@ -12,11 +12,6 @@ enum PathName {
   project = '/projects',
   tsDocumentation = '/typeScriptDoc',
 }
-enum Paths {
-  guide = '/guide',
-  project = '/projects',
-  tsDocumentation = '/typeScriptDoc',
-}
 
 export const Main = ({ children }: any) => {
   const dispatch = useAppDispatch()
