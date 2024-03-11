@@ -1,6 +1,6 @@
 import { ROUTE } from './routes'
 
-export const navigationLinks = [
+export const navPrimary = [
   {
     tKey: 'navMain.guide',
     link: ROUTE.GUIDE,
@@ -9,9 +9,13 @@ export const navigationLinks = [
     tKey: 'navMain.projects',
     link: ROUTE.PROJECTS,
   },
+  {
+    tKey: 'navMain.typeScript',
+    link: ROUTE.PAGES.TYPE_SCRIPT.HOME,
+  },
 ]
 
-export const navigationGuideLinks = [
+export const sidebarGuide = [
   {
     tKey: 'navGuide.ch-one',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
@@ -126,7 +130,7 @@ export const navigationGuideLinks = [
   },
 ]
 
-export const navigationProjectsLinks = [
+export const sidebarProjects = [
   {
     tKey: 'navProjectsLeft.dynamicRouter',
     link: ROUTE.PHOTO_DETAIL,
@@ -138,5 +142,11 @@ export const navigationProjectsLinks = [
   {
     tKey: 'navProjectsLeft.countries',
     link: ROUTE.PROJECT_COUNTRIES,
+  },
+]
+export const sidebarTypeScript = [
+  {
+    tKey: 'sidebarTypeScript.genericFunction',
+    link: ROUTE.PAGES.TYPE_SCRIPT.GENERIC_FN,
   },
 ]

@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import { navigationGuideLinks, navigationProjectsLinks } from '../../configuration'
+import { sidebarGuide, sidebarProjects, sidebarTypeScript } from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType } from '../../types'
@@ -10,6 +10,7 @@ import { getCountries } from '../../slices'
 enum PathName {
   guide = '/guide',
   project = '/projects',
+  tsDocumentation = '/typeScriptDoc',
 }
 
 export const Main = ({ children }: any) => {
@@ -21,10 +22,13 @@ export const Main = ({ children }: any) => {
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
-      setChapters(navigationGuideLinks)
+      setChapters(sidebarGuide)
     }
     if (pathName.startsWith(`${PathName.project}`)) {
-      setChapters(navigationProjectsLinks)
+      setChapters(sidebarProjects)
+    }
+    if (pathName.startsWith(`${PathName.tsDocumentation}`)) {
+      setChapters(sidebarTypeScript)
     }
     dispatch(getCountries())
   }, [pathName, chapters])

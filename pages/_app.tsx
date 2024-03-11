@@ -5,7 +5,7 @@ import apolloClient from '../apollo/graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { store } from '../store'
 import { DateBox, Header, Main, Navigation, NavAccordion, Theme } from '../components'
-import { navigationLinks } from '../configuration'
+import { navPrimary } from '../configuration'
 import Head from 'next/head'
 import { NavType } from '../types'
 
@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <DateBox />
           <Theme ariaLabel={'controlled'} />
         </Header>
-        <Navigation isNav={NavType.Primary} links={navigationLinks} />
+        <Navigation isNav={NavType.Primary} links={navPrimary} />
         <NavAccordion />
 
         <Main>

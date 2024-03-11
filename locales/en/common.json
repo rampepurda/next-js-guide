@@ -16,6 +16,7 @@
     "home": "Home",
     "guide": "Next JS Guide",
     "projects": "Projects",
+    "typeScript": "TypeScript",
     "int": "Internationalization"
   },
   "navGuide": {
@@ -52,6 +53,9 @@
     "dynamicRouter": "Dynamic Router",
     "cars": "Cars",
     "countries": "Countries"
+  },
+  "sidebarTypeScript": {
+    "genericFunction": "Generics"
   },
   "ariaLabels": {
     "navigation": {

@@ -5,6 +5,11 @@
   position: absolute;
   top: 24%;
   left: 1.2rem;
+
+  mark {
+    background-color: $white;
+    color: $blackLight!important;
+  }
 }
 
 @media #{$screen-md} {

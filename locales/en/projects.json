@@ -22,5 +22,8 @@
     "dynamicRoute": {
       "btn":"Explore Event"
     }
+  },
+  "tsDocumentation": {
+    "title":"Next | TypeScript Documentation"
   }
 }
