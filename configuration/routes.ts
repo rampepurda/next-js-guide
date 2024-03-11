@@ -22,5 +22,9 @@ export const ROUTE = {
         },
       },
     },
+    TYPE_SCRIPT: {
+      HOME: '/typeScriptDoc',
+      GENERIC_FN: '/typeScriptDoc/generics',
+    },
   },
 }

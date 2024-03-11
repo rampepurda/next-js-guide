@@ -16,6 +16,7 @@
     "home":"聖誕餐桌",
     "guide":"指導",
     "projects":"項目",
+    "typeScript": "打字稿",
     "int": "國際化"
   },
   "navGuide": {
@@ -52,6 +53,9 @@
     "dynamicRouter": "動態路由器",
     "cars": "汽車",
     "countries": "国家"
+  },
+  "sidebarTypeScript": {
+    "genericFunction": "通用函数n"
   },
   "ariaLabels": {
     "navigation": {

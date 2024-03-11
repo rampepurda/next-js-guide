@@ -19,5 +19,8 @@
     "dynamicRoute": {
       "btn":"探索活動"
     }
+  },
+  "tsDocumentation": {
+    "title":"Next | 通用函数"
   }
 }
