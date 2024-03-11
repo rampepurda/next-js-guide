@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { Countries as CountriesData, Input } from '../../../components'
 import Head from 'next/head'
 import { useAppDispatch, useAppSelector } from '../../../store'
-import { getCountries, getSearchCountry } from '../../../slices'
+import { getSearchCountry } from '../../../slices'
 import { selectCountryFilter } from '../../../slices/Countries/countrySelectors'
 import { useInput } from '../../../hooks'
 
@@ -14,7 +14,6 @@ const Countries: NextPage = () => {
   const { handleInput, Value } = useInput()
 
   useEffect(() => {
-    dispatch(getCountries())
     dispatch(getSearchCountry({ SearchedCountryValue: Value }))
   }, [filteredCountries, Value])
 

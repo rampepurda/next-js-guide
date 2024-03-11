@@ -8,7 +8,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { CarList } from '../../configuration'
 import { CarTypes } from '../../types'
 
-const data: CarTypes[] = CarList
+const cars: CarTypes[] = CarList
+
 export default async function handler(_req: NextApiRequest, res: NextApiResponse<CarTypes[]>) {
   // This Condition doesnt work
   if (_req.method === 'POST') {
@@ -17,6 +18,6 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
   // TimeOut simulates real data fetching
   if (res.status(200))
     setTimeout(() => {
-      res.status(200).json(data)
+      res.status(200).json(cars)
     }, 2000)
 }

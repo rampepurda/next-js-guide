@@ -1,4 +1,5 @@
 export * from './date'
 export * from './fetchInternalAPI'
+export * from './getData'
 export * from './paginate'
 export * from './url'

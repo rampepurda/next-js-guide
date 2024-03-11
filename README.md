@@ -40,14 +40,13 @@ yarn test
 ```
 # How to Install Jest and Jest library
 /**
- * https://nextjs.org/docs/testing
+* [`next testing`](https://nextjs.org/docs/app/building-your-application/testing)
  * install jest + jest testing library
  * yarn add --save-dev jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
  * create:
  *  jest.config.js || jest.setup.js
  *  package.json - update script:
  *    "test": "jest"
- *
  */
 
 # Starting with Next.js 13
