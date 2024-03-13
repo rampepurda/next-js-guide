@@ -21,6 +21,9 @@ export default function Interfaces() {
 
       <div>
         <h2>Interface - Declaration merging</h2>
+        <p>
+          <strong>Interface vs type:</strong> simplified - object vs primitive type
+        </p>
         <ul className="hasTypeDisc">
           <li>
             <a

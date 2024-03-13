@@ -149,4 +149,8 @@ export const sidebarTypeScriptDoc = [
     tKey: 'sidebarTypeScript.interfaces',
     link: ROUTE.PAGES.TYPE_SCRIPT.INTERFACE,
   },
+  {
+    tKey: 'Tuple, union types',
+    link: ROUTE.PAGES.TYPE_SCRIPT.TUPLE_UNION,
+  },
 ]

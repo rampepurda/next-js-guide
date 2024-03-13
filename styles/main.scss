@@ -37,12 +37,12 @@ h2 {
 
 h3 {
   @include fontSize(1.6rem, 500);
-  margin: $spacer-4 0 $spacer-1 0;
+  margin: $spacer-4 0;
 }
 
 h4 {
   @include fontSize(1.3rem, 400);
-  margin: $spacer-2 0;
+  margin: $spacer-3 0;
   color: $blackLight;
 }
 
@@ -227,6 +227,13 @@ mark {
 .isMediumDevice,
 .isLargeDevice {
   display: none;
+}
+
+.hasOutline {
+  margin: $spacer-2 0;
+  border-radius: .4rem;
+  outline: 1px solid transparentize($grayLight, .6);
+  padding: 1rem;
 }
 
 
