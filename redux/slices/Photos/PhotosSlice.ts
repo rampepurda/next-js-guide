@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { PhotoType } from '../../types'
+import { PhotoType } from '../../../types'
 
 /**
  * https://redux-toolkit.js.org/api/createAsyncThunk
@@ -39,9 +39,9 @@ const initialState: {
 )
  */
 
-export const getPhotosWithLimit = createAsyncThunk<PhotoType[], any>(
+export const getPhotosWithLimit = createAsyncThunk<PhotoType[], { url: string; hasLimit: number }>(
   'photos/GET',
-  async (params, { rejectWithValue }) => {
+  async (params, { rejectWithValue }): Promise<any> => {
     const { url, hasLimit } = params
     try {
       const response = await fetch(`${url}?_limit=${hasLimit}`, {

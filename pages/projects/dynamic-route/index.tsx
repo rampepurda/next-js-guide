@@ -5,7 +5,7 @@ import { Pagination, Photos } from '../../../components'
 import { useEffect } from 'react'
 import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
-import { useAppSelector } from '../../../store'
+import { useAppSelector } from '../../../redux/store'
 
 interface initValues {
   photos: PhotoType[]

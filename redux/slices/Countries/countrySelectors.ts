@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { Country } from '../../types'
+import { Country } from '../../../types'
 import { AppState } from '../../store'
 
 const selectCountries = (state: AppState) => state.Countries.countries

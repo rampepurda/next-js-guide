@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useEffect } from 'react'
-import { useAppSelector } from '../../../../store'
+import { useAppSelector } from '../../../../redux/store'
 import { useState } from 'react'
 import { NextPage } from 'next'
 import { Photos, Input } from '../../../../components'
@@ -20,12 +20,12 @@ import { useChevron } from '../../../../hooks'
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
 const ChSeven: NextPage = () => {
-  const Alert: string = 'Please select numbers of photos should be displayed'
+  const message: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [hasLimit, setHasLimit] = useState<number>(0)
   const handlePhotos: OnClick = () => {
     if (hasLimit === 0) {
-      alert(`${Alert}`)
+      alert(message)
     }
   }
   const { toggleChevron, isChevronOpen } = useChevron('1. Toolkit: how to setup')

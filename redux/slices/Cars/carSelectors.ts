@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { CarTypes } from '../../types'
+import { CarTypes } from '../../../types'
 import { AppState } from '../../store'
 
 /**

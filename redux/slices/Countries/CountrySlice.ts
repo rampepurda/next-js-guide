@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { Country } from '../../types'
-import CountriesService from '../../services/Countries'
-import { Message } from '../../configuration'
+import { Country } from '../../../types'
+import CountriesService from '../../../services/Countries'
+import { Message } from '../../../configuration'
 
 /**
  * @implements: createAsyncThunk
