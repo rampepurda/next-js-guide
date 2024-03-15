@@ -27,6 +27,7 @@ export const ROUTE = {
       GENERIC_FN: '/typeScriptDoc/generics',
       INTERFACE: '/typeScriptDoc/interfaces',
       TUPLE_UNION: '/typeScriptDoc/tuple_union',
+      STRINGIFY_PARSE: '/typeScriptDoc/stringify_local_storage',
     },
   },
 }

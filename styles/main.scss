@@ -236,6 +236,9 @@ mark {
   padding: 1rem;
 }
 
+.isHidden {
+  display: none;
+}
 
 @media #{$screen-md} {
   h1 {
