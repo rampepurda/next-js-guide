@@ -21,10 +21,6 @@ export const sidebarGuide = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
   },
   {
-    tKey: 'navGuide.ch-two',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-two`,
-  },
-  {
     tKey: 'navGuide.ch-three',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-three`,
   },
@@ -144,9 +140,21 @@ export const sidebarProjects = [
     link: ROUTE.PROJECT_COUNTRIES,
   },
 ]
-export const sidebarTypeScript = [
+export const sidebarTypeScriptDoc = [
   {
     tKey: 'sidebarTypeScript.genericFunction',
     link: ROUTE.PAGES.TYPE_SCRIPT.GENERIC_FN,
+  },
+  {
+    tKey: 'sidebarTypeScript.interfaces',
+    link: ROUTE.PAGES.TYPE_SCRIPT.INTERFACE,
+  },
+  {
+    tKey: 'Tuple, union types',
+    link: ROUTE.PAGES.TYPE_SCRIPT.TUPLE_UNION,
+  },
+  {
+    tKey: 'JSON.stringify/.parse, (window.localStorage.get/set)',
+    link: ROUTE.PAGES.TYPE_SCRIPT.STRINGIFY_PARSE,
   },
 ]

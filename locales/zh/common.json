@@ -21,7 +21,6 @@
   },
   "navGuide": {
     "ch-one": "1. 路由器鏈接和查詢",
-    "ch-two": "2. 接口 - 聲明合併",
     "ch-three": "3. 環境",
     "ch-four": "4. 類名庫",
     "ch-five": "5. 動態導入和匹配電子郵件驗證",
@@ -55,7 +54,8 @@
     "countries": "国家"
   },
   "sidebarTypeScript": {
-    "genericFunction": "通用函数n"
+    "genericFunction": "通用函数n",
+    "interfaces": "界面"
   },
   "ariaLabels": {
     "navigation": {
