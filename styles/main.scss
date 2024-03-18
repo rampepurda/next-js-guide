@@ -234,6 +234,11 @@ mark {
   border-radius: .4rem;
   outline: 1px solid transparentize($grayLight, .6);
   padding: 1rem;
+
+  h2, h3, h4,
+  ul {
+    margin: 0;
+  }
 }
 
 .isHidden {

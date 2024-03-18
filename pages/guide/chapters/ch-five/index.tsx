@@ -1,5 +1,5 @@
 import style from '../../chapters.module.scss'
-import React, { lazy, useState } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import { NextPage } from 'next'
 import { InfoBox, Input } from '../../../../components'
@@ -8,7 +8,7 @@ import Image from 'next/image'
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
 import dynamic from 'next/dynamic'
 const TermsCond = dynamic<{ title: string }>(
-  () => import('../../../../components/TermsCondition').then((module) => module.TermsCondition),
+  () => import('../../../../components/TermsCondition').then((mod) => mod.TermsCondition),
   {
     ssr: false,
   }
@@ -27,6 +27,7 @@ const ChFive: NextPage = () => {
       alert('Email is not in correct format')
     }
   }
+
   return (
     <>
       <Head>
@@ -63,7 +64,6 @@ const ChFive: NextPage = () => {
           </li>
         </ul>
         <hr />
-
         <h3>There are two ways you can implement lazy loading in Next.js:</h3>
         <ul className="hasTypeDecimal">
           <li>
@@ -74,7 +74,6 @@ const ChFive: NextPage = () => {
           </li>
         </ul>
         <hr />
-
         <h2>dynamic loading</h2>
         <InfoBox className={'isInfo'}>
           <h5>
@@ -82,7 +81,26 @@ const ChFive: NextPage = () => {
             app and pages directories to allow for incremental migration.
           </h5>
         </InfoBox>
-        <ul className={classNames(style.hasNoBorder, 'hasVerticalPadding-3')}>
+
+        <h3>Rendering process</h3>
+        <ul className="hasTypeDecimal">
+          <li>the component will not be included in the page's initial JavaScript bundle.</li>
+          <li>The page will render the Suspense fallback first</li>
+          <li>followed by the Header component when the Suspense boundary is resolved.</li>
+        </ul>
+
+        <ul className={classNames(style.hasNoBorder, 'hasVerticalPadding-3', 'hasOutline')}>
+          <li>
+            <h3>
+              Remember: must be imported as <em>'export default'</em>
+            </h3>
+            <code>
+              import &#123;ComponentA&#125; from './TermsCondition'
+              <br />
+              <strong>export default</strong> ComponentA
+            </code>
+            <hr />
+          </li>
           <li>
             const <strong className="color-is-red">ComponentA = dynamic(()</strong> =&gt;
             import('../components/A'))
@@ -103,21 +121,7 @@ const ChFive: NextPage = () => {
             <br />
             &#125;);
           </li>
-        </ul>
-        <div className="hasOutline">
-          <h4>
-            Looks there is problem during importing <em>dynamic</em> component maybe only in Idea
-            environment. See import modulation below:
-          </h4>
-          <code>
-            const TermsCond = dynamic&lt;&#123; title: string&#125;&gt;(
-            <br />
-            () =&gt; import('./TermsCondition').then((module) =&gt; module.TermsCondition),
-            &#123;ssr: false,&#125;
-          </code>
-        </div>
-
-        <ul className={classNames('hasVerticalPadding-5')}>
+          <li>&nbsp;</li>
           <li>return (</li>
           <li>
             <strong className="color-is-red">&lt;ComponentA /&gt;</strong>
@@ -134,9 +138,16 @@ const ChFive: NextPage = () => {
           </li>
           <li>)</li>
         </ul>
-
+        <h3>With named exports</h3>
+        <div className="hasOutline">
+          <code>
+            const TermsCond = dynamic&lt;&#123; title: string&#125;&gt;(
+            <br />
+            () =&gt; import('./TermsCondition').then((mod) =&gt; mod.TermsCondition), &#123;ssr:
+            false,&#125;
+          </code>
+        </div>
         <h4>See dynamic example on window.localStorage.get/setItem</h4>
-
         <TermsCond title={'Accept All'} />
         <h3>JSON.stringify()</h3>
         <ul className="hasTypeDisc">
@@ -155,7 +166,6 @@ const ChFive: NextPage = () => {
           string, optionally replacing values if a replacer function is specified or optionally
           including only the specified properties if a replacer array is specified.
         </p>
-
         <h3>JSON.parse()</h3>
         <ul className="hasTypeDisc">
           <li>
@@ -174,7 +184,6 @@ const ChFive: NextPage = () => {
           provided to perform a transformation on the resulting object before it is returned.
         </p>
         <hr />
-
         <h2>lazy loading</h2>
         <InfoBox className={'isInfo'}>
           <h5>
@@ -192,7 +201,6 @@ const ChFive: NextPage = () => {
           </li>
         </ul>
         <hr />
-
         <h3>&lt;Suspense&gt;</h3>
         <InfoBox className={'isInfo'}>
           <h5>
@@ -211,7 +219,6 @@ const ChFive: NextPage = () => {
             &lt;Suspense&gt;
           </li>
         </ul>
-
         <h3>Usage</h3>
         <ul className="hasTypeDisc">
           <li>Displaying a fallback while content is loading</li>
@@ -224,7 +231,6 @@ const ChFive: NextPage = () => {
           <li>Providing a fallback for server errors and server-only content</li>
         </ul>
         <hr />
-
         <h2>.match email validation</h2>
         <form name="email">
           <label htmlFor="email">Your email:</label>
@@ -249,7 +255,6 @@ const ChFive: NextPage = () => {
             Submit
           </button>
         </form>
-
         <Image src={imgSrc} aria-hidden={true} alt="emailvalidation" />
       </div>
     </>
