@@ -86,7 +86,7 @@ const ChFive: NextPage = () => {
         <ul className="hasTypeDecimal">
           <li>the component will not be included in the page's initial JavaScript bundle.</li>
           <li>The page will render the Suspense fallback first</li>
-          <li>followed by the Header component when the Suspense boundary is resolved.</li>
+          <li>followed by the component when the Suspense boundary is resolved.</li>
         </ul>
 
         <ul className={classNames(style.hasNoBorder, 'hasVerticalPadding-3', 'hasOutline')}>
