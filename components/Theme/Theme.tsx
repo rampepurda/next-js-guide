@@ -2,8 +2,8 @@ import style from './Theme.module.scss'
 
 import React, { ChangeEvent, useEffect } from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import { useAppDispatch, useAppSelector } from '../../store'
-import { handleChangeTheme } from '../../slices'
+import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { handleChangeTheme } from '../../redux/slices'
 
 type Props = {
   ClassName?: string

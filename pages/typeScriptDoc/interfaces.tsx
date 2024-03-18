@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
-import { InfoBox } from '../../components'
 
 interface Animal {
   breed: string

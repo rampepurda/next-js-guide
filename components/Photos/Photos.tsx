@@ -2,7 +2,7 @@ import React from 'react'
 import { Photo } from '../Photo'
 import { PhotoType } from '../../types'
 import { Loader } from '../Loader/Loader'
-import { useAppSelector } from '../../store'
+import { useAppSelector } from '../../redux/store'
 
 type Props = PhotoType[]
 

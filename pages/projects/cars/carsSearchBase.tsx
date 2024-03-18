@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useSelect } from '../../../hooks'
 import { Cars, Select } from '../../../components'
 import { CarsOptions, ROUTE } from '../../../configuration'
-import { useAppDispatch, useAppSelector } from '../../../store'
-import { selectCarFilter } from '../../../slices/Cars/carSelectors'
-import { getFilterCar } from '../../../slices'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { selectCarFilter } from '../../../redux/slices/Cars/carSelectors'
+import { getFilterCar } from '../../../redux/slices'
 
 /**
  * @page CarsSearchBase - only as an example how to use 'useSelection' hook as SUB Page of Car Project

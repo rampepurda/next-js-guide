@@ -1,11 +1,16 @@
-import { useAppDispatch, useAppSelector } from '../../store'
+import { useAppDispatch, useAppSelector } from '../../redux/store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import { sidebarGuide, sidebarProjects, sidebarTypeScriptDoc } from '../../configuration'
+import {
+  environment,
+  sidebarGuide,
+  sidebarProjects,
+  sidebarTypeScriptDoc,
+} from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType } from '../../types'
-import { getCountries } from '../../slices'
+import { getCountries, getPhotosWithLimit } from '../../redux/slices'
 
 enum PathName {
   guide = '/guide',
@@ -31,6 +36,7 @@ export const Main = ({ children }: any) => {
       setChapters(sidebarTypeScriptDoc)
     }
     dispatch(getCountries())
+    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))
   }, [pathName, chapters])
 
   return (

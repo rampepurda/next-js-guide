@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { Countries as CountriesData, Input } from '../../../components'
 import Head from 'next/head'
-import { useAppDispatch, useAppSelector } from '../../../store'
-import { getSearchCountry } from '../../../slices'
-import { selectCountryFilter } from '../../../slices/Countries/countrySelectors'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { getSearchCountry } from '../../../redux/slices'
+import { selectCountryFilter } from '../../../redux/slices/Countries/countrySelectors'
 import { useInput } from '../../../hooks'
 
 const Countries: NextPage = () => {

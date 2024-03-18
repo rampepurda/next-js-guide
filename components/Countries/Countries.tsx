@@ -2,7 +2,7 @@ import style from './Countries.module.scss'
 
 import { Country } from '../Country'
 import { Country as country } from '../../types'
-import { useAppSelector } from '../../store'
+import { useAppSelector } from '../../redux/store'
 import { Loader } from '../../components'
 
 export const Countries = ({ countries }: { countries: country[] }) => {

@@ -62,13 +62,13 @@ ul {
   list-style: none;
 
   li {
+    @include fontSize(1.3rem, normal);
     padding: .7rem 1rem;
-    font-size: 1.2rem;
 
     a {
+      @include fontSize(1.2rem, normal);
       margin: -.7rem -1rem;
       padding: .7rem 1rem;
-      font-size: 1.2rem;
     }
   }
 
@@ -234,6 +234,11 @@ mark {
   border-radius: .4rem;
   outline: 1px solid transparentize($grayLight, .6);
   padding: 1rem;
+
+  h2, h3, h4,
+  ul {
+    margin: 0;
+  }
 }
 
 .isHidden {

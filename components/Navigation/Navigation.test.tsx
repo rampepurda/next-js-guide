@@ -1,18 +1,18 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { Navigation } from './'
 import { NavType } from '../../types'
-import { navigationProjectsLinks } from '../../configuration'
+import { sidebarTypeScriptDoc } from '../../configuration'
 
 describe('Navigation', () => {
   it('Renders navigation', () => {
-    render(<Navigation isNav={NavType.Sidebar} links={navigationProjectsLinks} />)
+    render(<Navigation isNav={NavType.Sidebar} links={sidebarTypeScriptDoc} />)
 
     const navigation = screen.getByRole('navigation')
     const ariaLabelNav = screen.getByLabelText(/isLeft/i)
-    const links = screen.getAllByRole('link')
+    const links = within(navigation).getAllByRole('link')
 
     expect(navigation).toBeInTheDocument()
     expect(ariaLabelNav).toBeInTheDocument()
-    expect(links.length).toBe(3)
+    expect(links.length).toBe(4)
   })
 })
