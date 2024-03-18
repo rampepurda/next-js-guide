@@ -36,7 +36,7 @@ export const Main = ({ children }: any) => {
       setChapters(sidebarTypeScriptDoc)
     }
     dispatch(getCountries())
-    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: '233' }))
+    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))
   }, [pathName, chapters])
 
   return (

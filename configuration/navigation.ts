@@ -153,8 +153,4 @@ export const sidebarTypeScriptDoc = [
     tKey: 'Tuple, union types',
     link: ROUTE.PAGES.TYPE_SCRIPT.TUPLE_UNION,
   },
-  {
-    tKey: 'JSON.stringify/.parse, (window.localStorage.get/set)',
-    link: ROUTE.PAGES.TYPE_SCRIPT.STRINGIFY_PARSE,
-  },
 ]

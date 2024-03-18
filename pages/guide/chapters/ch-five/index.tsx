@@ -1,27 +1,32 @@
 import style from '../../chapters.module.scss'
-import React, { useState } from 'react'
+import React, { lazy, useState } from 'react'
 import classNames from 'classnames'
 import { NextPage } from 'next'
 import { InfoBox, Input } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgSrc from '../../../../public/images/ch-five/email_validation.png'
-
-const handleSubmit = (email: any) => {
-  if (
-    email.match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )
-  ) {
-    alert('All correct')
-  } else {
-    alert('Email is not in correct format')
+import dynamic from 'next/dynamic'
+const TermsCond = dynamic<{ title: string }>(
+  () => import('../../../../components/TermsCondition').then((module) => module.TermsCondition),
+  {
+    ssr: false,
   }
-}
+)
 
 const ChFive: NextPage = () => {
   const [InpEmail, setInpEmail] = useState<any>('')
-
+  const handleSubmit = (email: string) => {
+    if (
+      email.match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+    ) {
+      alert('All correct')
+    } else {
+      alert('Email is not in correct format')
+    }
+  }
   return (
     <>
       <Head>
@@ -30,7 +35,6 @@ const ChFive: NextPage = () => {
 
       <div>
         <h2>5. Dynamic & Lazy loading</h2>
-
         <ul className="hasTypeDisc">
           <li>
             <a
@@ -71,7 +75,7 @@ const ChFive: NextPage = () => {
         </ul>
         <hr />
 
-        <h3>Next/dynamic</h3>
+        <h2>dynamic loading</h2>
         <InfoBox className={'isInfo'}>
           <h5>
             next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the
@@ -99,26 +103,79 @@ const ChFive: NextPage = () => {
             <br />
             &#125;);
           </li>
+        </ul>
+        <div className="hasOutline">
+          <h4>
+            Looks there is problem during importing <em>dynamic</em> component maybe only in Idea
+            environment. See import modulation below:
+          </h4>
+          <code>
+            const TermsCond = dynamic&lt;&#123; title: string&#125;&gt;(
+            <br />
+            () =&gt; import('./TermsCondition').then((module) =&gt; module.TermsCondition),
+            &#123;ssr: false,&#125;
+          </code>
+        </div>
+
+        <ul className={classNames('hasVerticalPadding-5')}>
           <li>return (</li>
           <li>
-            <h5>// Load immediately, but in a separate client bundle //</h5>
             <strong className="color-is-red">&lt;ComponentA /&gt;</strong>
+            <h5>Load immediately, but in a separate client bundle</h5>
           </li>
           <li>
-            <h5>// Load on demand, only when/if the condition is met //</h5>
             &#123;showMore && &lt;<strong className="color-is-red">ComponentB</strong> /&gt;&#125;
-            <br />
+            <h5>Load on demand, only when/if the condition is met</h5>
             &lt;button onClick=&#123;() =&gt; setShowMore(!showMore)&#125;&gt;Toggle&lt;/button&gt;
           </li>
           <li>
-            <h5>// Load only on the client side //</h5>
             <strong className="color-is-red">&lt;ComponentC /&gt;</strong>
+            <h5>Load only on the client side</h5>
           </li>
           <li>)</li>
         </ul>
+
+        <h4>See dynamic example on window.localStorage.get/setItem</h4>
+
+        <TermsCond title={'Accept All'} />
+        <h3>JSON.stringify()</h3>
+        <ul className="hasTypeDisc">
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Read more about JSON.stringify
+            </a>
+          </li>
+        </ul>
+        <p>
+          The <strong>JSON.stringify()</strong> static method converts a JavaScript value to a JSON
+          string, optionally replacing values if a replacer function is specified or optionally
+          including only the specified properties if a replacer array is specified.
+        </p>
+
+        <h3>JSON.parse()</h3>
+        <ul className="hasTypeDisc">
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Read more about JSON.parse
+            </a>
+          </li>
+        </ul>
+        <p>
+          The <strong>JSON.parse()</strong> static method parses a JSON string, constructing the
+          JavaScript value or object described by the string. An optional reviver function can be
+          provided to perform a transformation on the resulting object before it is returned.
+        </p>
         <hr />
 
-        <h3>lazy</h3>
+        <h2>lazy loading</h2>
         <InfoBox className={'isInfo'}>
           <h5>
             <em>lazy</em> lets you defer loading component’s code until it is rendered for the first
