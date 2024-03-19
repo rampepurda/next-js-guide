@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ROUTE } from '../../../../configuration'
 import { useRouter } from 'next/router'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useAppSelector } from '../../../../store'
+import { useAppSelector } from '../../../../redux/store'
 import classNames from 'classnames'
 
 const ChTwentyTwo: NextPage = () => {
