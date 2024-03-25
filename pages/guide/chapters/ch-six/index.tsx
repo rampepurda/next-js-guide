@@ -1,6 +1,6 @@
 import style from '../../chapters.module.scss'
 import useTranslation from 'next-translate/useTranslation'
-import { useAppSelector } from '../../../../store'
+import { useAppSelector } from '../../../../redux/store'
 import Trans from 'next-translate/Trans'
 import Head from 'next/head'
 import { InfoBox, Input, DateBox } from '../../../../components'
