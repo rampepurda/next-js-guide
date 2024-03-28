@@ -1,12 +1,14 @@
-import { useRouter } from 'next/router'
 import { Button } from '../../../../components'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useParams, usePathname, useSearchParams } from 'next/navigation'
 
 const ChOneSlug: () => void = () => {
   const path = usePathname()
-  const router = useRouter()
+  /*
+    const router = useRouter()
+    const { slug = [] } = router.query
+   */
   const queries = useSearchParams()
-  const { params = [] } = router.query
+  const params = useParams<{ slug: string }>()
   const styleSheet: any = {
     cover: {
       padding: '5rem 2rem',
@@ -22,7 +24,7 @@ const ChOneSlug: () => void = () => {
   return (
     <div style={styleSheet.cover}>
       <label>Param is:</label>
-      <h4 style={styleSheet.headline}>{params}</h4>
+      <h4 style={styleSheet.headline}>{params.slug}</h4>
       <label>PathName is:</label>
       <h4 style={styleSheet.headline}>{path}</h4>
       {queries.get('chanel') === 'netflix' && (

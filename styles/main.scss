@@ -98,6 +98,13 @@ ul {
       }
     }
   }
+
+  &.isHorizontal {
+    li {
+      display: inline-block;
+      padding: .5rem;
+    }
+  }
 }
 
 hr {
@@ -232,7 +239,7 @@ mark {
 .hasOutline {
   margin: $spacer-2 0;
   border-radius: .4rem;
-  outline: 1px solid transparentize($grayLight, .6);
+  outline: 1px solid transparentize($grayLight, .2);
   padding: 1rem;
 
   h2, h3, h4,
