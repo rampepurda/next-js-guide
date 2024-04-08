@@ -11,7 +11,7 @@ const ChOneSlug: () => void = () => {
   const params = useParams<{ slug: string }>()
   const styleSheet: any = {
     cover: {
-      padding: '5rem 2rem',
+      padding: '1rem 2rem',
     },
     headline: {
       margin: '.2rem 0 1rem 0',
