@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
-import { InfoBox, Loader } from '../../../../components'
+import { Loader } from '../../../../components'
 import Head from 'next/head'
+import Link from 'next/link'
 
 const ChSeventeen: NextPage = () => {
   return (
@@ -18,45 +19,45 @@ const ChSeventeen: NextPage = () => {
         >
           Webpack, read more here
         </a>
-        <hr />
 
-        <InfoBox className="isInfo">
-          <h4>
-            Webpack in react is a JavaScript module bundler that is commonly used with React to
-            bundle and manage dependencies. It takes all of the individual JavaScript files and
-            other assets in a project, <strong>such as images and CSS</strong>, and combines them
-            into a single bundle that can be loaded by the browser. Webpack also has the ability to
-            transpile modern JavaScript code (such as ES6) into older versions that can be
-            understood by older browsers.
-          </h4>
-        </InfoBox>
+        <h4 className="hasOutline">
+          Webpack in react is a JavaScript module bundler that is commonly used with React to bundle
+          and manage dependencies. It takes all of the individual JavaScript files and other assets
+          in a project, <strong>such as images and CSS</strong>, and combines them into a single
+          bundle that can be loaded by the browser. Webpack also has the ability to transpile modern
+          JavaScript code (such as ES6) into older versions that can be understood by older
+          browsers.
+        </h4>
 
         <h3>1. How to use &apos; svg &apos; format as Component in Next &lt; 13 = Install SVGR</h3>
-        <a
+        <Link
           href="https://frontend-digest.com/how-to-import-svgs-into-nextjs-8ec6100e613f"
           target="_blank"
           rel="noreferrer"
         >
           How To Import SVGs into NextJS read more here
-        </a>
+        </Link>
 
         <ul className="hasTypeDisc">
           <li>
-            SVGR is a tool that{' '}
+            SVGR is a tool that&nbsp;
             <strong>
               allows us to import SVGs into your React applications as React components
             </strong>
+            <h4>import GridLoaderSWG from &apos;./c-grid-loader.svg&apos;</h4>
+            <h4>&lt;div&gt; &lt;GridLoaderSWG /&gt; &lt;/div&gt;</h4>
+            <Loader ClassName={'loader'} />
           </li>
           <li>
             To use{' '}
-            <a
+            <Link
               href="https://react-svgr.com/docs/options/"
               target="_blank"
               aria-label="read more about svgr"
               rel="noreferrer"
             >
               SVGR
-            </a>{' '}
+            </Link>{' '}
             with our project, we need to first <strong>install the dependency @svgr/webpack</strong>
             , and then modify our next.config.js file as follows.
           </li>
@@ -64,13 +65,13 @@ const ChSeventeen: NextPage = () => {
             <strong>yarn add @svgr/webpack</strong>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/"
               target="_blank"
               rel="noreferrer"
             >
               <strong>svg and Web Accessibility read here</strong>
-            </a>
+            </Link>
             <a
               href="https://www.w3.org/TR/SVG11/struct.html#DescriptionAndTitleElements"
               rel="noreferrer"
@@ -81,11 +82,9 @@ const ChSeventeen: NextPage = () => {
             </a>
           </li>
         </ul>
-        <InfoBox className="isDanger">
-          <h4>! READ MORE ABOUT SVGR OPTIONS IN: &apos;next.config.js&apos; !</h4>
-        </InfoBox>
+        <h4>! READ MORE ABOUT SVGR OPTIONS IN: &apos;next.config.js&apos; !</h4>
 
-        <Loader ClassName={'loader'} />
+        <h3>2. Web Accessibility: svg and aria-labelledby</h3>
         <ul className="hasVerticalPadding-3">
           <li>
             &lt;svg xmlns...{' '}

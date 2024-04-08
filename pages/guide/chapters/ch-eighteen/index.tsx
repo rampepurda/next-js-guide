@@ -14,6 +14,18 @@ const ChEight: NextPage = () => {
 
       <div>
         <h2>18. Next 13.4.7 - What is new?</h2>
+        <div className="hasOutline">
+          <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
+          <mark>Using Pages router</mark>
+          <h4>Structure: Pages/About, Pages/User/Data</h4>
+          <hr />
+
+          <mark>Using App routes</mark>
+          <h4>
+            During Next installation checked the choice: Use App Router. Structure: About/page.tsx,
+            Client/User/page.tsx
+          </h4>
+        </div>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
             <a href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
@@ -37,12 +49,10 @@ const ChEight: NextPage = () => {
         </ul>
         <hr />
         <h3>Use App Route: layout structure</h3>
-        <InfoBox className="isDanger">
-          <p>
-            Use App Route (recommended) Yes - during installation: REMEMBER - is still in Beta
-            version!!
-          </p>
-        </InfoBox>
+        <h4 className="hasOutline">
+          Use App Route (recommended) Yes - during installation: REMEMBER - is still in Beta
+          version!!
+        </h4>
         <ul className="hasTypeDisc">
           <li>Use App Router as is shown below</li>
           <li>_app &rarr; layout</li>
