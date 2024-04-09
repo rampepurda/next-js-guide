@@ -36,6 +36,10 @@ export interface CarTypes {
   location?: string
   price: string
 }
+export interface SlideShowImages {
+  url: any
+  alt: string
+}
 export type InpRest = Record<string, string>
 
 // Hooks

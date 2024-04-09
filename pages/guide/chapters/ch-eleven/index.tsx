@@ -1,8 +1,9 @@
 import { NextPage } from 'next'
-import { InfoBox } from '../../../../components'
+import { InfoBox, SlideShow } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgNextConfig from '../../../../public/images/ch-eleven/nextconfig.png'
+import { dataSlideshow } from '../../../../__mock__/dataMock'
 
 export const ChEleven: NextPage = () => {
   return (
@@ -88,6 +89,11 @@ export const ChEleven: NextPage = () => {
           <li>Text on background image</li>
         </ul>
       </div>
+      <hr />
+
+      <h2>Slideshow component</h2>
+      <h4>For more about the Code structure see: Components/SlideShow</h4>
+      <SlideShow images={dataSlideshow} />
     </>
   )
 }

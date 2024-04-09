@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/spacing";
+@import "../../styles/breakpoints";
+
+.isNotActive {
+  display: none;
+}
+
+.isActive {
+  display: inline-block;
+  aspect-ratio: inherit;
+  width: 400px;
+}
+
+
