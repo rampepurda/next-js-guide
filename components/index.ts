@@ -1,6 +1,7 @@
 export * from './Accordion'
 export * from './Cars/Cars'
 export * from './Countries/Countries'
+export * from './Continents'
 export * from './Date/index'
 export * from './Forms/index'
 export * from './Header'
