@@ -1,4 +1,4 @@
-import style from '../../../../components/Input/Input.module.scss'
+import classes from '../../../../components/Input/Input.module.scss'
 import { NextPage } from 'next'
 import { InfoBox, Input } from '../../../../components'
 import Head from 'next/head'
@@ -140,7 +140,7 @@ const ChTwentySix: NextPage = () => {
               <div>
                 <input
                   id="nameOne"
-                  className={style.Input}
+                  className={classes.Input}
                   placeholder="first name"
                   {...register('firstNameDummy', {
                     required: 'First Name is required',
@@ -162,7 +162,7 @@ const ChTwentySix: NextPage = () => {
               <div>
                 <input
                   id="lastNameOne"
-                  className={style.Input}
+                  className={classes.Input}
                   placeholder="Last name"
                   {...register('lastNameDummy', {
                     required: 'Last Name is required',
@@ -290,14 +290,14 @@ const ChTwentySix: NextPage = () => {
         <p>When I used useForm with MUI I noted problem to reset() Form</p>
         <h4>
           For that reason I used <mark>watch</mark> to help me clear Form data.
-          <a
+          <Link
             href="https://react-hook-form.com/docs/useform/watch"
             target="_blank"
             rel="noreferrer"
             style={{ display: 'block' }}
           >
             Read more about <strong>watch</strong> here.
-          </a>{' '}
+          </Link>
         </h4>
       </div>
     </>

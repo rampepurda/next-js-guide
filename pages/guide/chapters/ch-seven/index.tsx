@@ -39,7 +39,11 @@ const ChSeven: NextPage = () => {
       </Head>
 
       <div>
-        <h2>7. Next JS and Redux-Toolkit</h2>
+        <h2>7. Redux-Toolkit</h2>
+        <h4 className="hasOutline">
+          If you want to know more about <strong>Redux, Redux Toolkit and useRouter hook</strong>{' '}
+          see project: React18/Content/Chapter 7
+        </h4>
         <ul className="hasTypeDisc">
           <li>yarn add @reduxjs/toolkit react-redux</li>
           <li>
@@ -61,10 +65,8 @@ const ChSeven: NextPage = () => {
             </a>
           </li>
         </ul>
-        <hr />
 
         {toggleChevron()}
-
         {isChevronOpen ? (
           <div>
             <h3>store.ts</h3>
