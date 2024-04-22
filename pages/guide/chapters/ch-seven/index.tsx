@@ -12,7 +12,6 @@ import {
   imgSlice,
   imgStore,
   imgHooks,
-  imgThunkApi,
   imgThunkWithRejValue,
 } from './index-img'
 import { useChevron } from '../../../../hooks'
@@ -96,16 +95,9 @@ const ChSeven: NextPage = () => {
         <Image src={imgExtraReducer} aria-hidden="true" alt="store" />
 
         <h3>4. Thunk: payloadCreator</h3>
-        <p>
-          <mark>thunkAPI</mark>
+        <div>
           <mark>&#123; rejectWithValue &#125;</mark>
-        </p>
-
-        <h4 className="color-is-red">thunkAPI</h4>
-        <p>
-          Via thunkAPI <strong>states and actions</strong> are reachable in thunk, see below:
-        </p>
-        <Image src={imgThunkApi} aria-hidden="true" alt="thunk" />
+        </div>
 
         <h4 className="color-is-red">&#123; rejectWithValue &#125;</h4>
         <p>
