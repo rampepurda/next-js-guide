@@ -6,3 +6,20 @@ export const dataSlideshow: SlideShowImages[] = [
   { url: imgNextConfig, alt: 'one' },
   { url: imgDummySlide, alt: 'two' },
 ]
+export const CarName = [
+  {
+    model: 'audi',
+  },
+  {
+    model: 'toyota',
+  },
+  {
+    model: 'bmw',
+  },
+  {
+    model: 'ferrari',
+  },
+  {
+    model: 'citroen',
+  },
+]

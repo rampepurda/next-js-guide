@@ -4,20 +4,26 @@
  * Next.js API route support: https://nextjs.org/docs/api-routes/introduction
  */
 
-import { NextApiRequest, NextApiResponse } from 'next'
-import { CarList } from '../../configuration'
-import { CarTypes } from '../../types'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { CarName } from '../../__mock__/dataMock'
+import { CarNameTS } from '../../types'
 
-const cars: CarTypes[] = CarList
+const cars: CarNameTS[] = CarName
 
-export default async function handler(_req: NextApiRequest, res: NextApiResponse<CarTypes[]>) {
-  // This Condition doesnt work
-  if (_req.method === 'POST') {
-    const model = _req.body.model
-  }
-  // TimeOut simulates real data fetching
-  if (res.status(200))
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'GET') {
+    // TimeOut simulates real data fetching
     setTimeout(() => {
       res.status(200).json(cars)
     }, 2000)
+  }
+  if (req.method === 'POST') {
+    const car = req.body
+    const carSingle = JSON.parse(car)
+    const newCar: CarNameTS = {
+      model: carSingle.model,
+    }
+    cars.push(newCar)
+    res.status(200).json(cars)
+  }
 }

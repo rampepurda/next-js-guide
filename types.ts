@@ -40,6 +40,9 @@ export interface CarTypes {
   location?: string
   price: string
 }
+export interface CarNameTS {
+  model: string
+}
 export interface SlideShowImages {
   url: any
   alt: string
