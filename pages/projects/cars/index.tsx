@@ -1,4 +1,4 @@
-import style from './Cars.module.scss'
+import classes from './Cars.module.scss'
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
@@ -45,7 +45,7 @@ const CarsPage: NextPage = () => {
 
       <div>
         <h3>1. Find Car by Name and City:</h3>
-        <div className={style.searchBox}>
+        <div className={classes.searchBox}>
           <Select
             ClassName="select"
             options={CarsOptions}
