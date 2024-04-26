@@ -12,7 +12,6 @@ import {
   imgSlice,
   imgStore,
   imgHooks,
-  imgThunkApi,
   imgThunkWithRejValue,
 } from './index-img'
 import { useChevron } from '../../../../hooks'
@@ -39,7 +38,11 @@ const ChSeven: NextPage = () => {
       </Head>
 
       <div>
-        <h2>7. Next JS and Redux-Toolkit</h2>
+        <h2>7. Redux-Toolkit</h2>
+        <h4 className="hasOutline">
+          If you want to know more about <strong>Redux, Redux Toolkit and useRouter hook</strong>{' '}
+          see project: React18/Content/Chapter 7
+        </h4>
         <ul className="hasTypeDisc">
           <li>yarn add @reduxjs/toolkit react-redux</li>
           <li>
@@ -61,10 +64,8 @@ const ChSeven: NextPage = () => {
             </a>
           </li>
         </ul>
-        <hr />
 
         {toggleChevron()}
-
         {isChevronOpen ? (
           <div>
             <h3>store.ts</h3>
@@ -94,16 +95,9 @@ const ChSeven: NextPage = () => {
         <Image src={imgExtraReducer} aria-hidden="true" alt="store" />
 
         <h3>4. Thunk: payloadCreator</h3>
-        <p>
-          <mark>thunkAPI</mark>
+        <div>
           <mark>&#123; rejectWithValue &#125;</mark>
-        </p>
-
-        <h4 className="color-is-red">thunkAPI</h4>
-        <p>
-          Via thunkAPI <strong>states and actions</strong> are reachable in thunk, see below:
-        </p>
-        <Image src={imgThunkApi} aria-hidden="true" alt="thunk" />
+        </div>
 
         <h4 className="color-is-red">&#123; rejectWithValue &#125;</h4>
         <p>

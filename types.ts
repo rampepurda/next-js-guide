@@ -29,12 +29,23 @@ export type Country = {
   emoji?: string
   emojiU?: string
 }
+export type Continent = {
+  name: string
+  code: string
+}
 export interface CarTypes {
   id: string | number
   model: string
   name: string
   location?: string
   price: string
+}
+export interface CarNameTS {
+  model: string
+}
+export interface SlideShowImages {
+  url: any
+  alt: string
 }
 export type InpRest = Record<string, string>
 

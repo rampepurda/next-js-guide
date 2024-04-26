@@ -1,20 +1,42 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { ROUTE } from '../../../../configuration'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, FormEvent } from 'react'
 import { fetchInternalAPI } from '../../../../utils'
-import { CarTypes } from '../../../../types'
+import { CarNameTS } from '../../../../types'
 import Link from 'next/link'
 
 const ChNineteen: NextPage = () => {
-  const [internalData, setInternalData] = useState<CarTypes[]>([])
-  const loading = (data: CarTypes[]) => {
-    return <h4>{data.length === 0 ? <p>...Loading</p> : ''}</h4>
+  const localURL: string = '/api/mock'
+  const [cars, setCars] = useState<CarNameTS[]>([])
+  const getLocalData = async () => {
+    const data = await fetchInternalAPI(localURL)
+    setCars(data)
+  }
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget)
+    const formDataObject = Object.fromEntries(formData)
+    const form = event.currentTarget
+    const response = await fetch(localURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application.json' },
+      body: JSON.stringify(formDataObject),
+    })
+
+    try {
+      if (response) {
+        alert(`Car: ${formDataObject.model} was added`)
+        form.reset()
+      }
+    } catch (err) {
+      alert(`${err}`)
+    }
   }
 
   useEffect(() => {
-    fetchInternalAPI('/api/mock', setInternalData).then()
+    getLocalData().then()
   }, [])
+
   return (
     <>
       <Head>
@@ -22,13 +44,13 @@ const ChNineteen: NextPage = () => {
       </Head>
 
       <div>
-        <h2>19. Internal API routes</h2>
-        <hr />
-
-        <h3>Internal API</h3>
+        <h2>19. Internal API routes - Next &lt;14 (handler)</h2>
+        <h4 className="hasOutline">
+          In Next 14 &apos;handler&apos; was got rid. For more see Tutorial Next14_app_router
+        </h4>
+        <h3>Internal API - PageRouter</h3>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>pages/api/name or name/subName ...</li>
-          <li>pages/api/mock</li>
           <li>
             Fn name: <strong>handler</strong> (is obliged/ rule to use)
           </li>
@@ -38,38 +60,31 @@ const ChNineteen: NextPage = () => {
         </Link>
         <hr />
 
-        <h3>How to get Internal API</h3>
-        <ul className="hasVerticalPadding-2">
-          <li>const getInternalAPI = async () =&gt; &#123;</li>
-          <li>&nbsp;try &#123;</li>
-          <li>
-            &nbsp;&nbsp;const res = await fetch(<strong>&apos;/api/mock&apos;</strong>)
-          </li>
-          <li>&nbsp;&nbsp;if (res.ok) &#123;</li>
-          <li>&nbsp;&nbsp;&nbsp;const data = await res.json()</li>
-          <li>
-            &nbsp;&nbsp;&nbsp;<strong>return setData(data)</strong>
-          </li>
-          <li>&nbsp;&nbsp;&#125;</li>
-          <li>&nbsp;&#125; catch (err) &#123;&#123; return err&#125;&#125;</li>
-        </ul>
-        <h4>See example below:</h4>
-        {loading(internalData)}
-        {internalData.map((car: CarTypes, idx) => {
-          return <div key={idx}>Model: {car.model}</div>
+        <h3>How to get/POST Internal API</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="newCar">Add New Car:</label>
+          <input
+            id="newCar"
+            name="model"
+            type="text"
+            placeholder="new car"
+            aria-label="write new car name you want to add"
+          />
+          <button type="submit">Submit</button>
+        </form>
+        {cars.length === 0 && <h4>...loading</h4>}
+        {cars.map((car, idx) => {
+          return <p key={idx}>{car.model}</p>
         })}
         <hr />
-
         <h3>How to get Internal API by SWR</h3>
         <ul className="hasVerticalPadding-2 hasTypeDisc">
           <li>
-            {' '}
             <a href="https://swr.vercel.app/" rel="noreferrer" target="_blank">
               Read more about SWR
             </a>
           </li>
           <li>
-            {' '}
             <a
               href="https://github.com/vercel/next.js/blob/canary/examples/api-routes/pages/index.tsx"
               rel="noreferrer"

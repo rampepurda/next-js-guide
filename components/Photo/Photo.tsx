@@ -1,5 +1,4 @@
-import style from './Photo.module.scss'
-
+import classes from './Photo.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PhotoType } from '../../types'
@@ -11,9 +10,9 @@ export const Photo = ({ id, title, thumbnailUrl }: PhotoType) => {
   const { t } = useTranslation('common')
 
   return (
-    <div className={classNames('card', style.Cover)}>
+    <div className={classNames('card', classes.Cover)}>
       <Image
-        className={style.Image}
+        className={classes.Image}
         src={thumbnailUrl}
         alt={title}
         height={150}
@@ -24,7 +23,7 @@ export const Photo = ({ id, title, thumbnailUrl }: PhotoType) => {
       <h3>{title}</h3>
       <div>
         <button className="btn btn-submit" type="button">
-          <Link className={style.link} href={`${ROUTE.PHOTO_DETAIL}/${id}`}>
+          <Link className={classes.link} href={`${ROUTE.PHOTO_DETAIL}/${id}`}>
             {t('projects:projects.dynamicRoute.btn')}
           </Link>
         </button>

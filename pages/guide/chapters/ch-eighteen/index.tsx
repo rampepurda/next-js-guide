@@ -13,7 +13,7 @@ const ChEight: NextPage = () => {
       </Head>
 
       <div>
-        <h2>18. Next 13.4.7 - What is new?</h2>
+        <h2>18. Next &gt;13.4.7 - What is new?</h2>
         <div className="hasOutline">
           <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
           <mark>Using Pages router</mark>
@@ -37,15 +37,6 @@ const ChEight: NextPage = () => {
               Server Actions: NextJS 13.4 s Best New Feature - read more
             </a>{' '}
           </li>
-          <li>
-            <a
-              href="https://nextjs.org/docs/pages/building-your-application/routing/api-routes"
-              rel="noreferrer"
-              target="_blank"
-            >
-              API Routes - read more
-            </a>{' '}
-          </li>
         </ul>
         <hr />
         <h3>Use App Route: layout structure</h3>
@@ -62,24 +53,6 @@ const ChEight: NextPage = () => {
           <li>pages/ still in use</li>
         </ul>
         <Image src={imgInstallNext} alt="next13 installationprocess" aria-hidden="true" />
-        <h3>Next.js Internal App Routers</h3>
-        <p>For more info lets check project: NEXT-13-USE-APP-ROUTE-WITH-tailwind</p>
-        <InfoBox className="isDanger">
-          <p>REMEMBER: In case using Internal Api Routes const must be outside of default Fn!</p>
-        </InfoBox>
-        <ul className="hasTypeDisc">
-          <li>configure: next.config.js</li>
-          <li>
-            <a
-              href="https://nextjs.org/docs/pages/building-your-application/routing/api-routes"
-              target="_blank"
-              rel="noreferrer"
-            >
-              API Routes - read more
-            </a>{' '}
-          </li>
-        </ul>
-        <hr />
 
         <h3>Custom Document (api/_document.tsx)</h3>
         <a

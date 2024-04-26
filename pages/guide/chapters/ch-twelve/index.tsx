@@ -62,8 +62,19 @@ const ChTwelve: NextPage = () => {
             <h5>Apollo Client</h5>
             yarn add @apollo/client
           </li>
+          <li>
+            <h5>graphql-request</h5>
+            yarn add graphql-request
+          </li>
         </ul>
-        <hr />
+        <div className="hasOutline">
+          <h3>Do I get response? Try it.</h3>
+          <code>
+            apolloClient.query(&#123; query: GET_CONTINENTS_QUERY, &#125;) .then((result) =&gt;
+            &#123; console.log(result) &#125;)
+          </code>
+        </div>
+
         <h3>2. Feature data requirements (CLIENT)</h3>
         <ul className="hasTypeDisc">
           <li>
@@ -84,10 +95,7 @@ const ChTwelve: NextPage = () => {
             </ul>
           </li>
           <li>
-            <h5>Fetch Apollo Client</h5>
-          </li>
-          <li>
-            <h5>_app.tsx</h5>
+            <h3>_app.tsx</h3>
             <ul>
               <li className="hasVerticalPadding-2">
                 import apolloClient from &quot;../apollo/graphql-client&quot;
@@ -96,7 +104,13 @@ const ChTwelve: NextPage = () => {
                 import &#123; ApolloProvider &#125; from &quot;@apollo/client&quot;
               </li>
               <li className="hasVerticalPadding-10">
-                <h4>&lt;ApolloProvider client=&#123;apolloClient&#125;&gt; content &lt;/&gt;</h4>
+                <h4>
+                  &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;
+                  <br />
+                  &nbsp;&nbsp;content
+                  <br />
+                  &lt;/ApolloProvider&gt;
+                </h4>
               </li>
             </ul>
           </li>
@@ -183,7 +197,7 @@ const ChTwelve: NextPage = () => {
           abstraction layer that provides flexibility to consumers while hiding backend
           implementation details.
         </p>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h5>Definition Schema Language(DSL)</h5>
           <hr />
           <ul className="hasVerticalPadding-2">
@@ -202,10 +216,9 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
           <h5>It`s a good practice to make documentation for each schema</h5>
-        </InfoBox>
-        <Image src={imgApolloStructure} alt="ApolloStructure" />
+        </div>
 
-        <hr />
+        <Image src={imgApolloStructure} alt="ApolloStructure" />
         <h3>3. Resolvers</h3>
         <ul className="hasTypeDecimal">
           <li>
@@ -256,15 +269,15 @@ const ChTwelve: NextPage = () => {
           <h4>
             Much like the Query type, the <strong>Mutation type</strong> serves as an entry point to
             our schema. It follows the same syntax as the schema definition language, or SDL, that
-            we've been using so far.
+            we&apos;ve been using so far.
           </h4>
         </InfoBox>
         <h3>3.1 Mutation - Schema syntax</h3>
         <p>
           We declare the Mutation type using the type keyword, then the name Mutation. Inside the
-          curly braces, we have our entry points, the fields we'll be using to mutate our data.
+          curly braces, we have our entry points, the fields we&apos;ll be using to mutate our data.
         </p>
-        <InfoBox className={'isWarning'}>
+        <div className="hasOutline">
           <h4>
             type Mutation &#123; incrementTrackViews(id: ID!): IncrementTrackViewsResponse! &#125;
           </h4>
@@ -277,7 +290,7 @@ const ChTwelve: NextPage = () => {
             <li>&nbsp;track: Track</li>
             <li>&#125;</li>
           </ul>
-        </InfoBox>
+        </div>
         <p>
           We recommend starting with a <strong>verb</strong> that describes the specific action of
           our update operation <strong>(such as add, delete, or create)</strong>, followed by
@@ -288,7 +301,7 @@ const ChTwelve: NextPage = () => {
         <h4>For more see Next JS Apollo GraphQL Project</h4>
 
         <h3>3.2 Mutation - `gql`</h3>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <ul className="hasVerticalPadding-2">
             <li>
               export <strong>const GET_TRACK_NUM_VIEWS = gql`</strong>
@@ -300,10 +313,10 @@ const ChTwelve: NextPage = () => {
             <li>&nbsp;&nbsp; track &#123; ... &#125;</li>
             <li>&#125;</li>
           </ul>
-        </InfoBox>
-        <hr />
+        </div>
+
         <h3>3.2 Mutation - use</h3>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h4>import &#123; useMutation &#125; from &apos;@apollo/client&apos;;</h4>
           <hr />
           <ul className="hasVerticalPadding-2">
@@ -315,11 +328,9 @@ const ChTwelve: NextPage = () => {
           </ul>
           <hr />
           <code>&nbsp;return ( onClick=&#123;(ev) =&gt; incrementTrackViews()&#125; )</code>
-        </InfoBox>
-        <h4>If you unlike useMutation see Next Apollo GraphQL Project/Client/src/services</h4>
-        <hr />
+        </div>
 
-        <h3>Example: List of Countries with Apollo GraphQL - ClientSideRendering</h3>
+        <h2>Example</h2>
         <Countries countries={countries.slice(80, 90)} />
       </div>
     </>

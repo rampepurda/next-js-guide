@@ -33,7 +33,7 @@ export default function Generics() {
           </li>
         </ul>
 
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h4>
             A major part of software engineering is{' '}
             <strong>
@@ -44,7 +44,7 @@ export default function Generics() {
             tomorrow will give you the most flexible capabilities for building up large software
             systems.
           </h4>
-        </InfoBox>
+        </div>
 
         <div style={{ marginTop: '2rem' }}>
           <mark>

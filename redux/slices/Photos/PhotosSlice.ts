@@ -63,13 +63,13 @@ export const PhotosSlice = createSlice({
   name: 'Photos',
   initialState,
   reducers: {
-    UserName: (state, action) => {
+    changeUserName: (state, action) => {
       state.userName = action.payload.changeUserName
     },
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.amount += action.payload
     },
-    Decrement: (state) => {
+    decrement: (state) => {
       state.amount--
       if (state.amount < 0) {
         alert('Amount must not be under 0')
@@ -91,4 +91,4 @@ export const PhotosSlice = createSlice({
   },
 })
 
-//export const { UserName, Decrement, incrementByAmount } = PhotosSlice.actions
+export const { changeUserName } = PhotosSlice.actions

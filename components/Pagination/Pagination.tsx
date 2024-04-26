@@ -1,5 +1,4 @@
-import style from './Pagination.module.scss'
-
+import classes from './Pagination.module.scss'
 import { ChangeEvent, useMemo, useState } from 'react'
 import classNames from 'classnames'
 import { paginateCurrentPost } from '../../utils'
@@ -27,7 +26,7 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
   const linkPrevious = useMemo(() => {
     return (
       <button
-        className={classNames(style.btn, style.previous)}
+        className={classNames(classes.btn, classes.previous)}
         onClick={(ev) => {
           ev.preventDefault()
           if (currentPaginate <= paginateTotal) {
@@ -35,15 +34,15 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        <span className={style.isLargeDevice}>{t('paginate.linkPrevious')}</span>
-        <span className={style.isSmallDevice}> {'<'} </span>
+        <span className={classes.isLargeDevice}>{t('paginate.linkPrevious')}</span>
+        <span className={classes.isSmallDevice}> {'<'} </span>
       </button>
     )
   }, [currentPaginate, paginateTotal])
   const linkNext = useMemo(() => {
     return (
       <button
-        className={style.btn}
+        className={classes.btn}
         onClick={(ev) => {
           ev.preventDefault()
           if (currentPaginate < paginateTotal) {
@@ -51,8 +50,8 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
           }
         }}
       >
-        <span className={style.isLargeDevice}>{t('paginate.linkNext')}</span>
-        <span className={style.isSmallDevice}> {'>'} </span>
+        <span className={classes.isLargeDevice}>{t('paginate.linkNext')}</span>
+        <span className={classes.isSmallDevice}> {'>'} </span>
       </button>
     )
   }, [currentPaginate, paginateTotal])
@@ -60,13 +59,13 @@ export const Pagination = ({ currentPage, itemsTotal, paginate, postPerPage }: P
   return (
     <nav aria-label="paginate">
       {currentPaginate !== 1 ? linkPrevious : ''}
-      <ul className={style.paginate}>
+      <ul className={classes.paginate}>
         {paginateCurrentPost(currentPaginate, pageArray, paginatePerPage).map((page: number) => {
           return (
-            <li className={style.inline} key={page}>
+            <li className={classes.inline} key={page}>
               <button
-                className={classNames(style.link, {
-                  [style.isActive]: page === currentPage,
+                className={classNames(classes.link, {
+                  [classes.isActive]: page === currentPage,
                   //[style.hasRadiusLeft]: page === Math.min(...pageArray),
                   //[style.hasRadiusRight]: page === Math.max(...pageArray),
                 })}
