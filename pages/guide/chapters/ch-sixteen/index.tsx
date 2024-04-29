@@ -11,13 +11,13 @@ const ChSixteen: NextPage = () => {
 
       <div>
         <h2>16. CSS in JS libraries</h2>
-        <InfoBox className="isInfo">
+        <div className="hasOutline">
           <h4>
             There are two primary methods of using Emotion. The first is{' '}
             <strong>framework agnostic</strong> and the second is{' '}
             <strong>for use with React</strong>.
           </h4>
-        </InfoBox>
+        </div>
 
         <h3>1. Emotion[React, Styled]</h3>
         <ul className="hasTypeDisc">

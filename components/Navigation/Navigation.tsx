@@ -1,4 +1,4 @@
-import style from './Navigation.module.scss'
+import classes from './Navigation.module.scss'
 import Link from 'next/link'
 import { NavigationLink, NavType } from '../../types'
 import { LangSwitch } from '../index'
@@ -20,14 +20,14 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
   const navigationStyle = () => {
     switch (isNav) {
       case `${NavType.Primary}`:
-        return style.primary
+        return classes.primary
       case `${NavType.Sidebar}`:
         if (links.length !== 0) {
-          return style.hasBr
+          return classes.hasBr
         }
         break
       case `${NavType.Accordion}`:
-        return style.accordionNav
+        return classes.accordionNav
     }
   }
   const ariaNav = useMemo(() => {
@@ -50,7 +50,7 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
   return (
     <nav
       className={classNames(ClassName, navigationStyle(), {
-        [`navLeft ${style.sideBar}`]: isNav !== NavType.Primary,
+        [`navLeft ${classes.sideBar}`]: isNav !== NavType.Primary,
       })}
       aria-label={ariaNav}
     >
@@ -59,7 +59,7 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
           return (
             <li
               className={classNames({
-                [style.isLinkActive]: isNavLinkActive(pathName, link, isNav === NavType.Primary),
+                [classes.isLinkActive]: isNavLinkActive(pathName, link, isNav === NavType.Primary),
               })}
               key={idx}
             >
@@ -71,7 +71,7 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
         })}
       </ul>
       {isNav === NavType.Primary && (
-        <span className={classNames(style.langSwitch)}>
+        <span className={classNames(classes.langSwitch)}>
           <LangSwitch route={''} />
         </span>
       )}

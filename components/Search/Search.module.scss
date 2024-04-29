@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+@import '../../styles/breakpoints';
+@import '../../styles/spacing';
+
+.form {
+  display: flex;
+  justify-content: right;
+
+  input[type='search'] {
+    height: 2rem;
+    border-radius: .3rem;
+    border: 0;
+    background-color: $whiteDark;
+    padding: 0 .5rem;
+    color: $blackLight;
+    font-size: 1rem;
+  }
+
+  .btnSearch {
+    cursor: pointer;
+    margin-left: $spacer-2;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.searchResult,
+.noMatches {
+  margin-top: $spacer-1;
+  margin-right: calc($spacer-8 - 1px);
+  background-color: $blackLight;
+  padding: .7rem 1rem;
+  text-align: right;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
+.noMatches {
+  margin-top: -$spacer-2;
+  margin-right: calc($spacer-7);
+  padding: .7rem 1rem!important;
+}
+
+

@@ -6,11 +6,7 @@ import { useEffect, useState } from 'react'
 import ImgSwr from './ch24-use-sw.png'
 import Image from 'next/image'
 import { useSwr, useSwrGQL } from '../../../../hooks/useSwr'
-import { Country, PhotoType } from '../../../../types'
-
-export type CountriesResponse = {
-  countries: Country[]
-}
+import { PhotoType } from '../../../../types'
 
 const ChTwentyFour: NextPage = () => {
   const url: string | undefined = `${environment.photosURL}`
@@ -65,14 +61,14 @@ const ChTwentyFour: NextPage = () => {
             </a>
           </li>
         </ul>
-        <hr />
-        <InfoBox className={'isInfo'}>
+
+        <div className="hasOutline">
           <p>
             The name “SWR” is derived from <mark>stale-while-revalidate</mark>, a HTTP cache
             invalidation strategy. SWR is a strategy to first return the data from cache (stale),
             then send the fetch request (revalidate), and finally come with the up-to-date data.
           </p>
-        </InfoBox>
+        </div>
         <h3>Install:</h3>
         <ul className="hasVerticalPadding-2">
           <li>
@@ -128,14 +124,14 @@ const ChTwentyFour: NextPage = () => {
           </ul>
         </code>
 
-        <InfoBox className={'isWarning'}>
+        <div className="hasOutline">
           <p>
             I was not satisfied to get queries data in that case. Got 'data' but wasn`t able to use
             it!
             <br />
             <strong>(May the problem is in 'fetcher' typescript - check it later)</strong>
           </p>
-        </InfoBox>
+        </div>
       </div>
     </>
   )

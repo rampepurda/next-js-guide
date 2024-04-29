@@ -6,7 +6,7 @@ import { useWindWidth } from '../../hooks'
 
 const Guide: NextPage = () => {
   const { t } = useTranslation('common')
-  const { windowSize, getWindWidth } = useWindWidth()
+  const { getWindWidth } = useWindWidth()
 
   useEffect(() => {
     getWindWidth()

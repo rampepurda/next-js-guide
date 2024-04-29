@@ -75,12 +75,12 @@ const ChFive: NextPage = () => {
         </ul>
         <hr />
         <h2>dynamic loading</h2>
-        <InfoBox className={'isInfo'}>
-          <h5>
+        <div className="hasOutline">
+          <p>
             next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the
             app and pages directories to allow for incremental migration.
-          </h5>
-        </InfoBox>
+          </p>
+        </div>
 
         <h3>Rendering process</h3>
         <ul className="hasTypeDecimal">
