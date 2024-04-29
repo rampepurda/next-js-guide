@@ -1,11 +1,10 @@
 import classes from './Search.module.scss'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { NavigationLink } from '../../types'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { searchParamsToUrlQuery } from 'next/dist/shared/lib/router/utils/querystring'
 
 type Props = {
   data: NavigationLink[]
@@ -14,15 +13,14 @@ type Props = {
 
 export const Search = ({ data, ClassNames }: Props) => {
   const params = useSearchParams()
-  const paramsGet = params.get('searchParam')?.toLowerCase()
   const foundedData = data.filter((i) =>
     i.tKey.toLowerCase().includes(`${params.get('searchParam')?.toLowerCase()}`)
   )
   const isParamFailed = useMemo(() => {
-    if (paramsGet !== 'undefined' && paramsGet !== null) {
+    if (params.get('searchParam') !== 'undefined' && params.get('searchParam') !== null) {
       return true
     }
-  }, [paramsGet, params])
+  }, [params])
 
   const handleSearch = () => {}
 
@@ -56,13 +54,11 @@ export const Search = ({ data, ClassNames }: Props) => {
             </li>
           )
         })}
-        {params.get('searchParam') !== 'undefined' &&
-          params.get('searchParam') !== null &&
-          foundedData.length === 0 && (
-            <li className={classes.searchResult}>
-              no matches for: <strong>{params.get('searchParam')}</strong>{' '}
-            </li>
-          )}
+        {isParamFailed && foundedData.length === 0 && (
+          <li className={classes.noMatches}>
+            no matches for: <strong>{params.get('searchParam')}</strong>{' '}
+          </li>
+        )}
       </ul>
     </div>
   )

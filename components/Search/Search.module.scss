@@ -24,13 +24,24 @@
   }
 }
 
-.searchResult {
-  margin-top: -$spacer-2;
-  margin-right: calc($spacer-7 - 1px);
+.searchResult,
+.noMatches {
+  margin-top: $spacer-1;
+  margin-right: calc($spacer-8 - 1px);
   background-color: $blackLight;
   padding: .7rem 1rem;
   text-align: right;
   color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
+.noMatches {
+  margin-top: -$spacer-2;
+  margin-right: calc($spacer-7);
+  padding: .7rem 1rem!important;
 }
 
 
