@@ -10,17 +10,17 @@ import { AppState } from '../../store'
 const selectCarList = (state: AppState) => state.Cars.cars
 const selectCar = (state: AppState) => state.Cars.selectedCar
 
-// Filter By Car Name and City
-const selectCarsMutation = (state: AppState) => state.Cars.carsMutation
-const selectCarName = (state: AppState) => state.Cars.param.car
-const selectCarCity = (state: AppState) => state.Cars.param.city
-
 export const selectCarFilter = createSelector(selectCarList, selectCar, (cars, selectedCar) => {
   if (selectedCar === 'all cars') {
     return cars
   }
   return cars.filter((car: CarTypes) => car.name === selectedCar)
 })
+
+// Filter By Car Name and City
+const selectCarsMutation = (state: AppState) => state.Cars.carsMutation
+const selectCarName = (state: AppState) => state.Cars.param.car
+const selectCarCity = (state: AppState) => state.Cars.param.city
 
 export const selectCarMutation = createSelector(
   selectCarsMutation,

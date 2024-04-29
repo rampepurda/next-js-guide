@@ -51,42 +51,36 @@ const ChFourteen: NextPage = () => {
           state, logic for actually deriving values, and improving performance by avoiding
           unnecessary recalculations.
         </h4>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <ul>
             <li>
-              <strong>Arrow function, direct lookup</strong>
-              <h5>const selectEntities = state =&gt; state.entities</h5>
+              <h3>Arrow function, direct lookup</h3>
+              const selectEntities = state =&gt; state.entities
             </li>
             <li>
-              <strong>Function declaration, mapping over an array to derive values</strong>
-              <h5>
-                function selectItemIds(state) &#123;
-                <br />
-                &nbsp;return state.items.map(item =&gt; item.id)
-              </h5>
-              &#123;
+              <h3>Function declaration, mapping over an array to derive values</h3>
+              function selectItemIds(state) &#123;
+              <br />
+              &nbsp;return state.items.map(item =&gt; item.id)
+              <br />
+              &#125;
             </li>
             <li>
-              <strong>Function declaration, encapsulating a deep lookup</strong>
-              <h5>
-                function selectSomeSpecificField(state) &#123;
-                <br />
-                &nbsp;return state.some.deeply.nested.field
-                <br />
-                &#125;
-              </h5>
+              <h3>Function declaration, encapsulating a deep lookup</h3>
+              function selectSomeSpecificField(state) &#123;
+              <br />
+              &nbsp;return state.some.deeply.nested.field
+              <br />
+              &#125;
             </li>
             <li>
-              <strong>Arrow function, deriving values from an array</strong>
-              <h5>
-                const selectItemsWhoseNamesStartWith = (items, namePrefix) =&gt;
-                <br />
-                &nbsp;items.filter(item =&gt; item.name.startsWith(namePrefix))
-                <br />
-              </h5>
+              <h3>Arrow function, deriving values from an array</h3>
+              const selectItemsWhoseNamesStartWith = (items, namePrefix) =&gt;
+              <br />
+              &nbsp;items.filter(item =&gt; item.name.startsWith(namePrefix))
             </li>
           </ul>
-        </InfoBox>
+        </div>
         <h4>
           A selector function can have any name you want. However, we recommend prefixing selector
           function names with the word <mark>select</mark> combined with a description of the value
@@ -102,14 +96,12 @@ const ChFourteen: NextPage = () => {
         <hr />
 
         <h4>slice/Cars/carSelector.ts</h4>
-        <ul>
-          <li className="hasVerticalPadding-2">
-            <strong>const selectCars = (state: any) =&gt; state.Cars.cars</strong>|| Imported from
-            CarSlice
+        <ul className="hasVerticalPadding-2">
+          <li>
+            <strong>const selectCars</strong> = (state: any) =&gt; state.Cars.cars
           </li>
-          <li className="hasVerticalPadding-2">
-            <strong>const selectFilter = (state: any) =&gt; state.Cars.filterCar</strong>
-            || Imported from CarSlice
+          <li>
+            <strong>const selectFilter</strong> = (state: any) =&gt; state.Cars.filterCar
           </li>
         </ul>
         <Image src={imgCreateSelector} alt="how create selector" aria-hidden={true} />
