@@ -1,16 +1,15 @@
 import useSWR from 'swr'
-import { Country, PhotoType } from '../types'
-import { GET_COUNTRIES_QUERY } from '../queries'
-import apolloClient from '../apollo/graphql-client'
 import { request } from 'graphql-request'
+import { Continent } from '../types'
+import { environment } from '../configuration'
 
 /**
  * @param url fetch target
  */
-export type CountriesResponse = {
-  countries: Country[]
+
+export type ContinentsResponse = {
+  continents: Continent[]
 }
-const graphQLClient = apolloClient
 
 const fetcher = async (url: string) => {
   const response = await fetch(url)
@@ -22,8 +21,10 @@ export const useSwr = (url: string, limit: number) => {
   return { error, data }
 }
 
-const fetcherGQL = async (query: any) => await request('https://countries.trevorblades.com', query)
-export const useSwrGQL = () => {
-  const { data, error } = useSWR<undefined | any | unknown>(GET_COUNTRIES_QUERY, fetcherGQL)
-  return { data, error }
+const fetcherGQL = async (query: string): Promise<ContinentsResponse> =>
+  await request(`${environment.countriesURL}`, query)
+
+export const useSwrGQL = (query: string) => {
+  const { data, error, isLoading } = useSWR<ContinentsResponse>(query, fetcherGQL)
+  return { data, error, isLoading }
 }

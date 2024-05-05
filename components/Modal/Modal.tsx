@@ -1,4 +1,4 @@
-import style from './Modal.module.scss'
+import classes from './Modal.module.scss'
 
 /**
  * FocusTrap library used as an Example how is possible to create Modal Window
@@ -56,7 +56,7 @@ export const Modal = ({
       </button>
 
       <div
-        className={classNames(style.modalDialog, isModalOpen ? style.modalDialog__isOpen : '')}
+        className={classNames(classes.modalDialog, isModalOpen ? classes.modalDialog__isOpen : '')}
         hidden={!isModalOpen}
       >
         <FocusTrap
@@ -69,15 +69,15 @@ export const Modal = ({
           }}
         >
           <div
-            className={style.modalContent}
+            className={classes.modalContent}
             role="dialog"
             aria-labelledby="modal-2-heading"
             aria-modal={true}
           >
-            <div className={style.modalHeader}>
+            <div className={classes.modalHeader}>
               <h2 id="modal-2-heading">{mHeader.title}</h2>
               <button
-                className={style.modalHeader__closeBtn}
+                className={classes.modalHeader__closeBtn}
                 type="button"
                 aria-label={t('close modal window')}
                 onClick={() => {
@@ -91,7 +91,7 @@ export const Modal = ({
               {children}
               <hr />
             </div>
-            <div className={style.modalFooter}>
+            <div className={classes.modalFooter}>
               {mFooter.map((item, idx: number) => {
                 return (
                   <button

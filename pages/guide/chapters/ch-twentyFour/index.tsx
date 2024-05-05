@@ -1,18 +1,22 @@
 import { NextPage } from 'next'
-import { InfoBox } from '../../../../components'
 import { environment } from '../../../../configuration'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 import ImgSwr from './ch24-use-sw.png'
 import Image from 'next/image'
 import { useSwr, useSwrGQL } from '../../../../hooks/useSwr'
 import { PhotoType } from '../../../../types'
+import Link from 'next/link'
 
 const ChTwentyFour: NextPage = () => {
-  const url: string | undefined = `${environment.photosURL}`
-  const { data, error } = useSwrGQL()
-  const [dataCountries, setDataCountries] = useState<any>()
-  const PhotosSWR = ({ url }: { url: string }) => {
+  const url: string = `${environment.photosURL}`
+  const { data, error, isLoading } = useSwrGQL(`query Continents {
+    continents {
+      name
+      code
+    }
+  }`)
+
+  const Photos = ({ url }: { url: string }) => {
     const { data, error } = useSwr(url, 10)
     const photos: PhotoType[] = data
 
@@ -20,21 +24,17 @@ const ChTwentyFour: NextPage = () => {
     if (!photos) return <h2>Loading...</h2>
 
     return (
-      <>
+      <ul className="hasVerticalPadding-4">
         {photos.map((photo: PhotoType, idx: number) => {
           return (
-            <p key={idx}>
+            <li key={idx}>
               <strong>{idx + 1}.</strong> {photo.title}
-            </p>
+            </li>
           )
         })}
-      </>
+      </ul>
     )
   }
-
-  useEffect(() => {
-    setDataCountries([data])
-  }, [])
 
   return (
     <>
@@ -43,33 +43,33 @@ const ChTwentyFour: NextPage = () => {
       </Head>
 
       <div>
-        <h2>24. useSwr hook (React, Next) - Client-side Fetching</h2>
+        <h2>24. useSwr hook (React, Next) - Client-side Fetching </h2>
+
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
-            <a href="https://swr.vercel.app/docs/with-nextjs" target="_blank" rel="noreferrer">
+            <Link href="https://swr.vercel.app/docs/with-nextjs" target="_blank" rel="noreferrer">
               Read more about useSwr hook here
-            </a>
+            </Link>
           </li>
           <li>
-            {' '}
-            <a
+            <Link
               href="https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side"
               target="_blank"
               rel="noreferrer"
             >
               Read more about Client-side Fetching here
-            </a>
+            </Link>
           </li>
         </ul>
 
         <div className="hasOutline">
           <p>
-            The name “SWR” is derived from <mark>stale-while-revalidate</mark>, a HTTP cache
+            The name “SWR” is derived from <strong>stale-while-revalidate</strong>, a HTTP cache
             invalidation strategy. SWR is a strategy to first return the data from cache (stale),
             then send the fetch request (revalidate), and finally come with the up-to-date data.
           </p>
         </div>
-        <h3>Install:</h3>
+        <h2>Install:</h2>
         <ul className="hasVerticalPadding-2">
           <li>
             <strong>yarn add swr</strong>
@@ -78,8 +78,8 @@ const ChTwentyFour: NextPage = () => {
             <strong>npm i swr</strong>
           </li>
         </ul>
-        <hr />
-        <h3>Use:</h3>
+
+        <h2>Use:</h2>
         <ul className="hasVerticalPadding-2">
           <li>
             <strong>import useSWR from &apos;swr&apos;</strong>
@@ -92,46 +92,69 @@ const ChTwentyFour: NextPage = () => {
             </h5>
           </li>
         </ul>
-        <h4>For more info see project: next-13-with-tailwind-git</h4>
-        <InfoBox className={'isDanger'}>
-          <h4>useSWR outside comp where will be imported</h4>
-        </InfoBox>
+
         <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
-        <h3>fetch data.json by useSWR:</h3>
-        <PhotosSWR url={url} />
-        <hr />
+        <h3>Photos.title:</h3>
+        <Photos url={url} />
 
-        <h3>fetch data queries by useSWR:</h3>
-        <label>Install:</label>
-        <h4>graphql-request library</h4>
+        <h2>useSWR with Apollo GraphQL:</h2>
+        <ul className="hasTypeDisc hasVerticalPadding-3">
+          <li>
+            <h3>Install:</h3>
+            graphql-request library
+          </li>
+          <li>
+            <h3>Import:</h3>
+            <code>
+              <h4>import &#123;request&#125; from &apos;graphql-request&apos;</h4>
+              <hr />
+            </code>
+          </li>
+        </ul>
 
-        <label>Import:</label>
-        <code>
-          <h4>import &#123;request&#125; from &apos;graphql-request&apos;</h4>
-          <hr />
-        </code>
-        <code>
-          <ul>
-            <li>
-              const fetcherGQL = async (query: any) =&gt; await
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              request('https://countries.trevorblades.com', query)
-            </li>
-            <li>
-              const &#123; data, error &#125; = useSWR&lt;any&gt;(GET_COUNTRIES_QUERY, fetcherGQL)
-              return &#123; data, error&#125;
-            </li>
-          </ul>
-        </code>
+        <h2>get Continents</h2>
+        {error ? (
+          <h2>Error Fetching</h2>
+        ) : (
+          <>
+            {isLoading && <h3>Wait, loading</h3>}
+            <ul className="hasTypeDisc hasVerticalPadding-4">
+              {data?.continents.map((cont, idx: number) => {
+                return <li key={idx}>{cont.name}</li>
+              })}
+            </ul>
+          </>
+        )}
 
-        <div className="hasOutline">
-          <p>
-            I was not satisfied to get queries data in that case. Got 'data' but wasn`t able to use
-            it!
+        <ul className="hasOutline">
+          <li>
+            <h3>Fetcher, useSWR:</h3>
+            <strong>type ContinentsResponse</strong> = &#123;
             <br />
-            <strong>(May the problem is in 'fetcher' typescript - check it later)</strong>
-          </p>
-        </div>
+            &nbsp;continents: &#123; name: string, code: string&#125; [ ] <br /> &#125;
+          </li>
+          <li>
+            const <strong>fetcher</strong> = async (query: string): Promise&lt;
+            <strong>ContinentsResponse</strong>
+            &gt; =&gt; await request(&apos;url&apos;, query)
+          </li>
+          <li>
+            const useSwr = (query: string) =&gt;&#123; <br />
+            &nbsp;&nbsp;const &#123; data, error, isLoading&#125; ={' '}
+            <strong>useSWR&lt;ContinentsResponse</strong>
+            &gt;(<strong>GET_CONTINENTS_QUERY, fetcher</strong>)<br /> &nbsp;&nbsp;return &#123;
+            data, error, isLoading&#125;
+            <br />
+            &#125;
+            <hr />
+          </li>
+          <li>
+            <h3>App Rendering:</h3>
+            const &#123; data, error, isLoading &#125; = useSWR(`gql`, fetcher)
+            <br />
+            data?.continents.map() =&gt; &#123; ... &#125;
+          </li>
+        </ul>
       </div>
     </>
   )

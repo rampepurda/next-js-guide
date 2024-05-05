@@ -23,7 +23,6 @@ export const Main = ({ children }: any) => {
   const pathName = usePathname()
   const [chapters, setChapters] = useState<Chapters[]>([])
   const { isThemeDark } = useAppSelector((state) => state.Common)
-  //const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {

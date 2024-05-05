@@ -1,4 +1,4 @@
-import style from '../../chapters.module.scss'
+import classes from '../../chapters.module.scss'
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import { NextPage } from 'next'
@@ -89,7 +89,7 @@ const ChFive: NextPage = () => {
           <li>followed by the component when the Suspense boundary is resolved.</li>
         </ul>
 
-        <ul className={classNames(style.hasNoBorder, 'hasVerticalPadding-3', 'hasOutline')}>
+        <ul className={classNames(classes.hasNoBorder, 'hasVerticalPadding-3', 'hasOutline')}>
           <li>
             <h3>
               Remember: must be imported as <em>'export default'</em>
@@ -185,13 +185,13 @@ const ChFive: NextPage = () => {
         </p>
         <hr />
         <h2>lazy loading</h2>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h5>
             <em>lazy</em> lets you defer loading component’s code until it is rendered for the first
             time.
           </h5>
-        </InfoBox>
-        <ul className={classNames(style.hasNoBorder)}>
+        </div>
+        <ul className={classNames(classes.hasNoBorder)}>
           <li>
             <strong className="color-is-red">import</strong> &#123; lazy &#125; from 'react'
           </li>
@@ -202,14 +202,15 @@ const ChFive: NextPage = () => {
         </ul>
         <hr />
         <h3>&lt;Suspense&gt;</h3>
-        <InfoBox className={'isInfo'}>
+        <InfoBox className="hasOutline">
           <h5>
             &lt;Suspense&gt; lets you display a fallback until its children have finished loading.
           </h5>
         </InfoBox>
-        <ul className={classNames(style.hasNoBorder)}>
+        <ul className={classNames(classes.hasNoBorder)}>
           <li>
-            <strong className="color-is-red">import</strong> &#123; Suspense &#125; from "react"
+            <strong className="color-is-red">import</strong> &#123; Suspense &#125; from
+            &quot;react&quot;
           </li>
           <li>
             &lt;Suspense fallback= &#123; &lt; Loading /&gt;&#125;&gt;
