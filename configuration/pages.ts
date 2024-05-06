@@ -14,7 +14,7 @@ export const Pages = {
       subHeadline: {},
     },
     chTwelve: {
-      headline: '12. GraphQL',
+      headline: '12. GraphQL Apollo - Client/Server setup',
       subHeadline: {},
       detailTrack: {
         title: 'Next JS | Guide | Country detail',
