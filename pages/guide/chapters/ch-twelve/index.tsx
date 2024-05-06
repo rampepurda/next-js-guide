@@ -6,21 +6,22 @@ import { useAppSelector } from '../../../../redux/store'
 import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
+import { useQuery } from '@apollo/client'
+import { GET_CONTINENTS_QUERY } from '../../../../queries/continents'
+import { Continent } from '../../../../types'
 
 /**
- * INSTALLATION APOLLO GRAPHQL - SERVER:
+ * APOLLO GRAPHQL SERVER-INSTALLATION:
  * https://www.apollographql.com/tutorials/lift-off-part1/01-feature-overview-and-setup
  *  Git Copy:
  *  git clone https://github.com/apollographql/odyssey-lift-off-part1
  */
-/** useQueries
- * @const {data} = useQueries(GET_QUERIES)
- * @requires <Countries countries={data.countries.slice(70,80)} />
- */
+
+type ContinentResponse = { continents: [{ name: string; code: string }] }
 
 const ChTwelve: NextPage = () => {
   const { countries } = useAppSelector((state) => state.Countries)
-  //const { data, error, loading } = useQuery(GET_COUNTRIES_QUERY)
+  const { data, error, loading } = useQuery<ContinentResponse>(GET_CONTINENTS_QUERY)
 
   return (
     <>
@@ -40,19 +41,10 @@ const ChTwelve: NextPage = () => {
               Apollo GraphQL tutorial
             </a>
           </li>
-          <li>
-            <a
-              href="https://www.apollographql.com/docs/react/data/queries/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apollo GraphQL queries
-            </a>
-          </li>
         </ul>
-        <hr />
+
         <h2>Client side</h2>
-        <h3>1. Installation</h3>
+        <h3>Installation</h3>
         <ul className="hasTypeDisc">
           <li>
             <h5>Apollo GraphQL</h5>
@@ -75,7 +67,7 @@ const ChTwelve: NextPage = () => {
           </code>
         </div>
 
-        <h3>2. Feature data requirements (CLIENT)</h3>
+        <h2>1. Feature data requirements (CLIENT)</h2>
         <ul className="hasTypeDisc">
           <li>
             <h5>Apollo Client</h5>
@@ -115,27 +107,57 @@ const ChTwelve: NextPage = () => {
             </ul>
           </li>
         </ul>
-        <hr />
 
-        <h3>3. useQuery hook</h3>
-        <code>import &#123; useQuery &#125; from &quot;@apollo/client&quot;</code>
-        <ul className="hasVerticalPadding-3">
+        <h2>2. useQuery hook</h2>
+        <ul className="hasVerticalPadding-2">
           <li>
-            <code>const &#123; data, error, loading &#125; = useQuery(GET_QUERY)</code>
-          </li>
-          <li>
-            <code>if(?data) &#123; loading &#125;)</code>
-          </li>
-          <li>
-            <code>if(?data) &#123; error &#125;)</code>
-          </li>
-          <li>
-            <code>&#123; data.map(() =&gt; &#123; &#125;)</code>
+            <a
+              href="https://www.apollographql.com/docs/react/data/queries/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Here read more about Apollo GraphQL queries
+            </a>
           </li>
         </ul>
 
+        <ul className="hasVerticalPadding-6 hasOutline">
+          <li>
+            <h3>Don`t Remember to setup useQuery TS values. Does not work without it!</h3>
+            <h4>
+              App includes cover: &lt; ApolloProvider client=&#123;apolloClient&#125; &gt;, means
+              that we have url we need to fetch data
+            </h4>
+            <hr />
+            import &#123; useQuery &#125; from &quot;@apollo/client&quot;
+          </li>
+          <li>
+            <strong>type ContinentResponse</strong> = &#123; continents: [&#123; name: string; code:
+            string &#125;] &#125;
+          </li>
+          <li>
+            const &#123; data, error, loading &#125; ={' '}
+            <strong>useQuery&lt;ContinentResponse&qt;(GET_CONTINENTS_QUERY)</strong>
+          </li>
+          <li>&#123; data.continents.map(() =&gt; &#123; &#125;)</li>
+        </ul>
+        <h4>Continents</h4>
+        {loading && <h4>Loading, please wait</h4>}
+        {error ? (
+          <h3>Ops, something happened</h3>
+        ) : (
+          <ul className="hasVerticalPadding-4">
+            {data?.continents.map((continent: Continent) => {
+              return (
+                <li key={continent.code}>
+                  {continent.name} | {continent.code}
+                </li>
+              )
+            })}
+          </ul>
+        )}
+        <br />
         <hr />
-
         <h2>GraphQL Server Side</h2>
         <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
           Apollo GraphQL tutorials (Lift of II Resolvers)
@@ -178,7 +200,7 @@ const ChTwelve: NextPage = () => {
           </li>
           <li>
             <h5>Mocking data on Server, need to install:</h5>
-            To enable mocked data, we'll need to use two new packages: @graphql-tools/mock and
+            To enable mocked data, we&apos;ll need to use two new packages: @graphql-tools/mock and
             @graphql-tools/schema.
             <h5>yarn add @graphql-tools/mock @graphql-tools/schema</h5>
             npm install @graphql-tools/mock @graphql-tools/schema
