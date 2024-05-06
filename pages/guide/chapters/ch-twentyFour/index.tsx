@@ -69,27 +69,19 @@ const ChTwentyFour: NextPage = () => {
             then send the fetch request (revalidate), and finally come with the up-to-date data.
           </p>
         </div>
-        <h2>Install:</h2>
-        <ul className="hasVerticalPadding-2">
+
+        <ul className="hasTypeDisc hasVerticalPadding-2">
           <li>
+            <h3>Install:</h3>
             <strong>yarn add swr</strong>
-          </li>
-          <li>
+            <br />
             <strong>npm i swr</strong>
           </li>
-        </ul>
-
-        <h2>Use:</h2>
-        <ul className="hasVerticalPadding-2">
           <li>
+            <h3>Use:</h3>
             <strong>import useSWR from &apos;swr&apos;</strong>
-          </li>
-          <li>
-            <strong>const &#123; data, error, isLoading &#125; = useSWR(key, fetcher)</strong>
-            <h5>
-              &apos;key&apos;: url, &apos;fetcher&apos;: It is a good practice to extract Fn as
-              &apos;fetcher&apos;
-            </h5>
+            <br />
+            <strong>const &#123; data, error, isLoading &#125; = useSWR(url, fetcher)</strong>
           </li>
         </ul>
 
@@ -118,7 +110,7 @@ const ChTwentyFour: NextPage = () => {
         ) : (
           <>
             {isLoading && <h3>Wait, loading</h3>}
-            <ul className="hasTypeDisc hasVerticalPadding-4">
+            <ul className="hasTypeDecimal hasVerticalPadding-4">
               {data?.continents.map((cont, idx: number) => {
                 return <li key={idx}>{cont.name}</li>
               })}
