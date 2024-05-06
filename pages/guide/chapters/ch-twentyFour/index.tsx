@@ -142,7 +142,7 @@ const ChTwentyFour: NextPage = () => {
           </li>
           <li>
             <h3>App Rendering:</h3>
-            const &#123; data, error, isLoading &#125; = useSWR(`gql`, fetcher)
+            const &#123; data, error, isLoading &#125; = useSWR(`queryKey`, fetcher)
             <br />
             data?.continents.map() =&gt; &#123; ... &#125;
           </li>
