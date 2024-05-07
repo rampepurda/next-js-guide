@@ -54,10 +54,6 @@ const ChTwelve: NextPage = () => {
             <h5>Apollo Client</h5>
             yarn add @apollo/client
           </li>
-          <li>
-            <h5>graphql-request</h5>
-            yarn add graphql-request
-          </li>
         </ul>
         <div className="hasOutline">
           <h3>Do I get response? Try it.</h3>
