@@ -30,7 +30,7 @@ export const Search = ({ data, ClassNames }: Props) => {
         <input
           type="search"
           name="searchParam"
-          placeholder="insert text"
+          placeholder="Search"
           defaultValue={undefined}
           required={true}
         />

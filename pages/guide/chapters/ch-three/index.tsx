@@ -11,19 +11,17 @@ const ChThree: NextPage = () => {
 
       <div>
         <h2>3. Environment .env</h2>
-        <p>
+        <h4>
           You will work with sensitive information? Then use <strong>.env</strong>
-        </p>
-        <hr />
+        </h4>
         <h3>3.1 Predefined .env in Next JS</h3>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h4>
-            This loads <span className="color-is-black">process</span>.env.DB_HOST,{' '}
-            <span className="color-is-black">process</span>.env.DB_USER, and{' '}
-            <span className="color-is-black">process</span>.env.DB_PASS into the Node.js environment
-            automatically allowing you to use them in Next.js data fetching methods and API routes.
+            This loads <strong>process</strong>.env.DB_HOST, <strong>process</strong>.env.DB_USER,
+            and <strong>process</strong>.env.DB_PASS into the Node.js environment automatically
+            allowing you to use them in Next.js data fetching methods and API routes.
           </h4>
-        </InfoBox>
+        </div>
         <h3>3.2 .env inside next.config</h3>
         &nbsp;module.exports = &#123;
         <br />
@@ -55,12 +53,12 @@ const ChThree: NextPage = () => {
           In order to expose a variable to the browser you have to prefix the variable with
           NEXT_PUBLIC_. For example:
         </p>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h5>NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk</h5>
           <code>&lt;p&gt; &#123;process.env.NEXT_PUBLIC_ANALYTICS_ID&#125;&lt;/p&gt;</code>
           <hr />
           <h5>Result: {process.env.NEXT_PUBLIC_ANALYTICS_ID}</h5>
-        </InfoBox>
+        </div>
         <h3>3.4 Exposing Environment Variables outside of the Root</h3>
         <ul className="hasTypeDecimal">
           <li>Install: yarn add dotenv</li>

@@ -43,7 +43,7 @@ const ChTwentyFour: NextPage = () => {
       </Head>
 
       <div>
-        <h2>24. useSwr hook (React, Next) - Client-side Fetching </h2>
+        <h2>24. useSWR hook (React, Next) - Client-side Fetching </h2>
 
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>

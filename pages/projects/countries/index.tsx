@@ -6,22 +6,19 @@ import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { getSearchCountry } from '../../../redux/slices'
 import { selectCountryFilter } from '../../../redux/slices/Countries/countrySelectors'
 import { useInput } from '../../../hooks'
+import { useQuery } from '@apollo/client'
+import { GET_CONTINENTS_QUERY } from '../../../queries/continents'
 import { Continent } from '../../../types'
-import ContinentsService from '../../../services/Continents'
 
 const Countries: NextPage = () => {
   const dispatch = useAppDispatch()
   const { countries } = useAppSelector((state) => state.Countries)
   const filteredCountries = useAppSelector(selectCountryFilter)
   const { handleInput, Value } = useInput()
-  const [continents, setContinents] = useState<Continent[]>([])
-  const getContinents = async () => {
-    const data: Continent[] = await ContinentsService.getContinents()
-    setContinents(data)
-  }
+  const { data, error, loading } = useQuery<{ continents: Continent[] }>(GET_CONTINENTS_QUERY)
+
   useEffect(() => {
     dispatch(getSearchCountry({ SearchedCountryValue: Value }))
-    getContinents().then()
   }, [filteredCountries, Value])
 
   return (
@@ -31,8 +28,10 @@ const Countries: NextPage = () => {
       </Head>
 
       <div>
-        <h2>Search for {countries.length} Countries</h2> from all Continents:{' '}
-        {continents.map((continent) => {
+        <h2>Search for {countries.length} Countries</h2> from <strong>all Continents</strong>:{' '}
+        {error && <h3>Ops, something occurs</h3>}
+        {loading && <h3>...loading, wait a moment</h3>}
+        {data?.continents.map((continent) => {
           return <span key={continent.name}>{continent.name} | </span>
         })}
         <label htmlFor="searchCountry">Write below name of country you are looking for:</label>
