@@ -1,16 +1,14 @@
 import Head from 'next/head'
-import useTranslation from 'next-translate/useTranslation'
-import { InfoBox } from '../../components'
+import { GenericsModelSituationPage } from './genericsModelSituation'
 
 export default function Generics() {
-  const { t } = useTranslation('projects')
   function dummyGenerics<T>(dataArray: T[], value: T) {
     return [value, [...dataArray]]
   }
   const dummyGenericsArray = <T,>(dataArray: T[], value: T) => {
     return [value, [...dataArray]]
   }
-  const nums = [1, 2, 3]
+  const nums: number[] = [1, 2, 3]
   const words: string[] = ['Hello', 'Kitty', 'dummy']
 
   return (
@@ -94,6 +92,8 @@ export default function Generics() {
           </li>
         </ul>
       </div>
+      <hr />
+      <GenericsModelSituationPage />
     </>
   )
 }

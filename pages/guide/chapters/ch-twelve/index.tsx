@@ -276,7 +276,7 @@ const ChTwelve: NextPage = () => {
         <Image src={imgResolvers} alt="Resolvers parameters" />
         <hr />
         <h3>4. Mutation</h3>
-        <InfoBox className={'isInfo'}>
+        <div className="hasOutline">
           <h4>
             So far, our app has only used one type of GraphQL <strong>operation: queries</strong>.
             These are <strong>read-only operations</strong> to retrieve data. To modify data, we
@@ -289,7 +289,7 @@ const ChTwelve: NextPage = () => {
             our schema. It follows the same syntax as the schema definition language, or SDL, that
             we&apos;ve been using so far.
           </h4>
-        </InfoBox>
+        </div>
         <h3>3.1 Mutation - Schema syntax</h3>
         <p>
           We declare the Mutation type using the type keyword, then the name Mutation. Inside the
