@@ -88,7 +88,7 @@ const ChTwentyFour: NextPage = () => {
         <Photos />
 
         <h2>useSWR with Apollo GraphQL:</h2>
-        <ul className="hasTypeDisc hasVerticalPadding-3">
+        <ul className="hasTypeDisc hasVerticalPadding-5">
           <li>
             <h3>Install:</h3>
             graphql-request library
