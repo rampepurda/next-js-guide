@@ -7,20 +7,14 @@ import { Continent, PhotoType } from '../../../../types'
 import Link from 'next/link'
 import useSWR from 'swr'
 import { fetcherGQL, fetcher } from '../../../../SWR/fetcher'
+import { GET_CONTINENTS_QUERY } from '../../../../queries/continents'
 
 const ChTwentyFour: NextPage = () => {
   const photoURL: string = `${environment.photosURL}`
   const { data, error, isLoading } = useSWR<{ continents: Continent[] } | undefined>(
-    `query Continents {
-    continents {
-      name
-      code
-    }
-  }`,
+    GET_CONTINENTS_QUERY,
     fetcherGQL
   )
-  console.log(data)
-
   const Photos = () => {
     const { data, error, isLoading } = useSWR(`${photoURL}/?_limit=7`, fetcher)
 
