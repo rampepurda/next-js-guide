@@ -18,7 +18,7 @@ const ChFourteen: NextPage = () => {
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
-    dispatch(getFilterCar(Value))
+    dispatch(getFilterCar({ filteredCar: Value }))
   }, [Value, cars, filteredCars, selectedCar])
 
   return (

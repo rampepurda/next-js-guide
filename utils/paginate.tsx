@@ -6,6 +6,10 @@
  * @returns current data[] per page.slice(from, to)
  */
 
-export const paginateCurrentPost = (currentPage: number, data: any, postPerPage: number) => {
-  return data.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
+export const paginateCurrentPost = (
+  currentPage: number,
+  data: any | undefined,
+  postPerPage: number
+) => {
+  return data?.slice(currentPage * postPerPage - postPerPage, currentPage * postPerPage)
 }

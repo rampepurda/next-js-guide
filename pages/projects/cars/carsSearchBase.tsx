@@ -20,7 +20,7 @@ export const CarsSearchBase = () => {
   const filteredCars = useAppSelector(selectCarFilter)
 
   useEffect(() => {
-    dispatch(getFilterCar(Value))
+    dispatch(getFilterCar({ filteredCar: Value }))
   }, [Value, filteredCars])
 
   return (

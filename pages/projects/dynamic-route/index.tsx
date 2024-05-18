@@ -1,24 +1,21 @@
 import { PhotoType } from '../../../types'
-import { NextPage } from 'next'
 import Head from 'next/head'
-import { Pagination, Photos } from '../../../components'
-import { useEffect } from 'react'
+import { Pagination, Photos, Loader } from '../../../components'
 import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
-import { useAppSelector } from '../../../redux/store'
+import useSWR from 'swr'
+import { environment } from '../../../configuration'
+import { fetcher } from '../../../SWR/fetcher'
 
-interface initValues {
-  photos: PhotoType[]
-}
-
-export const DynamicalRouting: NextPage<initValues> = () => {
-  const { photos } = useAppSelector((state) => state.Photos)
+export const DynamicalRouting = () => {
+  const { data, error, isLoading } = useSWR<PhotoType[]>(
+    `${environment.photosURL}/?_limit=233`,
+    fetcher
+  )
   const { currentPage = 1, handlePageChange } = usePaginate('dynamic-route')
   const postPerPage: number = 10
-  const itemsTotal: number = Number(photos.length)
-  const currentPost = paginateCurrentPost(currentPage, photos, postPerPage)
-
-  useEffect(() => {}, [postPerPage, photos, currentPost])
+  const itemsTotal: number = Number(data?.length)
+  const currentPost: PhotoType[] = paginateCurrentPost(currentPage, data, postPerPage)
 
   return (
     <>
@@ -27,7 +24,9 @@ export const DynamicalRouting: NextPage<initValues> = () => {
       </Head>
 
       <div>
-        {!photos ? <h4>...loading, wait</h4> : ''}
+        <h2>Photos</h2>
+        {isLoading && <Loader />}
+        {error && <h2>Ops, something happened</h2>}
 
         <Pagination
           currentPage={currentPage}

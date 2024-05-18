@@ -12,6 +12,11 @@ type initCars = {
   }
   carsMutation: CarTypes[]
 }
+type initActions = {
+  payload: {
+    filteredCar: string
+  }
+}
 const initialState: initCars = {
   selectedCar: 'all cars',
   cars: CarList,
@@ -26,8 +31,8 @@ export const CarSlice = createSlice({
   name: 'Cars',
   initialState,
   reducers: {
-    getFilterCar: (state, action) => {
-      state.selectedCar = action.payload
+    getFilterCar: (state, action: initActions) => {
+      state.selectedCar = action.payload.filteredCar
     },
     // Filter By Name and City
     getCarName: (state, action) => {

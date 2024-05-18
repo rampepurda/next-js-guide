@@ -3,36 +3,40 @@ import { environment } from '../../../../configuration'
 import Head from 'next/head'
 import ImgSwr from './ch24-use-sw.png'
 import Image from 'next/image'
-import { useSwr, useSwrGQL } from '../../../../hooks/useSwr'
-import { PhotoType } from '../../../../types'
+import { Continent, PhotoType } from '../../../../types'
 import Link from 'next/link'
+import useSWR from 'swr'
+import { fetcherGQL, fetcher } from '../../../../SWR/fetcher'
 
 const ChTwentyFour: NextPage = () => {
-  const url: string = `${environment.photosURL}`
-  const { data, error, isLoading } = useSwrGQL(`query Continents {
+  const photoURL: string = `${environment.photosURL}`
+  const { data, error, isLoading } = useSWR<{ continents: Continent[] } | undefined>(
+    `query Continents {
     continents {
       name
       code
     }
-  }`)
+  }`,
+    fetcherGQL
+  )
+  console.log(data)
 
-  const Photos = ({ url }: { url: string }) => {
-    const { data, error } = useSwr(url, 10)
-    const photos: PhotoType[] = data
-
-    if (error) return <h2>Something went wrong!</h2>
-    if (!photos) return <h2>Loading...</h2>
+  const Photos = () => {
+    const { data, error, isLoading } = useSWR(`${photoURL}/?_limit=7`, fetcher)
 
     return (
-      <ul className="hasVerticalPadding-4">
-        {photos.map((photo: PhotoType, idx: number) => {
-          return (
-            <li key={idx}>
-              <strong>{idx + 1}.</strong> {photo.title}
-            </li>
-          )
-        })}
-      </ul>
+      <>
+        {error && <h2>Something went wrong!</h2>}
+        {isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <ul className="hasVerticalPadding-5 hasTypeDecimal">
+            {data?.map((photo: PhotoType, idx: number) => {
+              return <li key={idx}>{photo.title}</li>
+            })}
+          </ul>
+        )}
+      </>
     )
   }
 
@@ -87,7 +91,7 @@ const ChTwentyFour: NextPage = () => {
 
         <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
         <h3>Photos.title:</h3>
-        <Photos url={url} />
+        <Photos />
 
         <h2>useSWR with Apollo GraphQL:</h2>
         <ul className="hasTypeDisc hasVerticalPadding-3">
@@ -111,7 +115,7 @@ const ChTwentyFour: NextPage = () => {
           <>
             {isLoading && <h3>Wait, loading</h3>}
             <ul className="hasTypeDecimal hasVerticalPadding-4">
-              {data?.continents.map((cont, idx: number) => {
+              {data?.continents.map((cont: any, idx: number) => {
                 return <li key={idx}>{cont.name}</li>
               })}
             </ul>
