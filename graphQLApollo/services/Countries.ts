@@ -1,6 +1,6 @@
 import { GET_COUNTRY_DETAIL_QUERY, GET_COUNTRIES_QUERY } from '../queries'
-import { Country } from '../types'
-import apolloClient from '../apollo/graphql-client'
+import { Country } from '../../types'
+import apolloClient from '../apolloClient/graphql-client'
 
 export type CountriesResponse = {
   countries: Country[]

@@ -1,7 +1,7 @@
 import '../styles/index.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
-import apolloClient from '../apollo/graphql-client'
+import apolloClient from '../graphQLApollo/apolloClient/graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { store } from '../redux/store'
 import { DateBox, Header, Main, Navigation, NavAccordion, Theme } from '../components'

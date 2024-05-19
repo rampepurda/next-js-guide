@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { Country } from '../../../types'
-import CountriesService from '../../../services/Countries'
+import CountriesService from '../../../graphQLApollo/services/Countries'
 import { Message } from '../../../configuration'
 
 /**
