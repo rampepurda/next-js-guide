@@ -9,14 +9,8 @@ import {
 } from '../../configuration'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Chapters, NavType } from '../../types'
+import { Chapters, NavType, PathName } from '../../types'
 import { getCountries, getPhotosWithLimit } from '../../redux/slices'
-
-enum PathName {
-  guide = '/guide',
-  project = '/projects',
-  tsDocumentation = '/typeScriptDoc',
-}
 
 export const Main = ({ children }: any) => {
   const dispatch = useAppDispatch()

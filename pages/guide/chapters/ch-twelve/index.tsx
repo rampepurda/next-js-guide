@@ -7,7 +7,7 @@ import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
 import { useQuery } from '@apollo/client'
-import { GET_CONTINENTS_QUERY } from '../../../../queries/continents'
+import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 import { Continent } from '../../../../types'
 
 /**

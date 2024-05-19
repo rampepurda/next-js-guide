@@ -1,3 +1,8 @@
+export enum PathName {
+  guide = '/guide',
+  project = '/projects',
+  tsDocumentation = '/typeScriptDoc',
+}
 export enum NavType {
   Primary = 'primary',
   Sidebar = 'sidebar',

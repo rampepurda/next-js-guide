@@ -1,22 +1,22 @@
 import { NextPage } from 'next'
 import { environment } from '../../../../configuration'
 import Head from 'next/head'
-import ImgSwr from './ch24-use-sw.png'
-import Image from 'next/image'
 import { Continent, PhotoType } from '../../../../types'
 import Link from 'next/link'
 import useSWR from 'swr'
 import { fetcherGQL, fetcher } from '../../../../SWR/fetcher'
-import { GET_CONTINENTS_QUERY } from '../../../../queries/continents'
+import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 
 const ChTwentyFour: NextPage = () => {
-  const photoURL: string = `${environment.photosURL}`
   const { data, error, isLoading } = useSWR<{ continents: Continent[] } | undefined>(
     GET_CONTINENTS_QUERY,
     fetcherGQL
   )
   const Photos = () => {
-    const { data, error, isLoading } = useSWR(`${photoURL}/?_limit=7`, fetcher)
+    const { data, error, isLoading } = useSWR<PhotoType[]>(
+      `${environment.photosURL}/?_limit=7`,
+      fetcher
+    )
 
     return (
       <>
@@ -68,7 +68,7 @@ const ChTwentyFour: NextPage = () => {
           </p>
         </div>
 
-        <ul className="hasTypeDisc hasVerticalPadding-2">
+        <ul className="hasTypeDisc hasVerticalPadding-4">
           <li>
             <h3>Install:</h3>
             <strong>yarn add swr</strong>
@@ -76,19 +76,33 @@ const ChTwentyFour: NextPage = () => {
             <strong>npm i swr</strong>
           </li>
           <li>
-            <h3>Use:</h3>
-            <strong>import useSWR from &apos;swr&apos;</strong>
-            <br />
-            <strong>const &#123; data, error, isLoading &#125; = useSWR(url, fetcher)</strong>
+            <h3>Import:</h3>
+            import <strong>useSWR</strong> from &apos;swr&apos;
           </li>
         </ul>
+        <ul className="hasOutline hasVerticalPadding-3">
+          <li>
+            <h3>Fetcher</h3>
+            const <strong>fetcher</strong> = async (url: string): Promise&lt;
+            <strong>any | undefined</strong>
+            &gt; =&gt; &#123;
+          </li>
+          <li>&nbsp;const response = await fetch(url)</li>
+          <li>&nbsp;return response.json()</li>
+          <li>&#125;</li>
+          <li>
+            <h3>useSWR</h3>
+            const &#123; data, error, isLoading &#125; = useSWR(`url`, <strong>fetcher</strong>)
+          </li>
+          <li>data?.map() =&gt; &#123; ... &#125;</li>
+        </ul>
 
-        <Image src={ImgSwr} alt="useSwr" aria-hidden={true} />
         <h3>Photos.title:</h3>
         <Photos />
+        <hr />
 
         <h2>useSWR with Apollo GraphQL:</h2>
-        <ul className="hasTypeDisc hasVerticalPadding-5">
+        <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
             <h3>Install:</h3>
             graphql-request library
@@ -97,12 +111,26 @@ const ChTwentyFour: NextPage = () => {
             <h3>Import:</h3>
             <code>
               <h4>import &#123;request&#125; from &apos;graphql-request&apos;</h4>
-              <hr />
             </code>
           </li>
         </ul>
+        <ul className="hasOutline">
+          <li>
+            <h3>Fetcher</h3>
+            const <strong>fetcher</strong> = async (query: string): Promise&lt;
+            <strong>any | undefined</strong>
+            &gt; =&gt; await <strong>request</strong>(&apos;url&apos;, query)
+          </li>
 
-        <h2>get Continents</h2>
+          <li>
+            <h3>useSWR</h3>
+            const &#123; data, error, isLoading &#125; = useSWR(`queryKey`, <strong>fetcher</strong>
+            )
+            <br />
+            data?.continents.map() =&gt; &#123; ... &#125;
+          </li>
+        </ul>
+        <h3>Continents</h3>
         {error ? (
           <h2>Error Fetching</h2>
         ) : (
@@ -115,36 +143,6 @@ const ChTwentyFour: NextPage = () => {
             </ul>
           </>
         )}
-
-        <ul className="hasOutline">
-          <li>
-            <h3>Fetcher, useSWR:</h3>
-            <strong>type ContinentsResponse</strong> = &#123;
-            <br />
-            &nbsp;continents: &#123; name: string, code: string&#125; [ ] <br /> &#125;
-          </li>
-          <li>
-            const <strong>fetcher</strong> = async (query: string): Promise&lt;
-            <strong>ContinentsResponse</strong>
-            &gt; =&gt; await request(&apos;url&apos;, query)
-          </li>
-          <li>
-            const useSwr = (query: string) =&gt;&#123; <br />
-            &nbsp;&nbsp;const &#123; data, error, isLoading&#125; ={' '}
-            <strong>useSWR&lt;ContinentsResponse</strong>
-            &gt;(<strong>GET_CONTINENTS_QUERY, fetcher</strong>)<br /> &nbsp;&nbsp;return &#123;
-            data, error, isLoading&#125;
-            <br />
-            &#125;
-            <hr />
-          </li>
-          <li>
-            <h3>App Rendering:</h3>
-            const &#123; data, error, isLoading &#125; = useSWR(`queryKey`, fetcher)
-            <br />
-            data?.continents.map() =&gt; &#123; ... &#125;
-          </li>
-        </ul>
       </div>
     </>
   )

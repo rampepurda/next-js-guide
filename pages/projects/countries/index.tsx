@@ -7,7 +7,7 @@ import { getSearchCountry } from '../../../redux/slices'
 import { selectCountryFilter } from '../../../redux/slices/Countries/countrySelectors'
 import { useInput } from '../../../hooks'
 import { useQuery } from '@apollo/client'
-import { GET_CONTINENTS_QUERY } from '../../../queries/continents'
+import { GET_CONTINENTS_QUERY } from '../../../graphQLApollo/queries/continents'
 import { Continent } from '../../../types'
 
 const Countries: NextPage = () => {

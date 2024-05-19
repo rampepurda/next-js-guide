@@ -1,5 +1,5 @@
 import { Continent } from '../../types'
-import ContinentsService from '../../services/Continents'
+import ContinentsService from '../../graphQLApollo/services/Continents'
 import { useEffect, useState } from 'react'
 
 export const Continents = () => {

@@ -1,5 +1,5 @@
-import { Continent } from '../types'
-import apolloClient from '../apollo/graphql-client'
+import { Continent } from '../../types'
+import apolloClient from '../apolloClient/graphql-client'
 import { GET_CONTINENTS_QUERY } from '../queries/continents'
 
 export type ContinentsResponse = {
