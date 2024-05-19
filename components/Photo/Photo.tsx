@@ -10,24 +10,26 @@ export const Photo = ({ id, title, thumbnailUrl }: PhotoType) => {
   const { t } = useTranslation('common')
 
   return (
-    <div className={classNames('card', classes.Cover)}>
-      <Image
-        className={classes.Image}
-        src={thumbnailUrl}
-        alt={title}
-        height={150}
-        width={150}
-        aria-hidden={true}
-      />
+    <figcaption className={classNames('card', classes.cover)}>
+      <div className={classes.content}>
+        <Image
+          className={classes.image}
+          src={thumbnailUrl}
+          alt={title}
+          height={150}
+          width={150}
+          aria-hidden={true}
+        />
 
-      <h3>{title}</h3>
-      <div>
+        <h3>{title}</h3>
+      </div>
+      <div style={{ textAlign: 'right' }}>
         <button className="btn btn-submit" type="button">
           <Link className={classes.link} href={`${ROUTE.PHOTO_DETAIL}/${id}`}>
             {t('projects:projects.dynamicRoute.btn')}
           </Link>
         </button>
       </div>
-    </div>
+    </figcaption>
   )
 }

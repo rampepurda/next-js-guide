@@ -9,7 +9,7 @@ import { fetcher } from '../../../SWR/fetcher'
 
 export const DynamicalRouting = () => {
   const { data, error, isLoading } = useSWR<PhotoType[]>(
-    `${environment.photosURL}/?_limit=233`,
+    `${environment.photosURL}/?_limit=201`,
     fetcher
   )
   const { currentPage = 1, handlePageChange } = usePaginate('dynamic-route')

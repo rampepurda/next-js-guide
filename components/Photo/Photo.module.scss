@@ -1,20 +1,24 @@
 @import "styles/variables";
+@import "styles/breakpoints";
 
-.Cover {
+.cover {
   display: inline-block;
-  width: 40%;
-  margin: .5rem;
+  width: inherit;
+  margin: .2rem;
   border: 1px solid gray;
   border-radius: 15px;
   padding: 1rem;
-}
 
-.Image {
-  float: left;
-  margin: 0 2rem 2rem 0;
-}
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-content: center;
+    justify-content: left;
+    margin-bottom: 2rem;
+  }
 
-.link {
-  color: $white;
-  text-decoration: none;
+  .image {
+    width: 85%;
+    height: auto;
+  }
 }
