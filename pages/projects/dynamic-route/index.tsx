@@ -8,7 +8,7 @@ import { environment } from '../../../configuration'
 import { fetcher } from '../../../SWR/fetcher'
 
 export const DynamicalRouting = () => {
-  const { data, error, isLoading } = useSWR<PhotoType[]>(
+  const { data, error, isLoading } = useSWR<PhotoType[] | undefined>(
     `${environment.photosURL}/?_limit=201`,
     fetcher
   )
