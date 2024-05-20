@@ -1,9 +1,10 @@
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { Pages, ROUTE } from '../../../../configuration'
 import Head from 'next/head'
-import CountriesService from '../../../../services/Countries'
+import CountriesService from '../../../../graphQLApollo/services/Countries'
 import Link from 'next/link'
 import { Country } from '../../../../types'
+import { Country as CountryFocus } from '../../../../components/index'
 
 /**
  * @param useQuery
@@ -36,31 +37,11 @@ export default function CountryDetail({
       </Head>
 
       <div>
-        <label>Country name:</label>
-        <h2>{country.name}</h2>
-        <hr />
-        <label>Country code:</label>
-        <h3>{country.code}</h3>
-        <hr />
-        <label>Capital:</label>
-        <h3>{country.capital}</h3>
-        <hr />
-        <label>Currency:</label>
-        <h3>{country.currency}</h3>
-        <hr />
-        <label>Phone:</label>
-        <h3>{country.phone}</h3>
-        <hr />
-        <label>Native:</label>
-        <h3>{country.native}</h3>
-        <hr />
-
+        <CountryFocus {...country} isCountryDetail={true} />
         <button className="btn btn-submit" type="button">
           <Link href={`${ROUTE.COUNTRY_DETAIL}`}>{Pages.guide.chTwelve.detailTrack.linkBack}</Link>
         </button>
-
         <button className="btn btn-submit" type="button">
-          {' '}
           <Link href={`${ROUTE.PROJECT_COUNTRIES}`}>{Pages.projects.countries.linkBack}</Link>
         </button>
       </div>

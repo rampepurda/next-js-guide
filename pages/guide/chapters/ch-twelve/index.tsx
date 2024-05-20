@@ -1,14 +1,14 @@
-import { NextPage } from 'next'
-import { InfoBox, Countries } from '../../../../components'
+import { Countries, Loader } from '../../../../components'
 import Head from 'next/head'
 import { Pages } from '../../../../configuration'
-import { useAppSelector } from '../../../../redux/store'
 import Image from 'next/image'
 import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
 import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
 import { useQuery } from '@apollo/client'
 import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 import { Continent } from '../../../../types'
+import { CountriesResponse } from '../../../../graphQLApollo/services/Countries'
+import { GET_COUNTRIES_QUERY } from '../../../../graphQLApollo/queries'
 
 /**
  * APOLLO GRAPHQL SERVER-INSTALLATION:
@@ -19,10 +19,9 @@ import { Continent } from '../../../../types'
 
 type ContinentResponse = { continents: [{ name: string; code: string }] }
 
-const ChTwelve: NextPage = () => {
-  const { countries } = useAppSelector((state) => state.Countries)
+export default function ChTwelve() {
+  const countries = useQuery<CountriesResponse | undefined>(GET_COUNTRIES_QUERY)
   const { data, error, loading } = useQuery<ContinentResponse>(GET_CONTINENTS_QUERY)
-
   return (
     <>
       <Head>
@@ -152,8 +151,11 @@ const ChTwelve: NextPage = () => {
             })}
           </ul>
         )}
-        <br />
-        <hr />
+        <h2>Example</h2>
+        {countries.error && <h3>Ops, something happened</h3>}
+        {countries.loading && <Loader />}
+        <Countries countries={countries.data?.countries.slice(80, 85)} />
+
         <h2>GraphQL Server Side</h2>
         <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
           Apollo GraphQL tutorials (Lift of II Resolvers)
@@ -347,12 +349,7 @@ const ChTwelve: NextPage = () => {
           <hr />
           <code>&nbsp;return ( onClick=&#123;(ev) =&gt; incrementTrackViews()&#125; )</code>
         </div>
-
-        <h2>Example</h2>
-        <Countries countries={countries.slice(80, 90)} />
       </div>
     </>
   )
 }
-
-export default ChTwelve

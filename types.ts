@@ -33,6 +33,7 @@ export type Country = {
   currency?: string | number
   emoji?: string
   emojiU?: string
+  isCountryDetail?: boolean
 }
 export type Continent = {
   name: string

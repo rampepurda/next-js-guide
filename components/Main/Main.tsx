@@ -7,12 +7,12 @@ import {
   sidebarProjects,
   sidebarTypeScriptDoc,
 } from '../../configuration'
-import React, { useEffect, useState } from 'react'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType, PathName } from '../../types'
 import { getCountries, getPhotosWithLimit } from '../../redux/slices'
 
-export const Main = ({ children }: any) => {
+export const Main = ({ children }: PropsWithChildren) => {
   const dispatch = useAppDispatch()
   const pathName = usePathname()
   const [chapters, setChapters] = useState<Chapters[]>([])

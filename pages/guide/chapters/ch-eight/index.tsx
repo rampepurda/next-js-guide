@@ -22,7 +22,7 @@ const WithChild = ({ user, children }: PropsWithChildren<{ user: Props }>) => {
   )
 }
 
-const ChEight: NextPage = () => {
+export default function ChEight() {
   return (
     <>
       <Head>
@@ -43,5 +43,3 @@ const ChEight: NextPage = () => {
     </>
   )
 }
-
-export default ChEight

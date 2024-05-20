@@ -31,7 +31,7 @@ h1 {
 
 h2 {
   @include fontSize(2.1rem, bold);
-  margin: $spacer-5 0;
+  margin: $spacer-3 0;
   color: $darkmagenta;
 }
 
