@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useSelect } from '../../../../hooks'
-import { NextPage } from 'next'
 import Head from 'next/head'
 import { InfoBox, Cars, Select } from '../../../../components'
 import { CarList, CarsOptions } from '../../../../configuration'
 import { CarTypes } from '../../../../types'
 
-const ChTen: NextPage = () => {
+export default function ChTen() {
   const [selectedCars, setSelectedCars] = useState<CarTypes[]>([...CarList])
   const { handleOption, Value } = useSelect(CarsOptions, 'ch-ten')
 
@@ -45,5 +44,3 @@ const ChTen: NextPage = () => {
     </>
   )
 }
-
-export default ChTen

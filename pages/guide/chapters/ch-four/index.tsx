@@ -1,10 +1,9 @@
 import style from './ch-four.module.scss'
-import { NextPage } from 'next'
 import Head from 'next/head'
 import classNames from 'classnames'
 import { useState } from 'react'
 
-const ChFour: NextPage = () => {
+export default function ChFour() {
   const [isActive, setIsActive] = useState<boolean>(true)
 
   return (
@@ -67,5 +66,3 @@ const ChFour: NextPage = () => {
     </>
   )
 }
-
-export default ChFour

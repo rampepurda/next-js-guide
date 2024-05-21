@@ -1,5 +1,4 @@
-import { NextPage } from 'next'
-import { InfoBox, Cars, Select } from '../../../../components'
+import { Cars, Select } from '../../../../components'
 import { Pages } from '../../../../configuration'
 import Head from 'next/head'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store'
@@ -11,7 +10,7 @@ import { getFilterCar } from '../../../../redux/slices'
 import Image from 'next/image'
 import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelector.png'
 
-const ChFourteen: NextPage = () => {
+export default function ChFourteen() {
   const dispatch = useAppDispatch()
   const { cars, selectedCar } = useAppSelector((state) => state.Cars)
   const { handleOption, Value = selectedCar } = useSelect(CarsOptions, '')
@@ -139,5 +138,3 @@ const ChFourteen: NextPage = () => {
     </>
   )
 }
-
-export default ChFourteen

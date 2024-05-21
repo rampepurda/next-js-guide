@@ -1,7 +1,6 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 
-const ChThirteen: NextPage = () => {
+export default function ChThirteen() {
   return (
     <>
       <Head>
@@ -78,5 +77,3 @@ const ChThirteen: NextPage = () => {
     </>
   )
 }
-
-export default ChThirteen

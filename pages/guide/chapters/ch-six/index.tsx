@@ -1,10 +1,9 @@
-import style from '../../chapters.module.scss'
+import classes from '../../chapters.module.scss'
 import useTranslation from 'next-translate/useTranslation'
 import { useAppSelector } from '../../../../redux/store'
 import Trans from 'next-translate/Trans'
 import Head from 'next/head'
 import { InfoBox, Input, DateBox } from '../../../../components'
-import { NextPage } from 'next'
 import Image from 'next/image'
 import i18n from './img/i18n.png'
 import i18Trans from './img/i18Trans.png'
@@ -15,7 +14,7 @@ import React, { useEffect, useMemo, useState } from 'react'
  * https://www.i18next.com/translation-function/formatting
  */
 
-const ChSix: NextPage = () => {
+export default function ChSix() {
   const { amount } = useAppSelector((state) => state.Photos)
   const [age, setAge] = useState<string | number>(0)
   const { t } = useTranslation('common')
@@ -50,7 +49,7 @@ const ChSix: NextPage = () => {
           <Image src={i18n} layout="fixed" alt="i18n" aria-hidden={true} />
           <hr />
           <h3>3. next.config.js</h3>
-          <ul className={style.hasNoBorder}>
+          <ul className={classes.hasNoBorder}>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <li>
               <strong>const nextTranslate = require&#40;&apos;next-translate&apos;&#41;</strong>
@@ -170,7 +169,7 @@ const ChSix: NextPage = () => {
           <p>
             By default, <mark>next-i18next</mark> expects your translations to be organised as such:
           </p>
-          <ul className={style.hasNoBorder}>
+          <ul className={classes.hasNoBorder}>
             <li>.</li>
             <li>&nbsp;└── public</li>
             <li>&nbsp;└── locales</li>
@@ -189,5 +188,3 @@ const ChSix: NextPage = () => {
     </>
   )
 }
-
-export default ChSix

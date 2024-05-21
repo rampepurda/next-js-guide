@@ -1,7 +1,6 @@
 import classes from '../../chapters.module.scss'
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { NextPage } from 'next'
 import { InfoBox, Input } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -14,7 +13,7 @@ const TermsCond = dynamic<{ title: string }>(
   }
 )
 
-const ChFive: NextPage = () => {
+export default function ChFive() {
   const [InpEmail, setInpEmail] = useState<any>('')
   const handleSubmit = (email: string) => {
     if (
@@ -103,19 +102,19 @@ const ChFive: NextPage = () => {
           </li>
           <li>
             const <strong className="color-is-red">ComponentA = dynamic(()</strong> =&gt;
-            import('../components/A'))
+            import(&apos;../components/A&apos;))
           </li>
           <li>
             const <strong className="color-is-red">ComponentB = dynamic(()</strong> =&gt;
-            import('../components/B'))
+            import(&apos;../components/B&apos;))
           </li>
           <li>
             const <strong className="color-is-red">ComponentC = dynamic(()</strong> =&gt;
-            import('../components/C'), &#123; ssr: false &#125;);
+            import(&apos;../components/C&apos;), &#123; ssr: false &#125;);
           </li>
           <li>
             const <strong className="color-is-red">DynamicHeader = dynamic(()</strong> =&gt;
-            import('../components/header'), &#123;
+            import(&apos;../components/header&apos;), &#123;
             <br />
             &nbsp; loading: () =&gt; &lt;p&gt;Loading...&lt;/p&gt;
             <br />
@@ -261,5 +260,3 @@ const ChFive: NextPage = () => {
     </>
   )
 }
-
-export default ChFive

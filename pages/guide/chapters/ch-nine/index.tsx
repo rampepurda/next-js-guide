@@ -1,10 +1,9 @@
-import { NextPage } from 'next'
 import { InfoBox } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgRedirect from '../../../../public/images/ch-nine/redirects.png'
 
-export const ChNine: NextPage = () => {
+export default function ChNine() {
   return (
     <>
       <Head>
@@ -63,5 +62,3 @@ export const ChNine: NextPage = () => {
     </>
   )
 }
-
-export default ChNine

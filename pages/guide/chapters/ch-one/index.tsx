@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgSlug from '../../../../public/images/ch-one/slug.png'
@@ -11,7 +10,7 @@ import Link from 'next/link'
  https://nextjs.org/docs/routing/dynamic-routes
  */
 
-const ChOne: NextPage = () => {
+export default function ChOne() {
   const { getWindWidth } = useWindWidth()
   const dummyRoutes: { title: string; url: string }[] = [
     { title: 'Link Dummy I', url: '/guide/chapters/ch-one/dummyOne?chanel=netflix' },
@@ -230,5 +229,3 @@ const ChOne: NextPage = () => {
     </>
   )
 }
-
-export default ChOne

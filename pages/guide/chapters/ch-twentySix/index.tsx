@@ -1,17 +1,16 @@
 import classes from '../../../../components/Input/Input.module.scss'
-import { NextPage } from 'next'
 import { InfoBox, Input } from '../../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FormEvent } from 'react'
-import { useForm, type FieldValues } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 interface IFormInputs {
   firstNameDummy: string
   lastNameDummy: string
 }
 
-const ChTwentySix: NextPage = () => {
+export default function ChTwentySix() {
   const {
     register,
     handleSubmit,
@@ -303,5 +302,3 @@ const ChTwentySix: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentySix

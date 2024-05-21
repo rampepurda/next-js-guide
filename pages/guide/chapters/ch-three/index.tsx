@@ -1,8 +1,6 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
-import { InfoBox } from '../../../../components'
 
-const ChThree: NextPage = () => {
+export default function ChThree() {
   return (
     <>
       <Head>
@@ -83,5 +81,3 @@ const ChThree: NextPage = () => {
     </>
   )
 }
-
-export default ChThree

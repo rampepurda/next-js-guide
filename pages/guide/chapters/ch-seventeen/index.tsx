@@ -1,9 +1,8 @@
-import { NextPage } from 'next'
 import { Loader } from '../../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 
-const ChSeventeen: NextPage = () => {
+export default function ChSeventeen() {
   return (
     <>
       <Head>
@@ -100,5 +99,3 @@ const ChSeventeen: NextPage = () => {
     </>
   )
 }
-
-export default ChSeventeen

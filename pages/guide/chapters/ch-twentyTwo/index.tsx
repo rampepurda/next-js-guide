@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { ROUTE } from '../../../../configuration'
@@ -7,7 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { useAppSelector } from '../../../../redux/store'
 import classNames from 'classnames'
 
-const ChTwentyTwo: NextPage = () => {
+export default function ChTwentyTwo() {
   const { isThemeDark } = useAppSelector((state) => state.Common)
   const router = useRouter()
   const queries = useSearchParams()
@@ -120,5 +119,3 @@ const ChTwentyTwo: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentyTwo

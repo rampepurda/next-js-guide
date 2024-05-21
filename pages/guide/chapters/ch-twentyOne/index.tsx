@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import { InfoBox, FormPostBook } from '../../../../components'
 import Head from 'next/head'
 import { environment } from '../../../../configuration'
@@ -14,7 +13,7 @@ type Book = {
   price: string
 }
 
-const ChTwentyOne: NextPage = () => {
+export default function ChTwentyOne() {
   const [books, setBooks] = useState<Book[]>([])
   const getBook = async () => {
     const res = await fetch(`${environment.fireBaseBookURL}`)
@@ -158,5 +157,3 @@ const ChTwentyOne: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentyOne

@@ -1,7 +1,6 @@
 import React, { MouseEventHandler, useEffect } from 'react'
 import { useAppSelector } from '../../../../redux/store'
 import { useState } from 'react'
-import { NextPage } from 'next'
 import { Photos, Input } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -18,7 +17,7 @@ import { useChevron } from '../../../../hooks'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
-const ChSeven: NextPage = () => {
+export default function ChSeven() {
   const message: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [hasLimit, setHasLimit] = useState<number>(0)
@@ -137,5 +136,3 @@ const ChSeven: NextPage = () => {
     </>
   )
 }
-
-export default ChSeven

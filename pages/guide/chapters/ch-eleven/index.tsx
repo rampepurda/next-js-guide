@@ -1,11 +1,10 @@
-import { NextPage } from 'next'
 import { InfoBox, SlideShow } from '../../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgNextConfig from '../../../../public/images/ch-eleven/nextconfig.png'
 import { dataSlideshow } from '../../../../__mock__/dataMock'
 
-export const ChEleven: NextPage = () => {
+export default function ChEleven() {
   return (
     <>
       <Head>
@@ -97,5 +96,3 @@ export const ChEleven: NextPage = () => {
     </>
   )
 }
-
-export default ChEleven

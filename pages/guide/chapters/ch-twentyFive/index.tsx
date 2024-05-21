@@ -1,10 +1,9 @@
-import { NextPage } from 'next'
 import { InfoBox } from '../../../../components'
 import Head from 'next/head'
 import { merriweather, roboto } from '../../../../fonts'
 import Link from 'next/link'
 
-const ChTwentyFive: NextPage = () => {
+export default function ChTwentyFive() {
   return (
     <>
       <Head>
@@ -81,5 +80,3 @@ const ChTwentyFive: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentyFive

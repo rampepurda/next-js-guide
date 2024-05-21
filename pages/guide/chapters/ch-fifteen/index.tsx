@@ -1,9 +1,8 @@
-import { NextPage } from 'next'
 import { Modal } from '../../../../components'
 import Head from 'next/head'
 import { mCh15 } from '../../../../configuration'
 
-const ChFifteen: NextPage = () => {
+export default function ChFifteen() {
   return (
     <>
       <Head>
@@ -78,5 +77,3 @@ const ChFifteen: NextPage = () => {
     </>
   )
 }
-
-export default ChFifteen

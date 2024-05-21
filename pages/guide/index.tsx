@@ -1,10 +1,9 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect } from 'react'
 import { useWindWidth } from '../../hooks'
 
-const Guide: NextPage = () => {
+export default function Guide() {
   const { t } = useTranslation('common')
   const { getWindWidth } = useWindWidth()
 
@@ -24,5 +23,3 @@ const Guide: NextPage = () => {
     </>
   )
 }
-
-export default Guide

@@ -1,7 +1,7 @@
 import { Button } from '../../../../components'
 import { useParams, usePathname, useSearchParams } from 'next/navigation'
 
-const ChOneSlug: () => void = () => {
+export default function ChOneSlug() {
   const path = usePathname()
   /*
     const router = useRouter()
@@ -45,5 +45,3 @@ const ChOneSlug: () => void = () => {
     </div>
   )
 }
-
-export default ChOneSlug

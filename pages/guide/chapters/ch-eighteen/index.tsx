@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import { NextPage } from 'next'
 import { InfoBox } from '../../../../components'
 import imgInstallNext from './img/installnext13.png'
 import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
 
-const ChEight: NextPage = () => {
+export default function ChEight() {
   return (
     <>
       <Head>
@@ -114,5 +113,3 @@ const ChEight: NextPage = () => {
     </>
   )
 }
-
-export default ChEight

@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import { environment } from '../../../../configuration'
 import Head from 'next/head'
 import { Continent, PhotoType } from '../../../../types'
@@ -7,7 +6,7 @@ import useSWR from 'swr'
 import { fetcherGQL, fetcher } from '../../../../SWR/fetcher'
 import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 
-const ChTwentyFour: NextPage = () => {
+export default function ChTwentyFour() {
   const { data, error, isLoading } = useSWR<{ continents: Continent[] } | undefined>(
     GET_CONTINENTS_QUERY,
     fetcherGQL
@@ -147,5 +146,3 @@ const ChTwentyFour: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentyFour

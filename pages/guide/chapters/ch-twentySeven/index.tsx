@@ -1,9 +1,8 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { InfoBox } from '../../../../components'
 
-const ChTwentySeven: NextPage = () => {
+export default function ChTwentySeven() {
   return (
     <>
       <Head>
@@ -65,5 +64,3 @@ const ChTwentySeven: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentySeven

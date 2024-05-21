@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import { ROUTE } from '../../../../configuration'
 import React, { useEffect, useState, FormEvent } from 'react'
@@ -6,7 +5,7 @@ import { fetchInternalAPI } from '../../../../utils'
 import { CarNameTS } from '../../../../types'
 import Link from 'next/link'
 
-const ChNineteen: NextPage = () => {
+export default function ChNineteen() {
   const localURL: string = '/api/mock'
   const [cars, setCars] = useState<CarNameTS[]>([])
   const getLocalData = async () => {
@@ -98,5 +97,3 @@ const ChNineteen: NextPage = () => {
     </>
   )
 }
-
-export default ChNineteen

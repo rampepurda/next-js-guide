@@ -1,8 +1,7 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
-const ChTwentyEight: NextPage = () => {
+export default function ChTwentyEight() {
   const exam1: string = 'This txt includes <strong>strong</strong> tag'
   const exam2: string = 'This txt includes <b onmouseover="alert(\'mouseover\');">alert</b>'
 
@@ -62,5 +61,3 @@ const ChTwentyEight: NextPage = () => {
     </>
   )
 }
-
-export default ChTwentyEight
