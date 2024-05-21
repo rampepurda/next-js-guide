@@ -13,8 +13,12 @@ export default function ChTwentySeven() {
         <h2>27. &apos;use client&apos; vs &apos;use server&apos;</h2>
         <ul className="hasVerticalPadding-3">
           <li>
-            <Link href="" target="_blank">
-              see Tutorial here ...not DONE
+            <Link
+              href="https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns"
+              target="_blank"
+              rel="noreferrer"
+            >
+              see Comparison here
             </Link>
           </li>
         </ul>
