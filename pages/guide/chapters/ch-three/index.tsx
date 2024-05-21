@@ -45,7 +45,7 @@ export default function ChThree() {
         <h3>3.3 Exposing Environment Variables to the Browser</h3>
         <p>
           By default environment variables are only available in the Node.js environment, meaning
-          they won't be exposed to the browser.
+          they won&apos;t be exposed to the browser.
         </p>
         <p>
           In order to expose a variable to the browser you have to prefix the variable with
@@ -57,14 +57,16 @@ export default function ChThree() {
           <hr />
           <h5>Result: {process.env.NEXT_PUBLIC_ANALYTICS_ID}</h5>
         </div>
-        <h3>3.4 Exposing Environment Variables outside of the Root</h3>
+        <h2>Install - DotEnv: Exposing Environment Variables outside of the Root via </h2>
         <ul className="hasTypeDecimal">
           <li>Install: yarn add dotenv</li>
           <li>Install: yarn add cross-env</li>
           <li>
             Update next.config.ts:
             <h5>
-              <code>require('dotenv').config(&#123; path: process.env.ENV_FILE_PATH &#125;)</code>
+              <code>
+                require(&apos;dotenv&apos;).config(&#123; path: process.env.ENV_FILE_PATH &#125;)
+              </code>
             </h5>
           </li>
           <li>
