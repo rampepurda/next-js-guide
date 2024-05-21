@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import classNames from 'classnames'
+import { Button } from '../UI'
+import { ROUTE } from '../../configuration'
 
 type Props = {
   data: NavigationLink[]
@@ -21,7 +23,6 @@ export const Search = ({ data, ClassNames }: Props) => {
       return true
     }
   }, [params])
-
   const handleSearch = () => {}
 
   return (
@@ -56,7 +57,15 @@ export const Search = ({ data, ClassNames }: Props) => {
         })}
         {isParamFailed && foundedData.length === 0 && (
           <li className={classes.noMatches}>
-            no matches for: <strong>{params.get('searchParam')}</strong>{' '}
+            no matches for: <strong>{params.get('searchParam')}</strong>
+            <Button
+              ClassName={classNames('btn', classes.clearResultBtn)}
+              rest={{ type: 'button' }}
+              title={'x'}
+              hasLink={true}
+              url={ROUTE.GUIDE}
+              ariaLabel={'Close search result'}
+            />
           </li>
         )}
       </ul>

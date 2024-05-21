@@ -1,6 +1,8 @@
 @import '../../styles/variables';
 @import '../../styles/breakpoints';
 @import '../../styles/spacing';
+@import '../../styles/mixins';
+
 
 .form {
   display: flex;
@@ -41,7 +43,24 @@
 .noMatches {
   margin-top: -$spacer-2;
   margin-right: calc($spacer-7);
+  box-shadow: 0 1px transparentize($blackLighter, .5);
   padding: .7rem 1rem!important;
+}
+
+.clearResultBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 $spacer-4;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: $white;
+
+  a {
+    @include fontSize(1.4rem, bolder);
+    color: $black!important;
+  }
 }
 
 

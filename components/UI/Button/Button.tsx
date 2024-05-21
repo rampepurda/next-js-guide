@@ -10,6 +10,7 @@ type Props = {
   isDisabled?: boolean
   title?: string
   rest?: Record<string, string>
+  ariaLabel?: string
 }
 /**
  * @param isSearch: Default as false, case true input type='search' get another class attribute
@@ -22,6 +23,7 @@ export const Button = ({
   url,
   title,
   isDisabled = false,
+  ariaLabel,
   rest,
 }: Props) => {
   return (
@@ -30,6 +32,7 @@ export const Button = ({
       type="button"
       onClick={OnClick}
       disabled={isDisabled}
+      aria-label={ariaLabel}
       {...rest}
     >
       {hasLink ? <Link href={`${url}`}>{title}</Link> : title}
