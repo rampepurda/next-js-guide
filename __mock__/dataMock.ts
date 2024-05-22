@@ -58,7 +58,7 @@ export const sidebarGuideSearch = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-nine`,
   },
   {
-    tKey: '10. useCallback',
+    tKey: '10. useCallback, useEffect',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-ten`,
   },
   {
