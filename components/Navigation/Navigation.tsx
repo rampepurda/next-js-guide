@@ -7,6 +7,7 @@ import { isNavLinkActive } from '../../utils'
 import useTranslation from 'next-translate/useTranslation'
 import { useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
+import { ROUTE } from '../../configuration'
 
 type Props = {
   ClassName?: string
@@ -41,8 +42,8 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
     }
   }, [isNav])
   const ariaLink = useCallback(
-    (routerPath: string | undefined) => {
-      return pathName === routerPath ? 'page' : undefined
+    (routerPath: string) => {
+      return pathName === routerPath && 'page'
     },
     [pathName]
   )
@@ -55,6 +56,11 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
       aria-label={ariaNav}
     >
       <ul>
+        {isNav === NavType.Primary && pathName !== ROUTE.HOME && (
+          <li>
+            <Link href={ROUTE.HOME}>←</Link>
+          </li>
+        )}
         {links?.map(({ tKey, link }, idx) => {
           return (
             <li

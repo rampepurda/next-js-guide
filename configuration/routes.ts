@@ -1,5 +1,5 @@
 export const ROUTE = {
-  HOME: '',
+  HOME: '/',
   GUIDE: '/guide',
   GUIDE_CHAPTERS: '/guide/chapters',
   COUNTRY_DETAIL: '/guide/chapters/ch-twelve',
