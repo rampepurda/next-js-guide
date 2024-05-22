@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useAppSelector } from '../../redux/store'
 import { NavigationLink } from '../../types'
 import { usePathname } from 'next/navigation'
-import { sidebarGuideSearch } from '../../__mock__/dataMock'
+import { searchData } from '../../configuration'
 import { Search } from '../Search'
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const Header = ({ className, children }: PropsWithChildren<Props>) => {
-  const data: NavigationLink[] = sidebarGuideSearch
+  const data: NavigationLink[] = searchData
   const pathname = usePathname()
   const { isThemeDark } = useAppSelector((state) => state.Common)
 

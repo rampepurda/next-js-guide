@@ -1,12 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import {
-  environment,
-  sidebarGuide,
-  sidebarProjects,
-  sidebarTypeScriptDoc,
-} from '../../configuration'
+import { environment, sidebar } from '../../configuration'
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType, PathName } from '../../types'
@@ -21,13 +16,13 @@ export const Main = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
-      setChapters(sidebarGuide)
+      setChapters(sidebar.guide)
     }
     if (pathName.startsWith(`${PathName.project}`)) {
-      setChapters(sidebarProjects)
+      setChapters(sidebar.projects)
     }
     if (pathName.startsWith(`${PathName.tsDocumentation}`)) {
-      setChapters(sidebarTypeScriptDoc)
+      setChapters(sidebar.typeScriptDoc)
     }
     dispatch(getCountries())
     dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))

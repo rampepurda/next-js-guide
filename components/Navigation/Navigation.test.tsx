@@ -1,11 +1,11 @@
 import { render, screen, within } from '@testing-library/react'
 import { Navigation } from './'
 import { NavType } from '../../types'
-import { sidebarTypeScriptDoc } from '../../configuration'
+import { sidebar } from '../../__mock__/dataMock'
 
 describe('Navigation', () => {
   it('Renders navigation', () => {
-    render(<Navigation isNav={NavType.Sidebar} links={sidebarTypeScriptDoc} />)
+    render(<Navigation isNav={NavType.Sidebar} links={sidebar} />)
 
     const navigation = screen.getByRole('navigation')
     const ariaLabelNav = screen.getByLabelText(/isLeft/i)
@@ -13,6 +13,6 @@ describe('Navigation', () => {
 
     expect(navigation).toBeInTheDocument()
     expect(ariaLabelNav).toBeInTheDocument()
-    expect(links.length).toBe(4)
+    expect(links.length).toBe(3)
   })
 })
