@@ -20,24 +20,24 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
   const { t } = useTranslation('common')
   const navigationStyle = () => {
     switch (isNav) {
-      case `${NavType.Primary}`:
+      case NavType.Primary:
         return classes.primary
-      case `${NavType.Sidebar}`:
+      case NavType.Sidebar:
         if (links.length !== 0) {
           return classes.hasBr
         }
         break
-      case `${NavType.Accordion}`:
+      case NavType.Accordion:
         return classes.accordionNav
     }
   }
   const ariaNav = useMemo(() => {
     switch (isNav) {
-      case `${NavType.Primary}`:
+      case NavType.Primary:
         return `${t('ariaLabels.navigation.isMain')}`
-      case `${NavType.Sidebar}`:
+      case NavType.Sidebar:
         return `${t('ariaLabels.navigation.isLeft')}`
-      case `${NavType.SubNav}`:
+      case NavType.SubNav:
         return `${t('ariaLabels.navigation.isSub')}`
     }
   }, [isNav])
