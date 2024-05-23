@@ -14,12 +14,10 @@
  * // Expected output: false
  */
 
-export const isNavLinkActive = (pathName: string, link: string, isMain: boolean): boolean => {
+export const isLinkActive = (pathName: string, link: string, isMain: boolean): boolean => {
   const currentLink = link.split(RegExp(/^\/([a-zA-Z0-9]+)/)).filter(Boolean)
   // Need to use .filter method to get rid of an empty string from the resulting array.
 
-  if(!isMain) return pathName === link
+  if (!isMain) return pathName === link
   return pathName.startsWith(`/${currentLink[0]}`, 0)
 }
-
-
