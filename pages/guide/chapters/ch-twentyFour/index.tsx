@@ -11,27 +11,7 @@ export default function ChTwentyFour() {
     GET_CONTINENTS_QUERY,
     fetcherGQL
   )
-  const Photos = () => {
-    const { data, error, isLoading } = useSWR<PhotoType[]>(
-      `${environment.photosURL}/?_limit=7`,
-      fetcher
-    )
-
-    return (
-      <>
-        {error && <h2>Something went wrong!</h2>}
-        {isLoading ? (
-          <h2>Loading...</h2>
-        ) : (
-          <ul className="hasVerticalPadding-5 hasTypeDecimal">
-            {data?.map((photo: PhotoType, idx: number) => {
-              return <li key={idx}>{photo.title}</li>
-            })}
-          </ul>
-        )}
-      </>
-    )
-  }
+  const photos = useSWR<PhotoType[]>(`${environment.photosURL}/?_limit=7`, fetcher)
 
   return (
     <>
@@ -97,7 +77,16 @@ export default function ChTwentyFour() {
         </ul>
 
         <h3>Photos.title:</h3>
-        <Photos />
+        {photos.error && <h2>Something went wrong!</h2>}
+        {photos.isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <ul className="hasVerticalPadding-5 hasTypeDecimal">
+            {photos.data?.map((photo: PhotoType, idx: number) => {
+              return <li key={idx}>{photo.title}</li>
+            })}
+          </ul>
+        )}
         <hr />
 
         <h2>useSWR with Apollo GraphQL:</h2>
