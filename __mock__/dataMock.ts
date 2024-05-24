@@ -24,17 +24,29 @@ export const CarName = [
     model: 'citroen',
   },
 ]
-export const sidebar = [
-  {
-    tKey: '1. Routing',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
-  },
-  {
-    tKey: '3. Environment',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-three`,
-  },
-  {
-    tKey: '4. classNames Library',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-four`,
-  },
-]
+export const navigation = {
+  primary: [
+    {
+      tKey: '1. Routing',
+      link: '/home/dummy',
+    },
+    {
+      tKey: '3. Environment',
+      link: '/test/dummy',
+    },
+  ],
+  sidebar: [
+    {
+      tKey: '1. Routing',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
+    },
+    {
+      tKey: '3. Environment',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-three`,
+    },
+    {
+      tKey: '4. classNames Library',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-four`,
+    },
+  ],
+}

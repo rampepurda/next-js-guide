@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { NavigationLink, NavType } from '../../types'
 import { LangSwitch } from '../index'
 import classNames from 'classnames'
-import { isNavLinkActive } from '../../utils'
+import { isLinkActive } from '../../utils'
 import useTranslation from 'next-translate/useTranslation'
 import { useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
@@ -13,9 +13,10 @@ type Props = {
   ClassName?: string
   isNav: NavType
   links: NavigationLink[]
+  isMain?: boolean
 }
 
-export const Navigation = ({ ClassName, links, isNav }: Props) => {
+export const Navigation = ({ ClassName, links, isNav, isMain = false }: Props) => {
   const pathName = usePathname()
   const { t } = useTranslation('common')
   const navigationStyle = () => {
@@ -53,10 +54,11 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
       className={classNames(ClassName, navigationStyle(), {
         [`navLeft ${classes.sideBar}`]: isNav !== NavType.Primary,
       })}
+      data-testid="navigationType"
       aria-label={ariaNav}
     >
       <ul>
-        {isNav === NavType.Primary && pathName !== ROUTE.HOME && (
+        {pathName !== ROUTE.HOME && isMain && (
           <li>
             <Link href={ROUTE.HOME}>←</Link>
           </li>
@@ -65,7 +67,7 @@ export const Navigation = ({ ClassName, links, isNav }: Props) => {
           return (
             <li
               className={classNames({
-                [classes.isLinkActive]: isNavLinkActive(pathName, link, isNav === NavType.Primary),
+                [classes.isLinkActive]: isLinkActive(pathName, link, isMain),
               })}
               key={idx}
             >

@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <DateBox />
           <Theme ariaLabel={'controlled'} />
         </Header>
-        <Navigation isNav={NavType.Primary} links={navPrimary} />
+        <Navigation isNav={NavType.Primary} links={navPrimary} isMain={true} />
         <NavAccordion />
 
         <Main>
