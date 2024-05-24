@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "cross-env ENV_FILE_PATH=env/.env.integration next dev",
-    "dev:server": "cross-env ENV_FILE_PATH=env/.env.integration",
     "build": "cross-env ENV_FILE_PATH=env/.env.development next build",
     "start": "next start",
     "lint": "next lint",

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function ChThree() {
   return (
@@ -11,6 +12,13 @@ export default function ChThree() {
         <h2>3. Environment .env</h2>
         <h4>
           You will work with sensitive information? Then use <strong>.env</strong>
+          <br />
+          <Link
+            href="https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables"
+            rel="noreferrer"
+          >
+            Read more here
+          </Link>
         </h4>
         <h3>3.1 Predefined .env in Next JS</h3>
         <div className="hasOutline">
