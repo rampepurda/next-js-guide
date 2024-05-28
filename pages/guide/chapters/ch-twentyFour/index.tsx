@@ -3,13 +3,13 @@ import Head from 'next/head'
 import { Continent, PhotoType } from '../../../../types'
 import Link from 'next/link'
 import useSWR from 'swr'
-import { fetcherGQL, fetcher } from '../../../../SWR/fetcher'
+import { fetcherQuery, fetcher } from '../../../../SWR/fetcher'
 import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 
 export default function ChTwentyFour() {
   const { data, error, isLoading } = useSWR<{ continents: Continent[] } | undefined>(
     GET_CONTINENTS_QUERY,
-    fetcherGQL
+    fetcherQuery
   )
   const photos = useSWR<PhotoType[]>(`${environment.photosURL}/?_limit=7`, fetcher)
 
