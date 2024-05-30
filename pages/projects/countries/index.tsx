@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { Countries as CountriesData, Input } from '../../../components'
 import Head from 'next/head'
@@ -47,7 +47,7 @@ const Countries: NextPage = () => {
           }}
           isSearch={true}
         />
-        {Value ? <CountriesData countries={filteredCountries} /> : ''}
+        {Value ? <CountriesData countries={filteredCountries} route={'countries'} /> : ''}
       </div>
     </>
   )

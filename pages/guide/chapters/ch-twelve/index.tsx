@@ -21,7 +21,7 @@ type ContinentResponse = { continents: [{ name: string; code: string }] }
 
 export default function ChTwelve() {
   const countries = useQuery<CountriesResponse | undefined>(GET_COUNTRIES_QUERY)
-  const { data, error, loading } = useQuery<ContinentResponse>(GET_CONTINENTS_QUERY)
+  const continents = useQuery<ContinentResponse>(GET_CONTINENTS_QUERY)
   return (
     <>
       <Head>
@@ -127,34 +127,28 @@ export default function ChTwelve() {
             import &#123; useQuery &#125; from &quot;@apollo/client&quot;
           </li>
           <li>
-            <strong>type ContinentResponse</strong> = &#123; continents: [&#123; name: string; code:
-            string &#125;] &#125;
-          </li>
-          <li>
-            const &#123; data, error, loading &#125; ={' '}
-            <strong>useQuery&lt;ContinentResponse&qt;(GET_CONTINENTS_QUERY)</strong>
+            const &#123; data, error, loading &#125; = <strong>useQuery&lt;TS&gt;(QUERY)</strong>
           </li>
           <li>&#123; data.continents.map(() =&gt; &#123; &#125;)</li>
         </ul>
-        <h4>Continents</h4>
-        {loading && <h4>Loading, please wait</h4>}
-        {error ? (
-          <h3>Ops, something happened</h3>
-        ) : (
-          <ul className="hasVerticalPadding-4">
-            {data?.continents.map((continent: Continent) => {
-              return (
-                <li key={continent.code}>
-                  {continent.name} | {continent.code}
-                </li>
-              )
-            })}
-          </ul>
-        )}
+
         <h2>Example</h2>
-        {countries.error && <h3>Ops, something happened</h3>}
-        {countries.loading && <Loader />}
-        <Countries countries={countries.data?.countries.slice(80, 85)} />
+        <h4>Continents</h4>
+        {(continents.loading && <h4>Loading, please wait</h4>) ||
+          (continents.error && <h3>Ops, something happened</h3>)}
+
+        <ul className="hasVerticalPadding-4">
+          {continents.data?.continents.map((continent: Continent) => {
+            return (
+              <li key={continent.code}>
+                {continent.name} | {continent.code}
+              </li>
+            )
+          })}
+        </ul>
+
+        {(countries.error && <h3>Ops, something happened</h3>) || (countries.loading && <Loader />)}
+        <Countries countries={countries.data?.countries.slice(80, 85)} route={'ch-twelve'} />
 
         <h2>GraphQL Server Side</h2>
         <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
