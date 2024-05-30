@@ -42,7 +42,7 @@ export default function ChTwelve() {
           </li>
         </ul>
 
-        <h2>Client side</h2>
+        <h2>1. Client</h2>
         <h3>Installation</h3>
         <ul className="hasTypeDisc">
           <li>
@@ -57,12 +57,12 @@ export default function ChTwelve() {
         <div className="hasOutline">
           <h3>Do I get response? Try it.</h3>
           <code>
-            apolloClient.query(&#123; query: GET_CONTINENTS_QUERY, &#125;) .then((result) =&gt;
+            apolloClient.query(&#123; query: GET_CONTINENTS_QUERY, &#125;).then((result) =&gt;
             &#123; console.log(result) &#125;)
           </code>
         </div>
 
-        <h2>1. Feature data requirements (CLIENT)</h2>
+        <h2>Feature data requirements (CLIENT)</h2>
         <ul className="hasTypeDisc">
           <li>
             <h5>Apollo Client</h5>
@@ -81,29 +81,9 @@ export default function ChTwelve() {
               <li>&#125;&#125;`</li>
             </ul>
           </li>
-          <li>
-            <h3>_app.tsx</h3>
-            <ul>
-              <li className="hasVerticalPadding-2">
-                import apolloClient from &quot;../apollo/graphql-client&quot;
-              </li>
-              <li className="hasVerticalPadding-2">
-                import &#123; ApolloProvider &#125; from &quot;@apollo/client&quot;
-              </li>
-              <li className="hasVerticalPadding-10">
-                <h4>
-                  &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;
-                  <br />
-                  &nbsp;&nbsp;content
-                  <br />
-                  &lt;/ApolloProvider&gt;
-                </h4>
-              </li>
-            </ul>
-          </li>
         </ul>
 
-        <h2>2. useQuery hook</h2>
+        <h2>useQuery hook</h2>
         <ul className="hasVerticalPadding-2">
           <li>
             <a
@@ -118,26 +98,45 @@ export default function ChTwelve() {
 
         <ul className="hasVerticalPadding-6 hasOutline">
           <li>
-            <h3>Don`t Remember to setup useQuery TS values. Does not work without it!</h3>
-            <h4>
-              App includes cover: &lt; ApolloProvider client=&#123;apolloClient&#125; &gt;, means
-              that we have url we need to fetch data
-            </h4>
-            <hr />
-            import &#123; useQuery &#125; from &quot;@apollo/client&quot;
+            <h3>_app.tsx</h3>
+            <ul>
+              <li className="hasVerticalPadding-2">
+                import apolloClient from &quot;../apollo/graphql-client&quot;
+              </li>
+              <li>import &#123; ApolloProvider &#125; from &quot;@apollo/client&quot;</li>
+              <li>
+                <h4>
+                  &lt;ApolloProvider client=&#123;apolloClient&#125;&gt;
+                  <br />
+                  &nbsp;&nbsp;content
+                  <br />
+                  &lt;/ApolloProvider&gt;
+                </h4>
+                <hr />
+              </li>
+            </ul>
           </li>
+          <li>import &#123; useQuery &#125; from &quot;@apollo/client&quot;</li>
           <li>
             const &#123; data, error, loading &#125; = <strong>useQuery&lt;TS&gt;(QUERY)</strong>
           </li>
           <li>&#123; data.continents.map(() =&gt; &#123; &#125;)</li>
+          <li>
+            <hr />
+            <h3>Dynamics route</h3>
+          </li>
+          <li>const params = useParams()</li>
+          <li>const &#123; data, error, loading &#125; = useQuery&lt; TS &gt;(</li>
+          <li>&nbsp;QUERY,</li>
+          <li>&nbsp;&#123; variables: &#123; params &#125; &#125;</li>
+          <li>)</li>
         </ul>
 
-        <h2>Example</h2>
-        <h4>Continents</h4>
+        <h3>Example: Continents & Countries</h3>
         {(continents.loading && <h4>Loading, please wait</h4>) ||
           (continents.error && <h3>Ops, something happened</h3>)}
 
-        <ul className="hasVerticalPadding-4">
+        <ul className="isHorizontal hasVerticalPadding-4">
           {continents.data?.continents.map((continent: Continent) => {
             return (
               <li key={continent.code}>
@@ -149,8 +148,9 @@ export default function ChTwelve() {
 
         {(countries.error && <h3>Ops, something happened</h3>) || (countries.loading && <Loader />)}
         <Countries countries={countries.data?.countries.slice(80, 85)} route={'ch-twelve'} />
-
-        <h2>GraphQL Server Side</h2>
+        <br />
+        <hr />
+        <h2>2. GraphQL Server Side</h2>
         <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
           Apollo GraphQL tutorials (Lift of II Resolvers)
         </a>

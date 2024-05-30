@@ -14,6 +14,7 @@ export default function CountryDetail() {
     GET_COUNTRY_DETAIL_QUERY,
     { variables: { code } }
   )
+
   return (
     <>
       <Head>
