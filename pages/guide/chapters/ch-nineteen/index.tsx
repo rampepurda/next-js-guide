@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ROUTE } from '../../../../configuration'
 import React, { useEffect, useState, FormEvent } from 'react'
-import { fetchInternalAPI } from '../../../../utils'
+import { fetchInternalAPI } from '../../../../utils/fetchers'
 import { CarNameTS } from '../../../../types'
 import Link from 'next/link'
 
