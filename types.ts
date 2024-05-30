@@ -39,6 +39,15 @@ export type Continent = {
   name: string
   code: string
 }
+export type ContinentDetailTS = {
+  continent: {
+    name: string | undefined
+    countries: {
+      name: string
+      capital: string | null
+    }[]
+  }
+}
 export interface CarTypes {
   id: string | number
   model: string

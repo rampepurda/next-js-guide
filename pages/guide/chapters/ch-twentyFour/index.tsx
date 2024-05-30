@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Continent, PhotoType } from '../../../../types'
 import Link from 'next/link'
 import useSWR from 'swr'
-import { fetcherQuery, fetcher } from '../../../../SWR/fetcher'
+import { fetcherQuery, fetcher } from '../../../../utils/fetchers'
 import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
 
 export default function ChTwentyFour() {

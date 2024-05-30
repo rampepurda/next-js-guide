@@ -5,7 +5,7 @@ import { usePaginate } from '../../../hooks'
 import { paginateCurrentPost } from '../../../utils'
 import useSWR from 'swr'
 import { environment } from '../../../configuration'
-import { fetcher } from '../../../SWR/fetcher'
+import { fetcher } from '../../../utils/fetchers'
 
 export const DynamicalRouting = () => {
   const { data, error, isLoading } = useSWR<PhotoType[] | undefined>(
