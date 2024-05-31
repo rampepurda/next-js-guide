@@ -42,7 +42,7 @@ export default function ChTwelve() {
           </li>
         </ul>
 
-        <h2>1. Client</h2>
+        <h2>1. Client side</h2>
         <h3>Installation</h3>
         <ul className="hasTypeDisc">
           <li>
@@ -62,7 +62,7 @@ export default function ChTwelve() {
           </code>
         </div>
 
-        <h2>Feature data requirements (CLIENT)</h2>
+        <h2>Feature data requirements</h2>
         <ul className="hasTypeDisc">
           <li>
             <h5>Apollo Client</h5>
@@ -81,6 +81,28 @@ export default function ChTwelve() {
               <li>&#125;&#125;`</li>
             </ul>
           </li>
+        </ul>
+        <hr />
+
+        <h2>use apolloClient.query</h2>
+        <ul className="hasOutline hasVerticalPadding-3">
+          <li>
+            async function getCountryDetail( <strong>param</strong> ): Promise&lt;TS&gt; &#123;
+          </li>
+          <li>
+            &nbsp;const &#123; data, error, loading &#125; = await{' '}
+            <strong>apolloClient.query</strong>&lt;TS&gt; &#123; ( &#123;
+          </li>
+          <li>
+            &nbsp;&nbsp;&nbsp;<strong>query:</strong> GET_COUNTRY_DETAIL_QUERY,
+          </li>
+          <li>
+            &nbsp;&nbsp;&nbsp;<strong>variables:</strong> &#123; <strong>param</strong> &#125;
+          </li>
+          <li> &#125;)</li>
+          <li></li>
+          <li>return data</li>
+          <li>&#125; &#125;</li>
         </ul>
 
         <h2>useQuery hook</h2>
@@ -150,7 +172,7 @@ export default function ChTwelve() {
         <Countries countries={countries.data?.countries.slice(80, 85)} route={'ch-twelve'} />
         <br />
         <hr />
-        <h2>2. GraphQL Server Side</h2>
+        <h2>2. GraphQL Server side</h2>
         <a href="https://www.apollographql.com/tutorials/" target="_blank" rel="noreferrer">
           Apollo GraphQL tutorials (Lift of II Resolvers)
         </a>
