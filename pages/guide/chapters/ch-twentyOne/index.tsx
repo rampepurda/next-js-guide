@@ -34,10 +34,10 @@ export default function ChTwentyOne() {
     }
   }
   const deleteBook = async (id: number, title: string, author: string) => {
+    const res = await fetch(`${environment.fireBaseBookDelete}/${id}.json`, {
+      method: 'DELETE',
+    })
     try {
-      const res = await fetch(`${environment.fireBaseBookDelete}/${id}.json`, {
-        method: 'DELETE',
-      })
       if (res) {
         getBook().then(() => alert(`Deleted: ${author} | ${title}`))
       }
@@ -65,7 +65,7 @@ export default function ChTwentyOne() {
         <h2>21. Form</h2>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
-            <h4>onsubmit</h4> is an event attribute, meaning whatever JS is in it will be called on
+            <h4>onSubmit</h4> is an event attribute, meaning whatever JS is in it will be called on
             the submit event
           </li>
           <li>
@@ -81,17 +81,7 @@ export default function ChTwentyOne() {
         >
           Read more about submit vs action here
         </Link>
-
-        <div>
-          <FormPostBook OnSubmit={handleSubmitObject} />
-
-          <h3>Note:</h3>
-          <h4>&apos;POST&apos; Book to Firebase and &apos;DELETE&apos;:</h4>
-          <p>
-            &apos;POST&apos; without problem but can not be DELETED cause got from Firebase
-            nonsensical ID
-          </p>
-        </div>
+        <FormPostBook OnSubmit={handleSubmitObject} />
         <div>
           <h3>Books</h3>
           {books.length === 0 && <h4>List is empty</h4>}
