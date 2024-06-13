@@ -7,7 +7,13 @@ export const fetcher = async (url: string) => {
 export const fetcherQuery = async (query: string): Promise<any> => {
   return await request(`${environment.countriesURL}`, query)
 }
-
+export async function sendReqPost(url: string, { arg }: { arg: Record<string, any> }) {
+  return await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application.json' },
+    body: JSON.stringify(arg),
+  }).then((res) => res.json())
+}
 export const fetchInternalAPI = async (internalApiSrc: string) => {
   try {
     const res = await fetch(internalApiSrc)
