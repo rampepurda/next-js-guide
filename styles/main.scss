@@ -41,7 +41,7 @@ h3 {
 }
 
 h4 {
-  @include fontSize(1.3rem, 400);
+  @include fontSize(1.3rem, 500);
   margin: $spacer-3 0;
   color: $blackLight;
 }
@@ -250,6 +250,23 @@ mark {
 
 .isHidden {
   display: none;
+}
+
+.display {
+  margin: $spacer-4 0;
+
+  &.flex {
+    display: flex;
+    gap: .8rem;
+
+    .box {
+      padding: 1rem;
+    }
+  }
+
+  &.isWrap {
+    flex-flow: wrap;
+  }
 }
 
 @media #{$screen-md} {
