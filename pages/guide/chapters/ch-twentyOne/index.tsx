@@ -1,10 +1,7 @@
 import { FormPostBook } from '../../../../components'
 import Head from 'next/head'
 import { environment } from '../../../../configuration'
-import ImgSubmitHandle from './ch21-submit-structure.png'
 import { usePostBook } from '../../../../hooks'
-import ImgForm from './ch21-form.png'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
@@ -89,7 +86,7 @@ export default function ChTwentyOne() {
             {books?.length === 0 && <h4>List is empty</h4>}
             {books?.map((book: Book, idx: number) => {
               return (
-                <div className="box" key={idx} style={{ border: '1px solid gray' }}>
+                <div className="box" key={idx} style={{ width: '30%', border: '1px solid gray' }}>
                   <label>Title:</label>
                   <h3>{book.title}</h3>
                   <label>Author:</label>
@@ -111,9 +108,6 @@ export default function ChTwentyOne() {
             })}
           </section>
         </div>
-        <Image src={ImgSubmitHandle} alt="submit handle" aria-hidden={true} />
-        <hr />
-        <Image src={ImgForm} alt="form focus on name param" aria-hidden={true} />
       </div>
     </>
   )
