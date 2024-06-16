@@ -1,4 +1,3 @@
-import classes from '../../../../components/Input/Input.module.scss'
 import { Input } from '../../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -6,8 +5,8 @@ import { FormEvent } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface IFormInputs {
-  firstNameDummy: string
-  lastNameDummy: string
+  firstName: string | undefined
+  lastName: string | undefined
 }
 
 export default function ChTwentySix() {
@@ -20,13 +19,13 @@ export default function ChTwentySix() {
     getValues,
   } = useForm<IFormInputs>({
     defaultValues: {
-      firstNameDummy: '',
-      lastNameDummy: '',
+      firstName: '',
+      lastName: '',
     },
   })
 
   const submitDummyOne = async (data: IFormInputs) => {
-    alert(`First Name: ${data.firstNameDummy} | Last Name: ${data.lastNameDummy}`)
+    alert(`First Name: ${data.firstName} | Last Name: ${data.lastName}`)
     reset()
   }
   const submitDummyTwo = async (event: FormEvent<HTMLFormElement>) => {
@@ -51,6 +50,11 @@ export default function ChTwentySix() {
     } catch (err) {
       alert(`${err}`)
     }
+  }
+  const styles = {
+    error: {
+      color: 'red',
+    },
   }
 
   return (
@@ -85,60 +89,62 @@ export default function ChTwentySix() {
           <li>yarn add react-hook-form</li>
         </ul>
         <hr />
-
-        <h3>Usage:</h3>
-        <code>
-          import &#123; useForm, <mark>type FieldValues</mark> &#125; from
-          &apos;react-hook-form&apos;
-        </code>
-
-        <h3>const register = &#123;</h3>
         <ul>
           <li>
-            <mark>register</mark>
-            <h4>
+            <code>
+              import &#123; useForm, <mark>type FieldValues</mark> &#125; from
+              &apos;react-hook-form&apos;
+            </code>
+          </li>
+          <li>
+            <code>
+              const &#123; register, handleSubmit, watch, reset, getValues,... &#125; =
+              <mark>useForm</mark>&lt;TS&gt; (&#123; defaultValue &#125;)
+            </code>
+          </li>
+          <li>
+            <h4>register</h4>
+            <p>
               This method allows you to register an input or select element and apply validation
               rules to React Hook Form. Validation rules are all based on the HTML standard and also
               allow for custom validation methods.
-            </h4>
+            </p>
           </li>
           <li>
-            <mark>handleSubmit</mark>
-            <h4>This function will receive the form data if form validation is successful.</h4>
+            <h4>handleSubmit</h4>
+            <p>This function will receive the form data if form validation is successful.</p>
           </li>
           <li>
-            <mark>formState: &#123; errors, isSubmitting &#125;</mark>
-            <h4>
+            <h4>formState: &#123; errors, isSubmitting &#125;</h4>
+            <p>
               This object contains information about the entire form state. It helps you to keep on
               track with the user&apos;s interaction with your form application.
-            </h4>
+            </p>
           </li>
           <li>
-            <mark>getValues</mark>
-            <h4>
+            <h4>getValues</h4>
+            <p>
               An optimized helper for reading form values. The difference between watch and
               getValues is that getValues will not trigger re-renders or subscribe to input changes.
-            </h4>
+            </p>
           </li>
           <li>
-            <mark>reset</mark>
-            <h4>
+            <h4>reset</h4>
+            <p>
               Reset the entire form state, fields reference, and subscriptions. There are optional
               arguments and will allow partial form state reset.
-            </h4>
+            </p>
           </li>
         </ul>
-        <h3>&#125; = useForm</h3>
         <hr />
         <div>
-          <h3>Next JS Form - useForm hook:</h3>
           <form name="dummyOne" onSubmit={handleSubmit(submitDummyOne)}>
             <div>
               <input
-                id="nameOne"
-                className={classes.Input}
+                id="name"
+                className="inp"
                 placeholder="first name"
-                {...register('firstNameDummy', {
+                {...register('firstName', {
                   required: 'First Name is required',
                   maxLength: {
                     value: 15,
@@ -151,16 +157,14 @@ export default function ChTwentySix() {
                 })}
                 aria-label="write name"
               />
-              {errors.firstNameDummy && (
-                <p style={{ color: 'red' }}>{`${errors.firstNameDummy?.message}`}</p>
-              )}
+              {errors.firstName && <p style={styles.error}>{`${errors.firstName?.message}`}</p>}
             </div>
             <div>
               <input
-                id="lastNameOne"
-                className={classes.Input}
+                id="lastName"
+                className="inp"
                 placeholder="Last name"
-                {...register('lastNameDummy', {
+                {...register('lastName', {
                   required: 'Last Name is required',
                   maxLength: {
                     value: 15,
@@ -173,37 +177,13 @@ export default function ChTwentySix() {
                 })}
                 aria-label="write name"
               />
-              {errors.lastNameDummy && (
-                <p style={{ color: 'red' }}>{`${errors.lastNameDummy?.message}`}</p>
-              )}
+              {errors.lastName && <p style={{ color: 'red' }}>{`${errors.lastName?.message}`}</p>}
             </div>
-
             <button className="btn btn-submit" type="submit">
               Submit
             </button>
           </form>
-          <hr />
-
           <h4>Structure:</h4>
-          <ul>
-            <li>
-              interface IFormInputs &#123;
-              <br />
-              firstName string <br /> lastName: string &#125;
-            </li>
-            <li>
-              const submitDummyOne = async
-              <strong>
-                (data: <strong>IFormInputs</strong>)
-              </strong>
-              =&gt; &#123;
-            </li>
-            <li>alert(data.firstName)</li>
-            <li>
-              <mark>reset()</mark>
-            </li>
-            <li>&#125;</li>
-          </ul>
         </div>
 
         <div>

@@ -3,14 +3,14 @@
 
 .cover {
   position: relative;
-  display: inline-block;
 }
 
-.Input {
-  margin: $spacer-3 $spacer-1 $spacer-3 0;
+.inp {
+  width: 40%;
+  margin: $spacer-2 $spacer-1 $spacer-2 0;
   border-radius: .5rem;
-  border: 2px solid $grayLight;
-  padding: .8rem .5rem;
+  border: 1px solid $grayLight;
+  padding: .8rem 1rem;
   font-size: 1.1rem;
 }
 

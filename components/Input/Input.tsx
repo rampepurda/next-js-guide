@@ -1,4 +1,4 @@
-import style from './Input.module.scss'
+import classes from './Input.module.scss'
 
 import React, { ChangeEvent } from 'react'
 import classNames from 'classnames'
@@ -35,10 +35,10 @@ export const Input = ({
   rest,
 }: Props) => {
   return (
-    <div className={style.cover}>
+    <div className={classes.cover}>
       <input
         id={id}
-        className={classNames(style.Input, ClassName, { [style.isSearch]: isSearch })}
+        className={classNames(classes.inp, ClassName, { [classes.isSearch]: isSearch })}
         tabIndex={tabIdx}
         aria-label={ariaLabel}
         onChange={OnChange}
@@ -47,7 +47,7 @@ export const Input = ({
         placeholder={placeholder}
         {...rest}
       />
-      {isSearch && <IcoSearch className={classNames(style.hasIcoMagnifying)} />}
+      {isSearch && <IcoSearch className={classNames(classes.hasIcoMagnifying)} />}
     </div>
   )
 }
