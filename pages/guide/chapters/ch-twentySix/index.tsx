@@ -1,5 +1,5 @@
 import classes from '../../../../components/Input/Input.module.scss'
-import { InfoBox, Input } from '../../../../components'
+import { Input } from '../../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FormEvent } from 'react'
@@ -60,7 +60,8 @@ export default function ChTwentySix() {
       </Head>
 
       <div>
-        <h2>26. useForm hook in Next JS</h2>
+        <h2>26. useForm hook vs FormEvent</h2>
+        <h2>useForm</h2>
         <ul className="hasVerticalPadding-3">
           <li>
             <Link href="https://react-hook-form.com/docs/useform" target="_blank">
@@ -78,8 +79,6 @@ export default function ChTwentySix() {
             </Link>
           </li>
         </ul>
-        <hr />
-
         <h3>Installation:</h3>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>npm install react-hook-form</li>
@@ -131,144 +130,123 @@ export default function ChTwentySix() {
         </ul>
         <h3>&#125; = useForm</h3>
         <hr />
+        <div>
+          <h3>Next JS Form - useForm hook:</h3>
+          <form name="dummyOne" onSubmit={handleSubmit(submitDummyOne)}>
+            <div>
+              <input
+                id="nameOne"
+                className={classes.Input}
+                placeholder="first name"
+                {...register('firstNameDummy', {
+                  required: 'First Name is required',
+                  maxLength: {
+                    value: 15,
+                    message: 'First Name max length can be only 20 letters',
+                  },
+                  pattern: {
+                    value: /^[a-zA-Z]+$/,
+                    message: 'Use only alphabetical characters',
+                  },
+                })}
+                aria-label="write name"
+              />
+              {errors.firstNameDummy && (
+                <p style={{ color: 'red' }}>{`${errors.firstNameDummy?.message}`}</p>
+              )}
+            </div>
+            <div>
+              <input
+                id="lastNameOne"
+                className={classes.Input}
+                placeholder="Last name"
+                {...register('lastNameDummy', {
+                  required: 'Last Name is required',
+                  maxLength: {
+                    value: 15,
+                    message: 'Last Name max length can be only 15 letters',
+                  },
+                  pattern: {
+                    value: /^[a-zA-Z]+$/,
+                    message: 'Use only alphabetical characters',
+                  },
+                })}
+                aria-label="write name"
+              />
+              {errors.lastNameDummy && (
+                <p style={{ color: 'red' }}>{`${errors.lastNameDummy?.message}`}</p>
+              )}
+            </div>
 
-        <div className="cols">
-          <div className="col-6 has-br">
-            <h3>Next JS Form - useForm hook:</h3>
-            <form name="dummyOne" onSubmit={handleSubmit(submitDummyOne)}>
-              <div>
-                <input
-                  id="nameOne"
-                  className={classes.Input}
-                  placeholder="first name"
-                  {...register('firstNameDummy', {
-                    required: 'First Name is required',
-                    maxLength: {
-                      value: 15,
-                      message: 'First Name max length can be only 20 letters',
-                    },
-                    pattern: {
-                      value: /^[a-zA-Z]+$/,
-                      message: 'Use only alphabetical characters',
-                    },
-                  })}
-                  aria-label="write name"
-                />
-                {errors.firstNameDummy && (
-                  <p style={{ color: 'red' }}>{`${errors.firstNameDummy?.message}`}</p>
-                )}
-              </div>
-              <div>
-                <input
-                  id="lastNameOne"
-                  className={classes.Input}
-                  placeholder="Last name"
-                  {...register('lastNameDummy', {
-                    required: 'Last Name is required',
-                    maxLength: {
-                      value: 15,
-                      message: 'Last Name max length can be only 15 letters',
-                    },
-                    pattern: {
-                      value: /^[a-zA-Z]+$/,
-                      message: 'Use only alphabetical characters',
-                    },
-                  })}
-                  aria-label="write name"
-                />
-                {errors.lastNameDummy && (
-                  <p style={{ color: 'red' }}>{`${errors.lastNameDummy?.message}`}</p>
-                )}
-              </div>
+            <button className="btn btn-submit" type="submit">
+              Submit
+            </button>
+          </form>
+          <hr />
 
-              <button className="btn btn-submit" type="submit">
-                Submit
-              </button>
-            </form>
-            <hr />
+          <h4>Structure:</h4>
+          <ul>
+            <li>
+              interface IFormInputs &#123;
+              <br />
+              firstName string <br /> lastName: string &#125;
+            </li>
+            <li>
+              const submitDummyOne = async
+              <strong>
+                (data: <strong>IFormInputs</strong>)
+              </strong>
+              =&gt; &#123;
+            </li>
+            <li>alert(data.firstName)</li>
+            <li>
+              <mark>reset()</mark>
+            </li>
+            <li>&#125;</li>
+          </ul>
+        </div>
 
-            <h4>onSubmit difference:</h4>
-            <InfoBox className="isDanger">
-              <h3>Note:</h3>
-              <p>
-                We are using TS, that`s why instead undefined (data: <strong>FieldValues</strong>)
-                use data type as is shown below:
-              </p>
-              <hr />
+        <div>
+          <h2>FormEvent</h2>
+          <form name="dummyTwo" onSubmit={submitDummyTwo}>
+            <div>
+              <Input
+                id={'name'}
+                ariaLabel={'write name'}
+                rest={{ type: 'text', name: 'firstName' }}
+                isRequired={true}
+                placeholder={'first name'}
+              />
+            </div>
+            <div>
+              <Input
+                id={'lastName'}
+                ariaLabel={'write last name'}
+                rest={{ type: 'text', name: 'lastName' }}
+                isRequired={true}
+                placeholder={'last name'}
+              />
+            </div>
 
-              <h3>Don`t forget:</h3>
-              <code>
-                const &#123;...&#125; ={' '}
-                <strong>useForm&lt;IFormInputs&gt;(&#123; defaultValues:</strong> &#123; firstName:
-                &apos; &apos;, lastName: &apos; &apos;, &#125;..etc,
-              </code>
-            </InfoBox>
-            <ul>
-              <li>
-                interface IFormInputs &#123;
-                <br />
-                firstName string <br /> lastName: string &#125;
-              </li>
-              <li>
-                const submitDummyOne = async
-                <strong>
-                  (data: <strong>IFormInputs</strong>)
-                </strong>
-                =&gt; &#123;
-              </li>
-              <li>alert(data.firstName)</li>
-              <li>
-                <mark>reset()</mark>
-              </li>
-              <li>&#125;</li>
-            </ul>
-          </div>
+            <button className="btn btn-submit" type="submit">
+              Submit
+            </button>
+          </form>
+          <hr />
 
-          <div className="col-6">
-            <h3>Next JS Form:</h3>
-            <form name="dummyTwo" onSubmit={submitDummyTwo}>
-              <div>
-                <Input
-                  id={'name'}
-                  ariaLabel={'write name'}
-                  rest={{ type: 'text', name: 'firstName' }}
-                  isRequired={true}
-                  placeholder={'first name'}
-                />
-              </div>
-              <div>
-                <Input
-                  id={'lastName'}
-                  ariaLabel={'write last name'}
-                  rest={{ type: 'text', name: 'lastName' }}
-                  isRequired={true}
-                  placeholder={'last name'}
-                />
-              </div>
-
-              <button className="btn btn-submit" type="submit">
-                Submit
-              </button>
-            </form>
-            <hr />
-
-            <h4>onSubmit difference:</h4>
-            <code>
-              <ul>
-                <li>
-                  const submitDummyTwo = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt;
-                  &#123;
-                </li>
-                <li>
-                  const formData = <strong>new FormData(event.currentTarget)</strong>
-                </li>
-                <li>
-                  const formDataObject = <strong>Object.fromEntries(formData)</strong>
-                </li>
-                <li> &#125;</li>
-              </ul>
-            </code>
-          </div>
+          <h4>Structure:</h4>
+          <ul>
+            <li>
+              const submitDummyTwo = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
+            </li>
+            <li>
+              const formData = <strong>new FormData(event.currentTarget)</strong>
+            </li>
+            <li>
+              const formDataObject = <strong>Object.fromEntries(formData)</strong>
+            </li>
+            <li> &#125;</li>
+          </ul>
         </div>
         <hr />
 

@@ -78,10 +78,6 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twenty`,
   },
   {
-    tKey: '21. Form knowledge refresh',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyOne`,
-  },
-  {
     tKey: '22. useHooks in Next14 and > 13',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo`,
   },
