@@ -1,4 +1,4 @@
-import { Input } from '../Input'
+import { Input } from '../UI'
 import useTranslation from 'next-translate/useTranslation'
 import { FormEvent, PropsWithChildren } from 'react'
 

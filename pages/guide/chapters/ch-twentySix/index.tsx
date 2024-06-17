@@ -1,12 +1,14 @@
-import { Input } from '../../../../components'
+import { Button, Input } from '../../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FormEvent } from 'react'
 import { useForm } from 'react-hook-form'
+import { environment } from '../../../../configuration'
 
-interface IFormInputs {
-  firstName: string | undefined
-  lastName: string | undefined
+interface BookT {
+  author: string | undefined
+  title: string | undefined
+  price: string | number | undefined
 }
 
 export default function ChTwentySix() {
@@ -17,16 +19,26 @@ export default function ChTwentySix() {
     watch,
     reset,
     getValues,
-  } = useForm<IFormInputs>({
+  } = useForm<BookT>({
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      author: '',
+      title: '',
+      price: '',
     },
   })
 
-  const submitDummyOne = async (data: IFormInputs) => {
-    alert(`First Name: ${data.firstName} | Last Name: ${data.lastName}`)
-    reset()
+  const submitBook = async (data: BookT) => {
+    const response = await fetch(`${environment.fireBaseBookURL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application.json' },
+      body: JSON.stringify({ ...data }),
+    })
+    if (response.ok) {
+      alert(`Author: ${data.author} | Title: ${data.title}, successful send`)
+      reset()
+    } else {
+      alert('Problems during sending occurred. Please try again.')
+    }
   }
   const submitDummyTwo = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -53,6 +65,7 @@ export default function ChTwentySix() {
   }
   const styles = {
     error: {
+      margin: '-.1rem 0',
       color: 'red',
     },
   }
@@ -60,12 +73,12 @@ export default function ChTwentySix() {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-26 | useForm hook </title>
+        <title>Next JS | Guide | Ch-26 | form </title>
       </Head>
 
       <div>
-        <h2>26. useForm hook vs FormEvent</h2>
-        <h2>useForm</h2>
+        <h2>26. Next(React) JS &lt; form &gt;</h2>
+        <h2>useForm hook</h2>
         <ul className="hasVerticalPadding-3">
           <li>
             <Link href="https://react-hook-form.com/docs/useform" target="_blank">
@@ -89,17 +102,18 @@ export default function ChTwentySix() {
           <li>yarn add react-hook-form</li>
         </ul>
         <hr />
-        <ul>
+        <ul className="hasVerticalPadding-3">
           <li>
             <code>
-              import &#123; useForm, <mark>type FieldValues</mark> &#125; from
+              import &#123; useForm, <em>type FieldValues</em> &#125; from
               &apos;react-hook-form&apos;
             </code>
           </li>
           <li>
             <code>
-              const &#123; register, handleSubmit, watch, reset, getValues,... &#125; =
-              <mark>useForm</mark>&lt;TS&gt; (&#123; defaultValue &#125;)
+              const &#123; register, handleSubmit, formState: &#123; errors,... &#125;, watch,
+              reset, getValues,... &#125; = &nbsp;<mark>useForm</mark>&lt;TS&gt; (&#123;
+              defaultValue &#125;)
             </code>
           </li>
           <li>
@@ -138,52 +152,117 @@ export default function ChTwentySix() {
         </ul>
         <hr />
         <div>
-          <form name="dummyOne" onSubmit={handleSubmit(submitDummyOne)}>
+          <form name="dummyOne" onSubmit={handleSubmit(submitBook)}>
             <div>
               <input
-                id="name"
+                id="author"
                 className="inp"
-                placeholder="first name"
-                {...register('firstName', {
-                  required: 'First Name is required',
+                placeholder="author"
+                {...register('author', {
+                  required: 'Author is required',
                   maxLength: {
-                    value: 15,
-                    message: 'First Name max length can be only 20 letters',
+                    value: 60,
+                    message: 'First Name max length can be only until 60 letters',
                   },
-                  pattern: {
+                  /*
+                          pattern: {
                     value: /^[a-zA-Z]+$/,
                     message: 'Use only alphabetical characters',
+                  },
+                   */
+                })}
+                aria-label="write name"
+              />
+              {errors.author && <p style={styles.error}>{`${errors.author?.message}`}</p>}
+            </div>
+            <div>
+              <input
+                id="title"
+                className="inp"
+                placeholder="title"
+                {...register('title', {
+                  required: 'Title is required',
+                  maxLength: {
+                    value: 100,
+                    message: 'Title length is oversize. Try shorter',
                   },
                 })}
                 aria-label="write name"
               />
-              {errors.firstName && <p style={styles.error}>{`${errors.firstName?.message}`}</p>}
+              {errors.title && <p style={styles.error}>{`${errors.title?.message}`}</p>}
             </div>
             <div>
               <input
-                id="lastName"
+                id="price"
                 className="inp"
-                placeholder="Last name"
-                {...register('lastName', {
-                  required: 'Last Name is required',
-                  maxLength: {
-                    value: 15,
-                    message: 'Last Name max length can be only 15 letters',
+                type="number"
+                placeholder="price in Kč"
+                {...register('price', {
+                  required: 'Price is required',
+                  min: {
+                    value: 1,
+                    message: 'Min price must be higher then 0Kč',
                   },
-                  pattern: {
-                    value: /^[a-zA-Z]+$/,
-                    message: 'Use only alphabetical characters',
+                  max: {
+                    value: 1000,
+                    message: 'Max price must be lower then 1000',
                   },
                 })}
                 aria-label="write name"
               />
-              {errors.lastName && <p style={{ color: 'red' }}>{`${errors.lastName?.message}`}</p>}
+              {errors.price && <p style={styles.error}>{`${errors.price?.message}`}</p>}
             </div>
-            <button className="btn btn-submit" type="submit">
-              Submit
-            </button>
+            <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
           </form>
           <h4>Structure:</h4>
+          <ul className="hasVerticalPadding-6 hasOutline">
+            <li>
+              const submitFn = async (<strong>data: TS</strong>) =&gt; &#123;
+              <br />
+              (instead data: TS appropriate Inputs values you can use predefined
+              <strong>
+                <em> FieldValues </em>
+              </strong>
+              from useForm hook.)
+            </li>
+            <li>
+              &nbsp;const response = await fetch(url, &#123;
+              <br />
+              &nbsp;&nbsp;method: &lsquo;POST&lsquo;,
+              <br />
+              &nbsp;&nbsp;headers: &#123;&lsquo;Content-Type&lsquo;: &lsquo;application.json&lsquo;
+              &#125;,
+              <br />
+              &nbsp;&nbsp;body: JSON.stringify<strong>(&#123; ...data&#125;)</strong>, &#123;)
+            </li>
+            <li>
+              &nbsp;&nbsp;if(res.ok)&#123;
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>reset(), watch...</strong>(useForm attribute)
+              <br />
+              &nbsp;&nbsp;&#125;
+            </li>
+            <li>&#125;</li>
+            <li>
+              &lt;form onSubmit=&#123;<strong>handleSubmit</strong>(submitFn) &#123;
+            </li>
+            <li>
+              &nbsp;&lt;input <br />
+              &nbsp;&nbsp;&#123;...<strong>register</strong>(&apos; name &apos;, &#123;
+              <br />
+              <strong>&nbsp;&nbsp;&nbsp;required:</strong> &apos;First Name is Req&apos;,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;maxLength: &#123; value: , message: &apos;message&apos;&#125;,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;pattern: &#123; &#125; <br />
+              ...end the others condition
+            </li>
+            <li>&#125; /&gt;</li>
+            <li>
+              &#123;<strong>errors</strong>.name && `message`
+            </li>
+            <li>&lt;/form&gt;</li>
+          </ul>
         </div>
 
         <div>
