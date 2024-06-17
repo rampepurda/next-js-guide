@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FormEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import { environment } from '../../../../configuration'
+import { BooksPage } from '../../../booksPage'
 
 interface BookT {
   author: string | undefined
@@ -40,11 +41,11 @@ export default function ChTwentySix() {
       alert('Problems during sending occurred. Please try again.')
     }
   }
-  const submitDummyTwo = async (event: FormEvent<HTMLFormElement>) => {
+  const submitDummy = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const form = event.currentTarget
     const formData = new FormData(event.currentTarget)
     const formDataObject = Object.fromEntries(formData)
+    const form = event.currentTarget
     const response = await fetch('', {
       method: 'POST',
       headers: { 'Content-Type': 'application.json' },
@@ -78,6 +79,52 @@ export default function ChTwentySix() {
 
       <div>
         <h2>26. Next(React) JS &lt; form &gt;</h2>
+        <div>
+          <h2>FormEvent</h2>
+          <form name="dummyTwo" onSubmit={submitDummy}>
+            <div>
+              <Input
+                id={'name'}
+                ariaLabel={'write name'}
+                rest={{ type: 'text', name: 'firstName' }}
+                isRequired={true}
+                placeholder={'first name'}
+              />
+            </div>
+            <div>
+              <Input
+                id={'lastName'}
+                ariaLabel={'write last name'}
+                rest={{ type: 'text', name: 'lastName' }}
+                isRequired={true}
+                placeholder={'last name'}
+              />
+            </div>
+
+            <button className="btn btn-submit" type="submit">
+              Submit
+            </button>
+          </form>
+          <div className="hasOutline">
+            <h4>Structure:</h4>
+            <ul className="hasVerticalPadding-3">
+              <li>
+                import &#123; <strong>FormEvent</strong> &#125; from &apos;react&apos;
+              </li>
+              <li>
+                const submitHandle = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
+              </li>
+              <li>
+                &nbsp;const formData = <strong>new FormData(event.currentTarget)</strong>
+              </li>
+              <li>
+                &nbsp;const formDataObject = <strong>Object.fromEntries(formData)</strong>
+              </li>
+              <li> &#125;</li>
+            </ul>
+          </div>
+        </div>
+
         <h2>useForm hook</h2>
         <ul className="hasVerticalPadding-3">
           <li>
@@ -101,7 +148,6 @@ export default function ChTwentySix() {
           <li>npm install react-hook-form</li>
           <li>yarn add react-hook-form</li>
         </ul>
-        <hr />
         <ul className="hasVerticalPadding-3">
           <li>
             <code>
@@ -112,8 +158,9 @@ export default function ChTwentySix() {
           <li>
             <code>
               const &#123; register, handleSubmit, formState: &#123; errors,... &#125;, watch,
-              reset, getValues,... &#125; = &nbsp;<mark>useForm</mark>&lt;TS&gt; (&#123;
-              defaultValue &#125;)
+              reset, getValues,... &#125; = &nbsp;
+              <mark>useForm</mark>
+              &lt;TS&gt; (&#123; defaultValue &#125;)
             </code>
           </li>
           <li>
@@ -150,7 +197,6 @@ export default function ChTwentySix() {
             </p>
           </li>
         </ul>
-        <hr />
         <div>
           <form name="dummyOne" onSubmit={handleSubmit(submitBook)}>
             <div>
@@ -214,100 +260,77 @@ export default function ChTwentySix() {
             </div>
             <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
           </form>
-          <h4>Structure:</h4>
-          <ul className="hasVerticalPadding-6 hasOutline">
-            <li>
-              const submitFn = async (<strong>data: TS</strong>) =&gt; &#123;
-              <br />
-              (instead data: TS appropriate Inputs values you can use predefined
-              <strong>
-                <em> FieldValues </em>
-              </strong>
-              from useForm hook.)
-            </li>
-            <li>
-              &nbsp;const response = await fetch(url, &#123;
-              <br />
-              &nbsp;&nbsp;method: &lsquo;POST&lsquo;,
-              <br />
-              &nbsp;&nbsp;headers: &#123;&lsquo;Content-Type&lsquo;: &lsquo;application.json&lsquo;
-              &#125;,
-              <br />
-              &nbsp;&nbsp;body: JSON.stringify<strong>(&#123; ...data&#125;)</strong>, &#123;)
-            </li>
-            <li>
-              &nbsp;&nbsp;if(res.ok)&#123;
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<strong>reset(), watch...</strong>(useForm attribute)
-              <br />
-              &nbsp;&nbsp;&#125;
-            </li>
-            <li>&#125;</li>
-            <li>
-              &lt;form onSubmit=&#123;<strong>handleSubmit</strong>(submitFn) &#123;
-            </li>
-            <li>
-              &nbsp;&lt;input <br />
-              &nbsp;&nbsp;&#123;...<strong>register</strong>(&apos; name &apos;, &#123;
-              <br />
-              <strong>&nbsp;&nbsp;&nbsp;required:</strong> &apos;First Name is Req&apos;,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;maxLength: &#123; value: , message: &apos;message&apos;&#125;,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;pattern: &#123; &#125; <br />
-              ...end the others condition
-            </li>
-            <li>&#125; /&gt;</li>
-            <li>
-              &#123;<strong>errors</strong>.name && `message`
-            </li>
-            <li>&lt;/form&gt;</li>
-          </ul>
+          <code>Requested Server: https://vuecliserver.firebaseio.com/0/bookForNext.json.</code>
+          <Link
+            target="_blank"
+            rel="noreferre"
+            href="https://console.firebase.google.com/project/vuecliserver/database/vuecliserver/data/~2F0~2FbookForNext"
+          >
+            Visit Firebase Account here
+          </Link>
+          <div className="hasOutline">
+            <h4>Structure:</h4>
+            <ul className="hasVerticalPadding-6">
+              <li>
+                const submitFn = async (<strong>data: TS</strong>) =&gt; &#123;
+                <br />
+                (instead data: TS appropriate Inputs values you can use predefined
+                <strong>
+                  <em> FieldValues </em>
+                </strong>
+                from useForm hook.)
+              </li>
+              <li>
+                &nbsp;const response = await fetch(url, &#123;
+                <br />
+                &nbsp;&nbsp;method: &lsquo;POST&lsquo;,
+                <br />
+                &nbsp;&nbsp;headers: &#123;&lsquo;Content-Type&lsquo;:
+                &lsquo;application.json&lsquo; &#125;,
+                <br />
+                &nbsp;&nbsp;body: JSON.stringify<strong>(&#123; ...data&#125;)</strong>, &#123;)
+              </li>
+              <li>
+                &nbsp;&nbsp;if(res.ok)&#123;
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>reset(), watch...</strong>(useForm attribute)
+                <br />
+                &nbsp;&nbsp;&#125;
+              </li>
+              <li>&#125;</li>
+              <li>
+                &lt;form onSubmit=&#123;<strong>handleSubmit</strong>(submitFn) &#123;
+              </li>
+              <li>
+                &nbsp;&lt;input <br />
+                &nbsp;&nbsp;&#123;...<strong>register</strong>(&apos; name &apos;, &#123;
+                <br />
+                <strong>&nbsp;&nbsp;&nbsp;required:</strong> &apos;First Name is Req&apos;,
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;maxLength: &#123; value: , message:
+                &apos;message&apos;&#125;,
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;pattern: &#123; &#125; <br />
+                ...end the others condition
+              </li>
+              <li>&#125; /&gt;</li>
+              <li>
+                &#123;<strong>errors</strong>.name && `message`
+              </li>
+              <li>&lt;/form&gt;</li>
+            </ul>
+          </div>
         </div>
-
-        <div>
-          <h2>FormEvent</h2>
-          <form name="dummyTwo" onSubmit={submitDummyTwo}>
-            <div>
-              <Input
-                id={'name'}
-                ariaLabel={'write name'}
-                rest={{ type: 'text', name: 'firstName' }}
-                isRequired={true}
-                placeholder={'first name'}
-              />
-            </div>
-            <div>
-              <Input
-                id={'lastName'}
-                ariaLabel={'write last name'}
-                rest={{ type: 'text', name: 'lastName' }}
-                isRequired={true}
-                placeholder={'last name'}
-              />
-            </div>
-
-            <button className="btn btn-submit" type="submit">
-              Submit
-            </button>
-          </form>
-          <hr />
-
-          <h4>Structure:</h4>
-          <ul>
-            <li>
-              const submitDummyTwo = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
-            </li>
-            <li>
-              const formData = <strong>new FormData(event.currentTarget)</strong>
-            </li>
-            <li>
-              const formDataObject = <strong>Object.fromEntries(formData)</strong>
-            </li>
-            <li> &#125;</li>
-          </ul>
-        </div>
-        <hr />
+        <h4>NOTE: FIREBASE complication</h4>
+        <ul className="hasTypeDisc hasVerticalPadding-4">
+          <li>When you Submit new book refresh the page to be displayed</li>
+          <li>
+            <strong>When you`ll try to &apos;DELETE&apos;:</strong> Click from the end of array(but
+            not into items which were posted from this FORM), because Firebase added own ID and
+            these are not recognise.
+          </li>
+        </ul>
+        <BooksPage />
 
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>
         <h3>How to install MUI</h3>

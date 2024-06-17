@@ -94,7 +94,7 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyFive`,
   },
   {
-    tKey: "26. useForm hook in Next JS and use 'controller' with Material UI",
+    tKey: '26. 26. Next(React) JS form',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySix`,
   },
   {
