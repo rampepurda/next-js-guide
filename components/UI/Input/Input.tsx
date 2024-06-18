@@ -15,7 +15,8 @@ type Props = {
   isRequired?: boolean
   Name?: string
   placeholder?: string
-  rest: Record<string, string>
+  defValue?: string | undefined
+  rest: Record<string, any>
 }
 /**
  * @param isSearch: Default as false, case true input type='search' get another class attribute
@@ -32,6 +33,7 @@ export const Input = ({
   isRequired = false,
   Name,
   placeholder,
+  defValue,
   rest,
 }: Props) => {
   return (
@@ -45,6 +47,7 @@ export const Input = ({
         name={Name}
         required={isRequired}
         placeholder={placeholder}
+        defaultValue={defValue}
         {...rest}
       />
       {isSearch && <IcoSearch className={classNames(classes.hasIcoMagnifying)} />}

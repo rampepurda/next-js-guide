@@ -8,8 +8,10 @@
   display: flex;
   justify-content: right;
 
-  input[type='search'] {
+  .inpSearch {
+    width: 100%;
     height: 2rem;
+    margin: 0;
     border-radius: .3rem;
     border: 0;
     background-color: $whiteDark;
@@ -20,9 +22,10 @@
 
   .btnSearch {
     cursor: pointer;
-    margin-left: $spacer-2;
+    margin: $spacer-1 0 0 $spacer-2;
     background-color: transparent;
     border: 0;
+    padding: 0;
   }
 }
 

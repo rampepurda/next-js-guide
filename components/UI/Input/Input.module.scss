@@ -1,5 +1,6 @@
 @import "styles/variables";
 @import "styles/spacing";
+@import "styles/breakpoints";
 
 .cover {
   position: relative;
@@ -34,4 +35,10 @@
   left: .7rem;
   width: 24px !important;
   height: 24px !important;
+}
+
+@media #{$screen-md} {
+  .inp {
+    width: 80%;
+  }
 }

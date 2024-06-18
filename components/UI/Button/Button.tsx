@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { MouseEventHandler, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -9,7 +9,7 @@ type Props = {
   url?: string
   isDisabled?: boolean
   title?: string
-  rest?: Record<string, string>
+  rest?: Record<string, any>
   ariaLabel?: string
 }
 /**
@@ -17,6 +17,7 @@ type Props = {
  */
 
 export const Button = ({
+  children,
   ClassName,
   OnClick,
   hasLink = false,
@@ -25,7 +26,7 @@ export const Button = ({
   isDisabled = false,
   ariaLabel,
   rest,
-}: Props) => {
+}: PropsWithChildren<Props>) => {
   return (
     <button
       className={classNames('btn', ClassName)}
@@ -36,6 +37,7 @@ export const Button = ({
       {...rest}
     >
       {hasLink ? <Link href={`${url}`}>{title}</Link> : title}
+      {children}
     </button>
   )
 }

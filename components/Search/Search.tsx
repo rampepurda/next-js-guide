@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { Button } from '../UI'
+import { Button, Input } from '../UI'
 import { ROUTE } from '../../configuration'
 
 type Props = {
@@ -28,26 +28,52 @@ export const Search = ({ data, ClassNames }: Props) => {
   return (
     <div className={ClassNames}>
       <form className={classes.form} name="searchChapter" onSubmit={handleSearch}>
-        <input
-          type="search"
-          name="searchParam"
-          placeholder="Search"
-          defaultValue={undefined}
-          required={true}
+        <Input
+          id={'inpSearch'}
+          ClassName={classes.inpSearch}
+          ariaLabel={'search'}
+          rest={{
+            name: 'searchParam',
+            type: 'search',
+          }}
+          defValue={undefined}
+          placeholder={'Search'}
+          isRequired={true}
         />
         <div>
-          <button className={classes.btnSearch} type="submit">
-            <Image src="/ico-search.svg" height={25} width={25} alt="searchico" />
-          </button>
+          <Button
+            ClassName={classes.btnSearch}
+            rest={{ type: 'submit' }}
+            ariaLabel={'Click to search'}
+          >
+            <Image
+              src="/ico-search.svg"
+              height={25}
+              width={25}
+              alt="searchico"
+              aria-hidden={true}
+            />
+          </Button>
         </div>
       </form>
-
       <ul
         className={classNames(
           'hasVerticalPadding-4',
           foundedData.length !== 0 && classes.searchResult
         )}
       >
+        {foundedData.length > 0 && (
+          <li>
+            <Button
+              ClassName={classes.clearResultBtn}
+              rest={{ type: 'button' }}
+              title={'x'}
+              hasLink={true}
+              url={ROUTE.GUIDE}
+              ariaLabel={'Close search result'}
+            />
+          </li>
+        )}
         {foundedData?.map((chapter, idx: number) => {
           return (
             <li key={idx}>
@@ -59,7 +85,7 @@ export const Search = ({ data, ClassNames }: Props) => {
           <li className={classes.noMatches}>
             no matches for: <strong>{params.get('searchParam')}</strong>
             <Button
-              ClassName={classNames('btn', classes.clearResultBtn)}
+              ClassName={classes.clearResultBtn}
               rest={{ type: 'button' }}
               title={'x'}
               hasLink={true}

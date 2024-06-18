@@ -94,7 +94,7 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyFive`,
   },
   {
-    tKey: '26. 26. Next(React) JS form',
+    tKey: '26. Next(React) JS form',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySix`,
   },
   {
