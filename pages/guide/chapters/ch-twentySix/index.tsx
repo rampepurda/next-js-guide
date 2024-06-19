@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { environment } from '../../../../configuration'
 import { BooksPage } from '../../../booksPage'
 
-interface BookT {
+interface FormDataTS {
   author: string | undefined
   title: string | undefined
   price: string | number | undefined
@@ -20,28 +20,14 @@ export default function ChTwentySix() {
     watch,
     reset,
     getValues,
-  } = useForm<BookT>({
+  } = useForm<FormDataTS>({
     defaultValues: {
       author: '',
       title: '',
       price: '',
     },
   })
-
-  const submitBook = async (data: BookT) => {
-    const response = await fetch(`${environment.fireBaseBookURL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application.json' },
-      body: JSON.stringify({ ...data }),
-    })
-    if (response.ok) {
-      alert(`Author: ${data.author} | Title: ${data.title}, successful send`)
-      reset()
-    } else {
-      alert('Problems during sending occurred. Please try again.')
-    }
-  }
-  const submitDummy = async (event: FormEvent<HTMLFormElement>) => {
+  const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const formDataObject = Object.fromEntries(formData)
@@ -64,6 +50,19 @@ export default function ChTwentySix() {
       alert(`${err}`)
     }
   }
+  const submitBook = async (data: FormDataTS) => {
+    const response = await fetch(`${environment.fireBaseBookURL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application.json' },
+      body: JSON.stringify({ ...data }),
+    })
+    if (response.ok) {
+      alert(`Author: ${data.author} | Title: ${data.title}, successful send`)
+      reset()
+    } else {
+      alert('Problems during sending occurred. Please try again.')
+    }
+  }
   const styles = {
     error: {
       margin: '-.1rem 0',
@@ -78,10 +77,24 @@ export default function ChTwentySix() {
       </Head>
 
       <div>
-        <h2>26. Next(React) JS &lt; form &gt;</h2>
+        <h2>26. Next(React) JS &lt;form onSubmit=&#123; &#125;&gt;</h2>
         <div>
+          <h2>event</h2>
+          <div className="hasOutline">
+            <h4>Structure:</h4>
+            <ul className="hasVerticalPadding-3">
+              <li>
+                const handleSubmit = async (<strong>event: any</strong>) =&gt; &#123;
+              </li>
+              <li>
+                &nbsp;const firstName = <strong>event.target.firstName.value</strong>
+              </li>
+              <li>&#125;</li>
+            </ul>
+          </div>
           <h2>FormEvent</h2>
-          <form name="dummyTwo" onSubmit={submitDummy}>
+          <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
+          <form name="dummyTwo" onSubmit={submitFormEvent} method="POST">
             <div>
               <Input
                 id={'name'}
@@ -100,7 +113,6 @@ export default function ChTwentySix() {
                 placeholder={'last name'}
               />
             </div>
-
             <button className="btn btn-submit" type="submit">
               Submit
             </button>
@@ -112,7 +124,7 @@ export default function ChTwentySix() {
                 import &#123; <strong>FormEvent</strong> &#125; from &apos;react&apos;
               </li>
               <li>
-                const submitHandle = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
+                const handleSubmit = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
               </li>
               <li>
                 &nbsp;const formData = <strong>new FormData(event.currentTarget)</strong>
@@ -120,7 +132,10 @@ export default function ChTwentySix() {
               <li>
                 &nbsp;const formDataObject = <strong>Object.fromEntries(formData)</strong>
               </li>
-              <li> &#125;</li>
+              <li>
+                &nbsp;<strong>formData.reset()</strong>
+              </li>
+              <li>&#125;</li>
             </ul>
           </div>
         </div>
@@ -198,7 +213,7 @@ export default function ChTwentySix() {
           </li>
         </ul>
         <div>
-          <form name="dummyOne" onSubmit={handleSubmit(submitBook)}>
+          <form name="dummyOne" onSubmit={handleSubmit(submitBook)} method="POST">
             <div>
               <input
                 id="author"
