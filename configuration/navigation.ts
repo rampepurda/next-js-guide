@@ -113,10 +113,6 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySix`,
     },
     {
-      tKey: 'navGuide.ch-twentyS',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySix`,
-    },
-    {
       tKey: 'navGuide.ch-twentySeven',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySeven`,
     },
