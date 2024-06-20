@@ -1,4 +1,4 @@
-import style from './Input.module.scss'
+import classes from './Input.module.scss'
 
 import React, { ChangeEvent } from 'react'
 import classNames from 'classnames'
@@ -15,7 +15,8 @@ type Props = {
   isRequired?: boolean
   Name?: string
   placeholder?: string
-  rest: Record<string, string>
+  defValue?: string | undefined
+  rest: Record<string, any>
 }
 /**
  * @param isSearch: Default as false, case true input type='search' get another class attribute
@@ -32,22 +33,24 @@ export const Input = ({
   isRequired = false,
   Name,
   placeholder,
+  defValue,
   rest,
 }: Props) => {
   return (
-    <div className={style.cover}>
+    <div className={classes.cover}>
       <input
         id={id}
-        className={classNames(style.Input, ClassName, { [style.isSearch]: isSearch })}
+        className={classNames(classes.inp, ClassName, { [classes.isSearch]: isSearch })}
         tabIndex={tabIdx}
         aria-label={ariaLabel}
         onChange={OnChange}
         name={Name}
         required={isRequired}
         placeholder={placeholder}
+        defaultValue={defValue}
         {...rest}
       />
-      {isSearch && <IcoSearch className={classNames(style.hasIcoMagnifying)} />}
+      {isSearch && <IcoSearch className={classNames(classes.hasIcoMagnifying)} />}
     </div>
   )
 }

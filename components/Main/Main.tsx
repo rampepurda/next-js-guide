@@ -34,7 +34,6 @@ export const Main = ({ children }: PropsWithChildren) => {
         <div className="col-3">
           {pathName !== ROUTE.HOME && <Navigation links={chapters} isNav={NavType.Sidebar} />}
         </div>
-
         <div className="col-9 col-m-12">{children}</div>
       </div>
     </main>
