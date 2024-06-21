@@ -5,20 +5,18 @@ import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function ChEight() {
+export default function ChNextUpdate() {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Chapter18</title>
+        <title>Next JS | Guide | Next update</title>
       </Head>
 
       <div>
-        <h2>Next &gt;13.4.7 - What is new?</h2>
+        <h2>Next 13.4.7+ what is new?</h2>
         <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
         <mark>Using Pages router</mark>
         <h4>Structure: Pages/About, Pages/User/Data</h4>
-        <hr />
-
         <mark>Using App routes</mark>
         <h4>
           During Next installation checked the choice: Use App Router. Structure: About/page.tsx,
@@ -26,14 +24,18 @@ export default function ChEight() {
         </h4>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
-            <a href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
+            <Link href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
               Next.js 13.4 - read more
-            </a>{' '}
+            </Link>
           </li>
           <li>
-            <a href="https://www.youtube.com/watch?v=czvSZqnpTHs" rel="noreferrer" target="_blank">
+            <Link
+              href="https://www.youtube.com/watch?v=czvSZqnpTHs"
+              rel="noreferrer"
+              target="_blank"
+            >
               Server Actions: NextJS 13.4 s Best New Feature - read more
-            </a>{' '}
+            </Link>{' '}
           </li>
         </ul>
         <hr />

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import imgSlug from '../../public/images/ch-one/slug.png'
+import imgSlug from '../../../public/images/ch-one/slug.png'
 import { useWindWidth } from '../../../hooks'
 import { useEffect } from 'react'
 import Link from 'next/link'

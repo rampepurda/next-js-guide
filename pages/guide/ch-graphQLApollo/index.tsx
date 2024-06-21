@@ -9,6 +9,7 @@ import { GET_CONTINENTS_QUERY } from '../../../graphQLApollo/queries/continents'
 import { Continent } from '../../../types'
 import { CountriesResponse } from '../../../graphQLApollo/services/Countries'
 import { GET_COUNTRIES_QUERY } from '../../../graphQLApollo/queries'
+import Link from 'next/link'
 
 /**
  * APOLLO GRAPHQL SERVER-INSTALLATION:
@@ -82,8 +83,7 @@ export default function ChGraphQLApollo() {
           </li>
         </ul>
         <hr />
-
-        <h2>use apolloClient.query</h2>
+        <h2>create &apos;fetcher&apos;</h2>
         <ul className="hasOutline hasVerticalPadding-3">
           <li>
             async function getCountryDetail( <strong>param</strong> ): Promise&lt;TS&gt; &#123;
@@ -104,8 +104,8 @@ export default function ChGraphQLApollo() {
           <li>&#125; &#125;</li>
         </ul>
 
-        <h2>useQuery hook</h2>
-        <ul className="hasVerticalPadding-2">
+        <h2>useQuery hook @apollo/client</h2>
+        <ul className="hasVerticalPadding-6 hasOutline">
           <li>
             <a
               href="https://www.apollographql.com/docs/react/data/queries/"
@@ -115,9 +115,6 @@ export default function ChGraphQLApollo() {
               Here read more about Apollo GraphQL queries
             </a>
           </li>
-        </ul>
-
-        <ul className="hasVerticalPadding-6 hasOutline">
           <li>
             <h3>_app.tsx</h3>
             <ul>

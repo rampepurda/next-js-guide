@@ -21,6 +21,14 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-routing`,
     },
     {
+      tKey: 'navGuide.ch-internalAPI',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-internalAPI`,
+    },
+    {
+      tKey: 'navGuide.ch-loadingTypes',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-loadingTypes`,
+    },
+    {
       tKey: 'navGuide.ch-environment',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-environment`,
     },
@@ -29,8 +37,8 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-classNamesLib`,
     },
     {
-      tKey: 'navGuide.ch-loadingTypes',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-loadingTypes`,
+      tKey: 'navGuide.ch-fontOptimization',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-fontOptimization`,
     },
     {
       tKey: 'navGuide.ch-internationalization',
@@ -61,10 +69,6 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-image`,
     },
     {
-      tKey: 'navGuide.ch-graphQLApollo',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-graphQLApollo`,
-    },
-    {
       tKey: 'navGuide.ch-auth0',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-auth0`,
     },
@@ -77,20 +81,20 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-cssJSLib`,
     },
     {
+      tKey: 'navGuide.ch-tailwind',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-tailwind`,
+    },
+    {
       tKey: 'navGuide.ch-webpack',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-webpack`,
     },
     {
-      tKey: 'navGuide.ch-eighteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-eighteen`,
+      tKey: 'navGuide.ch-nextUpdates',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-nextUpdates`,
     },
     {
-      tKey: 'navGuide.ch-internalAPI',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-internalAPI`,
-    },
-    {
-      tKey: 'navGuide.ch-tailwind',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-tailwind`,
+      tKey: 'navGuide.ch-useClientVsServer',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useClientVsServer`,
     },
     {
       tKey: 'navGuide.ch-hooksDifference',
@@ -105,8 +109,8 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-useSWR`,
     },
     {
-      tKey: 'navGuide.ch-fontOptimization',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-fontOptimization`,
+      tKey: 'navGuide.ch-graphQLApollo',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-graphQLApollo`,
     },
     {
       tKey: 'navGuide.ch-formSubmit',
@@ -115,10 +119,6 @@ export const sidebar = {
     {
       tKey: 'navGuide.ch-formAction',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-formAction`,
-    },
-    {
-      tKey: 'navGuide.ch-useClientVsServer',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useClientVsServer`,
     },
     {
       tKey: 'navGuide.ch-dangerouslySetInnerHTML',
