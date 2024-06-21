@@ -14,7 +14,7 @@ export const Pages = {
       subHeadline: {},
     },
     chTwelve: {
-      headline: '12. GraphQL Apollo - Client/Server setup',
+      headline: 'GraphQL Apollo - Client/Server setup',
       subHeadline: {},
       detailTrack: {
         title: 'Next JS | Guide | Country detail',
@@ -22,7 +22,7 @@ export const Pages = {
       },
     },
     chFourteen: {
-      headline: '14. createSelector(Redux Toolkit)',
+      headline: 'createSelector(Redux Toolkit)',
       subHeadline: {},
     },
   },
