@@ -1,8 +1,8 @@
 export const ROUTE = {
   HOME: '/',
   GUIDE: '/guide',
-  GUIDE_CHAPTERS: '/guide/chapters',
-  COUNTRY_DETAIL: '/guide/chapters/ch-twelve',
+  GUIDE_CHAPTERS: '/guide',
+  COUNTRY_DETAIL: '/guide/ch-twelve',
   PHOTO_DETAIL: '/projects/dynamic-route',
   PROJECTS: '/projects',
   PROJECT_CARS: '/projects/cars',

@@ -17,36 +17,36 @@ export const navPrimary = [
 export const sidebar = {
   guide: [
     {
-      tKey: 'navGuide.ch-one',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-one`,
+      tKey: 'navGuide.ch-routing',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-routing`,
     },
     {
-      tKey: 'navGuide.ch-three',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-three`,
+      tKey: 'navGuide.ch-environment',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-environment`,
     },
     {
-      tKey: 'navGuide.ch-four',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-four`,
+      tKey: 'navGuide.ch-classNamesLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-classNamesLib`,
     },
     {
-      tKey: 'navGuide.ch-five',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-five`,
+      tKey: 'navGuide.ch-loadingTypes',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-loadingTypes`,
     },
     {
-      tKey: 'navGuide.ch-six',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-six`,
+      tKey: 'navGuide.ch-internationalization',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-internationalization`,
     },
     {
-      tKey: 'navGuide.ch-seven',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-seven`,
+      tKey: 'navGuide.ch-reduxToolkit',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxToolkit`,
     },
     {
-      tKey: 'navGuide.ch-eight',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-eight`,
+      tKey: 'navGuide.ch-propsWithChildren',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-propsWithChildren`,
     },
     {
-      tKey: 'navGuide.ch-nine',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-nine`,
+      tKey: 'navGuide.ch-redirects',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-redirects`,
     },
     {
       tKey: 'navGuide.ch-ten',
@@ -61,8 +61,8 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-twelve`,
     },
     {
-      tKey: 'navGuide.ch-thirteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-thirteen`,
+      tKey: 'navGuide.ch-auth0',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-auth0`,
     },
     {
       tKey: 'navGuide.ch-fourteen',
@@ -89,8 +89,8 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-nineteen`,
     },
     {
-      tKey: 'navGuide.ch-twenty',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twenty`,
+      tKey: 'navGuide.ch-tailwind',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-tailwind`,
     },
     {
       tKey: 'navGuide.ch-twentyTwo',
@@ -101,24 +101,28 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyThree`,
     },
     {
-      tKey: 'navGuide.ch-twentyFour',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyFour`,
+      tKey: 'navGuide.ch-useSWR',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useSWR`,
     },
     {
-      tKey: 'navGuide.ch-twentyFive',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyFive`,
+      tKey: 'navGuide.ch-fontOptimization',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-fontOptimization`,
     },
     {
-      tKey: 'navGuide.ch-twentySix',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySix`,
+      tKey: 'navGuide.ch-formSubmit',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-formSubmit`,
     },
     {
-      tKey: 'navGuide.ch-twentySeven',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentySeven`,
+      tKey: 'navGuide.ch-formAction',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-formAction`,
     },
     {
-      tKey: 'navGuide.ch-twentyEight',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyEight`,
+      tKey: 'navGuide.ch-useClientVsServer',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useClientVsServer`,
+    },
+    {
+      tKey: 'navGuide.ch-dangerouslySetInnerHTML',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-dangerouslySetInnerHTML`,
     },
   ],
   projects: [
