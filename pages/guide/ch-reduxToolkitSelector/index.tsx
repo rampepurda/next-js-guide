@@ -1,16 +1,16 @@
-import { Cars, Select } from '../../../../components'
-import { Pages } from '../../../../configuration'
+import { Cars, Select } from '../../../components'
+import { Pages } from '../../../configuration'
 import Head from 'next/head'
-import { useAppDispatch, useAppSelector } from '../../../../redux/store'
-import { useSelect } from '../../../../hooks'
-import { CarsOptions } from '../../../../configuration'
-import { selectCarFilter } from '../../../../redux/slices/Cars/carSelectors'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useSelect } from '../../../hooks'
+import { CarsOptions } from '../../../configuration'
+import { selectCarFilter } from '../../../redux/slices/Cars/carSelectors'
 import React, { useEffect } from 'react'
-import { getFilterCar } from '../../../../redux/slices'
+import { getFilterCar } from '../../../redux/slices'
 import Image from 'next/image'
-import imgCreateSelector from '../../../../public/images/ch-fourteen/createSelector.png'
+import imgCreateSelector from '../../../public/images/ch-fourteen/createSelector.png'
 
-export default function ChFourteen() {
+export default function ChRTSelector() {
   const dispatch = useAppDispatch()
   const { cars, selectedCar } = useAppSelector((state) => state.Cars)
   const { handleOption, Value = selectedCar } = useSelect(CarsOptions, '')

@@ -41,6 +41,10 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxToolkit`,
     },
     {
+      tKey: 'navGuide.ch-reduxToolkitSelector',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxToolkitSelector`,
+    },
+    {
       tKey: 'navGuide.ch-propsWithChildren',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-propsWithChildren`,
     },
@@ -49,56 +53,52 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-redirects`,
     },
     {
-      tKey: 'navGuide.ch-ten',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-ten`,
+      tKey: 'navGuide.ch-useCallback',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useCallback`,
     },
     {
-      tKey: 'navGuide.ch-eleven',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-eleven`,
+      tKey: 'navGuide.ch-image',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-image`,
     },
     {
-      tKey: 'navGuide.ch-twelve',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twelve`,
+      tKey: 'navGuide.ch-graphQLApollo',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-graphQLApollo`,
     },
     {
       tKey: 'navGuide.ch-auth0',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-auth0`,
     },
     {
-      tKey: 'navGuide.ch-fourteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-fourteen`,
+      tKey: 'navGuide.ch-focusTrapLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-focusTrapLib`,
     },
     {
-      tKey: 'navGuide.ch-fifteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-fifteen`,
+      tKey: 'navGuide.ch-cssJSLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-cssJSLib`,
     },
     {
-      tKey: 'navGuide.ch-sixteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-sixteen`,
-    },
-    {
-      tKey: 'navGuide.ch-seventeen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-seventeen`,
+      tKey: 'navGuide.ch-webpack',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-webpack`,
     },
     {
       tKey: 'navGuide.ch-eighteen',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-eighteen`,
     },
     {
-      tKey: 'navGuide.ch-nineteen',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-nineteen`,
+      tKey: 'navGuide.ch-internalAPI',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-internalAPI`,
     },
     {
       tKey: 'navGuide.ch-tailwind',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-tailwind`,
     },
     {
-      tKey: 'navGuide.ch-twentyTwo',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyTwo`,
+      tKey: 'navGuide.ch-hooksDifference',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-hooksDifference`,
     },
     {
-      tKey: 'navGuide.ch-twentyThree',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-twentyThree`,
+      tKey: 'navGuide.ch-mediaQueriesLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-mediaQueriesLib`,
     },
     {
       tKey: 'navGuide.ch-useSWR',

@@ -1,14 +1,14 @@
-import { Countries, Loader } from '../../../../components'
+import { Countries, Loader } from '../../../components'
 import Head from 'next/head'
-import { Pages } from '../../../../configuration'
+import { Pages } from '../../../configuration'
 import Image from 'next/image'
-import imgApolloStructure from '../../../../public/images/ch-twelve/apollo_structure_optimize.png'
-import imgResolvers from '../../../../public/images/ch-twelve/apollo_resolvers.png'
+import imgApolloStructure from '../../../public/images/ch-twelve/apollo_structure_optimize.png'
+import imgResolvers from '../../../public/images/ch-twelve/apollo_resolvers.png'
 import { useQuery } from '@apollo/client'
-import { GET_CONTINENTS_QUERY } from '../../../../graphQLApollo/queries/continents'
-import { Continent } from '../../../../types'
-import { CountriesResponse } from '../../../../graphQLApollo/services/Countries'
-import { GET_COUNTRIES_QUERY } from '../../../../graphQLApollo/queries'
+import { GET_CONTINENTS_QUERY } from '../../../graphQLApollo/queries/continents'
+import { Continent } from '../../../types'
+import { CountriesResponse } from '../../../graphQLApollo/services/Countries'
+import { GET_COUNTRIES_QUERY } from '../../../graphQLApollo/queries'
 
 /**
  * APOLLO GRAPHQL SERVER-INSTALLATION:
@@ -19,7 +19,7 @@ import { GET_COUNTRIES_QUERY } from '../../../../graphQLApollo/queries'
 
 type ContinentResponse = { continents: [{ name: string; code: string }] }
 
-export default function ChTwelve() {
+export default function ChGraphQLApollo() {
   const countries = useQuery<CountriesResponse | undefined>(GET_COUNTRIES_QUERY)
   const continents = useQuery<ContinentResponse>(GET_CONTINENTS_QUERY)
   return (
@@ -41,7 +41,6 @@ export default function ChTwelve() {
             </a>
           </li>
         </ul>
-
         <h2>1. Client side</h2>
         <h3>Installation</h3>
         <ul className="hasTypeDisc">

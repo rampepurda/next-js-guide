@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function ChSixteen() {
+export default function ChCssJSLib() {
   return (
     <>
       <Head>
@@ -8,7 +8,7 @@ export default function ChSixteen() {
       </Head>
 
       <div>
-        <h2>16. CSS in JS libraries</h2>
+        <h2>CSS - JS libraries</h2>
         <div className="hasOutline">
           <h4>
             There are two primary methods of using Emotion. The first is{' '}

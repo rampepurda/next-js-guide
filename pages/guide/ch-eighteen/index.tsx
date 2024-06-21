@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { InfoBox } from '../../../../components'
+import { InfoBox } from '../../../components'
 import imgInstallNext from './img/installnext13.png'
 import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ChEight() {
   return (
@@ -12,19 +13,17 @@ export default function ChEight() {
       </Head>
 
       <div>
-        <h2>18. Next &gt;13.4.7 - What is new?</h2>
-        <div className="hasOutline">
-          <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
-          <mark>Using Pages router</mark>
-          <h4>Structure: Pages/About, Pages/User/Data</h4>
-          <hr />
+        <h2>Next &gt;13.4.7 - What is new?</h2>
+        <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
+        <mark>Using Pages router</mark>
+        <h4>Structure: Pages/About, Pages/User/Data</h4>
+        <hr />
 
-          <mark>Using App routes</mark>
-          <h4>
-            During Next installation checked the choice: Use App Router. Structure: About/page.tsx,
-            Client/User/page.tsx
-          </h4>
-        </div>
+        <mark>Using App routes</mark>
+        <h4>
+          During Next installation checked the choice: Use App Router. Structure: About/page.tsx,
+          Client/User/page.tsx
+        </h4>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
             <a href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
@@ -71,27 +70,23 @@ export default function ChEight() {
           A custom Document can update the &lt;html&gt; and &lt;body&gt; tags used to render a Page.
           To override the default Document, create the file pages/_document
         </h4>
-        <InfoBox className="isInfo">
+        <div className="hasOutline">
           <h4>Next13 automatically generated _document for us.</h4>
           <h4>Next&lt;13 we need to manually create _document</h4>
-        </InfoBox>
-        <a
+        </div>
+        <Link
           href="https://nextjs.org/docs/pages/building-your-application/routing/custom-document"
           rel="noreferrer"
           target="_blank"
         >
           Read more about document here
-        </a>
-        <hr />
-
+        </Link>
         <h3>&lt;Link&gt; & NextJS 13</h3>
-        <InfoBox className="isDanger">
-          <h4>
-            Up to NextJS 13, you needed to add a{' '}
-            <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if you wanted to add
-            custom <strong>attributes (e.g., className)</strong> to the anchor element.
-          </h4>
-        </InfoBox>
+        <h4 className="hasOutline">
+          Up to NextJS 13, you needed to add a{' '}
+          <strong>nested &lt;a&gt; element in your &lt;Link&gt;s</strong> if you wanted to add
+          custom <strong>attributes (e.g., className)</strong> to the anchor element.
+        </h4>
 
         <h4>With NextJS 13 or higher, this is no longer needed, you can instead just write:</h4>
         <ul className="hasVerticalPadding-2">

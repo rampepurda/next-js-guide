@@ -1,29 +1,30 @@
-import { Modal } from '../../../../components'
+import { Modal } from '../../../components'
 import Head from 'next/head'
-import { mCh15 } from '../../../../configuration'
+import { mCh15 } from '../../../configuration'
+import Link from 'next/link'
 
-export default function ChFifteen() {
+export default function ChFocusTrapLib() {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-15 | FocusTrap</title>
+        <title>Next JS | Guide | Ch-15 | Focus Trap Lib</title>
       </Head>
 
       <div>
-        <h2>15. Focus Trap library</h2>
+        <h2>Focus Trap library</h2>
         <h4>
           <strong>Install:</strong> npm i focus-trap-react | yarn add focus-trap-react
         </h4>
-        <a href="https://www.npmjs.com/package/focus-trap-react" rel="author">
+        <Link href="https://www.npmjs.com/package/focus-trap-react" rel="author">
           Focus Trap, read more
-        </a>
+        </Link>
         <div>
-          <a
+          <Link
             href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/"
             rel="author"
           >
             Modal Window and Web Accessibility, read more
-          </a>
+          </Link>
         </div>
         <hr />
 
@@ -37,16 +38,15 @@ export default function ChFifteen() {
           You will definitely face this challenge when you are trying to build{' '}
           <strong>ACCESSIBLE MODALS</strong>.
         </h4>
-
         <ul className="hasTypeDisc">
           <li>
             Some element within the focus trap receives focus. By default, this will be the first
-            element in the focus trap's tab order (as determined by tabbable). Alternately, you can
-            specify an element that should receive this initial focus.
+            element in the focus trap&apos;s tab order (as determined by tabbable). Alternately, you
+            can specify an element that should receive this initial focus.
           </li>
           <li>
-            The Tab and Shift+Tab keys will cycle through the focus trap's tabbable elements but
-            will not leave the focus trap.
+            The Tab and Shift+Tab keys will cycle through the focus trap&apos;s tabbable elements
+            but will not leave the focus trap.
           </li>
           <li>
             Clicks within the focus trap behave normally; but clicks outside the focus trap are
@@ -67,10 +67,10 @@ export default function ChFifteen() {
           </p>
           <p>
             You might also learn more about the{' '}
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role">
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role">
               dialog
-            </a>{' '}
-            role.
+            </Link>
+            &nbsp; role.
           </p>
         </Modal>
       </div>

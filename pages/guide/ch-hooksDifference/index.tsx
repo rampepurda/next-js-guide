@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { ROUTE } from '../../../../configuration'
+import { ROUTE } from '../../../configuration'
 import { useRouter } from 'next/router'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useAppSelector } from '../../../../redux/store'
+import { useAppSelector } from '../../../redux/store'
 import classNames from 'classnames'
 
 export default function ChTwentyTwo() {
@@ -20,12 +20,12 @@ export default function ChTwentyTwo() {
       </Head>
 
       <div>
-        <h2>22. useHooks in Next14 and &gt; 13</h2>
+        <h2>Differences between hooks in Next 14+ and Next 13</h2>
         <hr />
 
         <div className="cols">
           <div className="col-6">
-            <h3>Next &lt; 13</h3>
+            <h3>Next 13</h3>
             <mark>useRouter</mark>
             <ul className="hasVerticalPadding-3">
               <li>
@@ -79,7 +79,7 @@ export default function ChTwentyTwo() {
           </div>
 
           <div className="col-6">
-            <h3>Next 13 &gt;</h3>
+            <h3>Next 14+</h3>
             <mark>usePathname</mark>
             <mark>useSearchParams</mark>
             <ul className="hasVerticalPadding-3">

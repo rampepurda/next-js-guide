@@ -1,23 +1,23 @@
-import { Loader } from '../../../../components'
+import { Loader } from '../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function ChSeventeen() {
+export default function ChWebpack() {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-seventeen - Webpack</title>
+        <title>Next JS | Guide | Webpack</title>
       </Head>
 
       <div>
-        <h2>17. Webpack in React</h2>
-        <a
+        <h2>Webpack in React</h2>
+        <Link
           href="https://www.scaler.com/topics/react/webpack-in-react/"
           target="_blank"
           rel="noreferrer"
         >
           Webpack, read more here
-        </a>
+        </Link>
 
         <h4 className="hasOutline">
           Webpack in react is a JavaScript module bundler that is commonly used with React to bundle

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function ChTwentyThree() {
+export default function ChMediaQueriesLib() {
   return (
     <>
       <Head>
@@ -8,9 +8,7 @@ export default function ChTwentyThree() {
       </Head>
 
       <div>
-        <h2>23. useMediaQueries Libraries</h2>
-        <hr />
-
+        <h2>useMediaQueries Libraries</h2>
         <h3>1. The most popular MediaQueriesHooks</h3>
         <ul className="hasTypeDecimal">
           <li>
@@ -36,14 +34,10 @@ export default function ChTwentyThree() {
             </h4>
           </li>
         </ul>
-        <hr />
-
         <h3>2. Top ten MediaQueriesHooks</h3>
         <a href="https://www.npmjs.com/search?q=media-query" target="_blank" rel="noreferrer">
           Read more about react-responsive hook here
         </a>
-        <hr />
-
         <h3>3. See other hooks libraries</h3>
         <a href="https://usehooks.com" target="_blank" rel="noreferrer">
           Read more about react-responsive hook here
