@@ -66,8 +66,8 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-webpack`,
   },
   {
-    tKey: 'Next13(13.4.7) - changes',
-    link: `${ROUTE.GUIDE_CHAPTERS}/ch-eighteen`,
+    tKey: 'Next 13.4.7+ what is new',
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-nextUpdates`,
   },
   {
     tKey: 'internalAPI',

@@ -79,7 +79,7 @@ export default function ChFormSubmit() {
       <div>
         <h2>Next(React) JS &lt;form onSubmit=&#123; &#125;&gt;</h2>
         <p>
-          When <em>'posting'</em> do not forget: method = &#123; 'POST'&#125;
+          When <em>&apos;posting&apos;</em> do not forget: method = &#123; &apos;POST&apos;&#125;
         </p>
         <div>
           <h2>event</h2>
@@ -349,7 +349,6 @@ export default function ChFormSubmit() {
           </li>
         </ul>
         <BooksPage />
-
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>
         <h3>How to install MUI</h3>
         <ul>

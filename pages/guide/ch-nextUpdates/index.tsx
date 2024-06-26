@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { InfoBox } from '../../../components'
 import imgInstallNext from './img/installnext13.png'
 import imgNextWithoutApiRouter from './img/installnext13-app-router-no.png'
 import Image from 'next/image'
@@ -14,14 +13,6 @@ export default function ChNextUpdate() {
 
       <div>
         <h2>Next 13.4.7+ what is new?</h2>
-        <h4>From Next &gt; 13 there are two possibilities of routes:</h4>
-        <mark>Using Pages router</mark>
-        <h4>Structure: Pages/About, Pages/User/Data</h4>
-        <mark>Using App routes</mark>
-        <h4>
-          During Next installation checked the choice: Use App Router. Structure: About/page.tsx,
-          Client/User/page.tsx
-        </h4>
         <ul className="hasTypeDisc hasVerticalPadding-3">
           <li>
             <Link href="https://nextjs.org/blog/next-13-4" rel="noreferrer" target="_blank">
@@ -38,8 +29,15 @@ export default function ChNextUpdate() {
             </Link>{' '}
           </li>
         </ul>
+        <h4>From Next 13+ there are two possibilities of routes:</h4>
+        <mark>Using Pages router</mark>
+        <h4>Structure: Pages/About, Pages/User/Data</h4>
         <hr />
-        <h3>Use App Route: layout structure</h3>
+        <mark>Using App routes</mark>
+        <h4>Structure: App/About/page.tsx, App/Client/User/page.tsx</h4>
+        <p>During Next installation checked the choice: Use App Router.</p>
+
+        <h2>Use App Route: layout structure</h2>
         <h4 className="hasOutline">
           Use App Route (recommended) Yes - during installation: REMEMBER - is still in Beta
           version!!
@@ -54,14 +52,14 @@ export default function ChNextUpdate() {
         </ul>
         <Image src={imgInstallNext} alt="next13 installationprocess" aria-hidden="true" />
 
-        <h3>Custom Document (api/_document.tsx)</h3>
-        <a
+        <h2>Custom Document (api/_document.tsx)</h2>
+        <Link
           href="https://nextjs.org/docs/pages/building-your-application/routing/custom-document"
           rel="noreferrer"
           target="_blank"
         >
           Read more about document here
-        </a>
+        </Link>
         <h4>During installation - ticked as is shown below:</h4>
         <Image
           src={imgNextWithoutApiRouter}
