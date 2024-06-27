@@ -17,6 +17,10 @@ export const navPrimary = [
 export const sidebar = {
   guide: [
     {
+      tKey: 'navGuide.ch-nextUpdates',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-nextUpdates`,
+    },
+    {
       tKey: 'navGuide.ch-routing',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-routing`,
     },
@@ -87,10 +91,6 @@ export const sidebar = {
     {
       tKey: 'navGuide.ch-webpack',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-webpack`,
-    },
-    {
-      tKey: 'navGuide.ch-nextUpdates',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-nextUpdates`,
     },
     {
       tKey: 'navGuide.ch-useClientVsServer',
