@@ -110,9 +110,8 @@ export default function ChReduxToolkit() {
         <div>
           <Input
             id={'email'}
-            ariaLabel={'select number'}
             tabIdx={1}
-            OnChange={(ev) => setHasLimit(Number(ev.target.value))}
+            onChange={(ev) => setHasLimit(Number(ev.target.value))}
             rest={{
               type: 'number',
               placeholder: '0',
@@ -120,6 +119,7 @@ export default function ChReduxToolkit() {
               max: '500',
               step: '50',
             }}
+            ariaLabel={'select number'}
           />
           <button
             className="btn btn-primary"

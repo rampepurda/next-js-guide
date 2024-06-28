@@ -21,6 +21,10 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-nextUpdates`,
     },
     {
+      tKey: 'navGuide.ch-useClientVsServer',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useClientVsServer`,
+    },
+    {
       tKey: 'navGuide.ch-routing',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-routing`,
     },
@@ -35,10 +39,6 @@ export const sidebar = {
     {
       tKey: 'navGuide.ch-environment',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-environment`,
-    },
-    {
-      tKey: 'navGuide.ch-classNamesLib',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-classNamesLib`,
     },
     {
       tKey: 'navGuide.ch-fontOptimization',
@@ -81,6 +81,10 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-focusTrapLib`,
     },
     {
+      tKey: 'navGuide.ch-classNamesLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-classNamesLib`,
+    },
+    {
       tKey: 'navGuide.ch-cssJSLib',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-cssJSLib`,
     },
@@ -89,20 +93,16 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-tailwind`,
     },
     {
+      tKey: 'navGuide.ch-mediaQueriesLib',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-mediaQueriesLib`,
+    },
+    {
       tKey: 'navGuide.ch-webpack',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-webpack`,
     },
     {
-      tKey: 'navGuide.ch-useClientVsServer',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-useClientVsServer`,
-    },
-    {
       tKey: 'navGuide.ch-hooksDifference',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-hooksDifference`,
-    },
-    {
-      tKey: 'navGuide.ch-mediaQueriesLib',
-      link: `${ROUTE.GUIDE_CHAPTERS}/ch-mediaQueriesLib`,
     },
     {
       tKey: 'navGuide.ch-useSWR',
