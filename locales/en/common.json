@@ -37,7 +37,7 @@
     "ch-cssJSLib": "CSS with JS libraries",
     "ch-webpack": "Webpack in React",
     "ch-nextUpdates": "next updates 13+",
-    "ch-internalAPI": "Internal API route",
+    "ch-internalAPI": "Internal API route(Pages router)",
     "ch-tailwind": "Tailwind CSS",
     "ch-hooksDifference": "hooks differences",
     "ch-mediaQueriesLib": "useMediaQueries Libraries and other hooks",

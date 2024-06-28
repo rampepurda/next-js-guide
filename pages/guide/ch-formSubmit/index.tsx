@@ -101,19 +101,15 @@ export default function ChFormSubmit() {
             <div>
               <Input
                 id={'name'}
+                rest={{ type: 'text', name: 'firstName', placeholder: 'first name' }}
                 ariaLabel={'write name'}
-                rest={{ type: 'text', name: 'firstName' }}
-                isRequired={true}
-                placeholder={'first name'}
               />
             </div>
             <div>
               <Input
                 id={'lastName'}
                 ariaLabel={'write last name'}
-                rest={{ type: 'text', name: 'lastName' }}
-                isRequired={true}
-                placeholder={'last name'}
+                rest={{ type: 'text', name: 'lastName', required: true, placeholder: 'last name' }}
               />
             </div>
             <button className="btn btn-submit" type="submit">

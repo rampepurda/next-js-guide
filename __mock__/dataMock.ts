@@ -9,18 +9,23 @@ export const dataSlideshow: SlideShowImages[] = [
 ]
 export const CarName = [
   {
+    id: 1,
     model: 'audi',
   },
   {
+    id: 2,
     model: 'toyota',
   },
   {
+    id: 3,
     model: 'bmw',
   },
   {
+    id: 4,
     model: 'ferrari',
   },
   {
+    id: 5,
     model: 'citroen',
   },
 ]

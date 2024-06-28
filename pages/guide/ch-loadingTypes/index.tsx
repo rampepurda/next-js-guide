@@ -142,8 +142,8 @@ export default function ChTypesOfLoading() {
           <code>
             const TermsCond = dynamic&lt;&#123; title: string&#125;&gt;(
             <br />
-            () =&gt; import('./TermsCondition').then((mod) =&gt; mod.TermsCondition), &#123;ssr:
-            false,&#125;
+            () =&gt; import(&apos;./TermsCondition&apos;).then((mod) =&gt; mod.TermsCondition),
+            &#123;ssr: false,&#125;
           </code>
         </div>
         <h4>See dynamic example on window.localStorage.get/setItem</h4>
@@ -196,7 +196,7 @@ export default function ChTypesOfLoading() {
           </li>
           <li>
             <strong className="color-is-red">const</strong> MarkdownPreview = lazy(() =&gt;
-            import('./MarkdownPreview.js'))
+            import(&apos;./MarkdownPreview.js&apos;))
           </li>
         </ul>
         <hr />
@@ -236,13 +236,13 @@ export default function ChTypesOfLoading() {
           <label htmlFor="email">Your email:</label>
           <Input
             id={'email'}
-            ariaLabel={'write your email'}
             tabIdx={1}
-            OnChange={(e) => setInpEmail(e.target.value)}
+            onChange={(e) => setInpEmail(e.target.value)}
             rest={{
               type: 'email',
               placeholder: '@',
             }}
+            ariaLabel={'write your email'}
           />
           <button
             className="btn btn-submit"

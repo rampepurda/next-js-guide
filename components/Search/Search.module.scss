@@ -56,12 +56,13 @@
   justify-content: center;
   margin: 0 0 0 $spacer-4;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: $white;
+  padding: 0 .5rem;
 
   a {
-    @include fontSize(1.4rem, bolder);
+    @include fontSize(1.2rem, bolder);
     color: $black!important;
   }
 }

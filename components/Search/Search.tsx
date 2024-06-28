@@ -30,15 +30,15 @@ export const Search = ({ data, ClassNames }: Props) => {
       <form className={classes.form} name="searchChapter" onSubmit={handleSearch}>
         <Input
           id={'inpSearch'}
-          ClassName={classes.inpSearch}
+          className={classes.inpSearch}
           ariaLabel={'search'}
           rest={{
             name: 'searchParam',
             type: 'search',
+            placeholder: 'Searching for..',
+            defaultValue: undefined,
+            required: true,
           }}
-          defValue={undefined}
-          placeholder={'Search'}
-          isRequired={true}
         />
         <div>
           <Button
@@ -52,6 +52,7 @@ export const Search = ({ data, ClassNames }: Props) => {
               width={25}
               alt="searchico"
               aria-hidden={true}
+              priority={false}
             />
           </Button>
         </div>

@@ -1,21 +1,14 @@
 import classes from './Input.module.scss'
-
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, PropsWithChildren } from 'react'
 import classNames from 'classnames'
-import IcoSearch from './ico-magnifying-glass.svg'
 
 type Props = {
   id: string
-  ClassName?: string
-  ariaLabel: string
+  className?: string
   tabIdx?: number
   icon?: string
-  OnChange?: (ev: ChangeEvent<HTMLInputElement>) => void
-  isSearch?: boolean
-  isRequired?: boolean
-  Name?: string
-  placeholder?: string
-  defValue?: string | undefined
+  onChange?: (ev: ChangeEvent<HTMLInputElement>) => void
+  ariaLabel: string
   rest: Record<string, any>
 }
 /**
@@ -23,34 +16,26 @@ type Props = {
  */
 
 export const Input = ({
+  children,
   ariaLabel,
   tabIdx,
-  ClassName,
+  className,
   icon,
   id,
-  OnChange,
-  isSearch = false,
-  isRequired = false,
-  Name,
-  placeholder,
-  defValue,
+  onChange,
   rest,
-}: Props) => {
+}: PropsWithChildren<Props>) => {
   return (
     <div className={classes.cover}>
       <input
         id={id}
-        className={classNames(classes.inp, ClassName, { [classes.isSearch]: isSearch })}
+        className={classNames(classes.inp, className)}
         tabIndex={tabIdx}
+        onChange={onChange}
         aria-label={ariaLabel}
-        onChange={OnChange}
-        name={Name}
-        required={isRequired}
-        placeholder={placeholder}
-        defaultValue={defValue}
         {...rest}
       />
-      {isSearch && <IcoSearch className={classNames(classes.hasIcoMagnifying)} />}
+      {children}
     </div>
   )
 }

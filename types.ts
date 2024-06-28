@@ -55,6 +55,7 @@ export interface CarTypes {
   price: string
 }
 export interface CarNameTS {
+  id: number
   model: string
 }
 export interface SlideShowImages {
