@@ -6,7 +6,6 @@ type Props = {
   id: string
   className?: string
   tabIdx?: number
-  icon?: string
   onChange?: (ev: ChangeEvent<HTMLInputElement>) => void
   ariaLabel: string
   rest: Record<string, any>
@@ -20,7 +19,6 @@ export const Input = ({
   ariaLabel,
   tabIdx,
   className,
-  icon,
   id,
   onChange,
   rest,

@@ -1,7 +1,7 @@
 import { Button, Input } from '../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { environment } from '../../../configuration'
 import { BooksPage } from '../../booksPage'
@@ -13,6 +13,7 @@ interface FormDataTS {
 }
 
 export default function ChFormSubmit() {
+  const [errorReactControl, setErrorReactControl] = useState<boolean>(false)
   const {
     register,
     handleSubmit,
@@ -39,12 +40,17 @@ export default function ChFormSubmit() {
     })
 
     try {
+      if (formDataObject.firstName === '' || formDataObject.lastName === '') {
+        alert('fill all')
+        return setErrorReactControl(true)
+      }
       if (response) {
         alert(
           `First Name: ${formDataObject.firstName}
-           Last Name: ${formDataObject.lastName}`
+           Last Name: ${formDataObject.lastName} were successfully send`
         )
         form.reset()
+        return setErrorReactControl(false)
       }
     } catch (err) {
       alert(`${err}`)
@@ -116,6 +122,7 @@ export default function ChFormSubmit() {
               Submit
             </button>
           </form>
+          {errorReactControl && <h3>You must fill in all inputs</h3>}
           <div className="hasOutline">
             <h4>Structure:</h4>
             <ul className="hasVerticalPadding-3">
