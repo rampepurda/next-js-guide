@@ -45,6 +45,7 @@
     "ch-fontOptimization": "Font Optimization and how to work with in Next",
     "ch-formSubmit": "Next(React) JS form onSubmit",
     "ch-formAction": "Next(React) JS form action",
+    "ch-formWithZod": "Form validation with Zod and useForm hook",
     "ch-useClientVsServer": "'use client' vs 'use server'",
     "ch-dangerouslySetInnerHTML": "dangerouslySetInnerHTML"
   },
