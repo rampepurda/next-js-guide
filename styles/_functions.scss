@@ -29,6 +29,10 @@ $display-values: block flex inline inline-block inline-flex;
     }
   }
 
+  .width-is-#{$i} {
+    width: (8.33% * $i);
+  }
+
   @if $i == 9 {
     .col-9 {
       padding: 5rem 1.5rem 4rem 1.5rem;

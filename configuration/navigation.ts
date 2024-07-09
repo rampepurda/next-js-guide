@@ -121,6 +121,10 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-formAction`,
     },
     {
+      tKey: 'navGuide.ch-formWithZod',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-formZodValidation`,
+    },
+    {
       tKey: 'navGuide.ch-dangerouslySetInnerHTML',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-dangerouslySetInnerHTML`,
     },
