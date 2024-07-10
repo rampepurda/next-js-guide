@@ -127,7 +127,7 @@ export default function ChFormValidationZod() {
             {...register('email')}
           />
           {errors.email && (
-            <p className="color-is-red" style={styles.mb}>
+            <p className="color-is-red" style={styles.mb} aria-live="polite" role="status">
               {errors.email.message}
             </p>
           )}
@@ -142,7 +142,7 @@ export default function ChFormValidationZod() {
             {...register('password')}
           />
           {errors.password && (
-            <p className="color-is-red" style={styles.mb}>
+            <p className="color-is-red" style={styles.mb} aria-live="polite" role="status">
               {errors.password.message}
             </p>
           )}
@@ -174,7 +174,7 @@ export default function ChFormValidationZod() {
           </div>
 
           {errors.passwordConfirm && (
-            <p className="color-is-red" style={styles.mb}>
+            <p className="color-is-red" style={styles.mb} aria-live="polite" role="status">
               {errors.passwordConfirm.message}
             </p>
           )}
