@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-type Init = {
+type InitValue = {
   isThemeDark: boolean
   ch1SlugNavigation: string[]
+  theme: string | null
 }
 
-const initialState: Init = {
+const initialState: InitValue = {
   isThemeDark: true,
   ch1SlugNavigation: ['Countries', 'TabTwo'],
+  theme: null,
 }
 
 export const Common = createSlice({
@@ -17,7 +19,10 @@ export const Common = createSlice({
     handleChangeTheme(state, action) {
       state.isThemeDark = action.payload
     },
+    handleThemeMode(state, action) {
+      state.theme = action.payload
+    },
   },
 })
 
-export const { handleChangeTheme } = Common.actions
+export const { handleChangeTheme, handleThemeMode } = Common.actions
