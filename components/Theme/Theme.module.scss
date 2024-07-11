@@ -42,10 +42,12 @@
   height: 2rem;
 
   &:checked + label {
-    &::after {
-      transition: 0.3s;
-      left: 2.25rem;
-      background-color: $blackLighter;
+    &.isDark {
+      &::after {
+        transition: 0.3s;
+        left: 2.25rem;
+        background-color: $blackLighter;
+      }
     }
   }
 }

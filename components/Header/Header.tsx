@@ -15,15 +15,13 @@ type Props = {
 export const Header = ({ className, children }: PropsWithChildren<Props>) => {
   const data: NavigationLink[] = searchData
   const pathname = usePathname()
-  const { isThemeDark } = useAppSelector((state) => state.Common)
-
+  const { theme } = useAppSelector((state) => state.Common)
   const { t } = useTranslation('common')
 
   return (
-    <header className={classNames(classes.header, className, { ['isDark']: isThemeDark })}>
+    <header className={classNames(classes.header, className, { ['isDark']: theme === 'dark' })}>
       <h1>{t('title')}</h1>
       {pathname.startsWith('/guide') && <Search data={data} ClassNames={classes.hasSearchBox} />}
-
       <div>{children}</div>
     </header>
   )

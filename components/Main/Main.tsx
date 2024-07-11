@@ -12,7 +12,7 @@ export const Main = ({ children }: PropsWithChildren) => {
   const dispatch = useAppDispatch()
   const pathName = usePathname()
   const [chapters, setChapters] = useState<Chapters[]>([])
-  const { isThemeDark } = useAppSelector((state) => state.Common)
+  const { theme } = useAppSelector((state) => state.Common)
 
   useEffect(() => {
     if (pathName.startsWith(`${PathName.guide}`)) {
@@ -29,7 +29,7 @@ export const Main = ({ children }: PropsWithChildren) => {
   }, [pathName, chapters])
 
   return (
-    <main className={classNames({ ['isDark']: isThemeDark })}>
+    <main className={classNames({ ['isDark']: theme === 'dark' })}>
       <div className="cols">
         <div className="col-3">
           {pathName !== ROUTE.HOME && <Navigation links={chapters} isNav={NavType.Sidebar} />}
