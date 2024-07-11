@@ -5,16 +5,10 @@ import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { handleThemeMode } from '../../redux/slices'
 import classNames from 'classnames'
 
-type Props = {
-  ClassName?: string
-  OnChange?: (ev: ChangeEvent<HTMLInputElement>) => void
-  isModeDark?: boolean
-  ariaLabel: string
-}
 type LocStorage = string | null
 export const key: string = 'theme'
 
-export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = true }: Props) => {
+export const Theme = () => {
   const { t } = useTranslation('common')
   const dispatch = useAppDispatch()
   const { theme } = useAppSelector((state) => state.Common)
@@ -44,7 +38,7 @@ export const Theme = ({ ClassName, OnChange, ariaLabel, isModeDark = true }: Pro
         onChange={(ev: ChangeEvent<HTMLInputElement>) => {
           handleTheme()
         }}
-        aria-label={`${ariaLabel} ${!isModeDark ? `${t('lightMode')}` : `${t('darkMode')}`}`}
+        aria-label={`controlled ${theme === 'light' ? `${t('lightMode')}` : `${t('darkMode')}`}`}
       />
       <label className={classNames(theme === 'dark' && classes.isDark)}>&nbsp;</label>
     </div>
