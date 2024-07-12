@@ -98,6 +98,10 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-formSubmit`,
   },
   {
+    tKey: 'Zod and form validation together with useForm hook',
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-formZodValidation`,
+  },
+  {
     tKey: 'form action',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-formAction`,
   },

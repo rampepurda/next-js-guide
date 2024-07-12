@@ -64,7 +64,7 @@ export default function ChFormValidationZod() {
       </Head>
 
       <div>
-        <h2>Zod and form validation together with useForm hook</h2>
+        <h2>Zod form validation together with useForm hook</h2>
         <ul className="hasTypeDisc hasVerticalPadding-4">
           <li>
             <strong>Install:</strong>
