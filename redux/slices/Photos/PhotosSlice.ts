@@ -54,7 +54,7 @@ export const getPhotosWithLimit = createAsyncThunk<PhotoType[], { url: string; h
       })
       return response.json()
     } catch (err) {
-      return rejectWithValue('Ops, something wrong, we are not able to provide any data')
+      return rejectWithValue(err)
     }
   }
 )
