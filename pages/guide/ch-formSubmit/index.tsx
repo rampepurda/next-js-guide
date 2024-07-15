@@ -51,6 +51,8 @@ export default function ChFormSubmit() {
         )
         form.reset()
         return setErrorReactControl(false)
+      } else {
+        throw new Error('Ops, something happened.')
       }
     } catch (err) {
       alert(`${err}`)
@@ -103,7 +105,7 @@ export default function ChFormSubmit() {
           </div>
           <h2>FormEvent</h2>
           <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
-          <form name="dummyTwo" onSubmit={submitFormEvent} method="POST">
+          <form className="width-is-5" name="dummyTwo" onSubmit={submitFormEvent} method="POST">
             <div>
               <Input
                 id={'name'}
@@ -219,7 +221,12 @@ export default function ChFormSubmit() {
           </li>
         </ul>
         <div>
-          <form name="dummyOne" onSubmit={handleSubmit(submitBook)} method="POST">
+          <form
+            className="width-is-5"
+            name="dummyOne"
+            onSubmit={handleSubmit(submitBook)}
+            method="POST"
+          >
             <div>
               <input
                 id="author"
