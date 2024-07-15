@@ -12,7 +12,6 @@ import { getFilterCar } from '../../../redux/slices'
  */
 export const CarsSearchBase = () => {
   const dispatch = useAppDispatch()
-
   const { handleOption, Value = 'all cars' } = useSelect(
     CarsOptions,
     ROUTE.PAGES.PROJECTS.CARS.ROUTE.GET_SELECTED_CAR

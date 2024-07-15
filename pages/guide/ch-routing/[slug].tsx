@@ -1,5 +1,6 @@
 import { Button } from '../../../components'
 import { useParams, usePathname, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
 export default function ChOneSlug() {
   const path = usePathname()
@@ -35,13 +36,9 @@ export default function ChOneSlug() {
       )}
       <hr />
 
-      <Button
-        ClassName={'btn-primary'}
-        rest={{ type: 'button' }}
-        hasLink={true}
-        url={'/guide/chapters/ch-one'}
-        title={'Back'}
-      />
+      <Button ClassName={'btn-primary'} rest={{ type: 'button' }}>
+        <Link href={'/guide/ch-routing'}>Back</Link>
+      </Button>
     </div>
   )
 }

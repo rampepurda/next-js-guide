@@ -13,9 +13,9 @@ import Link from 'next/link'
 export default function ChRouting() {
   const { getWindWidth } = useWindWidth()
   const dummyRoutes: { title: string; url: string }[] = [
-    { title: 'Link Dummy I', url: '/guide/chapters/ch-one/dummyOne?chanel=netflix' },
-    { title: 'Link Dummy III', url: '/guide/chapters/ch-one/dummyThree' },
-    { title: 'Link Dummy II', url: '/guide/chapters/ch-one/dummyTwo' },
+    { title: 'Link Dummy I', url: '/guide/ch-routing/dummyOne?chanel=netflix' },
+    { title: 'Link Dummy III', url: '/guide/ch-routing/dummyThree' },
+    { title: 'Link Dummy II', url: '/guide/ch-routing/dummyTwo' },
   ]
   useEffect(() => {
     getWindWidth()

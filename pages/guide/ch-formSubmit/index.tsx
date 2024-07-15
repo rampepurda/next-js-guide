@@ -120,9 +120,7 @@ export default function ChFormSubmit() {
                 rest={{ type: 'text', name: 'lastName', required: true, placeholder: 'last name' }}
               />
             </div>
-            <button className="btn btn-submit" type="submit">
-              Submit
-            </button>
+            <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
           </form>
           {errorReactControl && <h3>You must fill in all inputs</h3>}
           <div className="hasOutline">

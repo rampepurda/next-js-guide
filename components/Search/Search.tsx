@@ -68,11 +68,10 @@ export const Search = ({ data, ClassNames }: Props) => {
             <Button
               ClassName={classes.clearResultBtn}
               rest={{ type: 'button' }}
-              title={'x'}
-              hasLink={true}
-              url={ROUTE.GUIDE}
               ariaLabel={'Close search result'}
-            />
+            >
+              <Link href={ROUTE.GUIDE}>x</Link>
+            </Button>
           </li>
         )}
         {foundedData?.map((chapter, idx: number) => {
@@ -88,11 +87,10 @@ export const Search = ({ data, ClassNames }: Props) => {
             <Button
               ClassName={classes.clearResultBtn}
               rest={{ type: 'button' }}
-              title={'x'}
-              hasLink={true}
-              url={ROUTE.GUIDE}
               ariaLabel={'Close search result'}
-            />
+            >
+              <Link href={ROUTE.GUIDE}>x</Link>
+            </Button>
           </li>
         )}
       </ul>
