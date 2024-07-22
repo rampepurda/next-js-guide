@@ -67,9 +67,12 @@ export default function ChFormValidationZod() {
         <h2>Zod form validation together with useForm hook</h2>
         <ul className="hasTypeDisc hasVerticalPadding-4">
           <li>
-            <strong>Install:</strong>
-            <br />
+            <h4>Install:</h4>
             yarn add zod <strong>@hookform/resolvers</strong>
+          </li>
+          <li>
+            <h4>Check:</h4>
+            tsconfig.json &quot;strict&quot;: must be true,
           </li>
           <li>
             <Link href="https://zod.dev/?id=introduction" target="_blank" rel="noreferrer">

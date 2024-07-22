@@ -5,7 +5,7 @@ import { environment, sidebar } from '../../configuration'
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType, PathName } from '../../types'
-import { getCountries, getPhotosWithLimit } from '../../redux/slices'
+import { getPhotosWithLimit } from '../../redux/slices'
 import { ROUTE } from '../../configuration'
 
 export const Main = ({ children }: PropsWithChildren) => {
@@ -24,7 +24,6 @@ export const Main = ({ children }: PropsWithChildren) => {
     if (pathName.startsWith(`${PathName.tsDocumentation}`)) {
       setChapters(sidebar.typeScriptDoc)
     }
-    dispatch(getCountries())
     dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))
   }, [pathName, chapters])
 

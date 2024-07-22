@@ -9,7 +9,6 @@ import { GET_CONTINENTS_QUERY } from '../../../graphQLApollo/queries/continents'
 import { Continent } from '../../../types'
 import { CountriesResponse } from '../../../graphQLApollo/services/Countries'
 import { GET_COUNTRIES_QUERY } from '../../../graphQLApollo/queries'
-import Link from 'next/link'
 
 /**
  * APOLLO GRAPHQL SERVER-INSTALLATION:
@@ -61,7 +60,6 @@ export default function ChGraphQLApollo() {
             &#123; console.log(result) &#125;)
           </code>
         </div>
-
         <h2>Feature data requirements</h2>
         <ul className="hasTypeDisc">
           <li>
@@ -103,7 +101,6 @@ export default function ChGraphQLApollo() {
           <li>return data</li>
           <li>&#125; &#125;</li>
         </ul>
-
         <h2>useQuery hook @apollo/client</h2>
         <ul className="hasVerticalPadding-6 hasOutline">
           <li>
@@ -149,11 +146,9 @@ export default function ChGraphQLApollo() {
           <li>&nbsp;&#123; variables: &#123; params &#125; &#125;</li>
           <li>)</li>
         </ul>
-
         <h3>Example: Continents & Countries</h3>
         {(continents.loading && <h4>Loading, please wait</h4>) ||
           (continents.error && <h3>Ops, something happened</h3>)}
-
         <ul className="isHorizontal hasVerticalPadding-4">
           {continents.data?.continents.map((continent: Continent) => {
             return (
@@ -163,9 +158,8 @@ export default function ChGraphQLApollo() {
             )
           })}
         </ul>
-
         {(countries.error && <h3>Ops, something happened</h3>) || (countries.loading && <Loader />)}
-        <Countries countries={countries.data?.countries.slice(80, 85)} route={'ch-twelve'} />
+        <Countries countries={countries.data?.countries.slice(80, 85)} route={'ch-graphQLApollo'} />
         <br />
         <hr />
         <h2>2. GraphQL Server side</h2>
@@ -221,7 +215,6 @@ export default function ChGraphQLApollo() {
           </li>
         </ul>
         <hr />
-
         <h3>3. Schema definition language (SDL)</h3>
         <p>
           A schema is like a contract between the server and the client. It defines what a GraphQL
@@ -249,7 +242,6 @@ export default function ChGraphQLApollo() {
           <hr />
           <h5>It`s a good practice to make documentation for each schema</h5>
         </div>
-
         <Image src={imgApolloStructure} alt="ApolloStructure" />
         <h3>3. Resolvers</h3>
         <ul className="hasTypeDecimal">
@@ -331,7 +323,6 @@ export default function ChGraphQLApollo() {
           syntax. The return type of the mutation comes after the colon.
         </p>
         <h4>For more see Next JS Apollo GraphQL Project</h4>
-
         <h3>3.2 Mutation - `gql`</h3>
         <div className="hasOutline">
           <ul className="hasVerticalPadding-2">
@@ -346,7 +337,6 @@ export default function ChGraphQLApollo() {
             <li>&#125;</li>
           </ul>
         </div>
-
         <h3>3.2 Mutation - use</h3>
         <div className="hasOutline">
           <h4>import &#123; useMutation &#125; from &apos;@apollo/client&apos;;</h4>

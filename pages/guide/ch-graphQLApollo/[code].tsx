@@ -1,11 +1,11 @@
-import { Pages, ROUTE } from '../../../../configuration'
+import { Pages, ROUTE } from '../../../configuration'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Country } from '../../../../types'
-import { Country as CountryFocus, Loader } from '../../../../components/index'
+import { Country } from '../../../types'
+import { Country as CountryFocus, Loader } from '../../../components/index'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@apollo/client'
-import { GET_COUNTRY_DETAIL_QUERY } from '../../../../graphQLApollo/queries'
+import { GET_COUNTRY_DETAIL_QUERY } from '../../../graphQLApollo/queries'
 
 export default function CountryDetail() {
   const params = useParams()
