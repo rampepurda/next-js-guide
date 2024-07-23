@@ -1,11 +1,13 @@
-import { Button, Input } from '../../../components'
+import { Book, Button, Input, Loader } from '../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { environment } from '../../../configuration'
-import { BooksPage } from '../../booksPage'
 import { schema } from '../../zodSchema/zodSchema'
+import useSWR from 'swr'
+import { fetcher } from '../../../utils/fetchers'
+import { BookT } from '../../../types'
 
 interface FormDataTS {
   author: string | undefined
@@ -14,6 +16,7 @@ interface FormDataTS {
 }
 
 export default function ChFormSubmit() {
+  const books = useSWR<BookT[] | undefined>(`${environment.fireBaseBooksURL}`, fetcher)
   const [errorAuthor, setErrorAuthor] = useState<string | undefined>('')
   const [errorBookTitle, setErrorBookTitle] = useState<string | undefined>('')
   const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
@@ -63,7 +66,7 @@ export default function ChFormSubmit() {
     },
   })
   const submitBook = async (data: FormDataTS) => {
-    const response = await fetch(`${environment.fireBaseBookURL}`, {
+    const response = await fetch(`${environment.fireBaseBookForNextURL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application.json' },
       body: JSON.stringify({ ...data }),
@@ -79,6 +82,10 @@ export default function ChFormSubmit() {
     error: {
       margin: '-.1rem 0',
       color: 'red',
+    },
+    bookCower: {
+      display: 'flex',
+      gap: '1rem',
     },
   }
 
@@ -374,7 +381,13 @@ export default function ChFormSubmit() {
             these are not recognise.
           </li>
         </ul>
-        <BooksPage />
+        {(books.error && <h4>Ops, something happened</h4>) || (books.isLoading && <Loader />)}
+        <div style={styles.bookCower}>
+          {books.data?.map((book: BookT, idx: number) => {
+            return <Book ClassName={'width-is-4'} key={idx} book={book} />
+          })}
+        </div>
+
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>
         <h3>How to install MUI</h3>
         <ul>

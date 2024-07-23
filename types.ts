@@ -47,6 +47,14 @@ export type ContinentDetailTS = {
     }[]
   }
 }
+export type BookT = {
+  id: number
+  quantity?: number
+  author: string
+  title: string
+  price?: string
+  imgSrc?: string
+}
 export interface CarTypes {
   id: string | number
   model: string
