@@ -27,7 +27,7 @@ export default function ChFormValidationZod() {
     const response = await fetch(``, {
       method: 'POST',
       headers: { 'Content-Type': 'application.json' },
-      body: JSON.stringify({ ...data }),
+      body: JSON.stringify(data),
     })
     if (response.ok) {
       alert(`You are logged`)
@@ -118,7 +118,7 @@ export default function ChFormValidationZod() {
           </li>
           <li>&#125;</li>
         </ul>
-        <form className="width-is-5" method="post" onSubmit={handleSubmit(onSubmit)}>
+        <form className="width-is-5" method="POST" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="email">
             <strong>Email:</strong>
           </label>

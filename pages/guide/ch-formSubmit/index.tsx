@@ -5,6 +5,7 @@ import { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { environment } from '../../../configuration'
 import { BooksPage } from '../../booksPage'
+import { schema } from '../../zodSchema/zodSchema'
 
 interface FormDataTS {
   author: string | undefined
@@ -13,7 +14,40 @@ interface FormDataTS {
 }
 
 export default function ChFormSubmit() {
-  const [errorReactControl, setErrorReactControl] = useState<boolean>(false)
+  const [errorAuthor, setErrorAuthor] = useState<string | undefined>('')
+  const [errorBookTitle, setErrorBookTitle] = useState<string | undefined>('')
+  const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const formDataObject = Object.fromEntries(formData)
+    const form = event.currentTarget
+    const formValidation = schema.Post.bookDummy.safeParse(formDataObject)
+
+    if (formValidation.success) {
+      try {
+        const response = await fetch('', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application.json' },
+          body: JSON.stringify(formDataObject),
+        })
+        if (response) {
+          alert(
+            `Author: ${formDataObject.author} | Title: ${formDataObject.bookTitle} were successfully send`
+          )
+          form.reset()
+          setErrorAuthor('')
+          setErrorBookTitle('')
+        } else {
+          throw new Error('Ops, something happened.')
+        }
+      } catch (err) {
+        alert(`${err}`)
+      }
+    } else {
+      setErrorAuthor(`${formValidation.error?.flatten().fieldErrors.author}`)
+      setErrorBookTitle(`${formValidation.error?.flatten().fieldErrors.bookTitle}`)
+    }
+  }
   const {
     register,
     handleSubmit,
@@ -28,36 +62,6 @@ export default function ChFormSubmit() {
       price: '',
     },
   })
-  const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const formDataObject = Object.fromEntries(formData)
-    const form = event.currentTarget
-    const response = await fetch('', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application.json' },
-      body: JSON.stringify(formDataObject),
-    })
-
-    try {
-      if (formDataObject.firstName === '' || formDataObject.lastName === '') {
-        alert('fill all')
-        return setErrorReactControl(true)
-      }
-      if (response) {
-        alert(
-          `First Name: ${formDataObject.firstName}
-           Last Name: ${formDataObject.lastName} were successfully send`
-        )
-        form.reset()
-        return setErrorReactControl(false)
-      } else {
-        throw new Error('Ops, something happened.')
-      }
-    } catch (err) {
-      alert(`${err}`)
-    }
-  }
   const submitBook = async (data: FormDataTS) => {
     const response = await fetch(`${environment.fireBaseBookURL}`, {
       method: 'POST',
@@ -103,29 +107,38 @@ export default function ChFormSubmit() {
               <li>&#125;</li>
             </ul>
           </div>
-          <h2>FormEvent</h2>
+          <h2>FormEvent with Zod Form Control</h2>
           <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
-          <form className="width-is-5" name="dummyTwo" onSubmit={submitFormEvent} method="POST">
-            <div>
-              <Input
-                id={'name'}
-                rest={{ type: 'text', name: 'firstName', placeholder: 'first name' }}
-                ariaLabel={'write name'}
-              />
-            </div>
-            <div>
-              <Input
-                id={'lastName'}
-                ariaLabel={'write last name'}
-                rest={{ type: 'text', name: 'lastName', required: true, placeholder: 'last name' }}
-              />
-            </div>
+          <form className="width-is-5" name="formEvent" onSubmit={submitFormEvent} method="POST">
+            <Input
+              id={'authorD'}
+              rest={{ type: 'text', name: 'author', placeholder: 'author' }}
+              ariaLabel={'write name'}
+            />
+            {errorAuthor !== 'undefined' && <p style={{ color: 'red' }}>{errorAuthor}</p>}
+            <Input
+              id={'bookTitleD'}
+              rest={{ type: 'text', name: 'bookTitle', placeholder: 'book title' }}
+              ariaLabel={'write name'}
+            />
+            {errorBookTitle !== 'undefined' && <p style={{ color: 'red' }}>{errorBookTitle}</p>}
             <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
           </form>
-          {errorReactControl && <h3>You must fill in all inputs</h3>}
           <div className="hasOutline">
-            <h4>Structure:</h4>
             <ul className="hasVerticalPadding-3">
+              <li>
+                <strong>Zod - schema:</strong>
+              </li>
+              <li>
+                const <strong className="color-is-red">schema</strong>: z.object(&#123;
+              </li>
+              <li>&nbsp; author: z.string().min(2).max(40),</li>
+              <li>&nbsp;bookTitle: z.string().min(2).max(40),</li>
+              <li>&#125;)</li>
+              <li>&nbsp;</li>
+              <li>
+                <h4>Structure:</h4>
+              </li>
               <li>
                 import &#123; <strong>FormEvent</strong> &#125; from &apos;react&apos;
               </li>
@@ -137,6 +150,11 @@ export default function ChFormSubmit() {
               </li>
               <li>
                 &nbsp;const formDataObject = <strong>Object.fromEntries(formData)</strong>
+              </li>
+              <li>
+                &nbsp;const <strong>formValidation</strong> ={' '}
+                <strong className="color-is-red">schema.safeParse</strong>
+                (formDataObject)
               </li>
               <li>
                 &nbsp;<strong>formData.reset()</strong>
