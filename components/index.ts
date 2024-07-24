@@ -1,4 +1,5 @@
 export * from './Accordion'
+export * from './Book'
 export * from './Cars/Cars'
 export * from './Country'
 export * from './Countries/Countries'
