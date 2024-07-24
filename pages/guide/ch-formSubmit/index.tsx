@@ -1,7 +1,7 @@
 import { Book, Button, Input, Loader } from '../../../components'
 import Head from 'next/head'
 import Link from 'next/link'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { environment } from '../../../configuration'
 import { schema } from '../../zodSchema/zodSchema'
@@ -19,6 +19,7 @@ export default function ChFormSubmit() {
   const books = useSWR<BookT[] | undefined>(`${environment.fireBaseBooksURL}`, fetcher)
   const [errorAuthor, setErrorAuthor] = useState<string | undefined>('')
   const [errorBookTitle, setErrorBookTitle] = useState<string | undefined>('')
+  const stateBooks = useCallback(() => {}, [books.data])
   const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
@@ -51,6 +52,36 @@ export default function ChFormSubmit() {
       setErrorBookTitle(`${formValidation.error?.flatten().fieldErrors.bookTitle}`)
     }
   }
+  const submitBook = async (data: FormDataTS) => {
+    try {
+      const response = await fetch(`${environment.fireBaseBooksURL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application.json' },
+        body: JSON.stringify({ ...data }),
+      })
+      if (response.ok) {
+        alert(`Author: ${data.author} | Title: ${data.title}, successful send`)
+        reset()
+      } else {
+        alert('Problems during sending occurred. Please try again.')
+      }
+    } catch (err) {
+      alert(err)
+    }
+  }
+  const handleDeleteBook = async (id: number) => {
+    try {
+      const res = await fetch(`${environment.fireBaseBookDelete}/${id}.json`, {
+        method: 'DELETE',
+      })
+      if (res.ok) {
+        alert(`Book was successful delete from your list`)
+        stateBooks()
+      }
+    } catch (err: any) {
+      alert(`${err.message}`)
+    }
+  }
   const {
     register,
     handleSubmit,
@@ -65,19 +96,6 @@ export default function ChFormSubmit() {
       price: '',
     },
   })
-  const submitBook = async (data: FormDataTS) => {
-    const response = await fetch(`${environment.fireBaseBookForNextURL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application.json' },
-      body: JSON.stringify({ ...data }),
-    })
-    if (response.ok) {
-      alert(`Author: ${data.author} | Title: ${data.title}, successful send`)
-      reset()
-    } else {
-      alert('Problems during sending occurred. Please try again.')
-    }
-  }
   const styles = {
     error: {
       margin: '-.1rem 0',
@@ -85,6 +103,7 @@ export default function ChFormSubmit() {
     },
     bookCower: {
       display: 'flex',
+      flexFlow: 'wrap',
       gap: '1rem',
     },
   }
@@ -170,7 +189,6 @@ export default function ChFormSubmit() {
             </ul>
           </div>
         </div>
-
         <h2>useForm hook</h2>
         <ul className="hasVerticalPadding-3">
           <li>
@@ -374,20 +392,30 @@ export default function ChFormSubmit() {
         </div>
         <h4>NOTE: FIREBASE complication</h4>
         <ul className="hasTypeDisc hasVerticalPadding-4">
-          <li>When you Submit new book refresh the page to be displayed</li>
           <li>
             <strong>When you`ll try to &apos;DELETE&apos;:</strong> Click from the end of array(but
             not into items which were posted from this FORM), because Firebase added own ID and
             these are not recognise.
           </li>
         </ul>
+        {books.data === null && <h4 style={styles.error}>Your list of books is empty now</h4>}
         {(books.error && <h4>Ops, something happened</h4>) || (books.isLoading && <Loader />)}
         <div style={styles.bookCower}>
           {books.data?.map((book: BookT, idx: number) => {
-            return <Book ClassName={'width-is-4'} key={idx} book={book} />
+            return (
+              <>
+                {book !== null && (
+                  <Book
+                    ClassName={'width-is-4'}
+                    key={idx}
+                    book={book}
+                    handleDelete={(ev) => handleDeleteBook(book.id - 1)}
+                  />
+                )}
+              </>
+            )
           })}
         </div>
-
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>
         <h3>How to install MUI</h3>
         <ul>
@@ -400,7 +428,6 @@ export default function ChFormSubmit() {
           <strong>next-14-useForm</strong>
         </h4>
         <hr />
-
         <h3>Note:</h3>
         <p>When I used useForm with MUI I noted problem to reset() Form</p>
         <h4>
