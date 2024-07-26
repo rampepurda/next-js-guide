@@ -7,6 +7,14 @@ export const dataSlideshow: SlideShowImages[] = [
   { url: imgNextConfig, alt: 'one' },
   { url: imgDummySlide, alt: 'two' },
 ]
+export const apiData = {
+  user: {
+    name: 'Michal Tomek',
+    address: 'Na Micance',
+    email: 'tomki@gmail.com',
+  },
+}
+
 export const CarName = [
   {
     id: 1,

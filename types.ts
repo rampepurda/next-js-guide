@@ -76,6 +76,11 @@ export type InpRest = Record<string, string>
 export type InitOptions = { value: string }
 
 // Playground
+export type UserT = {
+  name: string | undefined
+  address: string | undefined
+  email: string | undefined
+}
 export type Person = {
   name: string
   age: number

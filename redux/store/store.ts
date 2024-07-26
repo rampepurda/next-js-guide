@@ -1,5 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
-import { PhotosSlice, CountrySlice, Common, CarSlice } from '../slices'
+import { PhotosSlice, CountrySlice, Common, CarSlice, AuthorizationSlice } from '../slices'
 
 export const store = configureStore({
   reducer: {
@@ -7,6 +7,7 @@ export const store = configureStore({
     [Common.name]: Common.reducer,
     [CountrySlice.name]: CountrySlice.reducer,
     [PhotosSlice.name]: PhotosSlice.reducer,
+    [AuthorizationSlice.name]: AuthorizationSlice.reducer,
   },
 })
 
