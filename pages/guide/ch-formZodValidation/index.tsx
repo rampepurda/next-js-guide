@@ -90,9 +90,11 @@ export default function ChFormValidationZod() {
           </li>
         </ul>
         <h2>Zod - Schema(object)</h2>
+        <mark>z.object()</mark>
+        <mark>refine</mark>
         <ul className="hasVerticalPadding-3 hasOutline">
           <li>
-            <strong>import &#123; z &#125; from 'zod'</strong>
+            <strong>import &#123; z &#125; from &apos;zod&apos;</strong>
           </li>
           <li>&nbsp;</li>
           <li>export const schema = &#123;</li>
@@ -100,10 +102,19 @@ export default function ChFormValidationZod() {
             &nbsp;login: <strong>z.object</strong>(&#123;
           </li>
           <li>
-            &nbsp;&nbsp;email: z.string().email().min(10, &#123; message: 'Must be 10...' &#125;),
+            &nbsp;&nbsp;email: z.string().email().min(10, &#123; message: &apos;Must be 10...&apos;
+            &#125;),
           </li>
           <li>&nbsp;&nbsp;password: z.string().min(10),</li>
-          <li>&nbsp;&#125;)</li>
+          <li>&nbsp;&nbsp;passwordConfirm: z.string().min(10),</li>
+          <li>
+            &nbsp;&#125;)<strong>.refine</strong>(data) =&gt; data.passwordConfirm ===
+            data.password, &#123;
+            <br />
+            &nbsp;&nbsp;message: &apos;Password must match&apos;,
+            <br />
+            &nbsp;&nbsp;path: [&apos;passwordConfirm&apos;], &#125;),
+          </li>
           <li>&#125;</li>
         </ul>
         <h2>Zod and useForm implementation</h2>
