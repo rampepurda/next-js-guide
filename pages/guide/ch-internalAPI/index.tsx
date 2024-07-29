@@ -89,7 +89,7 @@ export default function ChInternalAPI() {
             <li>&#125;</li>
           </ul>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form className="width-is-4" onSubmit={handleSubmit}>
           <label htmlFor="newCar">Add New Car:</label>
           <Input
             id={'postCar'}
