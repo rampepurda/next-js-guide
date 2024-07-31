@@ -13,6 +13,13 @@ export const apiData = {
     address: 'Na Micance',
     email: 'tomki@gmail.com',
   },
+  users: [
+    {
+      name: 'Michal Tomek',
+      address: 'Na Micance',
+      email: 'tomki@gmail.com',
+    },
+  ],
 }
 
 export const CarName = [

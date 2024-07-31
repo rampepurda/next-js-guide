@@ -6,20 +6,16 @@ import { PhotoType, UserT } from '../../../types'
  */
 
 const initialState: {
-  user: UserT
+  users: UserT[]
 } = {
-  user: {
-    name: undefined,
-    address: undefined,
-    email: undefined,
-  },
+  users: [],
 }
 
-export const getUser = createAsyncThunk<UserT>(
+export const getUser = createAsyncThunk<UserT[]>(
   'photos/GET',
   async (_, { rejectWithValue }): Promise<any> => {
     try {
-      const response = await fetch('/api/auth', {})
+      const response = await fetch('/api/auth')
       if (response.ok) {
         return response.json()
       }
@@ -36,8 +32,8 @@ export const AuthorizationSlice = createSlice({
     auth: (state, action) => {},
   },
   extraReducers(builder) {
-    builder.addCase(getUser.fulfilled, (state, action: PayloadAction<UserT>) => {
-      state.user = action.payload
+    builder.addCase(getUser.fulfilled, (state, action: PayloadAction<UserT[]>) => {
+      state.users = action.payload
     })
   },
 })

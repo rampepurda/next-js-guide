@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { UserT } from '../../../types'
 import { apiData } from '../../../__mock__/dataMock'
 
-const user: UserT = apiData.user
+const users: UserT[] = apiData.users
 
 /**
  * @function handler is 'obliged, rule' use as Fn name in Next < 14
@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (method) {
     case 'GET':
       setTimeout(() => {
-        res.status(200).json(user)
+        res.status(200).json(users)
       }, 2000)
   }
 }
