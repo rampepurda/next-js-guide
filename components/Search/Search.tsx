@@ -3,9 +3,8 @@ import { useMemo } from 'react'
 import { NavigationLink } from '../../types'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import Image from 'next/image'
 import classNames from 'classnames'
-import { Button, Input } from '../UI'
+import { Button, Icon, Input } from '../UI'
 import { ROUTE } from '../../configuration'
 
 type Props = {
@@ -46,14 +45,7 @@ export const Search = ({ data, ClassNames }: Props) => {
             rest={{ type: 'submit' }}
             ariaLabel={'Click to search'}
           >
-            <Image
-              src="/ico-search.svg"
-              height={25}
-              width={25}
-              alt="searchico"
-              aria-hidden={true}
-              priority={false}
-            />
+            <Icon icoName={'ico-search'} alt={'ico search'} rest={{ priority: false }} />
           </Button>
         </div>
       </form>
