@@ -1,11 +1,12 @@
 import classes from '../chapters.module.scss'
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { InfoBox, Input } from '../../../components'
+import { Button, Input } from '../../../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import imgSrc from '../../../public/images/ch-five/email_validation.png'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 const TermsCond = dynamic<{ title: string }>(
   () => import('../../../components/TermsCondition').then((mod) => mod.TermsCondition),
   {
@@ -14,7 +15,7 @@ const TermsCond = dynamic<{ title: string }>(
 )
 
 export default function ChTypesOfLoading() {
-  const [InpEmail, setInpEmail] = useState<any>('')
+  const [inpEmail, setInpEmail] = useState<string>('')
   const handleSubmit = (email: string) => {
     if (
       email.match(
@@ -37,22 +38,22 @@ export default function ChTypesOfLoading() {
         <h2>Dynamic & Lazy loading</h2>
         <ul className="hasTypeDisc">
           <li>
-            <a
+            <Link
               href="https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading"
               target="_blank"
               rel="noreferrer"
             >
               Next Lazy loading read more
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading"
               target="_blank"
               rel="noreferrer"
             >
               Lazy loading
-            </a>{' '}
+            </Link>{' '}
             in Next.js helps improve the initial loading performance of an application by decreasing
             the amount of JavaScript needed to render a route.
           </li>
@@ -151,13 +152,13 @@ export default function ChTypesOfLoading() {
         <h3>JSON.stringify()</h3>
         <ul className="hasTypeDisc">
           <li>
-            <a
+            <Link
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
               rel="noreferrer"
               target="_blank"
             >
               Read more about JSON.stringify
-            </a>
+            </Link>
           </li>
         </ul>
         <p>
@@ -168,13 +169,13 @@ export default function ChTypesOfLoading() {
         <h3>JSON.parse()</h3>
         <ul className="hasTypeDisc">
           <li>
-            <a
+            <Link
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"
               rel="noreferrer"
               target="_blank"
             >
               Read more about JSON.parse
-            </a>
+            </Link>
           </li>
         </ul>
         <p>
@@ -184,12 +185,10 @@ export default function ChTypesOfLoading() {
         </p>
         <hr />
         <h2>lazy loading</h2>
-        <div className="hasOutline">
-          <h5>
-            <em>lazy</em> lets you defer loading component’s code until it is rendered for the first
-            time.
-          </h5>
-        </div>
+        <h5>
+          <em>lazy</em> lets you defer loading component’s code until it is rendered for the first
+          time.
+        </h5>
         <ul className={classNames(classes.hasNoBorder)}>
           <li>
             <strong className="color-is-red">import</strong> &#123; lazy &#125; from 'react'
@@ -201,11 +200,9 @@ export default function ChTypesOfLoading() {
         </ul>
         <hr />
         <h3>&lt;Suspense&gt;</h3>
-        <InfoBox className="hasOutline">
-          <h5>
-            &lt;Suspense&gt; lets you display a fallback until its children have finished loading.
-          </h5>
-        </InfoBox>
+        <h5 className="hasOutline">
+          &lt;Suspense&gt; lets you display a fallback until its children have finished loading.
+        </h5>
         <ul className={classNames(classes.hasNoBorder)}>
           <li>
             <strong className="color-is-red">import</strong> &#123; Suspense &#125; from
@@ -232,7 +229,15 @@ export default function ChTypesOfLoading() {
         </ul>
         <hr />
         <h2>.match email validation</h2>
-        <form name="email">
+        <form
+          className="width-is-4"
+          onSubmit={(ev) => {
+            //e.preventDefault()
+            handleSubmit(inpEmail)
+          }}
+          name="email"
+          //method="POST"
+        >
           <label htmlFor="email">Your email:</label>
           <Input
             id={'email'}
@@ -244,16 +249,7 @@ export default function ChTypesOfLoading() {
             }}
             ariaLabel={'write your email'}
           />
-          <button
-            className="btn btn-submit"
-            type="button"
-            onClick={(e) => {
-              e.preventDefault()
-              handleSubmit(InpEmail)
-            }}
-          >
-            Submit
-          </button>
+          <Button ClassName="btn-submit" title={'Submit'} rest={{ type: 'submit' }} />
         </form>
         <Image src={imgSrc} aria-hidden={true} alt="emailvalidation" />
       </div>
