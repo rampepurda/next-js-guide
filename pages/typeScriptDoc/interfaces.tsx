@@ -19,9 +19,9 @@ export default function Interfaces() {
       </Head>
 
       <div>
-        <h2>Interface - Declaration merging</h2>
+        <h2>Interface</h2>
         <p>
-          <strong>Interface vs type:</strong> simplified - object vs primitive type
+          <strong>Interface vs type:</strong> object vs primitive type
         </p>
         <ul className="hasTypeDisc">
           <li>
@@ -35,7 +35,7 @@ export default function Interfaces() {
           </li>
         </ul>
 
-        <h3>declaration merging</h3>
+        <h2>declaration merging</h2>
         <h4>
           In case we use in type list more than one Interface name: Person, all will be merged to
           one object(declaration merging), see below
@@ -60,15 +60,15 @@ export default function Interfaces() {
         </code>
         <hr />
 
-        <h3>extends</h3>
+        <h2>extends</h2>
         <ul className="hasVerticalPadding-2">
           <li>
             <code>interface Animal &#123; name: string; &#125;</code>
           </li>
           <li>
             <code>
-              interface Dog <strong className="color-is-orange">extends</strong> Animal &#123;
-              breed: string; &#125;
+              interface Dog <strong className="color-is-red">extends</strong> Animal &#123; breed:
+              string; &#125;
             </code>
           </li>
         </ul>
