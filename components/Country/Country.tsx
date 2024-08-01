@@ -1,14 +1,12 @@
-import { Country as Countries } from '../../types'
+import { Country as CountryT } from '../../types'
 import Link from 'next/link'
-
-type Props = Countries
 
 export const Country = ({
   country,
   route,
   isCountryDetail = false,
 }: {
-  country: Props | undefined
+  country: CountryT | undefined
   route?: string
   isCountryDetail?: boolean
 }) => {
