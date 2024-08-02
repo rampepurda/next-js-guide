@@ -38,11 +38,7 @@ export default function ChReduxToolkit() {
 
       <div>
         <h2>Redux-Toolkit</h2>
-        <h4 className="hasOutline">
-          If you want to know more about <strong>Redux, Redux Toolkit and useRouter hook</strong>{' '}
-          see project: React18/Content/Chapter 7
-        </h4>
-        <ul className="hasTypeDisc">
+        <ul className="hasTypeDisc hasVerticalPadding-4">
           <li>yarn add @reduxjs/toolkit react-redux</li>
           <li>
             <a
