@@ -27,6 +27,7 @@
     "ch-internationalization": "i18n and next-transform internationalization && interpolation",
     "ch-reduxToolkit": "Redux Toolkit",
     "ch-reduxToolkitSelector": "Redux Toolkit - createSelector",
+    "ch-reduxRTKQuery": "Redux Toolkit RTK Query",
     "ch-propsWithChildren": "PropsWithChildren",
     "ch-redirects": "Redirects",
     "ch-useCallback": "useCallback, useEffect",

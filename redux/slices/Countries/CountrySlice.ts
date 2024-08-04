@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { Country } from '../../../types'
 import CountriesService from '../../../graphQLApollo/services/Countries'
-import { Message } from '../../../configuration'
 
 /**
  * @implements: createAsyncThunk
@@ -27,7 +26,7 @@ export const getCountries = createAsyncThunk<Country[]>(
     try {
       return await CountriesService.getCountry()
     } catch (err: unknown) {
-      return rejectWithValue(Message.error)
+      return rejectWithValue(err)
     }
   }
 )
