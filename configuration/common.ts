@@ -1,4 +1,4 @@
-export const Message = {
+export const message = {
   error: 'Ops, something wrong, we are not able to provide any data',
 }
 

@@ -57,6 +57,10 @@ export const sidebar = {
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxToolkitSelector`,
     },
     {
+      tKey: 'navGuide.ch-reduxRTKQuery',
+      link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxRTKQuery`,
+    },
+    {
       tKey: 'navGuide.ch-propsWithChildren',
       link: `${ROUTE.GUIDE_CHAPTERS}/ch-propsWithChildren`,
     },

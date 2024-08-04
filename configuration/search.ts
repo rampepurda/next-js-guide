@@ -30,6 +30,10 @@ export const searchData = [
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxToolkitSelector`,
   },
   {
+    tKey: 'Redux Toolkit - RTK Query',
+    link: `${ROUTE.GUIDE_CHAPTERS}/ch-reduxRTKQuery`,
+  },
+  {
     tKey: 'propsWithChildren',
     link: `${ROUTE.GUIDE_CHAPTERS}/ch-propsWithChildren`,
   },

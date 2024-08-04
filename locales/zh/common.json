@@ -27,6 +27,7 @@
     "ch-internationalization": "i 18 n next 轉型國際化",
     "ch-reduxToolkit": "Redux 工具包",
     "ch-reduxToolkitSelector": " 帶孩子的道具",
+    "ch-reduxRTKQuery": "Redux Toolkit RTK Query",
     "ch-propsWithChildren": " 重定向",
     "ch-redirects": "使用回調",
     "ch-useCallback": "圖片",

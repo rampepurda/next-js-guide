@@ -14,6 +14,7 @@ import {
   imgThunkWithRejValue,
 } from './index-img'
 import { useChevron } from '../../../hooks'
+import Link from 'next/link'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
@@ -33,34 +34,30 @@ export default function ChReduxToolkit() {
   return (
     <>
       <Head>
-        <title>Next JS | Guide | Ch-seven</title>
+        <title>Next JS | Guide | RTK</title>
       </Head>
 
       <div>
         <h2>Redux-Toolkit</h2>
-        <h4 className="hasOutline">
-          If you want to know more about <strong>Redux, Redux Toolkit and useRouter hook</strong>{' '}
-          see project: React18/Content/Chapter 7
-        </h4>
-        <ul className="hasTypeDisc">
+        <ul className="hasTypeDisc hasVerticalPadding-4">
           <li>yarn add @reduxjs/toolkit react-redux</li>
           <li>
-            <a
+            <Link
               href="https://redux-toolkit.js.org/tutorials/typescript"
               target="_blank"
               rel="noreferrer"
             >
               See more about redux-toolkit (official)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.merixstudio.com/blog/introduction-using-redux-toolkit-nextjs-and-typescript/"
               target="_blank"
               rel="noreferrer"
             >
               See more about redux-toolkit (merixstudio)
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -86,17 +83,15 @@ export default function ChReduxToolkit() {
         <hr />
 
         <h3>3. Slice: extraReducers</h3>
-        <p>
+        <div>
           <mark>fulfilled</mark>
           <mark>rejected</mark>
           <mark>pending</mark>
-        </p>
+        </div>
         <Image src={imgExtraReducer} aria-hidden="true" alt="store" />
 
         <h3>4. Thunk: payloadCreator</h3>
-        <div>
-          <mark>&#123; rejectWithValue &#125;</mark>
-        </div>
+        <mark>&#123; rejectWithValue &#125;</mark>
 
         <h4 className="color-is-red">&#123; rejectWithValue &#125;</h4>
         <p>
