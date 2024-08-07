@@ -23,6 +23,7 @@ export default function ChFormSubmit() {
   const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
+    const acquisition = formData.getAll('')
     const formDataObject = Object.fromEntries(formData)
     const form = event.currentTarget
     const formValidation = schema.Post.bookDummy.safeParse(formDataObject)
@@ -115,6 +116,54 @@ export default function ChFormSubmit() {
       </Head>
 
       <div>
+        <form className="width-is-5" name="formEvent" onSubmit={submitFormEvent} method="POST">
+          <Input
+            id={'authorD'}
+            rest={{ type: 'text', name: 'author', placeholder: 'author' }}
+            ariaLabel={'write name'}
+          >
+            {errorAuthor !== 'undefined' && <p style={{ color: 'red' }}>{errorAuthor}</p>}
+          </Input>
+
+          <Input
+            id={'bookTitleD'}
+            rest={{ type: 'text', name: 'bookTitle', placeholder: 'book title' }}
+            ariaLabel={'write name'}
+          >
+            {errorBookTitle !== 'undefined' && <p style={{ color: 'red' }}>{errorBookTitle}</p>}
+          </Input>
+
+          <div className="hasOutline">
+            <h4>Where did you hear about us:</h4>
+            <Input
+              id={'google'}
+              rest={{
+                type: 'checkbox',
+                name: 'acquisition',
+                value: 'linkedin',
+                defaultChecked: false,
+              }}
+              onChange={(ev) => ev.preventDefault()}
+            >
+              <label>LinkedIn</label>
+            </Input>
+            <Input
+              id={'google'}
+              rest={{
+                type: 'checkbox',
+                name: 'acquisition',
+                value: 'google',
+                defaultChecked: false,
+              }}
+              onChange={(ev) => ev.preventDefault()}
+            >
+              <label>Google</label>
+            </Input>
+          </div>
+
+          <Button ClassName={'btn-remove'} rest={{ type: 'reset' }} title={'Reset'} />
+          <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
+        </form>
         <h2>Next(React) JS &lt;form onSubmit=&#123; &#125;&gt;</h2>
         <p>
           When <em>&apos;posting&apos;</em> do not forget: method = &#123; &apos;POST&apos;&#125;
@@ -135,21 +184,7 @@ export default function ChFormSubmit() {
           </div>
           <h2>FormEvent with Zod Form Control</h2>
           <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
-          <form className="width-is-5" name="formEvent" onSubmit={submitFormEvent} method="POST">
-            <Input
-              id={'authorD'}
-              rest={{ type: 'text', name: 'author', placeholder: 'author' }}
-              ariaLabel={'write name'}
-            />
-            {errorAuthor !== 'undefined' && <p style={{ color: 'red' }}>{errorAuthor}</p>}
-            <Input
-              id={'bookTitleD'}
-              rest={{ type: 'text', name: 'bookTitle', placeholder: 'book title' }}
-              ariaLabel={'write name'}
-            />
-            {errorBookTitle !== 'undefined' && <p style={{ color: 'red' }}>{errorBookTitle}</p>}
-            <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
-          </form>
+
           <div className="hasOutline">
             <ul className="hasVerticalPadding-3">
               <li>
@@ -402,18 +437,16 @@ export default function ChFormSubmit() {
         {(books.error && <h4>Ops, something happened</h4>) || (books.isLoading && <Loader />)}
         <div style={styles.bookCower}>
           {books.data?.map((book: BookT, idx: number) => {
-            return (
-              <>
-                {book !== null && (
-                  <Book
-                    ClassName={'width-is-4'}
-                    key={idx}
-                    book={book}
-                    handleDelete={(ev) => handleDeleteBook(book.id - 1)}
-                  />
-                )}
-              </>
-            )
+            if (book !== null) {
+              return (
+                <Book
+                  ClassName={'width-is-4'}
+                  key={idx}
+                  book={book}
+                  handleDelete={(ev) => handleDeleteBook(book.id - 1)}
+                />
+              )
+            }
           })}
         </div>
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>

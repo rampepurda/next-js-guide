@@ -204,6 +204,11 @@ form {
     font-size: 1.1rem;
   }
 
+  input[type = 'checkbox'] {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
   @media #{$screen-md} {
     .inp {
       width: 80%;

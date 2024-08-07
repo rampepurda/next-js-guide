@@ -7,7 +7,7 @@ type Props = {
   className?: string
   tabIdx?: number
   onChange?: (ev: ChangeEvent<HTMLInputElement>) => void
-  ariaLabel: string
+  ariaLabel?: string
   rest: Record<string, any>
 }
 /**
