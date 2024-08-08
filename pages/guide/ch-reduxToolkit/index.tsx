@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useEffect } from 'react'
-import { useAppSelector } from '../../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { useState } from 'react'
 import { Photos, Input } from '../../../components'
 import Head from 'next/head'
@@ -15,10 +15,13 @@ import {
 } from './index-img'
 import { useChevron } from '../../../hooks'
 import Link from 'next/link'
+import { getPhotosWithLimit } from '../../../redux/slices'
+import { environment } from '../../../configuration'
 
 type OnClick = MouseEventHandler<HTMLButtonElement>
 
 export default function ChReduxToolkit() {
+  const dispatch = useAppDispatch()
   const message: string = 'Please select numbers of photos should be displayed'
   const { amount, error, isLoading, photos, userName } = useAppSelector((state) => state.Photos)
   const [hasLimit, setHasLimit] = useState<number>(0)
@@ -29,7 +32,9 @@ export default function ChReduxToolkit() {
   }
   const { toggleChevron, isChevronOpen } = useChevron('1. Toolkit: how to setup')
 
-  useEffect(() => {}, [amount, isLoading, error])
+  useEffect(() => {
+    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))
+  }, [amount, isLoading, error])
 
   return (
     <>

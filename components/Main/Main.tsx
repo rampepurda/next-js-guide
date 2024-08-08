@@ -1,15 +1,13 @@
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { useAppSelector } from '../../redux/store'
 import classNames from 'classnames'
 import { Navigation } from '../Navigation'
-import { environment, sidebar } from '../../configuration'
+import { sidebar } from '../../configuration'
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Chapters, NavType, PathName } from '../../types'
-import { getPhotosWithLimit } from '../../redux/slices'
 import { ROUTE } from '../../configuration'
 
 export const Main = ({ children }: PropsWithChildren) => {
-  const dispatch = useAppDispatch()
   const pathName = usePathname()
   const [chapters, setChapters] = useState<Chapters[]>([])
   const { theme } = useAppSelector((state) => state.Common)
@@ -24,7 +22,6 @@ export const Main = ({ children }: PropsWithChildren) => {
     if (pathName.startsWith(`${PathName.tsDocumentation}`)) {
       setChapters(sidebar.typeScriptDoc)
     }
-    dispatch(getPhotosWithLimit({ url: `${environment.photosURL}`, hasLimit: 233 }))
   }, [pathName, chapters])
 
   return (

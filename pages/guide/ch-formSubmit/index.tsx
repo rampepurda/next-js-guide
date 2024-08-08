@@ -23,8 +23,8 @@ export default function ChFormSubmit() {
   const submitFormEvent = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
-    const formDataObject = Object.fromEntries(formData)
-    const form = event.currentTarget
+    const formDataObject = Object.fromEntries(formData.entries())
+    const formReset = event.currentTarget
     const formValidation = schema.Post.bookDummy.safeParse(formDataObject)
 
     if (formValidation.success) {
@@ -35,10 +35,11 @@ export default function ChFormSubmit() {
           body: JSON.stringify(formDataObject),
         })
         if (response) {
+          console.log(formDataObject)
           alert(
             `Author: ${formDataObject.author} | Title: ${formDataObject.bookTitle} were successfully send`
           )
-          form.reset()
+          formReset.reset()
           setErrorAuthor('')
           setErrorBookTitle('')
         } else {
@@ -106,6 +107,9 @@ export default function ChFormSubmit() {
       flexFlow: 'wrap',
       gap: '1rem',
     },
+    labelCheckBox: {
+      display: 'inline',
+    },
   }
 
   return (
@@ -115,41 +119,68 @@ export default function ChFormSubmit() {
       </Head>
 
       <div>
-        <h2>Next(React) JS &lt;form onSubmit=&#123; &#125;&gt;</h2>
-        <p>
-          When <em>&apos;posting&apos;</em> do not forget: method = &#123; &apos;POST&apos;&#125;
-        </p>
+        <h2>Next(React) JS &lt;form onSubmit=&#123;fn&#125;&gt;</h2>
         <div>
-          <h2>event</h2>
+          <h2>event: FormEvent&lt;HTMLFormElement&gt;</h2>
           <div className="hasOutline">
             <h4>Structure:</h4>
             <ul className="hasVerticalPadding-3">
               <li>
-                const handleSubmit = async (<strong>event: any</strong>) =&gt; &#123;
+                async function handleSubmit (<strong>event: FormEvent&lt;HTMLFormElement&gt</strong>
+                ) &#123;
               </li>
               <li>
-                &nbsp;const firstName = <strong>event.target.firstName.value</strong>
+                &nbsp;const <strong className="color-is-red">formData</strong> ={' '}
+                <strong>new FormData(event.currentTarget)</strong>
               </li>
+              <li>
+                &nbsp;const formDataObject ={' '}
+                <strong>
+                  Object.fromEntries(<span className="color-is-red">formData</span>.entries())
+                </strong>
+              </li>
+              <li>&nbsp;const formReset = event.currentTarget</li>
+              <li>...then</li>
               <li>&#125;</li>
             </ul>
           </div>
-          <h2>FormEvent with Zod Form Control</h2>
-          <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
           <form className="width-is-5" name="formEvent" onSubmit={submitFormEvent} method="POST">
             <Input
               id={'authorD'}
               rest={{ type: 'text', name: 'author', placeholder: 'author' }}
               ariaLabel={'write name'}
-            />
-            {errorAuthor !== 'undefined' && <p style={{ color: 'red' }}>{errorAuthor}</p>}
+            >
+              {errorAuthor !== 'undefined' && <p style={{ color: 'red' }}>{errorAuthor}</p>}
+            </Input>
+
             <Input
               id={'bookTitleD'}
               rest={{ type: 'text', name: 'bookTitle', placeholder: 'book title' }}
               ariaLabel={'write name'}
-            />
-            {errorBookTitle !== 'undefined' && <p style={{ color: 'red' }}>{errorBookTitle}</p>}
+            >
+              {errorBookTitle !== 'undefined' && <p style={{ color: 'red' }}>{errorBookTitle}</p>}
+            </Input>
+
+            <div className="hasOutline">
+              <h4>Where did you hear about us:</h4>
+              <Input
+                id={'google'}
+                rest={{
+                  type: 'checkbox',
+                  name: 'acquisition',
+                  value: 'linkedin',
+                }}
+              >
+                <label style={styles.labelCheckBox}>LinkedIn</label>
+              </Input>
+            </div>
+
+            <Button ClassName={'btn-remove'} rest={{ type: 'reset' }} title={'Reset'} />
             <Button ClassName={'btn-submit'} rest={{ type: 'submit' }} title={'Submit'} />
           </form>
+
+          <h2>FormEvent with Zod Form Control</h2>
+          <h4>import &#123; FormEvent &#125; from &apos;react&apos;</h4>
           <div className="hasOutline">
             <ul className="hasVerticalPadding-3">
               <li>
@@ -189,6 +220,7 @@ export default function ChFormSubmit() {
             </ul>
           </div>
         </div>
+
         <h2>useForm hook</h2>
         <ul className="hasVerticalPadding-3">
           <li>
@@ -402,18 +434,16 @@ export default function ChFormSubmit() {
         {(books.error && <h4>Ops, something happened</h4>) || (books.isLoading && <Loader />)}
         <div style={styles.bookCower}>
           {books.data?.map((book: BookT, idx: number) => {
-            return (
-              <>
-                {book !== null && (
-                  <Book
-                    ClassName={'width-is-4'}
-                    key={idx}
-                    book={book}
-                    handleDelete={(ev) => handleDeleteBook(book.id - 1)}
-                  />
-                )}
-              </>
-            )
+            if (book !== null) {
+              return (
+                <Book
+                  ClassName={'width-is-4'}
+                  key={idx}
+                  book={book}
+                  handleDelete={(ev) => handleDeleteBook(book.id - 1)}
+                />
+              )
+            }
           })}
         </div>
         <h2>useForm with &apos;controller&apos; and with Material UI</h2>

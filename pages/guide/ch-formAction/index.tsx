@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { Button, Input } from '../../../components'
 
 export default function ChFormAction() {
+  async function handleAction(data: FormData) {
+    const formData = {
+      email: data.get('emailAddress'),
+    }
+    alert('joha')
+  }
   return (
     <>
       <Head>
@@ -26,7 +33,7 @@ export default function ChFormAction() {
           <h3>Structure</h3>
           <ul className="hasVerticalPadding-3">
             <li>
-              const handleSubmit = async (formData:&nbsp;
+              async function handleSubmit(<strong>data</strong>:&nbsp;
               <Link
                 href="https://developer.mozilla.org/en-US/docs/Web/API/FormData"
                 target="_blank"
@@ -34,19 +41,23 @@ export default function ChFormAction() {
               >
                 <strong>FormData</strong>
               </Link>
-              ) =&gt; &#123;
+              ) &#123;
             </li>
             <li>&nbsp;const data = &#123;</li>
             <li>
-              &nbsp;&nbsp;name: <strong>formData.get</strong>(&lsquo;name&lsquo;),
+              &nbsp;&nbsp;emailAddress:&nbsp;
+              <strong>
+                <strong>data.get</strong>
+              </strong>
+              (&apos;address&apos;),
             </li>
             <li>...response(data)</li>
             <li>&nbsp;&#125;</li>
             <li>&#125;</li>
             <li></li>
             <li>
-              &lt;form ref= &#123;refName&#125; action= &#123;async (formData: FormData ) =&gt;
-              &#123;
+              &lt;form <strong>ref</strong>= &#123;refName&#125; <strong>action</strong>=
+              &#123;async (formData: FormData ) =&gt; &#123;
             </li>
             <li>
               <span className="color-is-gray">
@@ -57,6 +68,13 @@ export default function ChFormAction() {
             <li>&nbsp;&nbsp;refName.current?.reset()</li>
             <li>&#125;&gt;</li>
           </ul>
+          <hr />
+          <h5>
+            Looks that <em>action</em> does not work at Next &lt; 14.
+            <br />
+            In React JS - fn handleSubmit <strong>requested</strong> FormData: const data: FormData
+            = await request.formData()
+          </h5>
         </div>
       </div>
     </>
